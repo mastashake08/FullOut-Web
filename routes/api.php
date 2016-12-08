@@ -17,8 +17,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::group(['prefix' => 'api'], function () {
-    Route::get('/register', 'ApiController@register')->middleware('auth:api');
 
-    Route::get('/login', 'ApiController@login');
-});
+    Route::post('/register', 'ApiController@register')->middleware('auth:api');
+
+    Route::post('/login', 'ApiController@login');
