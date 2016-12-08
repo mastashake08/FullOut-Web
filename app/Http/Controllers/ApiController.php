@@ -37,6 +37,7 @@ class ApiController extends Controller
     }
 
     public function test(){
+      $http = new \GuzzleHttp\Client;
       $response = $http->post('http://192.241.140.151/oauth/token', [
           'form_params' => [
               'grant_type' => 'password',
