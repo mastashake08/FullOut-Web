@@ -21,11 +21,11 @@ class ApiController extends Controller
       $response = $http->post('http://192.241.140.151/oauth/token', [
           'form_params' => [
               'grant_type' => 'password',
-              'client_id' => '2',
-              'client_secret' => 'VHUTFYmPrlcwQx9OkvCiUPXLno7XArpB1wVYcDYq',
+              'client_id' => '1',
+              'client_secret' => 'xrQDFd3xndnGSTJQ34DeJhroJHQ34NjmbhvxuXaO',
               'username' => $request->email,
               'password' => $request->password,
-              'scope' => '*',
+              'scope' => '',
           ],
       ]);
 
