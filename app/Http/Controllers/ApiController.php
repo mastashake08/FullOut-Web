@@ -7,6 +7,10 @@ use App\User;
 class ApiController extends Controller
 {
     //
+    public function __construct(){
+      $this->client_id = 2;
+      $this->client_secret = 'O9sUaaZwDiDQpSlZQfoxcx3ffaAW4gA7fUccw7G6';
+    }
     public function register(Request $request){
       $user = User::Create([
         'name' => $request->name,
@@ -21,10 +25,25 @@ class ApiController extends Controller
       $response = $http->post('http://192.241.140.151/oauth/token', [
           'form_params' => [
               'grant_type' => 'password',
-              'client_id' => 1,
-              'client_secret' => 'xrQDFd3xndnGSTJQ34DeJhroJHQ34NjmbhvxuXaO',
-              'username' => $request->email,
+              'client_id' => $this->client_id,
+              'client_secret' => $this->client_secret,
+              'username' => $user->email,
               'password' => $request->password,
+              'scope' => '*',
+          ],
+      ]);
+
+      return json_decode((string) $response->getBody(), true);
+    }
+
+    public function test(){
+      $response = $http->post('http://192.241.140.151/oauth/token', [
+          'form_params' => [
+              'grant_type' => 'password',
+              'client_id' => $this->client_id,
+              'client_secret' => $this->client_secret,
+              'username' => 'jyrone.parker@gmail.com',
+              'password' => 'n1nt3nd0',
               'scope' => '*',
           ],
       ]);
