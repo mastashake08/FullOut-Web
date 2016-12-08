@@ -22,7 +22,7 @@ class ApiController extends Controller
           'form_params' => [
               'grant_type' => 'password',
               'client_id' => '2',
-              'client_secret' => '3iMHkHPP9oP4vSHxEzAwkwMZzP5MZGbmOejsADKC',
+              'client_secret' => 'VHUTFYmPrlcwQx9OkvCiUPXLno7XArpB1wVYcDYq',
               'username' => $request->email,
               'password' => $request->password,
               'scope' => '*',
