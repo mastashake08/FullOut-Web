@@ -18,7 +18,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::group(['prefix' => 'api'], function () {
-    Route::get('/register', 'ApiController@register');
+    Route::get('/register', 'ApiController@register')->middleware('auth:api');
 
     Route::get('/login', 'ApiController@login');
 });
