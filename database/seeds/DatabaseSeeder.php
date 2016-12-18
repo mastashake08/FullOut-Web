@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         \App\User::Create([
           'email'=>  'renu.sharma@daffodilsw.com',
-          'password' = bcrypt('fullout')
+          'password' => bcrypt('fullout')
         ]);
     }
 }
