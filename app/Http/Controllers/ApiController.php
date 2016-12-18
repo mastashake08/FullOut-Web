@@ -36,6 +36,24 @@ class ApiController extends Controller
       return json_decode((string) $response->getBody(), true);
     }
 
+    public function login(Request $request){
+
+      $http = new \GuzzleHttp\Client;
+
+      $response = $http->post('http://192.241.140.151/oauth/token', [
+          'form_params' => [
+              'grant_type' => 'password',
+              'client_id' => $this->client_id,
+              'client_secret' => $this->client_secret,
+              'username' => $user->email,
+              'password' => $request->password,
+              'scope' => '*',
+          ],
+      ]);
+
+      return json_decode((string) $response->getBody(), true);
+    }
+
     public function test(){
       $http = new \GuzzleHttp\Client;
       $response = $http->post('http://192.241.140.151/oauth/token', [
