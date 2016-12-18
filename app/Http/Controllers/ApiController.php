@@ -45,7 +45,7 @@ class ApiController extends Controller
               'grant_type' => 'password',
               'client_id' => $this->client_id,
               'client_secret' => $this->client_secret,
-              'username' => $user->email,
+              'username' => $request->email,
               'password' => $request->password,
               'scope' => '*',
           ],
