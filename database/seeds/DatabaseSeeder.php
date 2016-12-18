@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
         \App\User::Create([
           'email'=>  'renu.sharma@daffodilsw.com',
           'password' => bcrypt('fullout'),
-          'name' => 'Renu'
+          'name' => 'Renu',
+          'phone'=>'555-555-5555',
+          'address' => '101 Main Street, City, India'
         ]);
     }
 }
