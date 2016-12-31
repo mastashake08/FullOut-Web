@@ -15,6 +15,21 @@ class CreateSchoolsTable extends Migration
     {
         Schema::create('schools', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('logo');
+            $table->longText('description');
+            $table->string('office_phone');
+            $table->string('cell_phone');
+            $table->longText('office_address');
+            $table->string('in_state_tuition');
+            $table->string('out_state_tuition');
+            $table->string('website');
+            $table->string('min_gpa');
+            $table->string('min_gpa_transfer');
+            //GPA needed to stay on team
+            $table->string('gpa_needed_for_team');
+            $table->string('act_score');
+            $table->string('sat_score');
             $table->timestamps();
         });
     }
