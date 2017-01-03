@@ -8,8 +8,8 @@ class ApiController extends Controller
 {
     //
     public function __construct(){
-      $this->client_id = 2;
-      $this->client_secret = 'O9sUaaZwDiDQpSlZQfoxcx3ffaAW4gA7fUccw7G6';
+      $this->client_id = 6;
+      $this->client_secret = 'FWPfYiFFvPN8EH7QOIVho5kocTbtMifinqwg0XfQ';
     }
     public function register(Request $request){
       $user = User::Create([
@@ -69,4 +69,6 @@ class ApiController extends Controller
 
       return json_decode((string) $response->getBody(), true);
     }
+
+
 }
