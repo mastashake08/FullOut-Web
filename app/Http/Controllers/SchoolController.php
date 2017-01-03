@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\School;
 class SchoolController extends Controller
 {
     /**
@@ -14,6 +14,9 @@ class SchoolController extends Controller
     public function index()
     {
         //
+        return response()->json([
+          'data' => School::all();
+        ]);
     }
 
     /**
@@ -46,6 +49,10 @@ class SchoolController extends Controller
     public function show($id)
     {
         //
+        $school = School::find($id);
+        return response()->json([
+          'data' => $school
+        ]);
     }
 
     /**
@@ -80,5 +87,12 @@ class SchoolController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(Request $request){
+      $schools = School::where('name',$request->name)->get;
+      return response()->json([
+        'data' => $schools
+      ]);
     }
 }

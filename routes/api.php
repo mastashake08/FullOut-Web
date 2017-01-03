@@ -22,3 +22,4 @@ Route::get('/user', function (Request $request) {
 
     Route::post('/login', 'ApiController@login');
     Route::get('/test','ApiController@test');
+    Route::get('/school/search', 'SchoolController@search');
