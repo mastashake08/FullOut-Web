@@ -90,7 +90,7 @@ class SchoolController extends Controller
     }
 
     public function search(Request $request){
-      $schools = School::where('name',$request->name)->get;
+      $schools = School::where('name',$request->name)->get();
       return response()->json([
         'data' => $schools
       ]);
