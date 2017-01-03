@@ -15,7 +15,7 @@ class SchoolController extends Controller
     {
         //
         return response()->json([
-          'data' => School::all();
+          'data' => School::all()
         ]);
     }
 
