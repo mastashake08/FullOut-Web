@@ -28,7 +28,7 @@ class ApiController extends Controller
               'client_id' => $this->client_id,
               'client_secret' => $this->client_secret,
               'username' => $user->email,
-              'password' => $request->password,
+              'password' => bcrypt($request->password),
               'scope' => '*',
           ],
       ]);
