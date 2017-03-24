@@ -37,8 +37,7 @@ class ApiController extends Controller
     }
 
     public function login(Request $request){
-      var_dump($request->all());
-      exit();
+      
       $http = new \GuzzleHttp\Client;
 
       $response = $http->post(url('/oauth/token'), [
