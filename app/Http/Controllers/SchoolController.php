@@ -38,6 +38,24 @@ class SchoolController extends Controller
     public function store(Request $request)
     {
         //
+        $school = School::create([
+          'name' => $request->name,
+          'logo' => $request->logo,
+          'description' => $request->description,
+          'office_phone' => $request->office_phone,
+          'cell_phone' => $request->cell_phone,
+          'office_address' => $request->office_address,
+          'in_state_tuition' => $request->in_state_tuition,
+          'out_state_tuition' => $request->out_state_tuition,
+          'website' => $request->website,
+          'min_gpa' => $request->min_gpa,
+          'min_gpa_transfer' => $request->min_gpa_transfer,
+          'gpa_needed_for_team' => $request->gpa_needed_for_team,
+          'act_score' => $request->act_score,
+          'sat_score' => $request->sat_score
+        ]);
+
+        return $school;
     }
 
     /**
@@ -64,6 +82,8 @@ class SchoolController extends Controller
     public function edit($id)
     {
         //
+        $school = School::find($id);
+
     }
 
     /**
@@ -76,6 +96,10 @@ class SchoolController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $school = School::find($id);
+        $school->fill($request->all());
+        $school->save();
+        return $school;
     }
 
     /**
@@ -87,10 +111,17 @@ class SchoolController extends Controller
     public function destroy($id)
     {
         //
+        School::destroy($id);
+        return response()->json([
+          'success' => true
+        ]);
     }
 
     public function search(Request $request){
-      $schools = School::where('name',$request->name)->get();
+      $schools = School::where('name',$request->name)
+      ->orWhere('min_gpa', '>=', $request->min_gpa)
+      ->orWhere('gpa_needed_for_team', '>=', $request->gpa_needed_for_team)
+      ->orWhere('min_gpa_transfer', '>=', $request->min_gpa_transfer)->get();
       return response()->json([
         'data' => $schools
       ]);

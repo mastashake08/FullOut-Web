@@ -53,6 +53,45 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Search <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/schools') }}">
+
+                                      <i class="fa fa-university" aria-hidden="true"></i>  Schools
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/programs') }}">
+                                      <i class="fa fa-tasks" aria-hidden="true"></i>  Programs
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/clinics') }}">
+                                      <i class="fa fa-check" aria-hidden="true"></i> Clinics
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/try-outs') }}">
+                                      <i class="fa fa-calendar" aria-hidden="true"></i> Try Outs
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/scholarships') }}">
+                                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>  Scholarships
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/teams') }}">
+                                      <i class="fa fa-users" aria-hidden="true"></i>  Teams
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
