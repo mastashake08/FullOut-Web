@@ -22,7 +22,7 @@ class ApiController extends Controller
 
       $http = new \GuzzleHttp\Client;
 
-      $response = $http->post('http://192.241.140.151/oauth/token', [
+      $response = $http->post(url('/oauth/token'), [
           'form_params' => [
               'grant_type' => 'password',
               'client_id' => $this->client_id,
@@ -40,7 +40,7 @@ class ApiController extends Controller
 
       $http = new \GuzzleHttp\Client;
 
-      $response = $http->post('http://192.241.140.151/oauth/token', [
+      $response = $http->post(url('/oauth/token'), [
           'form_params' => [
               'grant_type' => 'password',
               'client_id' => $this->client_id,
