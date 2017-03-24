@@ -28,7 +28,7 @@ class ApiController extends Controller
               'client_id' => $this->client_id,
               'client_secret' => $this->client_secret,
               'username' => $user->email,
-              'password' => bcrypt($request->password),
+              'password' => $request->password,
               'scope' => '*',
           ],
       ]);
@@ -37,7 +37,7 @@ class ApiController extends Controller
     }
 
     public function login(Request $request){
-      
+
       $http = new \GuzzleHttp\Client;
 
       $response = $http->post(url('/oauth/token'), [
