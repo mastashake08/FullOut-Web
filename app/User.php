@@ -28,6 +28,6 @@ class User extends Authenticatable
     ];
 
     public function schools(){
-      return $this->hasOne('\App\School')
+      return $this->hasOne('App\School');
     }
 }
