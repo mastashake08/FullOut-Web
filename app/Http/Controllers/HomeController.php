@@ -23,6 +23,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        switch(auth()->user()->type){
+          case 'student':
+            return view('student.home');
+          break;
+          case 'coach':
+            return view('coach.home');
+          break;
+
+        }
+
     }
 }
