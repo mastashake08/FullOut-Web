@@ -18,7 +18,7 @@ class SchoolController extends Controller
         $with = [
           'school' => $school
         ];
-        return view('school.all')
+        return view('school.all');
 
     }
 
@@ -30,7 +30,7 @@ class SchoolController extends Controller
     public function create()
     {
         //
-        if($request->user()->can('create'), \App\School::class){
+        if($request->user()->can('create', \App\School::class)){
           return view('school.create');
         }
     }
@@ -44,7 +44,7 @@ class SchoolController extends Controller
     public function store(Request $request)
     {
         //
-        if($request->user()->can('create'), \App\School::class){
+        if($request->user()->can('create', \App\School::class)){
           $this->validate($request->all(),[
             'name' => 'required|unique:schools,',
             'description' => 'required',
@@ -109,9 +109,9 @@ class SchoolController extends Controller
         $with = [
           'school' => $school,
         ];
-        if(auth()->user()->can('update',$school){
+        if(auth()->user()->can('update',$school)){
           return view('school.edit')->with($with);
-        });
+        }
 
     }
 
@@ -126,7 +126,7 @@ class SchoolController extends Controller
     {
         //
         $school = School::find($id);
-        if(auth()->user()->can('update',$school){
+        if(auth()->user()->can('update',$school)){
         $school->fill($request->all());
         $school->save();
         return back();
