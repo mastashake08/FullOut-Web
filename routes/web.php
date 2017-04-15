@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group('prefix' => 'coach',function(){
+Route::group(['prefix' => 'coach'],function(){
   Route::resource('schools', 'SchoolController');
 });
