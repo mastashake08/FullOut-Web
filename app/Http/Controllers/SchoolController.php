@@ -14,9 +14,12 @@ class SchoolController extends Controller
     public function index()
     {
         //
-        return response()->json([
-          'data' => School::all()
-        ]);
+        $school = auth()->user()->school;
+        $with = [
+          'school' => $school
+        ];
+        return view('school.all')
+
     }
 
     /**
@@ -27,6 +30,9 @@ class SchoolController extends Controller
     public function create()
     {
         //
+        if($request->user()->can('create'), \App\School::class){
+          return view('school.create');
+        }
     }
 
     /**
@@ -38,24 +44,41 @@ class SchoolController extends Controller
     public function store(Request $request)
     {
         //
-        $school = School::create([
-          'name' => $request->name,
-          'logo' => $request->logo,
-          'description' => $request->description,
-          'office_phone' => $request->office_phone,
-          'cell_phone' => $request->cell_phone,
-          'office_address' => $request->office_address,
-          'in_state_tuition' => $request->in_state_tuition,
-          'out_state_tuition' => $request->out_state_tuition,
-          'website' => $request->website,
-          'min_gpa' => $request->min_gpa,
-          'min_gpa_transfer' => $request->min_gpa_transfer,
-          'gpa_needed_for_team' => $request->gpa_needed_for_team,
-          'act_score' => $request->act_score,
-          'sat_score' => $request->sat_score
-        ]);
+        if($request->user()->can('create'), \App\School::class){
+          $this->validate($request->all(),[
+            'name' => 'required|unique:schools,',
+            'description' => 'required',
+            'office_phone' => 'required',
+            'cell_phone' => 'required',
+            'office_address' => 'required',
+            'in_state_tuition' => 'required',
+            'out_state_tuition' => 'required',
+            'website' => 'required',
+            'min_gpa' => 'required',
+            'min_gpa_transfer' => 'required',
+            'gpa_needed_for_team' => 'required',
+            'act_score' => 'required',
+            'sat_score' => 'required'
+          ]);
+          $school = School::create([
+            'name' => $request->name,
+            'logo' => $request->logo,
+            'description' => $request->description,
+            'office_phone' => $request->office_phone,
+            'cell_phone' => $request->cell_phone,
+            'office_address' => $request->office_address,
+            'in_state_tuition' => $request->in_state_tuition,
+            'out_state_tuition' => $request->out_state_tuition,
+            'website' => $request->website,
+            'min_gpa' => $request->min_gpa,
+            'min_gpa_transfer' => $request->min_gpa_transfer,
+            'gpa_needed_for_team' => $request->gpa_needed_for_team,
+            'act_score' => $request->act_score,
+            'sat_score' => $request->sat_score
+          ]);
 
-        return $school;
+          return $school;
+      }
     }
 
     /**
@@ -83,6 +106,12 @@ class SchoolController extends Controller
     {
         //
         $school = School::find($id);
+        $with = [
+          'school' => $school,
+        ];
+        if(auth()->user()->can('update',$school){
+          return view('school.edit')->with($with);
+        });
 
     }
 
@@ -97,9 +126,11 @@ class SchoolController extends Controller
     {
         //
         $school = School::find($id);
+        if(auth()->user()->can('update',$school){
         $school->fill($request->all());
         $school->save();
-        return $school;
+        return back();
+      }
     }
 
     /**
@@ -111,10 +142,14 @@ class SchoolController extends Controller
     public function destroy($id)
     {
         //
-        School::destroy($id);
-        return response()->json([
-          'success' => true
-        ]);
+        $school = School::destroy($id);
+        if(auth()->user()->can('delete',$school)){
+
+          return response()->json([
+            'success' => true
+          ]);
+        }
+
     }
 
     public function search(Request $request){

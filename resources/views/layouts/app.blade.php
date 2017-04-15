@@ -43,6 +43,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                      @if(Auth::check())
                         @if(auth()->user()->type == 'student')
                                 <li>
                                     <a href="{{ url('/schools') }}">
@@ -79,36 +80,37 @@
 
                         @else
                                 <li>
-                                    <a href="{{ url('/schools') }}">
+                                    <a href="{{ url('coach/schools') }}">
 
                                       <i class="fa fa-university" aria-hidden="true"></i>  Manage Schools
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/programs') }}">
+                                    <a href="{{ url('coach/programs') }}">
                                       <i class="fa fa-tasks" aria-hidden="true"></i>  Manage Programs
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/clinics') }}">
+                                    <a href="{{ url('coach/clinics') }}">
                                       <i class="fa fa-check" aria-hidden="true"></i> Manage Clinics
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/try-outs') }}">
+                                    <a href="{{ url('coach/try-outs') }}">
                                       <i class="fa fa-calendar" aria-hidden="true"></i> Manage Try Outs
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/scholarships') }}">
+                                    <a href="{{ url('coach/scholarships') }}">
                                       <i class="fa fa-graduation-cap" aria-hidden="true"></i> Manage Scholarships
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/teams') }}">
+                                    <a href="{{ url('coach/teams') }}">
                                       <i class="fa fa-users" aria-hidden="true"></i> Manage Teams
                                     </a>
                                 </li>
+                        @endif
                         @endif
                     </ul>
 

@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Coach Dashboard</div>
+                <div class="panel-heading">Add A School</div>
 
                 <div class="panel-body">
-                    Tell Me What You Want To Show On The Dashboard
+                    
                 </div>
             </div>
         </div>
