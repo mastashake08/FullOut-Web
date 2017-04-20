@@ -27,7 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function schools(){
+    public function school(){
       return $this->hasOne('App\School');
     }
 }

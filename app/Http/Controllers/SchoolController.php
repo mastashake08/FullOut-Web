@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\School;
+use Illuminate\Support\Facades\Storage;
 class SchoolController extends Controller
 {
     /**
@@ -44,13 +45,14 @@ class SchoolController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->all());
         if($request->user()->can('create', \App\School::class)){
-          $this->validate($request->all(),[
-            'name' => 'required|unique:schools,',
+        $this->validate($request,[
+            'name' => 'required',
             'description' => 'required',
             'office_phone' => 'required',
             'cell_phone' => 'required',
-            'office_address' => 'required',
+            'address' => 'required',
             'in_state_tuition' => 'required',
             'out_state_tuition' => 'required',
             'website' => 'required',
@@ -58,26 +60,52 @@ class SchoolController extends Controller
             'min_gpa_transfer' => 'required',
             'gpa_needed_for_team' => 'required',
             'act_score' => 'required',
-            'sat_score' => 'required'
+            'sat_score' => 'required',
+            'logo' => 'file',
           ]);
-          $school = School::create([
-            'name' => $request->name,
-            'logo' => $request->logo,
-            'description' => $request->description,
-            'office_phone' => $request->office_phone,
-            'cell_phone' => $request->cell_phone,
-            'office_address' => $request->office_address,
-            'in_state_tuition' => $request->in_state_tuition,
-            'out_state_tuition' => $request->out_state_tuition,
-            'website' => $request->website,
-            'min_gpa' => $request->min_gpa,
-            'min_gpa_transfer' => $request->min_gpa_transfer,
-            'gpa_needed_for_team' => $request->gpa_needed_for_team,
-            'act_score' => $request->act_score,
-            'sat_score' => $request->sat_score
-          ]);
+          $school = School::firstOrNew(['user_id' => $request->user()->id]);
 
-          return $school;
+          if($request->hasFile('logo')){
+            $path = $request->file('logo')->store('public/logos');
+
+            $school->fill([
+              'name' => $request->name,
+              'logo' => Storage::url($path),
+              'description' => $request->description,
+              'office_phone' => $request->office_phone,
+              'cell_phone' => $request->cell_phone,
+              'office_address' => $request->address,
+              'in_state_tuition' => $request->in_state_tuition,
+              'out_state_tuition' => $request->out_state_tuition,
+              'website' => $request->website,
+              'min_gpa' => $request->min_gpa,
+              'min_gpa_transfer' => $request->min_gpa_transfer,
+              'gpa_needed_for_team' => $request->gpa_needed_for_team,
+              'act_score' => $request->act_score,
+              'sat_score' => $request->sat_score
+            ]);
+
+
+          }
+          else{
+            $school->fill([
+              'name' => $request->name,
+              'description' => $request->description,
+              'office_phone' => $request->office_phone,
+              'cell_phone' => $request->cell_phone,
+              'office_address' => $request->address,
+              'in_state_tuition' => $request->in_state_tuition,
+              'out_state_tuition' => $request->out_state_tuition,
+              'website' => $request->website,
+              'min_gpa' => $request->min_gpa,
+              'min_gpa_transfer' => $request->min_gpa_transfer,
+              'gpa_needed_for_team' => $request->gpa_needed_for_team,
+              'act_score' => $request->act_score,
+              'sat_score' => $request->sat_score
+            ]);
+          }
+          $school->save();
+          return back();
       }
     }
 
