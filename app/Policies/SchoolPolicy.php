@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\User;
-use App\school;
+use App\School;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SchoolPolicy
@@ -17,7 +17,7 @@ class SchoolPolicy
      * @param  \App\school  $school
      * @return mixed
      */
-    public function view(User $user, school $school)
+    public function view(User $user, School $school)
     {
         //
         return true;
@@ -42,7 +42,7 @@ class SchoolPolicy
      * @param  \App\school  $school
      * @return mixed
      */
-    public function update(User $user, school $school)
+    public function update(User $user, School $school)
     {
         //
         return $school->user_id === $user->id;
@@ -55,7 +55,7 @@ class SchoolPolicy
      * @param  \App\school  $school
      * @return mixed
      */
-    public function delete(User $user, school $school)
+    public function delete(User $user, School $school)
     {
         //
         return $school->user_id === $user->id;
