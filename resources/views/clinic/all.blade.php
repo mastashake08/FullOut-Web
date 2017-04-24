@@ -5,12 +5,12 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Manage School</div>
+                <div class="panel-heading">Add Clinic</div>
 
                 <div class="panel-body">
                   <form class="form" role="form" action="{{url('/coach/clinics')}}" method="post">
                     {!!csrf_field()!!}
-                    <input class="form-control"  name="name" placeholder="School Name" value="{{old('name')}}"/>
+                    <input class="form-control"  name="name" placeholder="Clinic Name" value="{{old('name')}}"/>
                     @if ($errors->has('name'))
                         <span class="help-block">
                             <strong>{{ $errors->first('name') }}</strong>
@@ -61,6 +61,31 @@
                     @endif
                   <button type="submit" class="btn btn-primary"><i class="fa fa-university" aria-hidden="true"></i> Add Clinic</button>
                 </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Manage Clinics</div>
+
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($clinics as $clinic)
+                      <tr>
+                        <td>{{$clinic->name}}</td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                  {!! $clinics->links() !!}
                 </div>
             </div>
         </div>

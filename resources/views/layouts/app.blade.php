@@ -62,7 +62,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/try-outs') }}">
+                                    <a href="{{ url('/tryouts') }}">
                                       <i class="fa fa-calendar" aria-hidden="true"></i> Try Outs
                                     </a>
                                 </li>
@@ -96,7 +96,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('coach/try-outs') }}">
+                                    <a href="{{ url('coach/tryouts') }}">
                                       <i class="fa fa-calendar" aria-hidden="true"></i> Manage Try Outs
                                     </a>
                                 </li>

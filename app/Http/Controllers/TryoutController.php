@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Tryout;
 class TryoutController extends Controller
 {
     /**
@@ -14,6 +14,19 @@ class TryoutController extends Controller
     public function index()
     {
         //
+        if(auth()->user()->can('create', Tryout::class)){
+          $tryouts = auth()->user()->tryouts()->paginate(10);
+
+        }
+        else{
+          $tryouts = Tryout::paginate(10);
+
+        }
+        $with = [
+          'tryouts' => $tryouts
+        ];
+        return view('tryouts.all')->with($with);
+
     }
 
     /**
@@ -24,6 +37,9 @@ class TryoutController extends Controller
     public function create()
     {
         //
+        if(auth()->user()->can('create',Tryout::class)){
+          return redirect()->action('TryoutController@index');
+        }
     }
 
     /**

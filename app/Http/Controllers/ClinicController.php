@@ -21,14 +21,14 @@ class ClinicController extends Controller
         //
 
         if(auth()->user()->can('create',Clinic::class)){
-          $clinics = auth()->user()->school->clinics;
+          $clinics = auth()->user()->school->clinics()->paginate(10);
           $with = [
             'clinics' => $clinics
           ];
 
         }
         else{
-          $clinics = Clinic::all();
+          $clinics = Clinic::paginate(10);
           $with = [
             'clinics' => $clinics
           ];
