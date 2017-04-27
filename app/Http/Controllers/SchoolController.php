@@ -188,10 +188,14 @@ class SchoolController extends Controller
     }
 
     public function search(Request $request){
-      $schools = School::where('name',$request->name)
+      $schools = School::where('name','%LIKE%',$request->name)
       ->orWhere('min_gpa', '>=', $request->min_gpa)
-      ->orWhere('gpa_needed_for_team', '>=', $request->gpa_needed_for_team)
-      ->orWhere('min_gpa_transfer', '>=', $request->min_gpa_transfer)->get();
+      ->orWhere('act_score','>=', $request->act)
+      ->orWhere('sat_score', '>=', $request->sat)
+      //->orWhere('gpa_needed_for_team', '>=', $request->gpa_needed_for_team)
+      //->orWhere('min_gpa_transfer', '>=', $request->min_gpa_transfer)
+      ->get();
+
       return response()->json([
         'data' => $schools
       ]);

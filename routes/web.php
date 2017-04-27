@@ -32,4 +32,7 @@ Route::group(['prefix' => 'cheerleader'],function(){
   Route::resource('clinics','ClinicController');
   Route::resource('tryouts','TryoutController');
   Route::resource('scholarships','ScholarshipController');
+  Route::group(['prefix' => 'search'],function(){
+    Route::get('school','SchoolController@search');
+  });
 });

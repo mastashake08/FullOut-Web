@@ -136,6 +136,7 @@
 
                 <div class="panel-body">
                   <div class="table-responsive">
+                    @include('search.schools')
                     <table class="table">
                      <thead>
                        <tr>
