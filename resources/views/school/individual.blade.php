@@ -32,6 +32,10 @@
                 In State Tuition: ${{money_format('%.2n', $school->in_state_tuition)}}
                 <br>
                 Out Of State Tuition: ${{money_format('%.2n', $school->out_state_tuition)}}
+                <br>
+                <div class="text-right">
+                  <a href="#" class="btn btn-info">Contact Head Coach</a>
+                </div>
                 </div>
             </div>
         </div>
