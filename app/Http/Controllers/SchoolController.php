@@ -125,9 +125,10 @@ class SchoolController extends Controller
     {
         //
         $school = School::find($id);
-        return response()->json([
-          'data' => $school
-        ]);
+        $with = [
+          'school' => $school
+        ];
+        return view('school.individual')->with($with);
     }
 
     /**
