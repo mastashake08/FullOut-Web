@@ -12,12 +12,22 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        \App\User::Create([
-          'email'=>  'renu.sharma@daffodilsw.com',
-          'password' => bcrypt('fullout'),
-          'name' => 'Renu',
-          'phone'=>'555-555-5555',
-          'address' => '101 Main Street, City, India'
+        \App\User::create([
+          'name' => 'Test Cheerleader',
+          'email' => 'test.cheerleader@gmail.com',
+          'password' => bcrypt('n1nt3nd0'),
+          'type' => 'student',
+          'address' => '113 East Mason Ave. Danville, KY 40422',
+          'phone' => '8594024863'
+        ]);
+
+        \App\User::create([
+          'name' => 'Test Coach',
+          'email' => 'test.coach@gmail.com',
+          'password' => bcrypt('n1nt3nd0'),
+          'type' => 'coach',
+          'address' => '113 East Mason Ave. Danville, KY 40422',
+          'phone' => '8594024863'
         ]);
     }
 }

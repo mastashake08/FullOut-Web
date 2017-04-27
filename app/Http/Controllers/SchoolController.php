@@ -15,11 +15,17 @@ class SchoolController extends Controller
     public function index()
     {
         //
-        $school = auth()->user()->school;
-        $with = [
-          'school' => $school
-        ];
-        return view('school.all');
+
+        if(auth()->user()->cant('create',School::class)){
+          $with = [
+            'schools' => School::paginate(10)
+          ];
+          return view('school.all')->with($with);
+        }
+        else{
+          return view('school.all');
+        }
+
 
     }
 

@@ -46,33 +46,33 @@
                       @if(Auth::check())
                         @if(auth()->user()->type == 'student')
                                 <li>
-                                    <a href="{{ url('/schools') }}">
+                                    <a href="{{ url('/cheerleader/schools') }}">
 
                                       <i class="fa fa-university" aria-hidden="true"></i>  Schools
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/programs') }}">
+                                    <a href="{{ url('/cheerleader/programs') }}">
                                       <i class="fa fa-tasks" aria-hidden="true"></i>  Programs
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/clinics') }}">
+                                    <a href="{{ url('/cheerleader/clinics') }}">
                                       <i class="fa fa-check" aria-hidden="true"></i> Clinics
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/tryouts') }}">
+                                    <a href="{{ url('/cheerleader/tryouts') }}">
                                       <i class="fa fa-calendar" aria-hidden="true"></i> Try Outs
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/scholarships') }}">
+                                    <a href="{{ url('/cheerleader/scholarships') }}">
                                       <i class="fa fa-graduation-cap" aria-hidden="true"></i>  Scholarships
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/teams') }}">
+                                    <a href="{{ url('/cheerleader/teams') }}">
                                       <i class="fa fa-users" aria-hidden="true"></i>  Teams
                                     </a>
                                 </li>

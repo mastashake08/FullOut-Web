@@ -25,3 +25,11 @@ Route::group(['prefix' => 'coach'],function(){
   Route::resource('tryouts','TryoutController');
   Route::resource('scholarships','ScholarshipController');
 });
+
+Route::group(['prefix' => 'cheerleader'],function(){
+  Route::resource('skills', 'SkillController');
+  Route::resource('schools', 'SchoolController');
+  Route::resource('clinics','ClinicController');
+  Route::resource('tryouts','TryoutController');
+  Route::resource('scholarships','ScholarshipController');
+});

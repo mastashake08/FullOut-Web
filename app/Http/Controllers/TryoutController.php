@@ -51,6 +51,12 @@ class TryoutController extends Controller
     public function store(Request $request)
     {
         //
+        if(auth()->user()->can('create', Tryout::class)){
+          $this->validate($request,[
+            'name' => 'required',
+
+          ]);
+        }
     }
 
     /**
