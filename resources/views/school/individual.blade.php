@@ -13,7 +13,7 @@
                 </div>
                 Name: {{$school->name}}
                 <br>
-                Address: {{$school->address}}
+                Address: {{$school->office_address}}
                 <br>
                 Office Phone: {{$school->office_phone}}
                 <br>
@@ -68,7 +68,24 @@
                 <div class="panel-heading">{{$school->name}}'s Upcoming Clinics</div>
 
                 <div class="panel-body">
-                {{$school->clinics}}
+                <div class="table-responsive">
+                  <table class="table">
+                   <thead>
+                     <tr>
+                       <th>Name</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     @foreach($clinics as $clinic)
+                     <tr>
+                       <td><a href="{{url('/cheerleader/clinics/'.$clinic->id)}}" target="_blank">{{$clinic->name}}</a></td>
+                     </tr>
+                     @endforeach
+
+                   </tbody>
+                 </table>
+                 {!! $clinics->links() !!}
+                </div>
                 </div>
             </div>
         </div>

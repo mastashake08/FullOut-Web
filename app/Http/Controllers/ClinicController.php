@@ -94,6 +94,7 @@ class ClinicController extends Controller
     public function show($id)
     {
         //
+        return Clinic::findOrFail($id);
     }
 
     /**

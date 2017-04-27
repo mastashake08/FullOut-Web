@@ -126,7 +126,8 @@ class SchoolController extends Controller
         //
         $school = School::find($id);
         $with = [
-          'school' => $school
+          'school' => $school,
+          'clinics' => $school->clinics()->paginate(10)
         ];
         return view('school.individual')->with($with);
     }
@@ -194,10 +195,10 @@ class SchoolController extends Controller
       ->orWhere('sat_score', '>=', $request->sat)
       //->orWhere('gpa_needed_for_team', '>=', $request->gpa_needed_for_team)
       //->orWhere('min_gpa_transfer', '>=', $request->min_gpa_transfer)
-      ->get();
-
-      return response()->json([
-        'data' => $schools
-      ]);
+      ->paginate(10);
+      $with = [
+        'schools' => $schools
+      ];
+      return view('school.all')->with($with);
     }
 }
