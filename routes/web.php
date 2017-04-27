@@ -29,8 +29,9 @@ Route::group(['prefix' => 'coach'],function(){
 Route::group(['prefix' => 'cheerleader'],function(){
   Route::resource('skills', 'SkillController');
   Route::resource('schools', 'SchoolController');
-  Route::group(['prefix' => 'schools'], function(){
-    Route::get('search','SchoolController@search');
+  Route::group(['prefix' => 'search'], function(){
+    Route::get('schools','SchoolController@search');
+    Route::get('clinics','ClinicController@search');
   });
 
   Route::resource('clinics','ClinicController');

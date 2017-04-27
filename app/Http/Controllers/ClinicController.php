@@ -130,4 +130,13 @@ class ClinicController extends Controller
     {
         //
     }
+
+    public function search(Request $request){
+      $clinics = Clinic::where('name','=',$request->name)
+      ->paginate(10);
+      $with = [
+        'clinics' => $clinics
+      ];
+      return view('clinic.all')->with($with);
+    }
 }

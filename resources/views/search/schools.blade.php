@@ -1,4 +1,4 @@
-<form class="form-inline" action="{{url('/cheerleader/schools/search')}}">
+<form class="form-inline" action="{{url('/cheerleader/search/schools')}}">
   <div class="form-group">
     <input type="text" name="name" class="form-control" id="name" placeholder="Name">
   </div>
