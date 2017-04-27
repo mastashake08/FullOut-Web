@@ -1,19 +1,15 @@
 <form class="form-inline" action="{{url('/cheerleader/search/school')}}">
   <div class="form-group">
-    <label for="name">Name:</label>
-    <input type="text" name="name" class="form-control" id="name">
+    <input type="text" name="name" class="form-control" id="name" placeholder="Name">
   </div>
   <div class="form-group">
-    <label for="min_gpa">GPA:</label>
-    <input type="text" name="min_gpa" class="form-control" id="min_gpa">
+    <input type="text" name="min_gpa" class="form-control" id="min_gpa" placeholder="GPA">
   </div>
   <div class="form-group">
-    <label for="act">ACT:</label>
-    <input type="text" name="act" class="form-control" id="act">
+    <input type="text" name="act" class="form-control" id="act" placeholder="ACT">
   </div>
   <div class="form-group">
-    <label for="sat">SAT:</label>
-    <input type="text" name="sat" class="form-control" id="sat">
+    <input type="text" name="sat" class="form-control" id="sat" placeholder="SAT">
   </div>
-  <button type="submit" class="btn btn-default">Search</button>
+  <button type="submit" class="btn btn-default btn-sm">Search</button>
 </form>
