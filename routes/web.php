@@ -39,5 +39,6 @@ Route::group(['prefix' => 'cheerleader'],function(){
   Route::resource('clinics','ClinicController');
   Route::resource('tryouts','TryoutController');
   Route::resource('scholarships','ScholarshipController');
+  Route::resource('privates','PrivateController');
 
 });

@@ -76,6 +76,11 @@
                                       <i class="fa fa-users" aria-hidden="true"></i>  Teams
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ url('/cheerleader/privates') }}">
+                                      <i class="fa fa-users" aria-hidden="true"></i>  My Privates
+                                    </a>
+                                </li>
 
 
                         @else
