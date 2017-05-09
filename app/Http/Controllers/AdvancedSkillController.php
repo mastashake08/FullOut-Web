@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Skill;
-class SkillController extends Controller
+
+class AdvancedSkillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,13 +35,7 @@ class SkillController extends Controller
     public function store(Request $request)
     {
         //
-        if(auth()->user()->can('create',Skill::class)){
-          dd($request->all());
-        }
-        else{
-          dd($request->all());
-        }
-      }
+    }
 
     /**
      * Display the specified resource.
