@@ -101,18 +101,6 @@
                           <label><input type="checkbox"  name="tuck_2_bhs_layout">Tuck, 2 Backhand Spring, Tuck</label>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <div class="checkbox">
-                          <label><input type="checkbox"  name="option_4">Option 4</label>
-                        </div>
-                        <div class="checkbox">
-                          <label><input type="checkbox"  name="option_5">Option 5</label>
-                        </div>
-                        <div class="checkbox disabled">
-                          <label><input type="checkbox"  name="option_6">Option 6</label>
-                        </div>
-                      </div>
-
                       <button class="btn btn-success"> Edit Advanced Skills</button>
                     </form>
                 </div>
