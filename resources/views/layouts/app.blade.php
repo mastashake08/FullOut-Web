@@ -20,6 +20,7 @@
         ]); ?>
         @if(Auth::check())
         localStorage.id = <?php echo auth()->user()->id ?>;
+        console.log(localStorage);
         @endif
     </script>
 
