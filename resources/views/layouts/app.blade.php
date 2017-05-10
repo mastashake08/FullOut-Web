@@ -17,11 +17,14 @@
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
-        ]); ?>;
-        @if(Auth::check())
-        localStorage.id = <?php echo auth()->user()->id ?>;
-        console.log(localStorage);
-        @endif
+        ]); ?>
+    </script>
+    <script>
+
+    @if(Auth::check())
+    localStorage.id = <?php echo auth()->user()->id ?>;
+    console.log(localStorage);
+    @endif
     </script>
 
 </head>
