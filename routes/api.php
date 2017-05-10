@@ -24,4 +24,3 @@ Route::get('/user', function (Request $request) {
     Route::get('/test','ApiController@test');
     Route::get('/school/search', 'SchoolController@search');
     Route::resource('/school','SchoolController');
-Route::post('/save-subscription','NotificationController@webPush');
