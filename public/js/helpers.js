@@ -62,7 +62,7 @@ function getSWRegistration(){
   var promise = new Promise(function(resolve, reject) {
   // do a thing, possibly async, then…
 
-  if (/* everything turned out fine */) {
+  if (swRegistration != null) {
     resolve(swRegistration);
   }
   else {
