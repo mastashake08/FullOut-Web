@@ -54,7 +54,7 @@ function subscribeUserToPush() {
   })
   .then(function(pushSubscription) {
     console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
-    var body = {id: localStorage.id, subscription: JSON.stringify(pushSubscription)};
+    var body = {id: localStorage.id, subscription: pushSubscription)};
     console.log(body)
     sendSubscriptionToBackEnd(body);
     return body;
@@ -81,7 +81,7 @@ function sendSubscriptionToBackEnd(subscription) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(subscription)
+    body: subscription
   })
   .then(function(response) {
     if (!response.ok) {
