@@ -22,7 +22,7 @@
         localStorage.id = <?php echo auth()->user()->id ?>;
         @endif
     </script>
-    <script src="/js/helpers.js"></script>
+
 </head>
 <body>
     <div id="app">
@@ -160,6 +160,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/helpers.js"></script>
 
 </body>
 </html>
