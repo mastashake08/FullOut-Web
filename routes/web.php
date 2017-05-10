@@ -42,4 +42,4 @@ Route::group(['prefix' => 'cheerleader'],function(){
   Route::resource('privates','PrivateController');
 
 });
-Route::post('api/save-subscription','NotificationController@webPush');
+Route::post('api/save-subscription','NotificationController@webPush')->middleware('auth');
