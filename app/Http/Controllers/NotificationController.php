@@ -8,7 +8,8 @@ class NotificationController extends Controller
 {
     //
     public function webPush(Request $request){
-      dd($request->all());
+      var_dump($request->all());
+      exit();
       $user = $request->user;
       $user->updatePushSubscription($request->input('endpoint'), $request->input('keys.p256h'), $request->input('keys.auth'));
       $user->notify('GenericNotification');
