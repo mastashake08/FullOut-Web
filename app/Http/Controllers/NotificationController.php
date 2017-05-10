@@ -11,5 +11,8 @@ class NotificationController extends Controller
       $user = $request->user;
       $user->updatePushSubscription($request->input('endpoint'), $request->input('keys.p256h'), $request->input('keys.auth'));
       $user->notify('GenericNotification');
+      return response()->json([
+        'success' => true
+      ]);
     }
 }
