@@ -19,7 +19,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
         @if(Auth::check())
-        window.authID = <?php echo auth()->user()->id ?>
+        localStorage.setItem("id",<?php echo auth()->user()->id ?>);
         @endif
     </script>
 </head>
