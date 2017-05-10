@@ -69,7 +69,7 @@ function getSWRegistration(){
     reject(Error("It broke"));
   }
 });
-  ;
+  return promise;
 }
 function sendSubscriptionToBackEnd(subscription) {
   return fetch('/api/save-subscription/', {
