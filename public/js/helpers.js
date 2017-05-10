@@ -73,6 +73,7 @@ function getSWRegistration(){
 }
 function sendSubscriptionToBackEnd(subscription) {
   var body = {id: window.authID, subscription: JSON.stringify(subscription)};
+  console.log(body);
   return fetch('/api/save-subscription/', {
     method: 'POST',
     headers: {
