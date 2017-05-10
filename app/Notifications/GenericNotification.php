@@ -9,7 +9,7 @@ use NotificationChannels\WebPush\WebPushChannel;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class GenericNotification extends Notification
+class GenericNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
