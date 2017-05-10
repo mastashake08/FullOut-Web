@@ -54,7 +54,9 @@ function subscribeUserToPush() {
   })
   .then(function(pushSubscription) {
     console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
-    sendSubscriptionToBackEnd(pushSubscription);
+    var body = {id: window.authID, subscription: JSON.stringify(subscription)};
+    console.log(body)
+    sendSubscriptionToBackEnd(body);
     return pushSubscription;
   });
 }
@@ -72,14 +74,14 @@ function getSWRegistration(){
   return promise;
 }
 function sendSubscriptionToBackEnd(subscription) {
-  var body = {id: window.authID, subscription: JSON.stringify(subscription)};
-  console.log(body);
+
+
   return fetch('/api/save-subscription/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: body
+    body: JSON.stringify(subscription)
   })
   .then(function(response) {
     if (!response.ok) {
