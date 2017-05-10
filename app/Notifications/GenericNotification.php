@@ -31,7 +31,7 @@ class GenericNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail',WebPushChannel::class];
+        return [WebPushChannel::class];
     }
 
     /**
