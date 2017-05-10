@@ -54,10 +54,10 @@ function subscribeUserToPush() {
   })
   .then(function(pushSubscription) {
     console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
-    var body = {id: window.authID, subscription: JSON.stringify(subscription)};
+    var body = {id: window.authID, subscription: JSON.stringify(pushSubscription)};
     console.log(body)
     sendSubscriptionToBackEnd(body);
-    return pushSubscription;
+    return body;
   });
 }
 function getSWRegistration(){
