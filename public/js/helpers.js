@@ -81,7 +81,7 @@ function sendSubscriptionToBackEnd(subscription) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: subscription
+    body: JSON.stringify(subscription)
   })
   .then(function(response) {
     if (!response.ok) {
