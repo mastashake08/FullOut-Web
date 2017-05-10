@@ -59,7 +59,17 @@ function subscribeUserToPush() {
   });
 }
 function getSWRegistration(){
-  return swRegistration;
+  var promise = new Promise(function(resolve, reject) {
+  // do a thing, possibly async, then…
+
+  if (/* everything turned out fine */) {
+    resolve(swRegistration);
+  }
+  else {
+    reject(Error("It broke"));
+  }
+});
+  ;
 }
 function sendSubscriptionToBackEnd(subscription) {
   return fetch('/api/save-subscription/', {
