@@ -12,6 +12,8 @@ class NotificationController extends Controller
       //var_dump($request->all());
       //exit();
       $user = Auth::user();
+      var_dump($user);
+      exit();
       $user->updatePushSubscription($request->input('endpoint'), $request->input('keys.p256dh'), $request->input('keys.auth'));
       $user->notify('GenericNotification');
       return response()->json([
