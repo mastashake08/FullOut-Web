@@ -18,6 +18,9 @@
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
+        @if(Auth::check)
+        window.authID = <?php echo auth()->user()->id ?>
+        @endif
     </script>
 </head>
 <body>
