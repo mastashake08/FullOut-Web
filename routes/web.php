@@ -43,3 +43,4 @@ Route::group(['prefix' => 'cheerleader'],function(){
 
 });
 Route::post('api/save-subscription','NotificationController@webPush');
+Route::get('test-webpush','NotificationController@sendTest');
