@@ -9,8 +9,8 @@ class NotificationController extends Controller
 {
     //
     public function webPush(Request $request){
-      //var_dump($request->all());
-      //exit();
+      var_dump($request->all());
+      exit();
       $user = User::find($request->id);
       var_dump($user);
       exit();
