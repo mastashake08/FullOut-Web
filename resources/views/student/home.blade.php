@@ -422,9 +422,224 @@
                     </fieldset>
                     <fieldset>
                       <legend>Advanced</legend>
+                      <h2>Prep Level</h2>
+                      <hr>
+
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['prep_level']['switch_up']">Switch Up</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['prep_level']['full_up']">Full Up (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['prep_level']['one_half_full_up']">1 & 1/2 Full Ups (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['prep_level']['double_ups']">Double Ups</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['prep_level']['full_twisting_switch_up']">Full Twisting Switch Up (Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Extended Level</h2>
+                      <hr>
+
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']">Switch Up</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']">Full Up (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']">1 & 1/2 Full Ups (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']">Double Ups</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']">Full Twisting Switch Up (Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Full Down Dismount</h2>
+                      <hr>
+
+                      <div class="checkbox">
+                        <label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']">Switch Up</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']">Full Up (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']">1 & 1/2 Full Ups (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']">Double Ups</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']">Full Twisting Switch Up (Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Double Down Dismount</h2>
+                      <hr>
+
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']">Switch Up</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']">Full Up (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']">1 & 1/2 Full Ups (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']">Double Ups</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']">Full Twisting Switch Up (Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Other Dismount</h2>
+                      <hr>
+
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']">Switch Up</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']">Full Up (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']">1 & 1/2 Full Ups (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']">Double Ups</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']">Full Twisting Switch Up (Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
+                      </div>
                     </fieldset>
                     <fieldset>
                       <legend>Elite</legend>
+                      <h2>2 Based Stunts</h2>
+                      <div class="checkbox">
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['prep']">Prep</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['extension']">Extension</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['extended_level_liberty']">Extended Level Liberty</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['one_handed_cupie_or_awesome']">One Handed Cupie or Awesome</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['full_up']">Full Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['low_to_high_full_around']">Low to High Full Around (Semi Releasing)</label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['high_to_high_full_around']">High to High Full Around (Semi Releasing)<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Flipping Group Stunting</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['flipping_group_stunting']['rewind']">Rewind<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['flipping_group_stunting']['platform']">Platform<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['flipping_group_stunting']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['flipping_group_stunting']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Front Hand Spring Up</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['front_hand_spring_up']['platform']">Platform<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['front_hand_spring_up']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['front_hand_spring_up']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['front_hand_spring_up']['1_and_half_twisting_full_up']">1 & 1/2 Twisting Full Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Back Hand Spring Up</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['back_hand_spring_up']['platform']">Platform<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['back_hand_spring_up']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['back_hand_spring_up']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['back_hand_spring_up']['full_up']">Full Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Hand in Hand</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['hand_in_hand']['platform']">Platform<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['hand_in_hand']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['hand_in_hand']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['hand_in_hand']['full_up']">Full Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Extended Hand in Hand</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['extended_hand_in_hand']['platform']">Platform<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['extended_hand_in_hand']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['extended_hand_in_hand']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['extended_hand_in_hand']['full_up']">Full Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox">Mark All</label>
+                      </div>
                     </fieldset>
                   </form>
                 </div>
