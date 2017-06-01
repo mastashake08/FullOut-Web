@@ -10,44 +10,44 @@
                   <form class="form" method="post" action="" role="form">
                     {{csrf_field()}}
                     <fieldset>
-                      <legend>Beginner Running</legend>
+                      <legend>basic Running</legend>
 
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox"  name="round_off">Round Off</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="round_off">Round Off</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox"  name="round_off_backhand_spring">Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="round_off_backhand_spring">Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox"  name="front_walk_over">Front Walk Over</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="front_walk_over">Front Walk Over</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox"  name="round_off_2_backhand_spring">Round Off, 2 Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="round_off_2_backhand_spring">Round Off, 2 Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox"  name="round_off_3_backhand_spring">Round Off, 3 Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="round_off_3_backhand_spring">Round Off, 3 Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox" id="checkAllRunning">Check All</label>
+                          <label><input class="basic-running-spring" type="checkbox" id="checkAllRunning">Check All</label>
                         </div>
                       </div>
                     </fieldset>
                     <fieldset>
-                      <legend>Beginner Standing</legend>
+                      <legend>basic Standing</legend>
 
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="beginner-standing-spring" type="checkbox"  name="bhs">Basic BackHand Spring</label>
+                          <label><input class="basic-standing-spring" type="checkbox"  name="bhs">Basic BackHand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-standing-spring" type="checkbox"  name="2_bhs">2 Basic BackHand Spring</label>
+                          <label><input class="basic-standing-spring" type="checkbox"  name="2_bhs">2 Basic BackHand Spring</label>
                         </div>
                         <div class="checkbox">
-                        <label><input class="beginner-standing-spring" type="checkbox"  name="3_bhs">3 or More Basic BackHand Spring</label>
+                        <label><input class="basic-standing-spring" type="checkbox"  name="3_bhs">3 or More Basic BackHand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-standing-spring" type="checkbox" id="checkAllStanding">Check All</label>
+                          <label><input class="basic-standing-spring" type="checkbox" id="checkAllStanding">Check All</label>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -185,7 +185,7 @@
                         </div>
                       </div>
                     </fieldset>
-                    <button class="btn btn-success"> Edit Beginner Skills</button>
+                    <button class="btn btn-success"> Edit basic Skills</button>
                   </form>
                 </div>
             </div>
@@ -199,44 +199,44 @@
                   <form class="form" method="post" action="" role="form">
                     {{csrf_field()}}
                     <fieldset>
-                      <legend>Beginner Running</legend>
+                      <legend>basic Running</legend>
 
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox"  name="round_off">Round Off</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="round_off">Round Off</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox"  name="round_off_backhand_spring">Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="round_off_backhand_spring">Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox"  name="front_walk_over">Front Walk Over</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="front_walk_over">Front Walk Over</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox"  name="round_off_2_backhand_spring">Round Off, 2 Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="round_off_2_backhand_spring">Round Off, 2 Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox"  name="round_off_3_backhand_spring">Round Off, 3 Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="round_off_3_backhand_spring">Round Off, 3 Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-running-spring" type="checkbox" id="checkAllRunning">Check All</label>
+                          <label><input class="basic-running-spring" type="checkbox" id="checkAllRunning">Check All</label>
                         </div>
                       </div>
                     </fieldset>
                     <fieldset>
-                      <legend>Beginner Standing</legend>
+                      <legend>basic Standing</legend>
 
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="beginner-standing-spring" type="checkbox"  name="bhs">Basic Handstand</label>
+                          <label><input class="basic-standing-spring" type="checkbox"  name="bhs">Basic Handstand</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-standing-spring" type="checkbox"  name="2_bhs">2 Basic Handstand</label>
+                          <label><input class="basic-standing-spring" type="checkbox"  name="2_bhs">2 Basic Handstand</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-standing-spring" type="checkbox"  name="3_bhs">3 or More Basic Handstand</label>
+                          <label><input class="basic-standing-spring" type="checkbox"  name="3_bhs">3 or More Basic Handstand</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="beginner-standing-spring" type="checkbox" id="checkAllStanding">Check All</label>
+                          <label><input class="basic-standing-spring" type="checkbox" id="checkAllStanding">Check All</label>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -374,7 +374,7 @@
                         </div>
                       </div>
                     </fieldset>
-                    <button class="btn btn-success"> Edit Beginner Skills</button>
+                    <button class="btn btn-success"> Edit basic Skills</button>
                   </form>
                 </div>
             </div>
@@ -387,7 +387,7 @@
                 <div class="panel-body ">
                   <form class="form" method="post" action="" role="form">
                     <fieldset>
-                      <legend>Beginner</legend>
+                      <legend>basic</legend>
                       <h2>Group Stunting </h2>
                       <hr>
                       <div class="checkbox">
@@ -653,10 +653,161 @@
                 <div class="panel-body ">
                   <form class="form" method="post" action="" role="form">
                     <fieldset>
-                      <legend>Beginner</legend>
+                      <legend>Basic</legend>
+                      <h2>Walk-in</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['walk_in']['hands']">Hands<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['walk_in']['extension']">Extension<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['walk_in']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['walk_in']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-walk-in-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Toss</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['toss']['hands']">Hands<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['toss']['extension']">Extension<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['toss']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['toss']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-toss-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>From Hands</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['from_hands']['hands']">Hands<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['from_hands']['extension']">Extension<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['from_hands']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['from_hands']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-from-hands-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
                     </fieldset>
                     <fieldset>
                       <legend>Advanced</legend>
+                      <h2>One Arm</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['one_arm']['hands']">Hands<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['one_arm']['extension']">Extension<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['one_arm']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['one_arm']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Full Up</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="advanced-full-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['full_up']['hands']">Hands<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['full_up']['extension']">Extension<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['full_up']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['full_up']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="basic-toss-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Dismounts</legend>
+                      <h2>Full Down</h2>
+                      <div class="checkbox">
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['prep']">Prep<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['extension']">Extension<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['scorpion']">Scorpion<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['scale']">Scale<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-full-down-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Double Down</h2>
+                      <div class="checkbox">
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['prep']">Prep<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['extension']">Extension<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['scorpion']">Scorpion<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['scale']">Scale<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-double-down-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Other</h2>
+                      <div class="checkbox">
+                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['other']['low_to_high_tic_toc']">Low to High Tic Toc<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['other']['high_to_high_tic_toc']">High to High Tic Toc<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['other']['low_to_high_full_around']">Low to High Full Around<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['other']['high_to_high_full_around']">High to High Full Around<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['other']['hands_full_around']">Hands Full Around<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="dismounts-other-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
                     </fieldset>
                     <fieldset>
                       <legend>Elite</legend>
@@ -670,7 +821,7 @@
 <script>
 $("#checkAllRunning").click(function () {
   console.log("toggle");
-    $(".beginner-running-spring").prop('checked', $(this).prop('checked'));
+    $(".basic-running-spring").prop('checked', $(this).prop('checked'));
 
 });
 </script>
