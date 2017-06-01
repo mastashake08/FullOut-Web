@@ -10,7 +10,7 @@
                   <form class="form" method="post" action="" role="form">
                     {{csrf_field()}}
                     <fieldset>
-                      <legend>basic Running</legend>
+                      <legend>Basic Running</legend>
 
                       <div class="form-group">
                         <div class="checkbox">
@@ -34,7 +34,7 @@
                       </div>
                     </fieldset>
                     <fieldset>
-                      <legend>basic Standing</legend>
+                      <legend>Basic Standing</legend>
 
                       <div class="form-group">
                         <div class="checkbox">
@@ -185,7 +185,7 @@
                         </div>
                       </div>
                     </fieldset>
-                    <button class="btn btn-success"> Edit basic Skills</button>
+                    <button class="btn btn-success"> Edit Spring Floor Skills</button>
                   </form>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                   <form class="form" method="post" action="" role="form">
                     {{csrf_field()}}
                     <fieldset>
-                      <legend>basic Running</legend>
+                      <legend>Basic Running</legend>
 
                       <div class="form-group">
                         <div class="checkbox">
@@ -223,7 +223,7 @@
                       </div>
                     </fieldset>
                     <fieldset>
-                      <legend>basic Standing</legend>
+                      <legend>Basic Standing</legend>
 
                       <div class="form-group">
                         <div class="checkbox">
@@ -374,7 +374,7 @@
                         </div>
                       </div>
                     </fieldset>
-                    <button class="btn btn-success"> Edit basic Skills</button>
+                    <button class="btn btn-success"> Edit Hard Floor Skills</button>
                   </form>
                 </div>
             </div>
@@ -387,7 +387,7 @@
                 <div class="panel-body ">
                   <form class="form" method="post" action="" role="form">
                     <fieldset>
-                      <legend>basic</legend>
+                      <legend>Basic</legend>
                       <h2>Group Stunting </h2>
                       <hr>
                       <div class="checkbox">
@@ -641,6 +641,7 @@
                         <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox">Mark All</label>
                       </div>
                     </fieldset>
+                    <button type="submit" class="btn btn-success">Edit Group Stunting Skills</button>
                   </form>
                 </div>
             </div>
@@ -811,7 +812,128 @@
                     </fieldset>
                     <fieldset>
                       <legend>Elite</legend>
+                      <h2>Flipping Coed Stunting</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['rewind']">Rewind<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['platform']">Platform<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['cupie']">Cupie<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['1_and_half_twisting_full_up']">1 & 1/2 Twisting Full Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Front Hand Spring Up</h2>
+                      <div class="checkbox">
+                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['platform']">Platform<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['cupie']">Cupie<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <hr>
+                      <h2>Back Hand Spring Up</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['back_hand_spring_up']['platform']">Platform<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['back_hand_spring_up']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['back_hand_spring_up']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['back_hand_spring_up']['cupie']">Cupie<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Hand in Hand</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['hand_in_hand']['platform']">Platform<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['hand_in_hand']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['hand_in_hand']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['hand_in_hand']['cupie']">Cupie<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Extended Hand in Hand</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['extended_hand_in_hand']['platform']">Platform<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['extended_hand_in_hand']['liberty']">Liberty<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['extended_hand_in_hand']['stretch']">Stretch<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['extended_hand_in_hand']['cupie']">Cupie<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['extended_hand_in_hand']['full_up']">Full Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['extended_hand_in_hand']['inverted_cupie']">Inverted Cupie<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
+                      <h2>Other</h2>
+                      <hr>
+                      <div class="checkbox">
+                        <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['other']['double_up']">Double Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['other']['one_arm']">One Arm<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['other']['double_cupie']">Double Cupie<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['other']['cartwheel_up']">Cartwheel Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['other']['side_sumy_up']">Side Sumy Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['other']['front_ariel_up']">Front Ariel Up<label>
+                      </div>
+                      <div class="checkbox">
+                        <label><input class="elite-other-coed-stunting" type="checkbox">Mark All</label>
+                      </div>
                     </fieldset>
+                    <button class="btn btn-success" type="submit">Edit Coed Stunting</button>
                   </form>
                 </div>
             </div>
