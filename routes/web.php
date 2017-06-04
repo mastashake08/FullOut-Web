@@ -27,9 +27,11 @@ Route::group(['prefix' => 'coach'],function(){
 });
 
 Route::group(['prefix' => 'cheerleader'],function(){
-  Route::resource('skills/beginner', 'BeginnerSkillController');
-  Route::resource('skills/advanced', 'AdvancedSkillController');
-  Route::resource('skills/elite', 'EliteSkillController');
+  //Route::resource('skills/beginner', 'BeginnerSkillController');
+  //Route::resource('skills/advanced', 'AdvancedSkillController');
+  //Route::resource('skills/elite', 'EliteSkillController');
+  Route::post('/skills/spring', 'SkillController@springSkills');
+
   Route::resource('schools', 'SchoolController');
   Route::group(['prefix' => 'search'], function(){
     Route::get('schools','SchoolController@search');

@@ -16,22 +16,23 @@ class CreateSkillsTable extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('basic_running')->default(0);
-            $table->integer('basic_standing')->default(0);
-            $table->integer('basic_tumbling')->default(0);
-            $table->integer('advance_standing')->default(0);
-            $table->integer('advance_tumbing')->default(0);
-            $table->integer('elite_running')->default(0);
-            $table->integer('elite_standing')->default(0);
-            $table->integer('elite_tumbling')->default(0);
-            $table->integer('basic_group_stunting')->default(0);
-            $table->integer('basic_stationary_group_stunting')->default(0);
-            // column 154 resume
-            $table->integer('total_basic_score');
-            $table->integer('total_advance_score');
-            $table->integer('total_elite_score');
-            $table->integer('total_score');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('basic_running_spring')->default(0);
+            $table->integer('basic_standing_spring')->default(0);
+            $table->integer('advanced_running_spring')->default(0);
+            $table->integer('advanced_standing_spring')->default(0);
+            $table->integer('elite_running_spring')->default(0);
+            $table->integer('elite_standing_spring')->default(0);
+            $table->integer('basic_running_hardwood')->default(0);
+            $table->integer('basic_standing_hardwood')->default(0);
+            $table->integer('advanced_running_hardwood')->default(0);
+            $table->integer('advanced_standing_hardwood')->default(0);
+            $table->integer('elite_running_hardwood')->default(0);
+            $table->integer('elite_standing_hardwood')->default(0);
+            $table->json('spring_floor_tumbling_skills')->nullable();
+            $table->json('hard_floor_tumbling_skills')->nullable();
+            $table->json('group_stunting_skills')->nullable();
+            $table->json('coed_stunting_skills')->nullable();
             $table->timestamps();
         });
     }
