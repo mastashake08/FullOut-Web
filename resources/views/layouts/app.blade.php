@@ -27,6 +27,17 @@
     console.log(localStorage);
     @endif
     </script>
+    <script>
+    // Listen for click on toggle checkbox
+    $('#checkAllStanding').click(function(event) {
+        if(this.checked) {
+            // Iterate each checkbox
+            $(':checkbox').each(function() {
+                this.checked = true;
+            });
+        }
+    });
+    </script>
 
 </head>
 <body>
@@ -159,7 +170,13 @@
                 </div>
             </div>
         </nav>
-
+        <div class="container">
+        @if(Session::has('success'))
+            <div class="alert-box success text-center">
+                <h2>{{ Session::get('success') }}</h2>
+            </div>
+        @endif
+      </div>
         @yield('content')
     </div>
 

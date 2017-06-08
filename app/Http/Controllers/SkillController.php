@@ -84,15 +84,16 @@ class SkillController extends Controller
 
     public function springSkills(Request $request){
       $skills = $request->skills;
-      $basic_standing_spring = count($skills['spring_floor_tumbling']['basic_standing']);
-      $basic_running_spring = count($skills['spring_floor_tumbling']['basic_running']);
-      $advanced_standing_spring = count($skills['spring_floor_tumbling']['advanced_standing']);
-      $advanced_running_spring = count($skills['spring_floor_tumbling']['advanced_running']);
-      $elite_standing_spring = count($skills['spring_floor_tumbling']['elite_standing']);
-      $elite_running_spring = count($skills['spring_floor_tumbling']['elite_running']);
+      $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
+      $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
+      $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['spring_floor_tumbling']['advanced_standing']) : 0;
+      $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['spring_floor_tumbling']['advanced_running']) : 0;
+      $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
+      $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
+      $skills = json_encode($request->skills);
       $user = auth()->user();
-      $user->skillSet()->create([
-        'spring_floor_tumbling_skills' => json_encode($skills),
+      $skillset = new \App\Skill([
+        'spring_floor_tumbling_skills' => $skills,
         'basic_standing_spring' => $basic_standing_spring,
         'basic_running_spring' => $basic_running_spring,
         'advanced_standing_spring' => $advanced_standing_spring,
@@ -100,6 +101,8 @@ class SkillController extends Controller
         'elite_standing_spring' => $elite_standing_spring,
         'elite_running_spring' => $elite_running_spring
       ]);
-      dd($user->skillSet);
+      $user->skillSet()->save($skillset);
+      $request->session()->flash('success',"Spring Skills Updated! {$skills}" );
+      return back();
     }
 }
