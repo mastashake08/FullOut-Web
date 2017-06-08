@@ -24,6 +24,7 @@ Route::group(['prefix' => 'coach'],function(){
   Route::resource('clinics','ClinicController');
   Route::resource('tryouts','TryoutController');
   Route::resource('scholarships','ScholarshipController');
+  Route::post('/skills/spring', 'SkillController@springSkills');
 });
 
 Route::group(['prefix' => 'cheerleader'],function(){

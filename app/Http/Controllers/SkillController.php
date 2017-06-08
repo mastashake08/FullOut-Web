@@ -103,6 +103,7 @@ class SkillController extends Controller
       ]);
       $user->skillSet()->save($skillset);
       $request->session()->flash('success',"Spring Skills Updated! {$skills}" );
+      $user->notify(new \App\Notifications\SkillsUpdated($skills));
       return back();
     }
 }

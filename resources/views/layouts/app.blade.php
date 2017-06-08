@@ -172,7 +172,7 @@
         </nav>
         <div class="container">
         @if(Session::has('success'))
-            <div class="alert-box success text-center">
+            <div class="alert-success text-center">
                 <h2>{{ Session::get('success') }}</h2>
             </div>
         @endif
