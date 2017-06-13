@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<script>
+var skills = {{$school->user->skillSet}}
+console.log(skills);
+</script>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -33,6 +37,7 @@
                 <br>
                 Out Of State Tuition: ${{money_format('%.2n', $school->out_state_tuition)}}
                 <br>
+                Skills Needed: {{$school->user->skillSet}}
                 <div class="text-right">
                   <a href="#" class="btn btn-info">Contact Head Coach</a>
                 </div>

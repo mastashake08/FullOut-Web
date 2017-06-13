@@ -7,6 +7,10 @@ use App\School;
 use Illuminate\Support\Facades\Storage;
 class SchoolController extends Controller
 {
+
+    public function __construct(){
+      $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -124,7 +128,7 @@ class SchoolController extends Controller
     public function show($id)
     {
         //
-        $school = School::find($id);
+        $school = School::findOrFail($id);
         $with = [
           'school' => $school,
           'clinics' => $school->clinics()->paginate(10)
