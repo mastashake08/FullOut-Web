@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Team;
-class TeamController extends Controller
+
+class ProgramController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,6 @@ class TeamController extends Controller
     public function index()
     {
         //
-        return Team::all();
     }
 
     /**
@@ -36,16 +35,7 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         //
-        $team = $request->user()->school()->team()->create([
-          'team_name' => $request->team_name,
-          'coach_name' => $request->coach_name,
-          'mascot' => $request->mascot,
-          'color_code' => $request->color_code,
-          'description' => $request->description,
-          'team_type' => $request->team_type
-        ]);
-        return $team;
-
+        
     }
 
     /**
