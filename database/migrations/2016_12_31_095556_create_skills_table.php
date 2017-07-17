@@ -29,10 +29,10 @@ class CreateSkillsTable extends Migration
             $table->integer('advanced_standing_hardwood')->default(0);
             $table->integer('elite_running_hardwood')->default(0);
             $table->integer('elite_standing_hardwood')->default(0);
-            $table->json('spring_floor_tumbling_skills');
-            $table->json('hard_floor_tumbling_skills');
-            $table->json('group_stunting_skills');
-            $table->json('coed_stunting_skills');
+            $table->json('spring_floor_tumbling_skills')->nullable();
+            $table->json('hard_floor_tumbling_skills')->nullable();
+            $table->json('group_stunting_skills')->nullable();
+            $table->json('coed_stunting_skills')->nullable();
             $table->timestamps();
         });
     }
