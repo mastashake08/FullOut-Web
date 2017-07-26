@@ -23,4 +23,7 @@ class School extends Model
     public function user(){
       return $this->belongsTo('App\User');
     }
+    public function scholarships(){
+      return $this->hasMany('App\Scholarship');
+    }
 }
