@@ -27,7 +27,7 @@
                         <td><p>{{$team->description}}</p></td>
                         <td>
                           <div class="form-group">
-                            <a href="" class="btn btn-default">Edit Skillset</a>
+                            <a href="{{url('/coach/team/skillset/'.$team->id)}}" class="btn btn-default">Edit Skillset</a>
                             <a href="" class="btn btn-warning">Edit Team</a>
                             <a href="" class="btn btn-danger">Delete Skillset</a>
                           </div>

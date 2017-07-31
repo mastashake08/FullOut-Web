@@ -26,6 +26,7 @@ Route::group(['prefix' => 'coach'],function(){
   Route::resource('scholarships','ScholarshipController');
   Route::post('/skills/spring', 'SkillController@springSkills');
   Route::resource('teams','TeamController');
+  Route::resource('/team/skillset','TeamSkillController');
   Route::resource('programs','ProgramController');
 });
 

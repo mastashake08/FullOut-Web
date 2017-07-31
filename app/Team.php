@@ -11,4 +11,7 @@ class Team extends Model
     public function school(){
       return $this->belongsTo('App\School');
     }
+    public function skillSet(){
+      return $this->hasOne('App\Skill');
+    }
 }

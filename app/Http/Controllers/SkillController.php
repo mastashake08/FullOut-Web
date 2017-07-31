@@ -99,10 +99,11 @@ class SkillController extends Controller
         'advanced_standing_spring' => $advanced_standing_spring,
         'advanced_running_spring' => $advanced_running_spring,
         'elite_standing_spring' => $elite_standing_spring,
-        'elite_running_spring' => $elite_running_spring
+        'elite_running_spring' => $elite_running_spring,
+        'team_id' => $request->team_id
       ]);
       $user->skillSet()->save($skillset);
-      $request->session()->flash('success',"Spring Skills Updated! {$skills}" );
+      $request->session()->flash('success',"Spring Skills Updated!" );
       $user->notify(new \App\Notifications\SkillsUpdated($skills));
       return back();
     }
