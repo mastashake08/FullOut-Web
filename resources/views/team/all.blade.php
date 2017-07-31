@@ -2,11 +2,11 @@
 
 @section('content')
 @can('create', \App\School::class)
-@include('coach.schools')
+@include('coach.teams')
 @endcan
 @if(isset($schools))
 @cannot('create',\App\School::class)
-@include('student.schools')
+@include('student.teams')
 @endcannot
 @endif
 @endsection
