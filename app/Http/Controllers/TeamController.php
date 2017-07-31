@@ -14,7 +14,15 @@ class TeamController extends Controller
     public function index()
     {
         //
-        return Team::all();
+        if(auth()->user()->cant('create',School::class)){
+          $with = [
+            'teams' => Team::paginate(10)
+          ];
+          return view('team.all')->with($with);
+        }
+        else{
+          return view('team.all');
+        }
     }
 
     /**
