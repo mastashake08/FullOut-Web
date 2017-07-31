@@ -15,8 +15,9 @@ class AddTeamIdtoSkills extends Migration
     {
         Schema::table('skills', function (Blueprint $table) {
             //'
-            $table->integer('team_id')->nullable();
-            $table->foreign('team_id')->references('id')->on('teams');
+
+            $table->integer('team_id')->unsigned()->nullable();
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('SET NULL');
         });
     }
 

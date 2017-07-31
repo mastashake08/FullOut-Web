@@ -15,8 +15,8 @@ class CreateScholarshipsTable extends Migration
     {
         Schema::create('scholarships', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('school_id'->unsigned();
-            $table->forigen('school_id')->refrernces('id')->on('schools');
+            $table->integer('school_id')->unsigned();
+            $table->foreign('school_id')->references('id')->on('schools');
             $table->string('name');
             $table->decimal('amount',10,2);
             $table->longText('description');
