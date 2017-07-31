@@ -12,5 +12,29 @@ class SchoolTableSeeder extends Seeder
     public function run()
     {
         //
+        $user = \App\User::where('email','test.coach@gmail.com')->first();
+        $school = $user->school()->create([
+          'name' => 'Test University',
+          'logo' => '/',
+          'description' => 'This is a test',
+          'office_phone' => '888-888-8888',
+          'cell_phone' => '888-888-8888',
+          'office_address' => '111 Test Drive Somewhere, CA',
+          'in_state_tuition' => '5000',
+          'out_state_tuition' => '10000',
+          'website' => 'https://test.edu',
+          'min_gpa' => '2.0',
+          'min_gpa_transfer' => '2.4',
+          'gpa_needed_for_team' => '2.3',
+          'act_score' => '15',
+          'sat_score' => '1250'
+        ]);
+        $school->teams()->create([
+          'team_name' => 'Team A',
+          'coach_name' => 'Coach Johnson',
+          'mascot' => 'Bulldogs',
+          'team_type' => 'women',
+          'description' => 'This is the A Team!'
+        ]);
     }
 }

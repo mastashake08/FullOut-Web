@@ -44,7 +44,7 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         //
-        $team = $request->user()->school()->team()->create([
+        $team = $request->user()->school->teams()->create([
           'team_name' => $request->team_name,
           'coach_name' => $request->coach_name,
           'mascot' => $request->mascot,
@@ -52,7 +52,7 @@ class TeamController extends Controller
           'description' => $request->description,
           'team_type' => $request->team_type
         ]);
-        return $team;
+        return back();
 
     }
 
