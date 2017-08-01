@@ -106,6 +106,11 @@ class ClinicController extends Controller
     public function edit($id)
     {
         //
+        $clinic = Clinic::findOrFail($id);
+        $with = [
+          'clinic' => $clinic
+        ];
+        return view('clinic.edit')->with($with);
     }
 
     /**

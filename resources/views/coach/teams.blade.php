@@ -32,7 +32,7 @@
                               <a href="{{url('/coach/teams/'.$team->id.'/edit')}}" class="btn btn-warning">Edit Team</a>
                                 {{method_field('DELETE')}}
                                 {{csrf_field()}}
-                                <button type="submit" class="btn btn-danger">Delete Skillset</button>
+                                <button type="submit" class="btn btn-danger">Delete Team</button>
                                 </div>
                             </form>
 

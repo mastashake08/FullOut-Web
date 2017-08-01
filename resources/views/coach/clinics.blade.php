@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
@@ -71,12 +72,25 @@
                 <thead>
                   <tr>
                     <th>Name</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach($clinics as $clinic)
                   <tr>
                     <td><a href="{{url('/coach/clinics/'.$clinic->id)}}" target="_blank">{{$clinic->name}}</a></td>
+                    <td>
+                        <form method="post" action="{{url('/coach/clinics/'.$clinic->id)}}">
+                          <div class="form-group">
+                          <a href="{{url('/coach/clinics/'.$clinic->id.'/edit')}}" class="btn btn-warning">Edit Clinic</a>
+                            {{method_field('DELETE')}}
+                            {{csrf_field()}}
+                            <button type="submit" class="btn btn-danger">Delete Clinic</button>
+                            </div>
+                        </form>
+
+
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>
