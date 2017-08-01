@@ -76,6 +76,11 @@ class TeamController extends Controller
     public function edit($id)
     {
         //
+        $team = \App\Team::findOrFail($id);
+        $with = [
+          'team' => $team
+        ];
+        return view('team.edit')->with($with);
     }
 
     /**
@@ -88,6 +93,12 @@ class TeamController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //
+        $team = \App\Team::findOrFail($id);
+        $team->fill($request->all())->save();
+
+        $request->session()->flash('success',"{$team->team_name} Updated Successfully!" );
+        return back();
     }
 
     /**
@@ -96,8 +107,13 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         //
+        $team = \App\Team::findOrFail($id);
+        \App\Team::destroy($id);
+        $request->session()->flash('success',"{$team->team_name} Deleted Successfully!" );
+        return back();
+
     }
 }

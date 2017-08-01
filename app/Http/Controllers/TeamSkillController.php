@@ -64,6 +64,7 @@ class TeamSkillController extends Controller
     public function edit($id)
     {
         //
+      
     }
 
     /**
@@ -75,7 +76,7 @@ class TeamSkillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

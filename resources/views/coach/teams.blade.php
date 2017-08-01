@@ -26,11 +26,17 @@
                         <td>{{$team->mascot}}</td>
                         <td><p>{{$team->description}}</p></td>
                         <td>
-                          <div class="form-group">
-                            <a href="{{url('/coach/team/skillset/'.$team->id)}}" class="btn btn-default">Edit Skillset</a>
-                            <a href="" class="btn btn-warning">Edit Team</a>
-                            <a href="" class="btn btn-danger">Delete Skillset</a>
-                          </div>
+                            <form method="post" action="{{url('/coach/teams/'.$team->id)}}">
+                              <div class="form-group">
+                              <a href="{{url('/coach/team/skillset/'.$team->id)}}" class="btn btn-default">Edit Skillset</a>
+                              <a href="{{url('/coach/teams/'.$team->id.'/edit')}}" class="btn btn-warning">Edit Team</a>
+                                {{method_field('DELETE')}}
+                                {{csrf_field()}}
+                                <button type="submit" class="btn btn-danger">Delete Skillset</button>
+                                </div>
+                            </form>
+
+
                         </td>
                       </tr>
                       @endforeach
@@ -70,7 +76,7 @@
                         <div class="radio">
                           <label><input type="radio" name="team_type" value="men">Men</label>
                         </div>
-                        <div class="radio disabled">
+                        <div class="radio">
                           <label><input type="radio" name="team_type" value="coed">Coed</label>
                         </div>
                       </div>
