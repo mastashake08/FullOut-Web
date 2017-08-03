@@ -131,7 +131,9 @@ class SchoolController extends Controller
         $school = School::findOrFail($id);
         $with = [
           'school' => $school,
-          'clinics' => $school->clinics()->paginate(10)
+          'clinics' => $school->clinics()->paginate(10),
+          'teams' => $school->teams()->paginate(10),
+          'tryouts' => $school->tryouts()->paginate(10)
         ];
         return view('school.individual')->with($with);
     }

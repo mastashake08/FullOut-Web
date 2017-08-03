@@ -31,7 +31,7 @@ class TryoutPolicy
     public function create(User $user)
     {
         //
-        return $user->type === 'coach';
+        return $user->type === "coach";
     }
 
     /**

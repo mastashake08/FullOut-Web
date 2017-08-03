@@ -15,7 +15,7 @@ class TryoutController extends Controller
     {
         //
         if(auth()->user()->can('create', Tryout::class)){
-          $tryouts = auth()->user()->tryouts()->paginate(10);
+          $tryouts = auth()->user()->school->tryouts()->paginate(10);
 
         }
         else{
@@ -56,6 +56,17 @@ class TryoutController extends Controller
             'name' => 'required',
 
           ]);
+          auth()->user()->school->tryouts()->create([
+            'name' => $request->name,
+            'coach_name' => $request->coach_name,
+            'start_datetime' => \Carbon\Carbon::parse($request->start_datetime),
+            'end_datetime' => \Carbon\Carbon::parse($request->end_datetime),
+            'phone' => $request->phone
+          ]);
+          return back();
+        }
+        else{
+          abort(403);
         }
     }
 

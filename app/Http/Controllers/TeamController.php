@@ -65,6 +65,11 @@ class TeamController extends Controller
     public function show($id)
     {
         //
+        $team = Team::findOrFail($id);
+        $with = [
+          'team' => $team
+        ];
+        return view('team.individual')->with($with);
     }
 
     /**
