@@ -72,11 +72,6 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/cheerleader/programs') }}">
-                                      <i class="fa fa-tasks" aria-hidden="true"></i>  Programs
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="{{ url('/cheerleader/clinics') }}">
                                       <i class="fa fa-check" aria-hidden="true"></i> Clinics
                                     </a>
@@ -108,11 +103,6 @@
                                     <a href="{{ url('coach/schools') }}">
 
                                       <i class="fa fa-university" aria-hidden="true"></i>  Manage Schools
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('coach/programs') }}">
-                                      <i class="fa fa-tasks" aria-hidden="true"></i>  Manage Programs
                                     </a>
                                 </li>
                                 <li>
