@@ -65,9 +65,28 @@ class TeamController extends Controller
     public function show($id)
     {
         //
+        $canMessage = false;
         $team = Team::findOrFail($id);
+        $debug = [
+          'team' => collect($team->skillSet),
+          'cheerleader' =>collect((auth()->user()->skillSet))
+        ];
+        dd($debug);
+        $teamSkills = collect($team->skillSet->spring_floor_tumbling_skills['spring_floor_tumbling']);
+        $userSkills = collect(auth()->user()->skillSet->spring_floor_tumbling_skills['spring_floor_tumbling']);
+        $teamSkillsCount = $teamSkills->count();
+        $userSkillsCount = $userSkills->count();
+
+        if($userSkillsCount/$teamSkillsCount > 0.7){
+          $canMessage = true;
+        }
+
         $with = [
-          'team' => $team
+          'team' => $team,
+          'teamSkills' => $teamSkills,
+          'userSkills' => $userSkills,
+          'canMessage' => $canMessage,
+
         ];
         return view('team.individual')->with($with);
     }

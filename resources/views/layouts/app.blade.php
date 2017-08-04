@@ -109,7 +109,7 @@
                                 <li>
                                     <a href="{{ url('coach/schools') }}">
 
-                                      <i class="fa fa-university" aria-hidden="true"></i>  Manage Schools
+                                      <i class="fa fa-university" aria-hidden="true"></i>  Manage School
                                     </a>
                                 </li>
                                 <li>

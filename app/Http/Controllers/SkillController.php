@@ -91,6 +91,7 @@ class SkillController extends Controller
       $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
       $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
       $skills = json_encode($request->skills);
+
       $user = auth()->user();
       $skillset = new \App\Skill([
         'spring_floor_tumbling_skills' => $skills,
@@ -102,6 +103,7 @@ class SkillController extends Controller
         'elite_running_spring' => $elite_running_spring,
         'team_id' => $request->team_id
       ]);
+
       $user->skillSet()->save($skillset);
       $request->session()->flash('success',"Spring Skills Updated!" );
       $user->notify(new \App\Notifications\SkillsUpdated($skills));

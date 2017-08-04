@@ -18,9 +18,11 @@
                 Description: {{$team->description}}
                 <br>
                 Team Type: {{$team->team_type}}
+                @if($canMessage)
                 <div class="text-right">
                   <a href="#" class="btn btn-info">Contact Head Coach</a>
                 </div>
+                @endif
                 </div>
             </div>
         </div>
