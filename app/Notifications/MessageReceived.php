@@ -69,7 +69,7 @@ class MessageReceived extends Notification
              ->id($this->message->id)
             ->title('New Message Received!')
             //->icon('/approved-icon.png')
-            ->body("Message: {$this->message->message}"
+            ->body("Message: {$this->message->message}")
             ->action('View Message', 'view_message');
     }
 }
