@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Message;
 class MessageController extends Controller
 {
     /**
@@ -35,6 +35,25 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+          'receiver_id' => 'required',
+          'message' => 'required'
+        ]);
+        $user = $request->user();
+        $message = $user->sentMessages()->create([
+          'receiver_id' => $request->receiver_id,
+          'message' => $request->message
+        ]);
+        $message->receiver->notify(new \App\Notifications\MessageReceived($message));
+        if($request->expectsJson()){
+          return response()->json([
+            'success' => true,
+            'message' => $message
+          ]);
+        }
+        else{
+          return view('messages.success');
+        }
     }
 
     /**
@@ -46,6 +65,8 @@ class MessageController extends Controller
     public function show($id)
     {
         //
+        return Message::findOrFail($id);
+
     }
 
     /**
@@ -80,5 +101,13 @@ class MessageController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getSendMessageView($id){
+      $team = \App\Team::findOrFail($id);
+      $with = [
+        'team' => $team
+      ];
+      return view('messages.send')->with($with);
     }
 }

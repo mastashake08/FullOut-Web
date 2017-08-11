@@ -7,4 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     //
+    public $guarded = [];
+    public function sender(){
+      return $this->belongsTo('App\User','sender_id','id');
+    }
+    public function receiver(){
+      return $this->belongsTo('App\User','receiver_id','id');
+    }
 }

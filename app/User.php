@@ -34,7 +34,12 @@ class User extends Authenticatable
     public function skillSet(){
       return $this->hasOne('App\Skill');
     }
+    public function sentMessages(){
+      return $this->hasMany('App\Message','sender_id','id');
+    }
+    public function messages(){
+      return $this->hasMany('App\Message','receiver_id','id');
+    }
 
-    
 
 }

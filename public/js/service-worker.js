@@ -1,9 +1,33 @@
 self.addEventListener('push', function(event) {
-  console.log(event.data.message);
   if (event.data) {
-    console.log('This push event has data: ', event.data.json());
-    self.registration.showNotification(event.data.json().body) 
+    var data = event.data.json();
+    console.log(data);
+    self.registration.showNotification(data.title,{
+      id: data.id,
+      body: data.body,
+    //badge: 'https://payments.jyroneparker.com/push.png',
+      icon: data.icon,
+      vibrate: [300],
+      actions: data.actions,
+      data: data
+    });
+    console.log(data.id);
+    console.log('This push event has data: ', event.data.text());
   } else {
     console.log('This push event has no data.');
   }
 });
+self.addEventListener('notificationclick', function(event) {
+  console.log(event.notification);
+  var eventId = event.notification.data.id;
+  console.log(eventId);
+  event.notification.close();
+
+  if (event.action === 'view_message') {
+
+      clients.openWindow("/messages/"+data.id);
+
+  }
+  
+
+}, false);
