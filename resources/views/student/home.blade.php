@@ -12,7 +12,6 @@
                     {{csrf_field()}}
                     <fieldset>
                       <legend>Basic Running</legend>
-
                       <div class="form-group">
                         <div class="checkbox">
                           <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][round_off]">Round Off</label>
@@ -186,7 +185,7 @@
                         </div>
                       </div>
                     </fieldset>
-                    <button class="btn btn-success"> Edit Spring Floor Skills</button>
+                    <button class="btn btn-success"> Save Spring Floor Skills</button>
                   </form>
                 </div>
             </div>

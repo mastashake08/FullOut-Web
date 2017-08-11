@@ -93,7 +93,7 @@ class SkillController extends Controller
       $skills = json_encode($request->skills);
 
       $user = auth()->user();
-      $skillset = new \App\Skill([
+      $user->skillSet()->update([
         'spring_floor_tumbling_skills' => $skills,
         'basic_standing_spring' => $basic_standing_spring,
         'basic_running_spring' => $basic_running_spring,
@@ -101,10 +101,11 @@ class SkillController extends Controller
         'advanced_running_spring' => $advanced_running_spring,
         'elite_standing_spring' => $elite_standing_spring,
         'elite_running_spring' => $elite_running_spring,
-        'team_id' => $request->team_id
+        'team_id' => $request->team_id,
+        'user_id' => $user->id
       ]);
+      $user->skillSet->save();
 
-      $user->skillSet()->save($skillset);
       $request->session()->flash('success',"Spring Skills Updated!" );
       $user->notify(new \App\Notifications\SkillsUpdated($skills));
       return back();
