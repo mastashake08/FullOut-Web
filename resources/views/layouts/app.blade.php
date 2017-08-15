@@ -19,29 +19,11 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script>
 
-    @if(Auth::check())
-    localStorage.id = <?php echo auth()->user()->id ?>;
-    console.log(localStorage);
-    @endif
-    </script>
-    <script>
-    // Listen for click on toggle checkbox
-    $('#checkAllStanding').click(function(event) {
-        if(this.checked) {
-            // Iterate each checkbox
-            $(':checkbox').each(function() {
-                this.checked = true;
-            });
-        }
-    });
-    </script>
 
 </head>
 <body>
-    <div id="app">
+    <div >
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -103,6 +85,12 @@
                                       <i class="fa fa-users" aria-hidden="true"></i>  My Privates
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ url('/message') }}">
+                                      <i class="fa fa-envelope" aria-hidden="true"></i>  My Messages
+                                    </a>
+                                </li>
+
 
 
                         @else
@@ -130,6 +118,11 @@
                                 <li>
                                     <a href="{{ url('coach/teams') }}">
                                       <i class="fa fa-users" aria-hidden="true"></i> Manage Teams
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/message') }}">
+                                      <i class="fa fa-envelope" aria-hidden="true"></i>  My Messages
                                     </a>
                                 </li>
                         @endif
@@ -174,12 +167,12 @@
             </div>
         @endif
       </div>
+      <div id="app">
         @yield('content')
     </div>
+  </div>
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    <script src="/js/helpers.js"></script>
-
 </body>
 </html>

@@ -6,14 +6,31 @@ use Illuminate\Http\Request;
 use App\Message;
 class MessageController extends Controller
 {
+
+  public function __construct(){
+    $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if($request->expectsJson()){
+          return auth()->user()->messages;
+        }
+        else{
+          $with = [
+            'messages' =>[
+              'sent' => $request->user()->sentMessages()->paginate(5),
+              'received' => $request->user()->messages()->paginate(5)
+            ]
+          ];
+          return view('messages.all')->with($with);
+        }
+
     }
 
     /**
