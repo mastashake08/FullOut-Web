@@ -12,7 +12,7 @@
                   curate a list of potential cheerleader candidates for you!
                   In addition cheerleaders can not contact you unless they have
                   at least 70% of the skills you require.
-                  
+
                   <form class="form" method="post" action="{{url('/coach/skills/spring')}}" role="form">
                     {{csrf_field()}}
                     <fieldset>
@@ -202,7 +202,7 @@
             <div class="panel panel-success">
                 <div class="panel-heading">Hard Floor Tumbling</div>
                 <div class="panel-body">
-                  <form class="form" method="post" action="" role="form">
+                  <form class="form" method="post" action="{{url('/coach/skills/hard')}}" role="form">
                     <input type="hidden" name="team_id" value="{{$team->id}}"/>
                     {{csrf_field()}}
                     <fieldset>
@@ -210,19 +210,19 @@
 
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="basic-running-spring" type="checkbox"  name="round_off">Round Off</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off]">Round Off</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-running-spring" type="checkbox"  name="round_off_backhand_spring">Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off_backhand_spring]">Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-running-spring" type="checkbox"  name="front_walk_over">Front Walk Over</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][front_walk_over]">Front Walk Over</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-running-spring" type="checkbox"  name="round_off_2_backhand_spring">Round Off, 2 Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off_2_backhand_spring]">Round Off, 2 Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-running-spring" type="checkbox"  name="round_off_3_backhand_spring">Round Off, 3 Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off_3_backhand_spring]">Round Off, 3 Backhand Spring</label>
                         </div>
                         <div class="checkbox">
                           <label><input class="basic-running-spring" type="checkbox" id="checkAllRunning">Check All</label>
@@ -234,13 +234,13 @@
 
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="basic-standing-spring" type="checkbox"  name="bhs">Basic Handstand</label>
+                          <label><input class="basic-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][basic_standing][bhs]">Basic Handstand</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-standing-spring" type="checkbox"  name="2_bhs">2 Basic Handstand</label>
+                          <label><input class="basic-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][basic_standing][2_bhs]">2 Basic Handstand</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-standing-spring" type="checkbox"  name="3_bhs">3 or More Basic Handstand</label>
+                          <label><input class="basic-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][basic_standing][3_bhs]">3 or More Basic Handstand</label>
                         </div>
                         <div class="checkbox">
                           <label><input class="basic-standing-spring" type="checkbox" id="checkAllStanding">Check All</label>
@@ -250,22 +250,22 @@
                       <legend>Advanced Running</legend>
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="advanced-running-spring" type="checkbox"  name="bhs">Round Off, Tuck</label>
+                          <label><input class="advanced-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_tuck]">Round Off, Tuck</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-running-spring" type="checkbox"  name="2_bhs">Round Off, Backhand Spring, Tuck</label>
+                          <label><input class="advanced-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_tuck]">Round Off, Backhand Spring, Tuck</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-running-spring" type="checkbox"  name="3_bhs">Round Off, Backhand Spring, Tuck, 2x Backhand Spring, Tuck</label>
+                          <label><input class="advanced-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_tuck_2_bhs_tuck]">Round Off, Backhand Spring, Tuck, 2x Backhand Spring, Tuck</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-running-spring" type="checkbox"  name="3_bhs">Round Off, Backhand Spring, Whip</label>
+                          <label><input class="advanced-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_whip]">Round Off, Backhand Spring, Whip</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-running-spring" type="checkbox"  name="3_bhs">Round Off, Backhand Spring, Layout</label>
+                          <label><input class="advanced-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_layout]">Round Off, Backhand Spring, Layout</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-running-spring" type="checkbox"  name="3_bhs">Round Off, Backhand Spring, Whip, 2x Backhand Spring, Layout</label>
+                          <label><input class="advanced-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_whip_2_bhs_layout]">Round Off, Backhand Spring, Whip, 2x Backhand Spring, Layout</label>
                         </div>
                         <div class="checkbox">
                           <label><input class="advanced-running-spring" type="checkbox" id="checkAllStanding">Check All</label>
@@ -275,28 +275,28 @@
                       <legend>Advanced Standing</legend>
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="advanced-standing-spring" type="checkbox"  name="bhs">3x Backhand Spring, Tuck</label>
+                          <label><input class="advanced-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][3_bhs_tuck]">3x Backhand Spring, Tuck</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-standing-spring" type="checkbox"  name="2_bhs">2x Backhand Spring, Tuck</label>
+                          <label><input class="advanced-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][2_bhs_tuck]">2x Backhand Spring, Tuck</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-standing-spring" type="checkbox"  name="3_bhs">Backhand Spring, Tuck</label>
+                          <label><input class="advanced-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][bhs_tuck]">Backhand Spring, Tuck</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-standing-spring" type="checkbox"  name="3_bhs">Tuck</label>
+                          <label><input class="advanced-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][tuck]">Tuck</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-standing-spring" type="checkbox"  name="3_bhs">3x Backhand Spring, Layout</label>
+                          <label><input class="advanced-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][3_bhs_layout]">3x Backhand Spring, Layout</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-standing-spring" type="checkbox"  name="3_bhs">2x Backhand Spring, Layout</label>
+                          <label><input class="advanced-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][2_bhs_layout]">2x Backhand Spring, Layout</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-standing-spring" type="checkbox"  name="3_bhs">Backhand Spring, Layout</label>
+                          <label><input class="advanced-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][bhs_layout]">Backhand Spring, Layout</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-standing-spring" type="checkbox"  name="3_bhs">Tuck, 2x Backhand Spring, Layout</label>
+                          <label><input class="advanced-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][tuck_2_bhs_layout]">Tuck, 2x Backhand Spring, Layout</label>
                         </div>
                         <div class="checkbox">
                           <label><input class="advanced-standing-spring" type="checkbox" id="checkAllAdvanceStanding">Check All</label>
@@ -306,34 +306,34 @@
                       <legend>Elite Running</legend>
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="elite-running-spring" type="checkbox" name="2_bhs_full">Round Off, Backhand Spring, Half</label>
+                          <label><input class="elite-running-spring" type="checkbox" name="skills[hard_floor_tumbling][elite_running][round_off_bhs_half]">Round Off, Backhand Spring, Half</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-running-spring" type="checkbox"  name="bhs_full">Round Off, Backhand Spring, Full</label>
+                          <label><input class="elite-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_full]">Round Off, Backhand Spring, Full</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-running-spring" type="checkbox"  name="full">Round Off, Backhand Spring, Double</label>
+                          <label><input class="elite-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_double]">Round Off, Backhand Spring, Double</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-running-spring" type="checkbox"  name="3_bhs_double">Front Tuck, Round Off, Backhand Spring, Full</label>
+                          <label><input class="elite-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][front_tuck_round_off_bhs_full]">Front Tuck, Round Off, Backhand Spring, Full</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-running-spring" type="checkbox"  name="2_bhs_double">Round Off, Backhand Spring, Full and a 1/2</label>
+                          <label><input class="elite-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_full_and_half]">Round Off, Backhand Spring, Full and a 1/2</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-running-spring" type="checkbox"  name="bhs_double">Round Off, Arabian, Round Off, Backhand Spring, Full</label>
+                          <label><input class="elite-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_arabian_round_off_bhs_full]">Round Off, Arabian, Round Off, Backhand Spring, Full</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-running-spring" type="checkbox"  name="full_2_bhs_full">Round Off, Backhand Spring, Whip, Full</label>
+                          <label><input class="elite-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_whip_full]">Round Off, Backhand Spring, Whip, Full</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-running-spring" type="checkbox"  name="full_3_bhs_double">Round Off, Backhand Spring, Whip, Double</label>
+                          <label><input class="elite-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_whip_double]">Round Off, Backhand Spring, Whip, Double</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-running-spring" type="checkbox"  name="3_bhs_whip_full">Round Off, Arabian, Round Off, Backhand Spring, Double</label>
+                          <label><input class="elite-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_arabian_round_off_bhs_double]">Round Off, Arabian, Round Off, Backhand Spring, Double</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-running-spring" type="checkbox"  name="3_bhs_whip_double">Front Tuck, Round Off, Backhand Spring, Double</label>
+                          <label><input class="elite-running-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][front_tuck_round_off_bhs_double]">Front Tuck, Round Off, Backhand Spring, Double</label>
                         </div>
                         <div class="checkbox">
                           <label><input class="elite-running-spring" type="checkbox" id="checkAllEliteRunning">Check All</label>
@@ -344,37 +344,37 @@
                       <legend>Elite Standing</legend>
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox"  name="3_bhs_full">3 Backhand Spring, Full</label>
+                          <label><input class="elite-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_full]">3 Backhand Spring, Full</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox" name="2_bhs_full">2 Backhand Spring, Full</label>
+                          <label><input class="elite-standing-spring" type="checkbox" name="skills[hard_floor_tumbling][elite_standing][2_bhs_full]">2 Backhand Spring, Full</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox"  name="bhs_full">Backhand Spring, Full</label>
+                          <label><input class="elite-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][bhs_full]">Backhand Spring, Full</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox"  name="full">Full</label>
+                          <label><input class="elite-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][full]">Full</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox"  name="3_bhs_double">3 Backhand Spring, Double</label>
+                          <label><input class="elite-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_double]">3 Backhand Spring, Double</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox"  name="2_bhs_double">2 Backhand Spring, Double</label>
+                          <label><input class="elite-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][2_bhs_double]">2 Backhand Spring, Double</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox"  name="bhs_double">Backhand Spring, Double</label>
+                          <label><input class="elite-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][bhs_double]">Backhand Spring, Double</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox"  name="full_2_bhs_full">Full, 2 Backhand Spring, Full</label>
+                          <label><input class="elite-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][full_2_bhs_full]">Full, 2 Backhand Spring, Full</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox"  name="full_3_bhs_double">Full, 3 Backhand Spring, Double</label>
+                          <label><input class="elite-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][full_3_bhs_double]">Full, 3 Backhand Spring, Double</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox"  name="3_bhs_whip_full">3 Backhand Spring, Whip, Full</label>
+                          <label><input class="elite-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_whip_full]">3 Backhand Spring, Whip, Full</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="elite-standing-spring" type="checkbox"  name="3_bhs_whip_double">3 Backhand Spring, Whip, Double</label>
+                          <label><input class="elite-standing-spring" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_whip_double]">3 Backhand Spring, Whip, Double</label>
                         </div>
                         <div class="checkbox">
                           <label><input class="elite-standing-spring" type="checkbox" id="checkAllEliteStanding">Check All</label>
@@ -392,7 +392,7 @@
             <div class="panel panel-success">
                 <div class="panel-heading">Group Stunting</div>
                 <div class="panel-body ">
-                  <form class="form" method="post" action="" role="form">
+                  <form class="form" method="post" action="{{url('/coach/skills/group')}}" role="form">
                     <input type="hidden" name="team_id" value="{{$team->id}}"/>
                     <fieldset>
                       <legend>Basic</legend>
@@ -660,7 +660,7 @@
             <div class="panel panel-success">
                 <div class="panel-heading">Coed Stunting</div>
                 <div class="panel-body ">
-                  <form class="form" method="post" action="" role="form">
+                  <form class="form" method="post" action="{{url('/coach/skills/coed')}}"role="form">
                     <input type="hidden" name="team_id" value="{{$team->id}}"/>
                     <fieldset>
                       <legend>Basic</legend>

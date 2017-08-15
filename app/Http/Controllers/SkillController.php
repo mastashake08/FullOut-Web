@@ -111,4 +111,94 @@ class SkillController extends Controller
       $user->notify(new \App\Notifications\SkillsUpdated($skills));
       return back();
     }
+
+    public function hardSkills(Request $request){
+      dd($request->all());
+      $skills = $request->skills;
+      $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
+      $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
+      $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['spring_floor_tumbling']['advanced_standing']) : 0;
+      $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['spring_floor_tumbling']['advanced_running']) : 0;
+      $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
+      $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
+      $skills = json_encode($request->skills);
+
+      $user = auth()->user();
+      $user->skillSet()->update([
+        'spring_floor_tumbling_skills' => $skills,
+        'basic_standing_spring' => $basic_standing_spring,
+        'basic_running_spring' => $basic_running_spring,
+        'advanced_standing_spring' => $advanced_standing_spring,
+        'advanced_running_spring' => $advanced_running_spring,
+        'elite_standing_spring' => $elite_standing_spring,
+        'elite_running_spring' => $elite_running_spring,
+        'team_id' => $request->team_id,
+        'user_id' => $user->id
+      ]);
+      $user->skillSet->save();
+
+      $request->session()->flash('success',"Spring Skills Updated!" );
+      $user->notify(new \App\Notifications\SkillsUpdated($skills));
+      return back();
+    }
+
+    public function groupSkills(Request $request){
+      dd($request->all());
+      $skills = $request->skills;
+      $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
+      $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
+      $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['spring_floor_tumbling']['advanced_standing']) : 0;
+      $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['spring_floor_tumbling']['advanced_running']) : 0;
+      $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
+      $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
+      $skills = json_encode($request->skills);
+
+      $user = auth()->user();
+      $user->skillSet()->update([
+        'spring_floor_tumbling_skills' => $skills,
+        'basic_standing_spring' => $basic_standing_spring,
+        'basic_running_spring' => $basic_running_spring,
+        'advanced_standing_spring' => $advanced_standing_spring,
+        'advanced_running_spring' => $advanced_running_spring,
+        'elite_standing_spring' => $elite_standing_spring,
+        'elite_running_spring' => $elite_running_spring,
+        'team_id' => $request->team_id,
+        'user_id' => $user->id
+      ]);
+      $user->skillSet->save();
+
+      $request->session()->flash('success',"Spring Skills Updated!" );
+      $user->notify(new \App\Notifications\SkillsUpdated($skills));
+      return back();
+    }
+
+    public function coedSkills(Request $request){
+      dd($request->all());
+      $skills = $request->skills;
+      $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
+      $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
+      $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['spring_floor_tumbling']['advanced_standing']) : 0;
+      $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['spring_floor_tumbling']['advanced_running']) : 0;
+      $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
+      $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
+      $skills = json_encode($request->skills);
+
+      $user = auth()->user();
+      $user->skillSet()->update([
+        'spring_floor_tumbling_skills' => $skills,
+        'basic_standing_spring' => $basic_standing_spring,
+        'basic_running_spring' => $basic_running_spring,
+        'advanced_standing_spring' => $advanced_standing_spring,
+        'advanced_running_spring' => $advanced_running_spring,
+        'elite_standing_spring' => $elite_standing_spring,
+        'elite_running_spring' => $elite_running_spring,
+        'team_id' => $request->team_id,
+        'user_id' => $user->id
+      ]);
+      $user->skillSet->save();
+
+      $request->session()->flash('success',"Spring Skills Updated!" );
+      $user->notify(new \App\Notifications\SkillsUpdated($skills));
+      return back();
+    }
 }
