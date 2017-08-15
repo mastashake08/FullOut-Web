@@ -21,7 +21,7 @@
                         @foreach($messages['sent'] as $message)
                         <tr>
                           <td>{{$message->sender->name}}</td>
-                          <td>{{$message->receiver->name}}</td>
+                          <td><a href="{{url('/user/'.$message->receiver->id)}}" target="_blank">{{$message->receiver->name}}</a></td>
                           <td><p>{{$message->message}} <a href="" class="btn btn-info pull-right">Reply</a></p> </td>
                         </tr>
                         @endforeach
@@ -29,7 +29,7 @@
                     </table>
                   </div>
                   {!! $messages['sent']->links() !!}
-          
+
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
                       <tbody>
                         @foreach($messages['received'] as $message)
                         <tr>
-                          <td>{{$message->sender->name}}</td>
+                          <td><a href="{{url('/user/'.$message->sender->id)}}" target="_blank">{{$message->sender->name}}</a></td>
                           <td>{{$message->receiver->name}}</td>
                           <td><p>{{$message->message}} <a href="" class="btn btn-info pull-right">Reply</a></p> </td>
                         </tr>
