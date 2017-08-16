@@ -92,9 +92,7 @@ class SkillController extends Controller
       $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
       $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
       $skills = json_encode($request->skills);
-
-      $user = auth()->user();
-      $user->skillSet()->update([
+      $attr = [
         'spring_floor_tumbling_skills' => $skills,
         'basic_standing_spring' => $basic_standing_spring,
         'basic_running_spring' => $basic_running_spring,
@@ -104,7 +102,12 @@ class SkillController extends Controller
         'elite_running_spring' => $elite_running_spring,
         'team_id' => $request->team_id,
         'user_id' => $user->id
-      ]);
+      ];
+      $user = auth()->user();
+      if($user->skillSet == null){
+        $user->skillSet()->create($attr);
+      }
+      $user->skillSet()->update($attr);
       $user->skillSet->save();
 
       $request->session()->flash('success',"Spring Skills Updated!" );
