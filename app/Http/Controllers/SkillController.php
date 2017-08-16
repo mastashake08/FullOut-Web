@@ -83,7 +83,7 @@ class SkillController extends Controller
     }
 
     public function springSkills(Request $request){
-
+      $user = auth()->user();
       $skills = $request->skills;
       $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
       $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
@@ -103,7 +103,7 @@ class SkillController extends Controller
         'team_id' => $request->team_id,
         'user_id' => $user->id
       ];
-      $user = auth()->user();
+
       if($user->skillSet == null){
         $user->skillSet()->create($attr);
       }
