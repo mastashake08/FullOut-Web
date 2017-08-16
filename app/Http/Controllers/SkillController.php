@@ -107,9 +107,10 @@ class SkillController extends Controller
       if($user->skillSet == null){
         $user->skillSet()->create($attr);
       }
+      else{
       $user->skillSet()->update($attr);
       $user->skillSet->save();
-
+      }
       $request->session()->flash('success',"Spring Skills Updated!" );
       $user->notify(new \App\Notifications\SkillsUpdated($skills));
       return back();
