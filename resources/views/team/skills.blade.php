@@ -393,6 +393,7 @@
                 <div class="panel-heading">Group Stunting</div>
                 <div class="panel-body ">
                   <form class="form" method="post" action="{{url('/coach/skills/group')}}" role="form">
+                    {{csrf_field()}}
                     <input type="hidden" name="team_id" value="{{$team->id}}"/>
                     <fieldset>
                       <legend>Basic</legend>
@@ -661,6 +662,7 @@
                 <div class="panel-heading">Coed Stunting</div>
                 <div class="panel-body ">
                   <form class="form" method="post" action="{{url('/coach/skills/coed')}}"role="form">
+                    {{csrf_field()}}
                     <input type="hidden" name="team_id" value="{{$team->id}}"/>
                     <fieldset>
                       <legend>Basic</legend>

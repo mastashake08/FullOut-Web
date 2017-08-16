@@ -113,25 +113,25 @@ class SkillController extends Controller
     }
 
     public function hardSkills(Request $request){
-      dd($request->all());
+
       $skills = $request->skills;
-      $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
-      $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
-      $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['spring_floor_tumbling']['advanced_standing']) : 0;
-      $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['spring_floor_tumbling']['advanced_running']) : 0;
-      $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
-      $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
+      $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['hard_floor_tumbling']['basic_standing']) : 0;
+      $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['hard_floor_tumbling']['basic_running']) : 0;
+      $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['hard_floor_tumbling']['advanced_standing']) : 0;
+      $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['hard_floor_tumbling']['advanced_running']) : 0;
+      $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['hard_floor_tumbling']['elite_standing']) : 0;
+      $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['hard_floor_tumbling']['elite_running']) : 0;
       $skills = json_encode($request->skills);
 
       $user = auth()->user();
       $user->skillSet()->update([
-        'spring_floor_tumbling_skills' => $skills,
-        'basic_standing_spring' => $basic_standing_spring,
-        'basic_running_spring' => $basic_running_spring,
-        'advanced_standing_spring' => $advanced_standing_spring,
-        'advanced_running_spring' => $advanced_running_spring,
-        'elite_standing_spring' => $elite_standing_spring,
-        'elite_running_spring' => $elite_running_spring,
+        'hard_floor_tumbling_skills' => $skills,
+        'basic_standing_hardwood' => $basic_standing_spring,
+        'basic_running_hardwood' => $basic_running_spring,
+        'advanced_standing_hardwood' => $advanced_standing_spring,
+        'advanced_running_hardwood' => $advanced_running_spring,
+        'elite_standing_hardwood' => $elite_standing_spring,
+        'elite_running_hardwood' => $elite_running_spring,
         'team_id' => $request->team_id,
         'user_id' => $user->id
       ]);
@@ -143,25 +143,14 @@ class SkillController extends Controller
     }
 
     public function groupSkills(Request $request){
-      dd($request->all());
+
       $skills = $request->skills;
-      $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
-      $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
-      $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['spring_floor_tumbling']['advanced_standing']) : 0;
-      $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['spring_floor_tumbling']['advanced_running']) : 0;
-      $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
-      $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
+
       $skills = json_encode($request->skills);
 
       $user = auth()->user();
       $user->skillSet()->update([
-        'spring_floor_tumbling_skills' => $skills,
-        'basic_standing_spring' => $basic_standing_spring,
-        'basic_running_spring' => $basic_running_spring,
-        'advanced_standing_spring' => $advanced_standing_spring,
-        'advanced_running_spring' => $advanced_running_spring,
-        'elite_standing_spring' => $elite_standing_spring,
-        'elite_running_spring' => $elite_running_spring,
+        'group_stunting_skills' => $skills,
         'team_id' => $request->team_id,
         'user_id' => $user->id
       ]);
@@ -173,25 +162,12 @@ class SkillController extends Controller
     }
 
     public function coedSkills(Request $request){
-      dd($request->all());
       $skills = $request->skills;
-      $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
-      $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
-      $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['spring_floor_tumbling']['advanced_standing']) : 0;
-      $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['spring_floor_tumbling']['advanced_running']) : 0;
-      $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
-      $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
       $skills = json_encode($request->skills);
 
       $user = auth()->user();
       $user->skillSet()->update([
-        'spring_floor_tumbling_skills' => $skills,
-        'basic_standing_spring' => $basic_standing_spring,
-        'basic_running_spring' => $basic_running_spring,
-        'advanced_standing_spring' => $advanced_standing_spring,
-        'advanced_running_spring' => $advanced_running_spring,
-        'elite_standing_spring' => $elite_standing_spring,
-        'elite_running_spring' => $elite_running_spring,
+        'coed_stunting_skills' => $skills,
         'team_id' => $request->team_id,
         'user_id' => $user->id
       ]);
