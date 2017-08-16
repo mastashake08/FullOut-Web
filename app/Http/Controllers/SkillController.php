@@ -83,7 +83,7 @@ class SkillController extends Controller
     }
 
     public function springSkills(Request $request){
-      dd($request->all());
+
       $skills = $request->skills;
       $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
       $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
