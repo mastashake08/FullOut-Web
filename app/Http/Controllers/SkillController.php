@@ -91,7 +91,7 @@ class SkillController extends Controller
       $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['spring_floor_tumbling']['advanced_running']) : 0;
       $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
       $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
-      $skills = json_encode($request->skills);
+      //$skills = json_encode($request->skills);
       $attr = [
         'spring_floor_tumbling_skills' => $skills,
         'basic_standing_spring' => $basic_standing_spring,
