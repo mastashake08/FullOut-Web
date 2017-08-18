@@ -84,7 +84,7 @@ class SkillController extends Controller
 
     public function springSkills(Request $request){
       $user = auth()->user();
-      $skills = $request->skills;
+      $skills = $request->skills->toJson();
       $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
       $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
       $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['spring_floor_tumbling']['advanced_standing']) : 0;
