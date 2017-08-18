@@ -71,7 +71,7 @@ class TeamController extends Controller
           'team' => collect($team->skillSet),
           'cheerleader' =>collect((auth()->user()->skillSet))
         ];
-        dd($team->skillSet);
+        dd(json_decode($team->skillSet->spring_floor_tumbling));
         $teamSkills = collect($team->skillSet->spring_floor_tumbling_skills['spring_floor_tumbling']);
         $userSkills = collect(auth()->user()->skillSet->spring_floor_tumbling_skills['spring_floor_tumbling']);
         $teamSkillsCount = $teamSkills->count();
