@@ -20,19 +20,19 @@
                       <input type="hidden" name="team_id" value="{{$team->id}}"/>
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][round_off]">Round Off</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][round_off]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_running']['round_off']))checked @endif>Round Off</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][backhand_spring]">Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][backhand_spring]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_running']['backhand_spring']))checked @endif>Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][front_walk_over]">Front Walk Over</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][front_walk_over]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_running']['front_walk_over']))checked @endif>Front Walk Over</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][round_off_2_backhand_spring]">Round Off, 2 Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][round_off_2_backhand_spring]"@if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_running']['round_off_2_backhand_spring']))checked @endif>Round Off, 2 Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][round_off_3_backhand_spring]">Round Off, 3 Backhand Spring</label>
+                          <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][round_off_3_backhand_spring]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_running']['round_off_3_backhand_spring']))checked @endif>Round Off, 3 Backhand Spring</label>
                         </div>
                         <div class="checkbox">
                           <label><input class="basic-running-spring" type="checkbox" id="checkAllRunning">Check All</label>
@@ -44,13 +44,13 @@
 
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="basic-standing-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_standing][bhs]">Basic BackHand Spring</label>
+                          <label><input class="basic-standing-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_standing][bhs]"  @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_standing']['bhs']))checked @endif>Basic BackHand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="basic-standing-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_standing][2_bhs]">2 Basic BackHand Spring</label>
+                          <label><input class="basic-standing-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_standing][2_bhs]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_standing']['2_bhs']))checked @endif>2 Basic BackHand Spring</label>
                         </div>
                         <div class="checkbox">
-                        <label><input class="basic-standing-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_standing][3_bhs]">3 or More Basic BackHand Spring</label>
+                        <label><input class="basic-standing-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_standing][3_bhs]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_standing']['3_bhs']))checked @endif>3 or More Basic BackHand Spring</label>
                         </div>
                         <div class="checkbox">
                           <label><input class="basic-standing-spring" type="checkbox" id="checkAllStanding">Check All</label>
@@ -60,10 +60,10 @@
                       <legend>Advanced Running</legend>
                       <div class="form-group">
                         <div class="checkbox">
-                          <label><input class="advanced-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][advanced_running][round_off_tuck]">Round Off, Tuck</label>
+                          <label><input class="advanced-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][advanced_running][round_off_tuck]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['advanced_running']['round_off_tuck']))checked @endif>Round Off, Tuck</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="advanced-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][advanced_running][round_off_bhs_tuck]">Round Off, Backhand Spring, Tuck</label>
+                          <label><input class="advanced-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][advanced_running][round_off_bhs_tuck]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['advanced_running']['round_off_bhs_tuck']))checked @endif>Round Off, Backhand Spring, Tuck</label>
                         </div>
                         <div class="checkbox">
                           <label><input class="advanced-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][advanced_running][round_off_bhs_tuck_2_bhs]">Round Off, Backhand Spring, Tuck, 2x Backhand Spring, Tuck</label>

@@ -50,7 +50,7 @@ class TeamSkillController extends Controller
         $team = \App\Team::findOrFail($id);
         $with = [
           'team' => $team,
-          'skills' => json_decode($team->skillSet)
+          'skills' => $team->skillSet
         ];
         return view('team.skills')->with($with);
     }
@@ -64,7 +64,7 @@ class TeamSkillController extends Controller
     public function edit($id)
     {
         //
-      
+
     }
 
     /**

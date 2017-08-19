@@ -104,7 +104,6 @@ class SkillController extends Controller
         'team_id' => $request->team_id,
         'user_id' => $user->id
       ];
-      var_dump($attr);
       if($user->skillSet == null){
         $user->skillSet()->create($attr);
       }
@@ -112,8 +111,6 @@ class SkillController extends Controller
       $user->skillSet()->update($attr);
       $user->skillSet->save();
     }
-      var_dump($user->skillSet);
-      exit();
       $request->session()->flash('success',"Spring Skills Updated!" );
       $user->notify(new \App\Notifications\SkillsUpdated($skills));
       return back();
