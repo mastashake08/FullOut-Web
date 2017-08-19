@@ -66,24 +66,43 @@ class TeamController extends Controller
     {
         //
         $canMessage = false;
+        $user = auth()->user();
         $team = Team::findOrFail($id);
         $debug = [
           'team' => collect($team->skillSet),
           'cheerleader' =>collect((auth()->user()->skillSet))
         ];
-        $teamSkills = collect($team->skillSet->spring_floor_tumbling_skills['spring_floor_tumbling']);
-        $userSkills = collect(auth()->user()->skillSet->spring_floor_tumbling_skills['spring_floor_tumbling']);
-        $teamSkillsCount = $teamSkills->count();
-        $userSkillsCount = $userSkills->count();
+        $teamSpring = collect($team->skillSet->spring_floor_tumbling_skills);
+        $userSpring = collect($user->skillSet->spring_floor_tumbling_skills);
+        $teamHard = collect($team->skillSet->hard_floor_tumbling_skills);
+        $userHard = collect($user->skillSet->hard_floor_tumbling_skills);
+        $teamGroup = collect($team->skillSet->group_stunting_skills);
+        $userGroup = collect($user->skillSet->group_stunting_skills);
+        $teamCoed = collect($team->skillSet->coed_stunting_skills);
+        $userCoed = collect($team->skillSet->coed_stunting_skills);
+        $teamSpringCount = $teamSpring->count();
+        $userSpringCount = $userSpring->count();
+        $teamHardCount = $teamHard->count();
+        $userHardCount = $userHard->count();
+        $teamGroupCount = $teamGroup->count();
+        $userGroupCount = $userGroup->count();
+        $teamCoedCount = $teamCoed->count();
+        $userCoedCount = $userCoed->count();
 
-        if($userSkillsCount/$teamSkillsCount > 0.7){
+        if(($userSpringCount + $userHardCount + $userGroupCount + $userCoedCount)/($teamSpringCount + $teamHardCount + $teamGroupCount + $teamCoedCount) > 0.7){
           $canMessage = true;
         }
 
         $with = [
           'team' => $team,
-          'teamSkills' => $teamSkills,
-          'userSkills' => $userSkills,
+          'teamSpring' => $teamSpring,
+          'teamHard' => $teamHard,
+          'teamCoed' => $teamCoed,
+          'teamGroup' => $teamGroup,
+          'userSpring' => $userSpring,
+          'userHard' => $userHard,
+          'userGroup' => $userGroup,
+          'userCoed' => $userCoed,
           'canMessage' => $canMessage,
 
         ];
