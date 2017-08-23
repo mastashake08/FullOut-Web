@@ -400,19 +400,19 @@
                       <h2>Group Stunting </h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="basic-group-stunting" type="checkbox"  name="skills['group_stunting']['basic']['group_stunting']['show_and_go']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['group_stunting']['front_tuck_round_off_bhs_double']))checked @endif>Show and Go</label>
+                        <label><input class="basic-group-stunting" type="checkbox"  name="skills[group_stunting][basic][group_stunting][show_and_go]" @if(isset($skills->group_stunting_skills['group_stunting']['basic']['group_stunting']['show_and_go']))checked @endif>Show and Go</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-group-stunting" type="checkbox"  name="skills['group_stunting']['basic']['group_stunting']['extension']" @if(isset($skills->spring_floor_tumbling_skills['hard_floor_tumbling']['group_stunting']['front_tuck_round_off_bhs_double']))checked @endif>Extension</label>
+                        <label><input class="basic-group-stunting" type="checkbox"  name="skills['group_stunting']['basic']['group_stunting']['extension']" @if(isset($skills->group_stunting_skills['group_stunting']['basic']['group_stunting']['extension']))checked @endif>Extension</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-group-stunting" type="checkbox"  name="skills['group_stunting']['basic']['group_stunting']['power_press']" @if(isset($skills->spring_floor_tumbling_skills['hard_floor_tumbling']['group_stunting']['front_tuck_round_off_bhs_double']))checked @endif>Power Press</label>
+                        <label><input class="basic-group-stunting" type="checkbox"  name="skills['group_stunting']['basic']['group_stunting']['power_press']" @if(isset($skills->group_stunting_skills['group_stunting']['basic']['group_stunting']['power_press']))checked @endif>Power Press</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-group-stunting" type="checkbox"  name="skills['group_stunting']['basic']['group_stunting']['prep_level_liberty']" @if(isset($skills->spring_floor_tumbling_skills['hard_floor_tumbling']['group_stunting']['front_tuck_round_off_bhs_double']))checked @endif>Prep Level Liberty</label>
+                        <label><input class="basic-group-stunting" type="checkbox"  name="skills[group_stunting][basic][group_stunting][prep_level_liberty]" @if(isset($skills->group_stunting_skills[group_stunting][basic][group_stunting][prep_level_liberty]))checked @endif>Prep Level Liberty</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-group-stunting" type="checkbox"  name="skills['group_stunting']['basic']['group_stunting']['extended_level_liberty']" @if(isset($skills->spring_floor_tumbling_skills['hard_floor_tumbling']['group_stunting']['front_tuck_round_off_bhs_double']))checked @endif>Extended Level Liberty</label>
+                        <label><input class="basic-group-stunting" type="checkbox"  name="skills[group_stunting][basic][group_stunting][extended_level_liberty]" @if(isset($skills->group_stunting_skills['group_stunting']['basic']['group_stunting']['extended_level_liberty']))checked @endif>Extended Level Liberty</label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-group-stunting" type="checkbox">Mark All</label>
@@ -420,10 +420,10 @@
                       <h2>Stationary Group Stunting</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="basic-stationary-group-stunting" type="checkbox"  name="skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Prep Level 1/2 Twist Up</label>
+                        <label><input class="basic-stationary-group-stunting" type="checkbox"  name="skills[group_stunting][basic][stationary_group_stuntung][prep_level_half_twist_up]" @if(isset($skills->group_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Prep Level 1/2 Twist Up</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-stationary-group-stunting" type="checkbox"  name="skills['group_stunting']['basic']['stationary_group_stuntung']['extended_level_half_twist_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Extended Level 1/2 Twist Up</label>
+                        <label><input class="basic-stationary-group-stunting" type="checkbox"  name="skills[group_stunting][basic][stationary_group_stuntung][extended_level_half_twist_up]" @if(isset($skills->group_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['extended_level_half_twist_up']))checked @endif>Extended Level 1/2 Twist Up</label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
@@ -435,19 +435,19 @@
                       <hr>
 
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['prep_level']['switch_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Switch Up</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][switch_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['prep_level']['switch_up']))checked @endif>Switch Up</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['prep_level']['full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Up (Semi Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['prep_level']['full_up']))checked @endif>Full Up (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['prep_level']['one_half_full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][one_half_full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['prep_level']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['prep_level']['double_ups']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Double Ups</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][double_ups]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['prep_level']['one_half_full_up']))checked @endif>Double Ups</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['prep_level']['full_twisting_switch_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][full_twisting_switch_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['prep_level']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
@@ -456,19 +456,19 @@
                       <hr>
 
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Switch Up</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][switch_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Up (Semi Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][one_half_full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Double Ups</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][double_ups]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
+                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
@@ -477,19 +477,19 @@
                       <hr>
 
                       <div class="checkbox">
-                        <label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Switch Up</label>
+                        <label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Up (Semi Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Double Ups</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
+                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
@@ -498,19 +498,19 @@
                       <hr>
 
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Switch Up</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][switch_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Up (Semi Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][one_half_full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Double Ups</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][double_ups]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
+                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
@@ -519,19 +519,19 @@
                       <hr>
 
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Switch Up</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][switch_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Up (Semi Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][one_half_full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Double Ups</label>
+                        <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][double_ups]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
+                        <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-stationary-group-stunting" type="checkbox">Mark All</label>
@@ -541,25 +541,25 @@
                       <legend>Elite</legend>
                       <h2>2 Based Stunts</h2>
                       <div class="checkbox">
-                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['prep']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Prep</label>
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][prep]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['prep']))checked @endif>Prep</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['extension']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Extension</label>
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][extension]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['extension']))checked @endif>Extension</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['extended_level_liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Extended Level Liberty</label>
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][extended_level_liberty]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['extended_level_liberty']))checked @endif>Extended Level Liberty</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['one_handed_cupie_or_awesome']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>One Handed Cupie or Awesome</label>
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][one_handed_cupie_or_awesome]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['one_handed_cupie_or_awesome']))checked @endif>One Handed Cupie or Awesome</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Up<label>
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['full_up']))checked @endif>Full Up<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['low_to_high_full_around']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Low to High Full Around (Semi Releasing)</label>
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][low_to_high_full_around]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['low_to_high_full_around']))checked @endif>Low to High Full Around (Semi Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['2_based_stunts']['high_to_high_full_around']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>High to High Full Around (Semi Releasing)<label>
+                        <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][high_to_high_full_around]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['high_to_high_full_around']))checked @endif>High to High Full Around (Semi Releasing)<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="elite-2-based-stunts-group-stunting" type="checkbox">Mark All</label>
@@ -567,16 +567,16 @@
                       <h2>Flipping Group Stunting</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['flipping_group_stunting']['rewind']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Rewind<label>
+                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][rewind]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['rewind']))checked @endif>Rewind<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['flipping_group_stunting']['platform']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Platform<label>
+                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][platform]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['platform']))checked @endif>Platform<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['flipping_group_stunting']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][liberty]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['flipping_group_stunting']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][stretch]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="elite-flipping-stunts-group-stunting" type="checkbox">Mark All</label>
@@ -584,16 +584,16 @@
                       <h2>Front Hand Spring Up</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['front_hand_spring_up']['platform']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Platform<label>
+                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][platform]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['platform']))checked @endif>Platform<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['front_hand_spring_up']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][liberty]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['front_hand_spring_up']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][stretch]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['front_hand_spring_up']['1_and_half_twisting_full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>1 & 1/2 Twisting Full Up<label>
+                        <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][1_and_half_twisting_full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['1_and_half_twisting_full_up']))checked @endif>1 & 1/2 Twisting Full Up<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox">Mark All</label>
@@ -601,16 +601,16 @@
                       <h2>Back Hand Spring Up</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['back_hand_spring_up']['platform']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Platform<label>
+                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][platform]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['platform']))checked @endif>Platform<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['back_hand_spring_up']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][liberty]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['back_hand_spring_up']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][stretch]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['back_hand_spring_up']['full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Up<label>
+                        <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['full_up']))checked @endif>Full Up<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox">Mark All</label>
@@ -618,16 +618,16 @@
                       <h2>Hand in Hand</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['hand_in_hand']['platform']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Platform<label>
+                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][platform]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['platform']))checked @endif>Platform<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['hand_in_hand']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][liberty]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['hand_in_hand']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][stretch]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['hand_in_hand']['full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Up<label>
+                        <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['full_up']))checked @endif>Full Up<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="elite-hand-in-hand-group-stunting" type="checkbox">Mark All</label>
@@ -635,16 +635,16 @@
                       <h2>Extended Hand in Hand</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['extended_hand_in_hand']['platform']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Platform<label>
+                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][platform]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['platform']))checked @endif>Platform<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['extended_hand_in_hand']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][liberty]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['extended_hand_in_hand']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][stretch]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills['group_stunting']['elite']['extended_hand_in_hand']['full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Full Up<label>
+                        <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][full_up]" @if(isset($skills->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['full_up']))checked @endif>Full Up<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox">Mark All</label>
@@ -669,16 +669,16 @@
                       <h2>Walk-in</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['walk_in']['hands']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Hands<label>
+                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][hands]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['walk_in']['hands']))checked @endif>Hands<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['walk_in']['extension']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Extension<label>
+                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][extension]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['walk_in']['extension']))checked @endif>Extension<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['walk_in']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][liberty]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['walk_in']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['walk_in']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][stretch]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['walk_in']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-walk-in-coed-stunting" type="checkbox">Mark All</label>
@@ -686,16 +686,16 @@
                       <h2>Toss</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['toss']['hands']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Hands<label>
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][hands]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['toss']['hands']))checked @endif>Hands<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['toss']['extension']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Extension<label>
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][extension]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['toss']['extension']))checked @endif>Extension<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['toss']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][liberty]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['toss']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['toss']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][stretch]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['toss']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-toss-coed-stunting" type="checkbox">Mark All</label>
@@ -703,16 +703,16 @@
                       <h2>From Hands</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['from_hands']['hands']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Hands<label>
+                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][hands]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['from_hands']['hands']))checked @endif>Hands<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['from_hands']['extension']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Extension<label>
+                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][extension]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['from_hands']['extension']))checked @endif>Extension<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['from_hands']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][liberty]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['from_hands']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills['coed_stunting']['basic']['from_hands']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][stretch]" @if(isset($skills->coed_stunting_skills['coed_stunting']['basic']['from_hands']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-from-hands-coed-stunting" type="checkbox">Mark All</label>
@@ -723,16 +723,16 @@
                       <h2>One Arm</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['one_arm']['hands']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Hands<label>
+                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][hands]" @if(isset($skills->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['hands']))checked @endif>Hands<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['one_arm']['extension']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Extension<label>
+                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][extension]" @if(isset($skills->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['extension']))checked @endif>Extension<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['one_arm']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][liberty]" @if(isset($skills->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['one_arm']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][stretch]" @if(isset($skills->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="advanced-one-arm-coed-stunting" type="checkbox">Mark All</label>
@@ -740,16 +740,16 @@
                       <h2>Full Up</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="advanced-full-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['full_up']['hands']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Hands<label>
+                        <label><input class="advanced-full-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][hands]" @if(isset($skills->coed_stunting_skills['coed_stunting']['advanced']['full_up']['hands']))checked @endif>Hands<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['full_up']['extension']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Extension<label>
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][extension]" @if(isset($skills->coed_stunting_skills['coed_stunting']['advanced']['full_up']['extension']))checked @endif>Extension<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['full_up']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][liberty]" @if(isset($skills->coed_stunting_skills['coed_stunting']['advanced']['full_up']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills['coed_stunting']['advanced']['full_up']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][stretch]" @if(isset($skills->coed_stunting_skills['coed_stunting']['advanced']['full_up']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="basic-toss-coed-stunting" type="checkbox">Mark All</label>
@@ -759,63 +759,63 @@
                       <legend>Dismounts</legend>
                       <h2>Full Down</h2>
                       <div class="checkbox">
-                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['prep']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Prep<label>
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][prep]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['prep']))checked @endif>Prep<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['extension']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Extension<label>
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][extension]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['extension']))checked @endif>Extension<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][liberty]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][stretch]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['scorpion']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Scorpion<label>
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][scorpion]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['scorpion']))checked @endif>Scorpion<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['full_down']['scale']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Scale<label>
+                        <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][scale]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['scale']))checked @endif>Scale<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="dismounts-full-down-coed-stunting" type="checkbox">Mark All</label>
                       </div>
                       <h2>Double Down</h2>
                       <div class="checkbox">
-                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['prep']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Prep<label>
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][prep]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['prep']))checked @endif>Prep<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['extension']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Extension<label>
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][extension]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['extension']))checked @endif>Extension<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][liberty]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][stretch]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['scorpion']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Scorpion<label>
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][scorpion]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['scorpion']))checked @endif>Scorpion<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['double_down']['scale']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Scale<label>
+                        <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][scale]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['scale']))checked @endif>Scale<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="dismounts-double-down-coed-stunting" type="checkbox">Mark All</label>
                       </div>
                       <h2>Other</h2>
                       <div class="checkbox">
-                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['other']['low_to_high_tic_toc']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Low to High Tic Toc<label>
+                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][low_to_high_tic_toc]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['other']['low_to_high_tic_toc']))checked @endif>Low to High Tic Toc<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['other']['high_to_high_tic_toc']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>High to High Tic Toc<label>
+                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other'][high_to_high_tic_toc]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['other']['high_to_high_tic_toc']))checked @endif>High to High Tic Toc<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['other']['low_to_high_full_around']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Low to High Full Around<label>
+                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][low_to_high_full_around]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['other']['low_to_high_full_around']))checked @endif>Low to High Full Around<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['other']['high_to_high_full_around']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>High to High Full Around<label>
+                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][high_to_high_full_around]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['other']['high_to_high_full_around']))checked @endif>High to High Full Around<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills['coed_stunting']['dismounts']['other']['hands_full_around']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Hands Full Around<label>
+                        <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][hands_full_around]" @if(isset($skills->coed_stunting_skills['coed_stunting']['dismounts']['other']['hands_full_around']))checked @endif>Hands Full Around<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="dismounts-other-coed-stunting" type="checkbox">Mark All</label>
@@ -826,38 +826,38 @@
                       <h2>Flipping Coed Stunting</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['rewind']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Rewind<label>
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][rewind]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['rewind']))checked @endif>Rewind<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['platform']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Platform<label>
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting]['platform']" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['platform']))checked @endif>Platform<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][liberty]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][stretch]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['cupie']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Cupie<label>
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][cupie]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['cupie']))checked @endif>Cupie<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['flipping_coed_stunting']['1_and_half_twisting_full_up']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>1 & 1/2 Twisting Full Up<label>
+                        <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][1_and_half_twisting_full_up]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['1_and_half_twisting_full_up']))checked @endif>1 & 1/2 Twisting Full Up<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="elite-flipping-coed-stunting" type="checkbox">Mark All</label>
                       </div>
                       <h2>Front Hand Spring Up</h2>
                       <div class="checkbox">
-                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['platform']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Platform<label>
+                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['platform']" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['platform']))checked @endif>Platform<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['liberty']" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['stretch']" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['cupie']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Cupie<label>
+                        <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['cupie']" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['cupie']))checked @endif>Cupie<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox">Mark All</label>
@@ -866,16 +866,16 @@
                       <h2>Back Hand Spring Up</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['back_hand_spring_up']['platform']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Platform<label>
+                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][platform]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['platform']))checked @endif>Platform<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['back_hand_spring_up']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][liberty]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['back_hand_spring_up']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][stretch]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['back_hand_spring_up']['cupie']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Cupie<label>
+                        <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][cupie]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['cupie']))checked @endif>Cupie<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox">Mark All</label>
@@ -883,16 +883,16 @@
                       <h2>Hand in Hand</h2>
                       <hr>
                       <div class="checkbox">
-                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['hand_in_hand']['platform']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Platform<label>
+                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][platform]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['platform']))checked @endif>Platform<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['hand_in_hand']['liberty']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Liberty<label>
+                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][liberty]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['liberty']))checked @endif>Liberty<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['hand_in_hand']['stretch']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Stretch<label>
+                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][stretch]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['stretch']))checked @endif>Stretch<label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['hand_in_hand']['cupie']" @if(isset($skills->spring_floor_tumbling_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Cupie<label>
+                        <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][cupie]" @if(isset($skills->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['cupie']))checked @endif>Cupie<label>
                       </div>
                       <div class="checkbox">
                         <label><input class="elite-hand-hand-coed-stunting" type="checkbox">Mark All</label>
