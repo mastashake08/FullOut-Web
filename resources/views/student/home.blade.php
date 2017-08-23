@@ -17,7 +17,7 @@
                     {{csrf_field()}}
                     <fieldset>
                       <legend>Basic Running</legend>
-                      <input type="hidden" name="team_id" value=""/>
+                      
                       <div class="form-group">
                         <div class="checkbox">
                           <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][round_off]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_running']['round_off']))checked @endif>Round Off</label>
@@ -203,7 +203,7 @@
                 <div class="panel-heading">Hard Floor Tumbling</div>
                 <div class="panel-body">
                   <form class="form" method="post" action="{{url('/cheerleader/skills/hard')}}" role="form">
-                    <input type="hidden" name="team_id" value=""/>
+
                     {{csrf_field()}}
                     <fieldset>
                       <legend>Basic Running</legend>
@@ -394,7 +394,7 @@
                 <div class="panel-body ">
                   <form class="form" method="post" action="{{url('/cheerleader/skills/group')}}" role="form">
                     {{csrf_field()}}
-                    <input type="hidden" name="team_id" value=""/>
+
                     <fieldset>
                       <legend>Basic</legend>
                       <h2>Group Stunting </h2>
@@ -663,7 +663,7 @@
                 <div class="panel-body ">
                   <form class="form" method="post" action="{{url('/cheerleader/skills/coed')}}"role="form">
                     {{csrf_field()}}
-                    <input type="hidden" name="team_id" value=""/>
+
                     <fieldset>
                       <legend>Basic</legend>
                       <h2>Walk-in</h2>
