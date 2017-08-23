@@ -35,7 +35,7 @@
                           <label><input class="basic-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_running][round_off_3_backhand_spring]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_running']['round_off_3_backhand_spring']))checked @endif>Round Off, 3 Backhand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="checkAll(this,'basic-running-spring')" type="checkbox" id="checkAllRunning">Mark All</label>
+                          <label><input onclick="checkAll(this,'basic-running-spring')" type="checkbox" id="checkAllRunning">Mark All</label>
                         </div>
                       </div>
                     </fieldset>
@@ -53,7 +53,7 @@
                         <label><input class="basic-standing-spring" type="checkbox"  name="skills[spring_floor_tumbling][basic_standing][3_bhs]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['basic_standing']['3_bhs']))checked @endif>3 or More Basic BackHand Spring</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="checkAll(this,'basic-standing-spring')" type="checkbox" id="checkAllStanding">Mark All</label>
+                          <label><input onclick="checkAll(this,'basic-standing-spring')" type="checkbox" id="checkAllStanding">Mark All</label>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -78,7 +78,7 @@
                           <label><input class="advanced-running-spring" type="checkbox"  name="skills[spring_floor_tumbling][advanced_running][round_off_bhs_whip_2_bhs_layout]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['advanced_running']['round_off_bhs_whip_2_bhs_layout']))checked @endif>Round Off, Backhand Spring, Whip, 2x Backhand Spring, Layout</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="checkAll(this,'advanced-running-spring')" type="checkbox" id="checkAllStanding">Mark All</label>
+                          <label><input onclick="checkAll(this,'advanced-running-spring')" type="checkbox" id="checkAllStanding">Mark All</label>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -109,7 +109,7 @@
                           <label><input class="advanced-standing-spring" type="checkbox"  name="skills[spring_floor_tumbling][advanced_standing][tuck_2_bhs_layout]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['advanced_standing']['tuck_2_bhs_layout']))checked @endif>Tuck, 2x Backhand Spring, Layout</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="checkAll(this,'advanced-standing-spring')" type="checkbox" id="checkAllAdvanceStanding">Mark All</label>
+                          <label><input onclick="checkAll(this,'advanced-standing-spring')" type="checkbox" id="checkAllAdvanceStanding">Mark All</label>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -187,7 +187,7 @@
                           <label><input class="elite-standing-spring" type="checkbox"  name="skills[spring_floor_tumbling][elite_standing][3_bhs_whip_double]" @if(isset($skills->spring_floor_tumbling_skills['spring_floor_tumbling']['elite_standing']['3_bhs_whip_double']))checked @endif>3 Backhand Spring, Whip, Double</label>
                         </div>
                         <div class="checkbox">
-                          <label><input class="checkAll(this,'elite-standing-spring')" type="checkbox" id="checkAllEliteStanding">Mark All</label>
+                          <label><input onclick="checkAll(this,'elite-standing-spring')" type="checkbox" id="checkAllEliteStanding">Mark All</label>
                         </div>
                       </div>
                     </fieldset>
@@ -471,7 +471,7 @@
                         <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="checkAll(this,'basic-stationary-group-stunting')" type="checkbox">Mark All</label>
+                        <label><input onclick="checkAll(this,'basic-stationary-group-stunting')" type="checkbox">Mark All</label>
                       </div>
                       <h2>Full Down Dismount</h2>
                       <hr>
@@ -513,7 +513,7 @@
                         <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset($skills->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
                       </div>
                       <div class="checkbox">
-                        <label><input class="checkAll(this,'advance-extended-group-stunting')" type="checkbox">Mark All</label>
+                        <label><input onclick="checkAll(this,'advance-extended-group-stunting')" type="checkbox">Mark All</label>
                       </div>
                       <h2>Other Dismount</h2>
                       <hr>
