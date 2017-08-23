@@ -73,6 +73,7 @@
                               <select class="form-control" name="type">
                                 <option value="student">Student</option>
                                 <option value="coach">Coach</option>
+                                <option value="instructor">Private Instructor</option>
                               </select>
 
                                 @if ($errors->has('type'))

@@ -59,3 +59,7 @@ Route::post('api/save-subscription','NotificationController@webPush');
 Route::get('test-webpush','NotificationController@sendTest');
 Route::get('/send-message/{id}','MessageController@getSendMessageView');
 Route::resource('/message','MessageController');
+
+Route::group(['prefix' => 'oauth'],function(){
+  Route::get('redirect','StripeController@handleRedirect');
+});
