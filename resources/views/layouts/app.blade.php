@@ -167,7 +167,7 @@
             </div>
         @endif
       </div>
-      <div id="app">
+      <div id="fullout">
         @yield('content')
     </div>
   </div>
