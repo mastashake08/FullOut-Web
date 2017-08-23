@@ -26,7 +26,6 @@ class StripeController extends Controller
       $user = auth()->user();
       $user->stripe_account_id = $result["stripe_user_id"];
       $user->save();
-      dd($user);
 
     }
 }
