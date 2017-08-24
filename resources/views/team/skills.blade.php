@@ -4,9 +4,9 @@
 <div class="container">
   <div class="row">
       <div class="col-md-8 col-md-offset-2">
-          <div class="panel panel-default">
-              <div class="panel-heading">Team Skillset</div>
-
+          <div class="panel panel-success">
+              <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling</a></div>
+              <div id="spring" class="panel-collapse collapse">
               <div class="panel-body">
                   Select the skills your team is looking for, and we will
                   curate a list of potential cheerleader candidates for you!
@@ -197,10 +197,12 @@
             </div>
         </div>
     </div>
+  </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-success">
-                <div class="panel-heading">Hard Floor Tumbling</div>
+                <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling</a></div>
+                <div id="hard" class="panel-collapse collapse">
                 <div class="panel-body">
                   <form class="form" method="post" action="{{url('/coach/skills/hard')}}" role="form">
                     <input type="hidden" name="team_id" value="{{$team->id}}"/>
@@ -387,10 +389,12 @@
             </div>
         </div>
     </div>
+  </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-success">
-                <div class="panel-heading">Group Stunting</div>
+                <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting</a></div>
+                <div id="group" class="panel-collapse collapse">
                 <div class="panel-body ">
                   <form class="form" method="post" action="{{url('/coach/skills/group')}}" role="form">
                     {{csrf_field()}}
@@ -653,13 +657,15 @@
                     <button type="submit" class="btn btn-success">Save Group Stunting Skills</button>
                   </form>
                 </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-success">
-                <div class="panel-heading">Coed Stunting</div>
+                <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting</a></div>
+                <div id="coed" class="panel-collapse collapse">
                 <div class="panel-body ">
                   <form class="form" method="post" action="{{url('/coach/skills/coed')}}"role="form">
                     {{csrf_field()}}
@@ -947,6 +953,7 @@
                     <button class="btn btn-success" type="submit">Save Coed Stunting</button>
                   </form>
               </div>
+            </div>
           </div>
       </div>
   </div>
