@@ -18,9 +18,15 @@
                 Description: {{$team->description}}
                 <br>
                 Team Type: {{$team->team_type}}
+                <br>
+                Your skillset percentage : {{$skillPercentage * 100}}%
                 @if($canMessage)
                 <div class="text-right">
                   <a href="{{url('/send-message/'.$team->id)}}" class="btn btn-info">Contact Head Coach</a>
+                </div>
+                @else
+                <div class="text-right">
+                  <a href="#" data-toggle="tooltip" title="You don't have enough skillset percentage to contact the head coach of this team." class="btn btn-info">Contact Head Coach</a>
                 </div>
                 @endif
                 </div>
@@ -30,9 +36,10 @@
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">{{$team->team_name}}'s Needed Skillset</div>
+            <div class="panel panel-success">
+                <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling</a></div>
 
+                <div id="spring" class="panel-collapse collapse">
                 <div class="panel-body">
                   <form class="form" method="post" action="{{url('/coach/skills/spring')}}" role="form">
                     {{csrf_field()}}
@@ -197,13 +204,16 @@
 
                   </form>
                 </div>
+              </div>
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-success">
-                <div class="panel-heading">Hard Floor Tumbling</div>
+                <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling</a></div>
+                <div id="hard" class="panel-collapse collapse">
                 <div class="panel-body">
                   <form class="form" method="post" action="{{url('/coach/skills/hard')}}" role="form">
                     <input type="hidden" name="team_id" value="{{$team->id}}"/>
@@ -368,13 +378,15 @@
                     </fieldset>
                   </form>
                 </div>
+              </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-success">
-                <div class="panel-heading">Group Stunting</div>
+                <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting</a></div>
+                <div id="group" class="panel-collapse collapse">
                 <div class="panel-body ">
                   <form class="form" method="post" action="{{url('/coach/skills/group')}}" role="form">
                     {{csrf_field()}}
@@ -597,13 +609,15 @@
                     </fieldset>
                   </form>
                 </div>
+              </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-success">
-                <div class="panel-heading">Coed Stunting</div>
+                <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting</a></div>
+                <div id="coed" class="panel-collapse collapse">
                 <div class="panel-body ">
                   <form class="form" method="post" action="{{url('/coach/skills/coed')}}"role="form">
                     {{csrf_field()}}
@@ -850,7 +864,13 @@
                   </form>
                 </div>
             </div>
+          </div>
         </div>
     </div>
 </div>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 @endsection

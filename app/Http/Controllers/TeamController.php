@@ -88,8 +88,8 @@ class TeamController extends Controller
         $userGroupCount = $userGroup->count();
         $teamCoedCount = $teamCoed->count();
         $userCoedCount = $userCoed->count();
-
-        if(($userSpringCount + $userHardCount + $userGroupCount + $userCoedCount)/($teamSpringCount + $teamHardCount + $teamGroupCount + $teamCoedCount) > 0.7){
+        $skillPercentage = ($userSpringCount + $userHardCount + $userGroupCount + $userCoedCount)/($teamSpringCount + $teamHardCount + $teamGroupCount + $teamCoedCount);
+        if($skillPercentage > 0.7){
           $canMessage = true;
         }
 
@@ -104,6 +104,7 @@ class TeamController extends Controller
           'userGroup' => $userGroup,
           'userCoed' => $userCoed,
           'canMessage' => $canMessage,
+          'skillPercentage' => $skillPercentage
 
         ];
         return view('team.individual')->with($with);
