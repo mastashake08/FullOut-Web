@@ -1,6 +1,7 @@
 
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600');
 
 // Variables
 @import "variables";
@@ -10,4 +11,10 @@
 body{
   background-image: $body-bg-img;
   background-size: cover;
+}
+.panel-default > .panel-heading{
+  color:$panel-default-heading-color;
+}
+.navbar-default .navbar-brand {
+    color: $navbar-default-color;
 }

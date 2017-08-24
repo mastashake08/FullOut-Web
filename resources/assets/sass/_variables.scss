@@ -1,5 +1,5 @@
 //Globals
-$baseColor: #E1DCE0;
+$baseColor: #000;
 // Body
 $body-bg: #f5f8fa;
 $body-bg-img: url('../images/cheer6.jpg');
@@ -18,13 +18,14 @@ $brand-warning: #cbb956;
 $brand-danger: #bf5329;
 
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
+$font-family-sans-serif: "Source Sans Pro", sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.6;
 $text-color: #636b6f;
 
 // Navbar
 $navbar-default-bg: $baseColor;
+$navbar-default-color: #fff;
 
 // Buttons
 $btn-default-color: $text-color;
@@ -36,3 +37,4 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: $baseColor;
+$panel-default-heading-color: #fff;

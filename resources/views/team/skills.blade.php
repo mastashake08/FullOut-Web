@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
       <div class="col-md-8 col-md-offset-2">
-          <div class="panel panel-success">
+          <div class="panel panel-default">
               <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling</a></div>
               <div id="spring" class="panel-collapse collapse">
               <div class="panel-body">
@@ -200,7 +200,7 @@
   </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-success">
+            <div class="panel panel-default">
                 <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling</a></div>
                 <div id="hard" class="panel-collapse collapse">
                 <div class="panel-body">
@@ -392,7 +392,7 @@
   </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-success">
+            <div class="panel panel-default">
                 <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting</a></div>
                 <div id="group" class="panel-collapse collapse">
                 <div class="panel-body ">
@@ -663,7 +663,7 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-success">
+            <div class="panel panel-default">
                 <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting</a></div>
                 <div id="coed" class="panel-collapse collapse">
                 <div class="panel-body ">
