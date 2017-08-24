@@ -34,7 +34,7 @@
 								<li><a href="#intro">Intro</a></li>
 								<li><a href="#cheerleader">Cheerleaders</a></li>
 								<li><a href="#gym">Gyms</a></li>
-								<li><a href="#private">Private Instructors</a></li>
+								<li><a href="#private">Instructors</a></li>
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
@@ -63,8 +63,8 @@
 							<article id="intro">
 								<h2 class="major">Intro</h2>
 								<span class="image main"><img src="themes/dimension/images/cheer1.jpg" alt="" /></span>
-								<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+								<p>FullOut is the bridge for  cheerleaders to college coaches, we give customized evaluations of your skills to fit you into your  college program.</p>
+                <p> FullOut is where cheerleaders go to get scholarship. Where anyone can become a college cheerleader!</p>
 							</article>
 
 						<!-- Work -->
