@@ -71,23 +71,42 @@
 							<article id="cheerleader">
 								<h2 class="major">Cheerleaders</h2>
 								<span class="image main"><img src="themes/dimension/images/cheer5.jpg" alt="" /></span>
-								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
-							</article>
+								<p>
+									FullOut will be helpful to any cheerleader that has aspirations of cheering in college.
+									We match your skills with college cheerleading programs to make your dream a reality.
+								</p>
+								<p>
+									There are all types of college cheerleading programs such as: competitive programs, game day programs, non tumbling programs, non stunting programs ect.
+									 With the hundreds of college teams out there, all with different skill sets we will match you your dream school!
+								 </p>
+								<p>
+									And when your skills and grades match with a school, the Head coach will be notified instantly by phone, with your stats and contact information.
+									Or you can contact them directly through FullOut.
+									By using FullOut you will have direct contact with college coaches, and access to every school’s criteria.
+									This is to ensure that you won’t be blindsided at tryouts or clinics. Instead you will be prepared and can focus on performing at your best!
+								</p>
+								</article>
 
 						<!-- About -->
 							<article id="private">
 								<h2 class="major">Private Instructors</h2>
 								<span class="image main"><img src="themes/dimension/images/coach.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<p>
+									At FullOut we believe that all coaches should make LOTS of private and choreography money. FullOut is a place where coaches can market for privates or choreography work. With our search for privates and choreography page, you will be able to advertise to serious, talented, and committed cheerleaders. And if you link your debit card or bank account you can even have your clients pay on FullOut, bringing your professionalism to another level.
+									Have your athletes rate you on FullOut and get even more athletes contacting you for privates. Become the cheerleading guru in your area!
+								</p>
 							</article>
 
               <!-- About -->
   							<article id="gym">
   								<h2 class="major">Gyms</h2>
   								<span class="image main"><img src="themes/dimension/images/cheer7.jpg" alt="" /></span>
-  								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
-  							</article>
+									<ul>
+										<li>With FullOut all-star gyms can scout for talent too. They can find the best talent in the area and create more worlds and summit winning teams.</li>
+										<li>They can track their teams’ progress as their skills increase to determine whether that “New” Tumbling Coach is having a significant impact or not.</li>
+										<li>On FullOut Gyms can network with college programs to potentially become a feeder program for that one school or multiple schools. Those are priceless connections!</li>
+
+								</article>
 
 					</div>
 
