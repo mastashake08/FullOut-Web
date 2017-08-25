@@ -11,9 +11,16 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if($request->expectsJson()){
+          return \App\User::where('type','student')->paginate(25);
+        }
+        else{
+            return view('student.all');
+        }
+
     }
 
     /**

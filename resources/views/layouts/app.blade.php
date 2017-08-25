@@ -95,6 +95,12 @@
 
                         @else
                                 <li>
+                                    <a href="{{ url('coach/cheerleaders') }}">
+
+                                      <i class="fa fa-users" aria-hidden="true"></i>  Search Cheerleaders
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="{{ url('coach/schools') }}">
 
                                       <i class="fa fa-university" aria-hidden="true"></i>  Manage School
