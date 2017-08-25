@@ -8,28 +8,30 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
+const resource = require('vue-resource');
+Vue.use(resource);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('message', require('./components/Message.vue').default);
+Vue.component('message', require('./components/Message.vue'));
+Vue.component('instructor',require('./components/Instructor.vue'))
 Vue.component(
     'passport-clients',
-    require('./components/passport/Clients.vue').default
+    require('./components/passport/Clients.vue')
 );
 
 Vue.component(
     'passport-authorized-clients',
-    require('./components/passport/AuthorizedClients.vue').default
+    require('./components/passport/AuthorizedClients.vue')
 );
 
 Vue.component(
     'passport-personal-access-tokens',
-    require('./components/passport/PersonalAccessTokens.vue').default
+    require('./components/passport/PersonalAccessTokens.vue')
 );
 const app = new Vue({
-    el: '#app'
+    el: '#fullout'
 });

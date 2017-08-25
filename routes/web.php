@@ -63,3 +63,10 @@ Route::resource('/message','MessageController');
 Route::group(['prefix' => 'oauth'],function(){
   Route::get('redirect','StripeController@handleRedirect');
 });
+
+Route::get('/user', function (Illuminate\Http\Request $request) {
+    return $request->user();
+});
+Route::group(['prefix' => 'instructor'],function(){
+  Route::post('update-prices','UserController@updatePrices');
+});

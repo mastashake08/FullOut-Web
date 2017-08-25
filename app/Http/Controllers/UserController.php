@@ -86,4 +86,14 @@ class UserController extends Controller
     {
         //
     }
+
+    public function updatePrices(Request $request){
+      $user = $request->user();
+      $user->tumbling_price = $request->tumbling_price;
+      $user->stunting_price = $request->stunting_price;
+      $user->save();
+      return response()->json([
+        'success' => true
+      ]);
+    }
 }
