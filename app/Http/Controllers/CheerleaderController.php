@@ -46,6 +46,11 @@ class CheerleaderController extends Controller
     public function show($id)
     {
         //
+        $cheerleader = \App\User::findOrFail($id);
+        $with = [
+          'cheerleader' => $cheerleader
+        ];
+        return view('student.individual')->with($with);
     }
 
     /**

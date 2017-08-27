@@ -5,6 +5,23 @@
   <div class="row">
       <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
+              <div class="panel-heading"><a data-toggle="collapse" href="#main-info">Main Information</a></div>
+              <div id="main-info" class="panel-collapse collapse">
+              <div class="panel-body">
+                <form class="form">
+                  <input type="text" placeholder="Email Address" required value="{{$cheerleader->email}}"></input>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="container">
+  <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+          <div class="panel panel-default">
               <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling</a></div>
               <div id="spring" class="panel-collapse collapse">
               <div class="panel-body">
