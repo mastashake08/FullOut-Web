@@ -23,3 +23,4 @@ Route::get('/user', function (Request $request) {
     Route::get('/test','ApiController@test');
     Route::get('/school/search', 'SchoolController@search');
     Route::resource('/school','SchoolController');
+    Route::get('/search','UserController@search');

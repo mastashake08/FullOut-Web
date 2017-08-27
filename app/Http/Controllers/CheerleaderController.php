@@ -3,42 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-class UserController extends Controller
+
+class CheerleaderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        if($request->expectsJson()){
-          return \App\User::where('type','student')->paginate(10);
-        }
-        else{
-            return view('student.all');
-        }
-
     }
 
-    /**
-     * Search for cheerleaders
-     *
-     * @return \App\User
-     */
-     public function search(Request $request)
-     {
-         //
-         if($request->expectsJson()){
-           return \App\User::where('type','student')->where('name','like',"%{$request->name}%")->paginate(10);
-         }
-         else{
-             return view('student.all');
-         }
-
-     }
     /**
      * Show the form for creating a new resource.
      *
@@ -69,11 +46,6 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        $user = User::findOrFail($id);
-        $with = [
-          'user' => $user
-        ];
-        return view('user.individual')->with($with);
     }
 
     /**
@@ -108,15 +80,5 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function updatePrices(Request $request){
-      $user = $request->user();
-      $user->tumbling_price = $request->tumbling_price;
-      $user->stunting_price = $request->stunting_price;
-      $user->save();
-      return response()->json([
-        'success' => true
-      ]);
     }
 }

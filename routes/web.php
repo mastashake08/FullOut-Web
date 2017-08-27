@@ -71,3 +71,4 @@ Route::get('/user', function (Illuminate\Http\Request $request) {
 Route::group(['prefix' => 'instructor'],function(){
   Route::post('update-prices','UserController@updatePrices');
 });
+Route::resource('cheerleader','CheerleaderController');
