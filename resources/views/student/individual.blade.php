@@ -1,20 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-  <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-          <div class="panel panel-default">
-              <div class="panel-heading">{{$cheerleader->name}}</div>
-
-              <div class="panel-body">
-                {{$cheerleader}}
-              </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
+<cheerleader :user-id={{$cheerleader->id}}></cheerleader>
 <div class="container">
   <div class="row">
       <div class="col-md-8 col-md-offset-2">
@@ -836,26 +823,4 @@
       </div>
   </div>
 </div>
-<script>
-function checkAll(source,className){
-  var array = document.getElementsByTagName("input");
-
-
-for(var ii = 0; ii < array.length; ii++)
-{
-
-   if(array[ii].type == "checkbox")
-   {
-      if(array[ii].className == className)
-       {
-        array[ii].checked = source.checked;
-
-       }
-
-
-
-}
-}
-}
-</script>
 @endsection
