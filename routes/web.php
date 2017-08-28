@@ -35,6 +35,7 @@ Route::group(['prefix' => 'coach'],function(){
 });
 
 Route::group(['prefix' => 'cheerleader'],function(){
+  Route::post('update-profile','CheerleaderController@updateProfile');
   Route::resource('teams','TeamController');
   //Route::resource('skills/beginner', 'BeginnerSkillController');
   //Route::resource('skills/advanced', 'AdvancedSkillController');

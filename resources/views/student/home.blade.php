@@ -8,9 +8,36 @@
               <div class="panel-heading"><a data-toggle="collapse" href="#main-info">Main Information</a></div>
               <div id="main-info" class="panel-collapse collapse">
               <div class="panel-body">
-                <form class="form">
-                  <input type="text" placeholder="Email Address" required value="{{$cheerleader->email}}"></input>
-                  
+                <form class="form" action="{{url('/cheerleader/update-profile')}}" method="post">
+                  {{csrf_field()}}
+                  <div class="form-group col-md-6">
+                  <input type="text" class="form-control" placeholder="Email Address" name="email" required value="{{auth()->user()->email}}"></input>
+                  </div>
+                  <div class="form-group col-md-6">
+                  <input type="text" class="form-control" placeholder="Address" name="address" required value="{{auth()->user()->address}}"></input>
+                  </div>
+                  <div class="form-group col-md-4">
+                  <input type="text" class="form-control" placeholder="City" name="city" required value="{{auth()->user()->city}}"></input>
+                  </div>
+                  <div class="form-group col-md-4">
+                  <input type="text" class="form-control" placeholder="state" name="state" required value="{{auth()->user()->state}}"></input>
+                  </div>
+                  <div class="form-group col-md-4">
+                  <input type="text" class="form-control" placeholder="Zip" name="zip" required value="{{auth()->user()->zip}}"></input>
+                  </div>
+                  <div class="form-group col-md-4">
+                  <input type="text" class="form-control" placeholder="GPA" name="gpa" required value="{{auth()->user()->gpa}}"></input>
+                  </div>
+                  <div class="form-group col-md-4">
+                  <input type="text" class="form-control" placeholder="ACT Score" name="act_score" required value="{{auth()->user()->act_score}}"></input>
+                  </div>
+                  <div class="form-group col-md-4">
+                  <input type="text" class="form-control" placeholder="SAT Score" name="sat_score" required value="{{auth()->user()->sat_score}}"></input>
+                  </div>
+                  <div class="form-group col-md-4">
+                  <button class="btn btn-primary" type="submit">Update</button>
+                  </div>
+
                 </form>
               </div>
             </div>

@@ -43,10 +43,13 @@ class CheerleaderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
         //
         $cheerleader = \App\User::findOrFail($id);
+        if($request->expectsJson()){
+          return $cheerleader;
+        }
         $with = [
           'cheerleader' => $cheerleader
         ];
@@ -85,5 +88,19 @@ class CheerleaderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function updateProfile(Request $request){
+      $user = $request->user();
+      $user->email = $request->email;
+      $user->address = $request->address;
+      $user->city = $request->city;
+      $user->state = $request->state;
+      $user->zip = $request->zip;
+      $user->gpa = $request->gpa;
+      $user->act_score = $request->act_score;
+      $user->sat_score = $request->sat_score;
+      $user->save();
+      return back();
     }
 }

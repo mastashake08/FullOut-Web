@@ -32,7 +32,7 @@ class UserController extends Controller
      {
          //
          if($request->expectsJson()){
-           return \App\User::where('type','student')->where('name','like',"%{$request->name}%")->paginate(10);
+           return \App\User::where('type','student')->where('name',$request->name)->paginate(10);
          }
          else{
              return view('student.all');
