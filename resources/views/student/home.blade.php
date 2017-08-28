@@ -11,29 +11,53 @@
                 <form class="form" action="{{url('/cheerleader/update-profile')}}" method="post">
                   {{csrf_field()}}
                   <div class="form-group col-md-6">
+                    <div class="input-group">
+                    <span class="input-group-addon" >Email</span>
                   <input type="text" class="form-control" placeholder="Email Address" name="email" required value="{{auth()->user()->email}}"></input>
                   </div>
+                </div>
                   <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="Address" name="address" required value="{{auth()->user()->address}}"></input>
+                    <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Address</span>
+                  <input type="text" class="form-control" placeholder="Address" name="address" required value="{{auth()->user()->address}}" aria-describedby="basic-addon1"></input>
                   </div>
+                </div>
                   <div class="form-group col-md-4">
+                    <div class="input-group">
+                    <span class="input-group-addon" >City</span>
                   <input type="text" class="form-control" placeholder="City" name="city" required value="{{auth()->user()->city}}"></input>
                   </div>
+                </div>
                   <div class="form-group col-md-4">
+                    <div class="input-group">
+                    <span class="input-group-addon" >State</span>
                   <input type="text" class="form-control" placeholder="state" name="state" required value="{{auth()->user()->state}}"></input>
                   </div>
+                </div>
                   <div class="form-group col-md-4">
+                    <div class="input-group">
+                    <span class="input-group-addon" >ZIP</span>
                   <input type="text" class="form-control" placeholder="Zip" name="zip" required value="{{auth()->user()->zip}}"></input>
                   </div>
+                </div>
                   <div class="form-group col-md-4">
+                    <div class="input-group">
+                    <span class="input-group-addon" >GPA</span>
                   <input type="text" class="form-control" placeholder="GPA" name="gpa" required value="{{auth()->user()->gpa}}"></input>
                   </div>
+                </div>
                   <div class="form-group col-md-4">
+                    <div class="input-group">
+                    <span class="input-group-addon" >ACT Score</span>
                   <input type="text" class="form-control" placeholder="ACT Score" name="act_score" required value="{{auth()->user()->act_score}}"></input>
                   </div>
+                </div>
                   <div class="form-group col-md-4">
+                    <div class="input-group">
+                    <span class="input-group-addon" >SAT Score</span>
                   <input type="text" class="form-control" placeholder="SAT Score" name="sat_score" required value="{{auth()->user()->sat_score}}"></input>
                   </div>
+                </div>
                   <div class="form-group col-md-4">
                   <button class="btn btn-primary" type="submit">Update</button>
                   </div>
