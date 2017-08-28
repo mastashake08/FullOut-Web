@@ -21,6 +21,8 @@ Vue.component('instructor',require('./components/Instructor.vue'));
 
 Vue.component('cheerleaders',require('./components/Cheerleaders.vue'));
 Vue.component('cheerleader',require('./components/Cheerleader.vue'));
+Vue.component('private-instructors',require('./components/PrivateInstructors.vue'));
+Vue.component('private-instructor',require('./components/PrivateInstructor.vue'));
 Vue.component(
     'passport-clients',
     require('./components/passport/Clients.vue')

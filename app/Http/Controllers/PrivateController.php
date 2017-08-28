@@ -11,9 +11,13 @@ class PrivateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if($request->expectsJson()){
+          return \App\User::where('type','instructor')->paginate(10);
+        }
+        return view('student.privates');
     }
 
     /**
@@ -46,6 +50,10 @@ class PrivateController extends Controller
     public function show($id)
     {
         //
+        $with = [
+          'instructor' => \App\User::findOrFail($id)
+        ];
+        return view('instructor.individual')->with($with);
     }
 
     /**

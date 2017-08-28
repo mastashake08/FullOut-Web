@@ -114,6 +114,9 @@ class UserController extends Controller
       $user = $request->user();
       $user->tumbling_price = $request->tumbling_price;
       $user->stunting_price = $request->stunting_price;
+      $user->city = $request->city;
+      $user->state = $request->state;
+      $user->zip = $request->zip;
       $user->save();
       return response()->json([
         'success' => true

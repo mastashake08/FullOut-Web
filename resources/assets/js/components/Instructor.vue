@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-if="user.stripe_account_id == null">
+  <div class="container" v-if="instructor.stripe_account_id == null">
 
     <div class="row" >
         <div class="col-md-8 col-md-offset-2">
@@ -24,10 +24,19 @@
                   <div class="panel-body">
 
                       <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Tumbling Rate" name="tumbling_price" v-model="tumble_rate">
+                      <input type="text" class="form-control" placeholder="Tumbling Rate" name="tumbling_price" v-model="instructor.tumbling_price">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Stunting Rate" name="stunting_price" v-model="stunt_rate">
+                      <input type="text" class="form-control" placeholder="Stunting Rate" name="stunting_price" v-model="instructor.stunting_price">
+                    </div>
+                    <div class="form-group col-md-4">
+                    <input type="text" class="form-control" placeholder="City" name="city" required v-model="instructor.city"></input>
+                    </div>
+                    <div class="form-group col-md-4">
+                    <input type="text" class="form-control" placeholder="state" name="state" required v-model="instructor.state"></input>
+                    </div>
+                    <div class="form-group col-md-4">
+                    <input type="text" class="form-control" placeholder="Zip" name="zip" required v-model="instructor.zip"></input>
                     </div>
                     <div class="form-group">
                       <button class="btn btn-success" type="button" v-on:click="updateRates()">Update Rates</button>
@@ -47,17 +56,16 @@
         data() {
           return{
           messages: [],
-          user: {},
-          tumble_rate: 0.00,
-          stunt_rate: 0.00,
+          instructor: {}
         }
       },
+      props: ['user'],
       methods: {
         updateRates: function(){
-          this.$http.post('/instructor/update-prices',{stunting_price: this.stunt_rate,tumbling_price: this.tumble_rate,_token: Laravel.csrfToken })
+          this.$http.post('/instructor/update-prices',{city:this.instructor.city,state:this.instructor.state,zip:this.instructor.zip,stunting_price: this.instructor.stunting_price,tumbling_price: this.instructor.tumbling_price,_token: Laravel.csrfToken })
           .then(function(data){
             if(data.data.success === true){
-              alert('Prices updated');
+              alert('Info updated');
             }
             else{
               alert('Error updating prices');
@@ -67,11 +75,7 @@
         }
       },
       created(){
-        this.$http.get('/user').then(function(data){
-          this.user = data.data;
-          this.stunt_rate = this.user.stunting_price;
-          this.tumble_rate = this.user.tumbling_price;
-        });
+        this.instructor = JSON.parse(this.user);
       }
     }
 </script>

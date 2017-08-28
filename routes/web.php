@@ -70,6 +70,7 @@ Route::get('/user', function (Illuminate\Http\Request $request) {
     return $request->user();
 });
 Route::group(['prefix' => 'instructor'],function(){
+  Route::get('/{id}','PrivateController@show');
   Route::post('update-prices','UserController@updatePrices');
 });
 Route::resource('cheerleader','CheerleaderController');

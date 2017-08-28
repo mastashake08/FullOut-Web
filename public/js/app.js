@@ -1203,6 +1203,8 @@ Vue.component('instructor', __webpack_require__(44));
 
 Vue.component('cheerleaders', __webpack_require__(47));
 Vue.component('cheerleader', __webpack_require__(50));
+Vue.component('private-instructors', __webpack_require__(79));
+Vue.component('private-instructor', __webpack_require__(82));
 Vue.component('passport-clients', __webpack_require__(53));
 
 Vue.component('passport-authorized-clients', __webpack_require__(59));
@@ -43979,6 +43981,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -43987,17 +43998,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       messages: [],
-      user: {},
-      tumble_rate: 0.00,
-      stunt_rate: 0.00
+      instructor: {}
     };
   },
 
+  props: ['user'],
   methods: {
     updateRates: function updateRates() {
-      this.$http.post('/instructor/update-prices', { stunting_price: this.stunt_rate, tumbling_price: this.tumble_rate, _token: Laravel.csrfToken }).then(function (data) {
+      this.$http.post('/instructor/update-prices', { city: this.instructor.city, state: this.instructor.state, zip: this.instructor.zip, stunting_price: this.instructor.stunting_price, tumbling_price: this.instructor.tumbling_price, _token: Laravel.csrfToken }).then(function (data) {
         if (data.data.success === true) {
-          alert('Prices updated');
+          alert('Info updated');
         } else {
           alert('Error updating prices');
         }
@@ -44005,11 +44015,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   created: function created() {
-    this.$http.get('/user').then(function (data) {
-      this.user = data.data;
-      this.stunt_rate = this.user.stunting_price;
-      this.tumble_rate = this.user.tumbling_price;
-    });
+    this.instructor = JSON.parse(this.user);
   }
 });
 
@@ -44018,7 +44024,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.user.stripe_account_id == null) ? _c('div', {
+  return (_vm.instructor.stripe_account_id == null) ? _c('div', {
     staticClass: "container"
   }, [_vm._m(0)]) : _c('div', {
     staticClass: "container"
@@ -44038,8 +44044,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.tumble_rate),
-      expression: "tumble_rate"
+      value: (_vm.instructor.tumbling_price),
+      expression: "instructor.tumbling_price"
     }],
     staticClass: "form-control",
     attrs: {
@@ -44048,12 +44054,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "name": "tumbling_price"
     },
     domProps: {
-      "value": (_vm.tumble_rate)
+      "value": (_vm.instructor.tumbling_price)
     },
     on: {
       "input": function($event) {
         if ($event.target.composing) { return; }
-        _vm.tumble_rate = $event.target.value
+        _vm.instructor.tumbling_price = $event.target.value
       }
     }
   })]), _vm._v(" "), _c('div', {
@@ -44062,8 +44068,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.stunt_rate),
-      expression: "stunt_rate"
+      value: (_vm.instructor.stunting_price),
+      expression: "instructor.stunting_price"
     }],
     staticClass: "form-control",
     attrs: {
@@ -44072,12 +44078,87 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "name": "stunting_price"
     },
     domProps: {
-      "value": (_vm.stunt_rate)
+      "value": (_vm.instructor.stunting_price)
     },
     on: {
       "input": function($event) {
         if ($event.target.composing) { return; }
-        _vm.stunt_rate = $event.target.value
+        _vm.instructor.stunting_price = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group col-md-4"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.instructor.city),
+      expression: "instructor.city"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "City",
+      "name": "city",
+      "required": ""
+    },
+    domProps: {
+      "value": (_vm.instructor.city)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.instructor.city = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group col-md-4"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.instructor.state),
+      expression: "instructor.state"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "state",
+      "name": "state",
+      "required": ""
+    },
+    domProps: {
+      "value": (_vm.instructor.state)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.instructor.state = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group col-md-4"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.instructor.zip),
+      expression: "instructor.zip"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "placeholder": "Zip",
+      "name": "zip",
+      "required": ""
+    },
+    domProps: {
+      "value": (_vm.instructor.zip)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.instructor.zip = $event.target.value
       }
     }
   })]), _vm._v(" "), _c('div', {
@@ -46407,6 +46488,535 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(80),
+  /* template */
+  __webpack_require__(81),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/Fullout/resources/assets/js/components/PrivateInstructors.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] PrivateInstructors.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-159dedcc", Component.options)
+  } else {
+    hotAPI.reload("data-v-159dedcc", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      users: {},
+      search: {},
+      newData: false
+    };
+  },
+
+  methods: {
+    fetchUsers: function fetchUsers(url) {
+      this.newData = false;
+      this.$http.get(url).then(function (data) {
+        this.users = data.data;
+        this.newData = true;
+      });
+    },
+    searchUsers: function searchUsers() {
+      this.newData = false;
+      this.$http.get('/api/search/instructor', { 'params': this.search }).then(function (data) {
+        this.users = data.data;
+        this.newData = true;
+      }).bind(this);
+    }
+  },
+  created: function created() {
+    this.$http.get('/api/instructor').then(function (data) {
+      this.users = data.data;
+      this.newData = true;
+    });
+  }
+});
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8 col-md-offset-2"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Private Instructors")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('form', {
+    staticClass: "form-inline"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.name),
+      expression: "search.name"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "Jane Doe"
+    },
+    domProps: {
+      "value": (_vm.search.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.name = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.city),
+      expression: "search.city"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "City"
+    },
+    domProps: {
+      "value": (_vm.search.city)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.city = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.state),
+      expression: "search.state"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "State"
+    },
+    domProps: {
+      "value": (_vm.search.state)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.state = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.highest_stunting_price),
+      expression: "search.highest_stunting_price"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "Highest Stunting Price"
+    },
+    domProps: {
+      "value": (_vm.search.highest_stunting_price)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.highest_stunting_price = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.highest_tumbling_price),
+      expression: "search.highest_tumbling_price"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "Highest Tumbling Price"
+    },
+    domProps: {
+      "value": (_vm.search.highest_tumbling_price)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.highest_tumbling_price = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": function($event) {
+        _vm.searchUsers()
+      }
+    }
+  }, [_vm._v("Submit")])]), _vm._v(" "), _c('table', {
+    staticClass: "table"
+  }, [_vm._m(1), _vm._v(" "), _c("transition-group", {
+    tag: "tbody",
+    attrs: {
+      "name": "fade"
+    }
+  }, _vm._l((_vm.users.data), function(user, index) {
+    return (_vm.newData) ? _c('tr', {
+      key: index
+    }, [_c('td', [_c('a', {
+      attrs: {
+        "href": '/instructor/' + user.id + '',
+        "target": "_blank"
+      }
+    }, [_vm._v(_vm._s(user.name))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.phone))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.city))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.state))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.tumbling_price))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.stunting_price))])]) : _vm._e()
+  }))]), _vm._v(" "), _c('div', {
+    staticClass: "pagination"
+  }, [_c('button', {
+    staticClass: "btn btn-default",
+    attrs: {
+      "disabled": !_vm.users.prev_page_url
+    },
+    on: {
+      "click": function($event) {
+        _vm.fetchUsers(_vm.users.prev_page_url)
+      }
+    }
+  }, [_vm._v("\n                      Previous\n                  ")]), _vm._v(" "), _c('span', [_vm._v("Page " + _vm._s(_vm.users.current_page) + " of " + _vm._s(_vm.users.last_page))]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-default",
+    attrs: {
+      "disabled": !_vm.users.next_page_url
+    },
+    on: {
+      "click": function($event) {
+        _vm.fetchUsers(_vm.users.next_page_url)
+      }
+    }
+  }, [_vm._v("Next\n                  ")])])])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-radio mb-2 mr-sm-2 mb-sm-0"
+  }, [_c('label', {
+    staticClass: "form-radio-label"
+  }, [_c('input', {
+    staticClass: "form-radio-input",
+    attrs: {
+      "name": "gender",
+      "type": "radio"
+    }
+  }), _vm._v(" Female\n                    ")]), _vm._v(" "), _c('label', {
+    staticClass: "form-radio-label"
+  }, [_c('input', {
+    staticClass: "form-radio-input",
+    attrs: {
+      "name": "gender",
+      "type": "radio"
+    }
+  }), _vm._v(" Male\n                    ")]), _vm._v(" "), _c('label', {
+    staticClass: "form-radio-label"
+  }, [_c('input', {
+    staticClass: "form-radio-input",
+    attrs: {
+      "name": "gender",
+      "type": "radio",
+      "checked": ""
+    }
+  }), _vm._v(" Both\n                    ")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("Phone")]), _vm._v(" "), _c('th', [_vm._v("City")]), _vm._v(" "), _c('th', [_vm._v("State")]), _vm._v(" "), _c('th', [_vm._v("Tumbling Price")]), _vm._v(" "), _c('th', [_vm._v("Stunting Price")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-159dedcc", module.exports)
+  }
+}
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(83),
+  /* template */
+  __webpack_require__(84),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/Fullout/resources/assets/js/components/PrivateInstructor.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] PrivateInstructor.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-327b85ae", Component.options)
+  } else {
+    hotAPI.reload("data-v-327b85ae", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      instructor: {},
+      message: '',
+      newData: false
+    };
+  },
+
+  props: ['user'],
+  methods: {
+    sendMessage: function sendMessage() {
+      this.$http.post('/send-message', { _token: Laravel.csrf, receiver_id: this.instructor.id, message: this.message }).then(function (data) {
+        alert('Message Sent!');
+      });
+    }
+  },
+  created: function created() {
+    this.instructor = JSON.parse(this.user);
+    this.newData = true;
+  }
+});
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('transition', {
+    attrs: {
+      "name": "fade"
+    }
+  }, [_c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8 col-md-offset-2"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v(_vm._s(_vm.instructor.name))]), _vm._v(" "), (_vm.newData) ? _c('div', {
+    staticClass: "panel-body"
+  }, [_c('span', [_vm._v("Name: " + _vm._s(_vm.instructor.name))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Phone Number: " + _vm._s(_vm.instructor.phone))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Email: " + _vm._s(_vm.instructor.email))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("City: " + _vm._s(_vm.instructor.city))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("State: " + _vm._s(_vm.instructor.state))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Stunting Price: " + _vm._s(_vm.instructor.stunting_price))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Tumbling Price: " + _vm._s(_vm.instructor.tumbling_price))]), _vm._v(" "), _c('div', {
+    staticClass: "pull-right"
+  }, [_c('a', {
+    staticClass: " btn btn-default",
+    attrs: {
+      "href": '/send-message/' + _vm.instructor.id + ''
+    }
+  }, [_vm._v("Send Message")])])]) : _vm._e()])])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-327b85ae", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

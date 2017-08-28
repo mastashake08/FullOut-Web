@@ -65,6 +65,59 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('city') ? 'has-error' : ''}}">
+                          <label for="city" class="col-md-4 control-label">City</label>
+                          <div class="col-md-6">
+                              <input id="city" placeholder="City" type="text" class="form-control" name="city" value="{{ old('city') }}" required >
+
+                              @if ($errors->has('city'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('city') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                            <label for="state" class="col-md-4 control-label">State</label>
+                        <div class="col-md-6">
+                            <input id="state" placeholder="State" type="text" class="form-control" name="state" value="{{ old('state') }}" required >
+
+                            @if ($errors->has('state'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('state') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
+                        <label for="zip" class="col-md-4 control-label">ZIP</label>
+                        <div class="col-md-6">
+                            <input id="zip" placeholder="ZIP" type="text" class="form-control" name="zip" value="{{ old('zip') }}" required >
+
+                            @if ($errors->has('zip'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('zip') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                      </div>
+                      <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                          <label for="address" class="col-md-4 control-label">Gender</label>
+                        <div class="col-md-6">
+                          <label class="form-radio-label">
+                            <input class="form-radio-input" name="gender" type="radio"> Female
+                          </label>
+                          <label class="form-radio-label">
+                            <input class="form-radio-input" name="gender" type="radio"> Male
+                          </label>
+
+                            @if ($errors->has('gender'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('gender') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                      </div>
 
                         <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                             <label for="address" class="col-md-4 control-label">Account Type</label>

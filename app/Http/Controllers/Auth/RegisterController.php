@@ -53,6 +53,10 @@ class RegisterController extends Controller
             'password' => 'required|min:6|confirmed',
             'phone' => 'required',
             'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required',
+            'gender' => 'required',
             'type' => 'required'
         ]);
     }
@@ -70,6 +74,10 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'phone' => $data['phone'],
             'address' => $data['address'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'zip' => $data['zip'],
+            'gender' => $data['gender'],
             'password' => bcrypt($data['password']),
             'type' => $data['type']
         ]);
