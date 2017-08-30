@@ -44312,6 +44312,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -44532,7 +44538,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "href": '/cheerleader/' + user.id + '',
         "target": "_blank"
       }
-    }, [_vm._v(_vm._s(user.name))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.email))])]) : _vm._e()
+    }, [_vm._v(_vm._s(user.name))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.email))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.city))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.state))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.zip))])]) : _vm._e()
   }))]), _vm._v(" "), _c('div', {
     staticClass: "pagination"
   }, [_c('button', {
@@ -44586,7 +44592,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" Both\n                    ")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("Photo")]), _vm._v(" "), _c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("Email")])])])
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Photo")]), _vm._v(" "), _c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("Email")]), _vm._v(" "), _c('th', [_vm._v("City")]), _vm._v(" "), _c('th', [_vm._v("State")]), _vm._v(" "), _c('th', [_vm._v("Zip")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

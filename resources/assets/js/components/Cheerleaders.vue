@@ -36,6 +36,9 @@
                           <th>Photo</th>
                           <th>Name</th>
                           <th>Email</th>
+                          <th>City</th>
+                          <th>State</th>
+                          <th>Zip</th>
                         </tr>
                       </thead>
                       <tbody is="transition-group" name="fade">
@@ -44,6 +47,9 @@
                           <td><img width="150" height="150" class="img img-circle":src="user.profile_pic"/></td>
                           <td><a v-bind:href="'/cheerleader/'+user.id+''" target="_blank">{{user.name}}</a></td>
                           <td>{{user.email}}</td>
+                          <td>{{user.city}}</td>
+                          <td>{{user.state}}</td>
+                          <td>{{user.zip}}</td>
                         </tr>
                       </tbody>
                     </transition-group>
