@@ -46,7 +46,7 @@ class CheerleaderController extends Controller
     public function show(Request $request,$id)
     {
         //
-        $cheerleader = \App\User::findOrFail($id);
+        $cheerleader = \App\User::with(['skillSet'])->findOrFail($id);
         if($request->expectsJson()){
           return $cheerleader;
         }

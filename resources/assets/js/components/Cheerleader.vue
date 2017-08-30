@@ -25,6 +25,7 @@
                     <br>
                     <span>Zip: {{user.zip}}</span>
                     <br>
+                    <span>Bio: {{user.bio}}</span>
                     <div class="pull-right">
                       <a v-bind:href="'/send-message/'+user.id+''" class=" btn btn-default">Send Message</a>
                     </div>

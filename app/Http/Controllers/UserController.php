@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         //
         if($request->expectsJson()){
-          return \App\User::where('type','student')->paginate(10);
+          return \App\User::with(['skillSet'])->paginate(10);
         }
         else{
             return view('student.all');
@@ -32,12 +32,41 @@ class UserController extends Controller
      {
          //
          if($request->expectsJson()){
-           return \App\User::where('type','student')->where('name',$request->name)
-           ->orWhere('city',$request->city)
-           ->orWhere('state',$request->state)
-           ->orWhere('zip',$request->zip)
-           ->orWhere('gpa','>=',$request->highest_gpa)
-           ->paginate(10);
+           $conditions = [
+              ['type','=','student'],
+               ['name', '=', $request->has('name') ? $request->name : '*'],
+              ['city', '=', $request->has('city') ? $request->city : '*'],
+              ['state','=',$request->has('state') ? $request->state : '*'],
+               ['gpa','>=',$request->has('highest_gpa')? $request->highest_gpa : 0.00]
+          ];
+          return \App\User::when($request->name != "" || $request->has('name'), function ($query) use ($request) {
+                    return $query->where('name',$request->name);
+                  })
+                  ->when($request->highest_gpa != "" || $request->has('highest_gpa'), function ($query) use ($request) {
+                          return $query->where('gpa','>=',$request->highest_gpa);
+                      })
+                  ->when($request->zip != "" || $request->has('zip'), function ($query) use ($request) {
+
+                              return $query->where('zip','=',$request->zip)
+                                           ;
+                          })
+                          ->when($request->city != "" || $request->has('city'), function ($query) use ($request) {
+
+                                      return $query->where('city','=',$request->city)
+                                                   ;
+                                  })
+                                  ->when($request->state != "" || $request->has('state'), function ($query) use ($request) {
+
+                                              return $query->where('state','=',$request->state)
+                                                           ;
+                                          })
+                                          ->when($request->gender != "" || $request->has('gender'), function ($query) use ($request) {
+                                                      if($request->gender === '*'){
+                                                        return $query->where('gender','female')->orWhere('gender','male');
+                                                      }
+                                                      return $query->where('gender','=',$request->gender)
+                                                                   ;
+                                                  })->paginate(10);
          }
          else{
              return view('student.all');
@@ -74,7 +103,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        $user = User::findOrFail($id);
+        $user = User::findOrFail($id)->with('skills');
         $with = [
           'user' => $user
         ];

@@ -44552,7 +44552,76 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.search.highest_tumbling_score = $event.target.value
       }
     }
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('button', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-radio mb-2 mr-sm-2 mb-sm-0"
+  }, [_c('label', {
+    staticClass: "form-radio-label"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.gender),
+      expression: "search.gender"
+    }],
+    staticClass: "form-radio-input",
+    attrs: {
+      "value": "female",
+      "type": "radio"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.search.gender, "female")
+    },
+    on: {
+      "__c": function($event) {
+        _vm.search.gender = "female"
+      }
+    }
+  }), _vm._v(" Female\n                    ")]), _vm._v(" "), _c('label', {
+    staticClass: "form-radio-label"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.gender),
+      expression: "search.gender"
+    }],
+    staticClass: "form-radio-input",
+    attrs: {
+      "value": "male",
+      "type": "radio"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.search.gender, "male")
+    },
+    on: {
+      "__c": function($event) {
+        _vm.search.gender = "male"
+      }
+    }
+  }), _vm._v(" Male\n                    ")]), _vm._v(" "), _c('label', {
+    staticClass: "form-radio-label"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.gender),
+      expression: "search.gender"
+    }],
+    staticClass: "form-radio-input",
+    attrs: {
+      "value": "*",
+      "type": "radio",
+      "checked": ""
+    },
+    domProps: {
+      "checked": _vm._q(_vm.search.gender, "*")
+    },
+    on: {
+      "__c": function($event) {
+        _vm.search.gender = "*"
+      }
+    }
+  }), _vm._v(" Both\n                    ")])]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-primary",
     attrs: {
       "type": "button"
@@ -44564,7 +44633,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("Submit")])]), _vm._v(" "), _c('table', {
     staticClass: "table"
-  }, [_vm._m(1), _vm._v(" "), _c("transition-group", {
+  }, [_vm._m(0), _vm._v(" "), _c("transition-group", {
     tag: "tbody",
     attrs: {
       "name": "fade"
@@ -44609,35 +44678,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("Next\n                  ")])])])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "form-radio mb-2 mr-sm-2 mb-sm-0"
-  }, [_c('label', {
-    staticClass: "form-radio-label"
-  }, [_c('input', {
-    staticClass: "form-radio-input",
-    attrs: {
-      "name": "gender",
-      "type": "radio"
-    }
-  }), _vm._v(" Female\n                    ")]), _vm._v(" "), _c('label', {
-    staticClass: "form-radio-label"
-  }, [_c('input', {
-    staticClass: "form-radio-input",
-    attrs: {
-      "name": "gender",
-      "type": "radio"
-    }
-  }), _vm._v(" Male\n                    ")]), _vm._v(" "), _c('label', {
-    staticClass: "form-radio-label"
-  }, [_c('input', {
-    staticClass: "form-radio-input",
-    attrs: {
-      "name": "gender",
-      "type": "radio",
-      "checked": ""
-    }
-  }), _vm._v(" Both\n                    ")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('thead', [_c('tr', [_c('th', [_vm._v("Photo")]), _vm._v(" "), _c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("Email")]), _vm._v(" "), _c('th', [_vm._v("City")]), _vm._v(" "), _c('th', [_vm._v("State")]), _vm._v(" "), _c('th', [_vm._v("Zip")])])])
 }]}
 module.exports.render._withStripped = true
@@ -44758,6 +44798,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -44808,7 +44849,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [(_vm.newData) ? _c('div', {
     staticClass: "panel-body"
-  }, [_c('span', [_vm._v("Name: " + _vm._s(_vm.user.name))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Phone Number: " + _vm._s(_vm.user.phone))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Email: " + _vm._s(_vm.user.email))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("GPA: " + _vm._s(_vm.user.gpa))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("ACT: " + _vm._s(_vm.user.act_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("SAT: " + _vm._s(_vm.user.sat_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("City: " + _vm._s(_vm.user.city))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("State: " + _vm._s(_vm.user.state))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Zip: " + _vm._s(_vm.user.zip))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('div', {
+  }, [_c('span', [_vm._v("Name: " + _vm._s(_vm.user.name))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Phone Number: " + _vm._s(_vm.user.phone))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Email: " + _vm._s(_vm.user.email))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("GPA: " + _vm._s(_vm.user.gpa))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("ACT: " + _vm._s(_vm.user.act_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("SAT: " + _vm._s(_vm.user.sat_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("City: " + _vm._s(_vm.user.city))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("State: " + _vm._s(_vm.user.state))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Zip: " + _vm._s(_vm.user.zip))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Bio: " + _vm._s(_vm.user.bio))]), _vm._v(" "), _c('div', {
     staticClass: "pull-right"
   }, [_c('a', {
     staticClass: " btn btn-default",

@@ -19,13 +19,13 @@
 
                       <div class="form-radio mb-2 mr-sm-2 mb-sm-0">
                         <label class="form-radio-label">
-                          <input class="form-radio-input" name="gender" type="radio"> Female
+                          <input class="form-radio-input" value="female" type="radio" v-model="search.gender"> Female
                         </label>
                         <label class="form-radio-label">
-                          <input class="form-radio-input" name="gender" type="radio"> Male
+                          <input class="form-radio-input" value="male" type="radio" v-model="search.gender"> Male
                         </label>
                         <label class="form-radio-label">
-                          <input class="form-radio-input" name="gender" type="radio" checked> Both
+                          <input class="form-radio-input" value="*" type="radio" checked v-model="search.gender"> Both
                         </label>
                       </div>
 
