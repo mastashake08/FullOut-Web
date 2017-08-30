@@ -8,8 +8,21 @@
               <div class="panel-heading"><a data-toggle="collapse" href="#main-info">Main Information</a></div>
               <div id="main-info" class="panel-collapse collapse">
               <div class="panel-body">
-                <form class="form" action="{{url('/cheerleader/update-profile')}}" method="post">
+                <form class="form" action="{{url('/cheerleader/update-profile')}}" method="post" enctype="multipart/form-data">
                   {{csrf_field()}}
+                  <div class="form-group{{ $errors->has('profile_pic') ? ' has-error' : '' }}">
+                      <label for="profile_pic" class="col-md-4 control-label">Profile Picture</label>
+
+                      <div class="col-md-6">
+                          <input id="profile_pic" type="file" class="form-control" name="profile_pic"  required >
+
+                          @if ($errors->has('profile_pic'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('profile_pic') }}</strong>
+                              </span>
+                          @endif
+                      </div>
+                  </div>
                   <div class="form-group col-md-6">
                     <div class="input-group">
                     <span class="input-group-addon" >Email</span>

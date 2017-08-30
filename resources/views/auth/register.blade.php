@@ -52,6 +52,20 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group{{ $errors->has('bio') ? ' has-error' : '' }}">
+                            <label for="bio" class="col-md-4 control-label">Bio</label>
+
+                            <div class="col-md-6">
+                                <textarea class="form-control" name="bio">{{old('bio')}}</textarea>
+                                @if ($errors->has('bio'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('bio') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                             <label for="address" class="col-md-4 control-label">Address</label>
 
