@@ -32,7 +32,12 @@ class UserController extends Controller
      {
          //
          if($request->expectsJson()){
-           return \App\User::where('type','student')->where('name',$request->name)->paginate(10);
+           return \App\User::where('type','student')->where('name',$request->name)
+           ->orWhere('city',$request->city)
+           ->orWhere('state',$request->state)
+           ->orWhere('zip',$request->zip)
+           ->orWhere('gpa','>=',$request->highest_gpa)
+           ->paginate(10);
          }
          else{
              return view('student.all');

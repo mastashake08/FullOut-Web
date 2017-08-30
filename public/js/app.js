@@ -44318,6 +44318,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -44422,22 +44424,66 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.search.location),
-      expression: "search.location"
+      value: (_vm.search.city),
+      expression: "search.city"
     }],
     staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
     attrs: {
       "type": "text",
       "id": "inlineFormInput",
-      "placeholder": "Location"
+      "placeholder": "City"
     },
     domProps: {
-      "value": (_vm.search.location)
+      "value": (_vm.search.city)
     },
     on: {
       "input": function($event) {
         if ($event.target.composing) { return; }
-        _vm.search.location = $event.target.value
+        _vm.search.city = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.state),
+      expression: "search.state"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "State"
+    },
+    domProps: {
+      "value": (_vm.search.state)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.state = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.zip),
+      expression: "search.zip"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "ZIP"
+    },
+    domProps: {
+      "value": (_vm.search.zip)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.zip = $event.target.value
       }
     }
   }), _vm._v(" "), _c('input', {

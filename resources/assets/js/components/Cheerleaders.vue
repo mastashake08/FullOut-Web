@@ -10,7 +10,9 @@
                     <form class="form-inline">
                       <input type="text" v-model="search.name" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Jane Doe">
                       <input type="text" v-model="search.highest_gpa" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest GPA">
-                      <input type="text" v-model="search.location" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Location">
+                      <input type="text" v-model="search.city" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="City">
+                      <input type="text" v-model="search.state" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="State">
+                      <input type="text" v-model="search.zip" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="ZIP">
                       <input type="text" v-model="search.highest_skill_score" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest Skill">
                       <input type="text" v-model="search.highest_stunting_score" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest Stunting Score">
                       <input type="text" v-model="search.highest_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest Tumbling Score">
