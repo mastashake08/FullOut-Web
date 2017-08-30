@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
+        /*
         \App\User::create([
           'name' => 'Test Cheerleader',
           'email' => 'test.cheerleader@gmail.com',
@@ -29,5 +30,7 @@ class UsersTableSeeder extends Seeder
           'address' => '113 East Mason Ave. Danville, KY 40422',
           'phone' => '8594024863'
         ]);
+        */
+         factory(App\User::class, 1000)->create();
     }
 }

@@ -33,6 +33,7 @@
                     <table class="table">
                       <thead>
                         <tr>
+                          <th>Photo</th>
                           <th>Name</th>
                           <th>Email</th>
                         </tr>
@@ -40,6 +41,7 @@
                       <tbody is="transition-group" name="fade">
 
                         <tr v-if="newData" v-for="(user,index) in users.data" :key="index">
+                          <td><img width="150" height="150" class="img img-circle":src="user.profile_pic"/></td>
                           <td><a v-bind:href="'/cheerleader/'+user.id+''" target="_blank">{{user.name}}</a></td>
                           <td>{{user.email}}</td>
                         </tr>
@@ -76,9 +78,6 @@
         }
       },
       methods: {
-        search: function(){
-
-        },
         fetchUsers: function(url){
           this.newData = false;
           this.$http.get(url).then(function(data){

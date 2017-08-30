@@ -20,7 +20,19 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
-    ];
+        'type' => 'student',
+        'bio' => $faker->paragraph,
+        'gpa' => $faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = 4.0),
+        'act_score' => $faker->randomNumber($nbDigits = 2, $strict = false),
+        'sat_score' => $faker->randomNumber($nbDigits = 4, $strict = false),
+        'address' => $faker->streetAddress,
+        'city' => $faker->city,
+        'state' => $faker->stateAbbr,
+        'zip' => $faker->postCode,
+        'profile_pic' => $faker->imageUrl(),
+        'phone' => $faker->phoneNumber,
+        'gender' => 'female'
+      ];
 });
 
 $factory->define(App\School::class, function (Faker\Generator $faker) {

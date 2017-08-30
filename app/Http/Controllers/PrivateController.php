@@ -89,4 +89,10 @@ class PrivateController extends Controller
     {
         //
     }
+
+    public function search(Request $request){
+      $instructors = \App\User::where('type','instructor')->orwhere('tumbling_price','<=',$request->highest_tumbling_price)
+      ->orwhere('stunting_price','<=',$request->highest_stunting_price)->where('city',$request->city)->where('state',$request->state)->paginate(10);
+      return $instructors;
+    }
 }
