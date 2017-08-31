@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         //
         if($request->expectsJson()){
-          return \App\User::with(['skillSet'])->paginate(10);
+          return \App\User::with(['skillSet','favorited'])->paginate(10);
         }
         else{
             return view('student.all');
@@ -39,7 +39,7 @@ class UserController extends Controller
               ['state','=',$request->has('state') ? $request->state : '*'],
                ['gpa','>=',$request->has('highest_gpa')? $request->highest_gpa : 0.00]
           ];
-          return \App\User::with(['skillSet'])->when($request->name != "" || $request->has('name'), function ($query) use ($request) {
+          return \App\User::with(['skillSet','favorited'])->when($request->name != "" || $request->has('name'), function ($query) use ($request) {
                     return $query->where('name',$request->name);
                   })
                   ->when($request->highest_gpa != "" || $request->has('highest_gpa'), function ($query) use ($request) {

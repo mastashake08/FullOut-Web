@@ -85,12 +85,14 @@ class SkillController extends Controller
     public function springSkills(Request $request){
       $user = auth()->user();
       $skills = $request->skills;
-      $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
-      $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
-      $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['spring_floor_tumbling']['advanced_standing']) : 0;
-      $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['spring_floor_tumbling']['advanced_running']) : 0;
-      $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
-      $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
+
+
+      $basic_standing_spring = isset($skills['spring_floor_tumbling']['basic_standing']) ? count($skills['spring_floor_tumbling']['basic_standing']) : 0;
+      $basic_running_spring = isset($skills['spring_floor_tumbling']['basic_running']) ? count($skills['spring_floor_tumbling']['basic_running']) : 0;
+      $advanced_standing_spring = isset($skills['spring_floor_tumbling']['advanced_standing']) ? count($skills['spring_floor_tumbling']['advanced_standing']) : 0;
+      $advanced_running_spring = isset($skills['spring_floor_tumbling']['advanced_running']) ? count($skills['spring_floor_tumbling']['advanced_running']) : 0;
+      $elite_standing_spring = isset($skills['spring_floor_tumbling']['elite_standing']) ? count($skills['spring_floor_tumbling']['elite_standing']) : 0;
+      $elite_running_spring = isset($skills['spring_floor_tumbling']['elite_running']) ? count($skills['spring_floor_tumbling']['elite_running']) : 0;
       $skills = json_encode($request->skills);
 
       $attr = [
@@ -104,6 +106,7 @@ class SkillController extends Controller
         'team_id' => $request->team_id,
         'user_id' => $user->id
       ];
+      dd($attr);
       if($user->skillSet == null){
         $user->skillSet()->create($attr);
       }
@@ -119,12 +122,12 @@ class SkillController extends Controller
     public function hardSkills(Request $request){
 
       $skills = $request->skills;
-      $basic_standing_spring = array_key_exists('basic_standing', $skills ) ? count($skills['hard_floor_tumbling']['basic_standing']) : 0;
-      $basic_running_spring = array_key_exists('basic_running', $skills  ) ? count($skills['hard_floor_tumbling']['basic_running']) : 0;
-      $advanced_standing_spring = array_key_exists('advanced_standing',$skills ) ? count($skills['hard_floor_tumbling']['advanced_standing']) : 0;
-      $advanced_running_spring = array_key_exists('advanced_running',$skills ) ? count($skills['hard_floor_tumbling']['advanced_running']) : 0;
-      $elite_standing_spring = array_key_exists('elite_standing',$skills) ? count($skills['hard_floor_tumbling']['elite_standing']) : 0;
-      $elite_running_spring = array_key_exists('elite_running',$skills) ? count($skills['hard_floor_tumbling']['elite_running']) : 0;
+      $basic_standing_spring = isset($skills['hard_floor_tumbling']['basic_standing']) ? count($skills['hard_floor_tumbling']['basic_standing']) : 0;
+      $basic_running_spring = isset($skills['hard_floor_tumbling']['basic_running']) ? count($skills['hard_floor_tumbling']['basic_running']) : 0;
+      $advanced_standing_spring = isset($skills['hard_floor_tumbling']['advanced_standing']) ? count($skills['hard_floor_tumbling']['advanced_standing']) : 0;
+      $advanced_running_spring = isset($skills['hard_floor_tumbling']['advanced_running']) ? count($skills['hard_floor_tumbling']['advanced_running']) : 0;
+      $elite_standing_spring = isset($skills['hard_floor_tumbling']['elite_standing']) ? count($skills['hard_floor_tumbling']['elite_standing']) : 0;
+      $elite_running_spring = isset($skills['hard_floor_tumbling']['elite_running']) ? count($skills['hard_floor_tumbling']['elite_running']) : 0;
       $skills = json_encode($request->skills);
 
       $user = auth()->user();

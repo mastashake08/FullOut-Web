@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::resource('favorite','FavoriteController');
 Route::get('/home', 'HomeController@index');
 Route::resource('user','UserController');
 Route::group(['prefix' => 'coach'],function(){

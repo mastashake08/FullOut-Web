@@ -38,20 +38,28 @@
                           <th>Photo</th>
                           <th>Name</th>
                           <th>Email</th>
+                          <th>GPA</th>
                           <th>City</th>
                           <th>State</th>
                           <th>Zip</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody is="transition-group" name="fade">
 
                         <tr v-if="newData" v-for="(user,index) in users.data" :key="index">
-                          <td><img width="150" height="150" class="img img-circle":src="user.profile_pic"/></td>
+                          <td><img width="50" height="50" class="img img-circle":src="user.profile_pic"/></td>
                           <td><a v-bind:href="'/cheerleader/'+user.id+''" target="_blank">{{user.name}}</a></td>
                           <td>{{user.email}}</td>
+                          <td>{{user.gpa}}</td>
                           <td>{{user.city}}</td>
                           <td>{{user.state}}</td>
                           <td>{{user.zip}}</td>
+                          <td>
+
+                            <span class="glyphicon glyphicon-heart" v-on:click="favorite(user)"></span>
+                            <span class="glyphicon glyphicon-envelope" v-on:click="openMessage(user)"></span>
+                          </td>
                         </tr>
                       </tbody>
                     </transition-group>
@@ -70,7 +78,31 @@
               </div>
           </div>
       </div>
+      <!-- Modal -->
+  <div id="sendMessage" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Send Message to {{selectedUser.name}}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <textarea class="form-control" v-model="message"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" v-on:click="sendMessage(selectedUser)">Send Message</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
     </div>
+  </div>
+    </div>
+
 </template>
 
 <script>
@@ -81,17 +113,42 @@
         data() {
           return{
           users: {},
+          selectedUser: {},
           search: {},
-          newData: false
+          newData: false,
+          message: ''
         }
       },
       methods: {
+        openMessage: function(user){
+          this.selectedUser = user;
+          $("#sendMessage").modal();
+        },
+        sendMessage: function(user){
+          this.$http.post('/message',{_token:Laravel.csrfToken,receiver_id: user.id,message: this.message}).then(function(data){
+            alert('Message Sent!');
+            $('#sendMessage').modal('hide');
+            this.message = '';
+          }).bind(this);
+
+        },
         fetchUsers: function(url){
           this.newData = false;
           this.$http.get(url).then(function(data){
             this.users = data.data
             this.newData = true;
           })
+        },
+        favorite: function(user){
+          this.$http.post('/favorite',{_token:Laravel.csrfToken,cheerleader_id:user.id}).then(function(data){
+            alert('Favorited!');
+          });
+        },
+        unfavorite: function(user){
+          this.$http.delete('/favorite/'+user.id).then(function(data){
+            alert('Unfavorited');
+          });
+
         },
         searchUsers: function(){
           this.newData = false;

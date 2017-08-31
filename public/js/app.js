@@ -44320,6 +44320,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -44328,17 +44360,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       users: {},
+      selectedUser: {},
       search: {},
-      newData: false
+      newData: false,
+      message: ''
     };
   },
 
   methods: {
+    openMessage: function openMessage(user) {
+      this.selectedUser = user;
+      $("#sendMessage").modal();
+    },
+    sendMessage: function sendMessage(user) {
+      this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: user.id, message: this.message }).then(function (data) {
+        alert('Message Sent!');
+        $('#sendMessage').modal('hide');
+        this.message = '';
+      }).bind(this);
+    },
     fetchUsers: function fetchUsers(url) {
       this.newData = false;
       this.$http.get(url).then(function (data) {
         this.users = data.data;
         this.newData = true;
+      });
+    },
+    favorite: function favorite(user) {
+      this.$http.post('/favorite', { _token: Laravel.csrfToken, cheerleader_id: user.id }).then(function (data) {
+        alert('Favorited!');
+      });
+    },
+    unfavorite: function unfavorite(user) {
+      this.$http.delete('/favorite/' + user.id).then(function (data) {
+        alert('Unfavorited');
       });
     },
     searchUsers: function searchUsers() {
@@ -44576,7 +44631,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.search.gender = "female"
       }
     }
-  }), _vm._v(" Female\n                    ")]), _vm._v(" "), _c('label', {
+  }), _vm._v(" Female\n                      ")]), _vm._v(" "), _c('label', {
     staticClass: "form-radio-label"
   }, [_c('input', {
     directives: [{
@@ -44598,7 +44653,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.search.gender = "male"
       }
     }
-  }), _vm._v(" Male\n                    ")]), _vm._v(" "), _c('label', {
+  }), _vm._v(" Male\n                      ")]), _vm._v(" "), _c('label', {
     staticClass: "form-radio-label"
   }, [_c('input', {
     directives: [{
@@ -44621,7 +44676,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.search.gender = "*"
       }
     }
-  }), _vm._v(" Both\n                    ")])]), _vm._v(" "), _c('button', {
+  }), _vm._v(" Both\n                      ")])]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-primary",
     attrs: {
       "type": "button"
@@ -44644,8 +44699,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('td', [_c('img', {
       staticClass: "img img-circle",
       attrs: {
-        "width": "150",
-        "height": "150",
+        "width": "50",
+        "height": "50",
         "src": user.profile_pic
       }
     })]), _vm._v(" "), _c('td', [_c('a', {
@@ -44653,7 +44708,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "href": '/cheerleader/' + user.id + '',
         "target": "_blank"
       }
-    }, [_vm._v(_vm._s(user.name))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.email))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.city))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.state))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.zip))])]) : _vm._e()
+    }, [_vm._v(_vm._s(user.name))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.email))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.gpa))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.city))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.state))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.zip))]), _vm._v(" "), _c('td', [_c('span', {
+      staticClass: "glyphicon glyphicon-heart",
+      on: {
+        "click": function($event) {
+          _vm.favorite(user)
+        }
+      }
+    }), _vm._v(" "), _c('span', {
+      staticClass: "glyphicon glyphicon-envelope",
+      on: {
+        "click": function($event) {
+          _vm.openMessage(user)
+        }
+      }
+    })])]) : _vm._e()
   }))]), _vm._v(" "), _c('div', {
     staticClass: "pagination"
   }, [_c('button', {
@@ -44666,7 +44735,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.fetchUsers(_vm.users.prev_page_url)
       }
     }
-  }, [_vm._v("\n                      Previous\n                  ")]), _vm._v(" "), _c('span', [_vm._v("Page " + _vm._s(_vm.users.current_page) + " of " + _vm._s(_vm.users.last_page))]), _vm._v(" "), _c('button', {
+  }, [_vm._v("\n                        Previous\n                    ")]), _vm._v(" "), _c('span', [_vm._v("Page " + _vm._s(_vm.users.current_page) + " of " + _vm._s(_vm.users.last_page))]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-default",
     attrs: {
       "disabled": !_vm.users.next_page_url
@@ -44676,9 +44745,68 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.fetchUsers(_vm.users.next_page_url)
       }
     }
-  }, [_vm._v("Next\n                  ")])])])])])])])
+  }, [_vm._v("Next\n                    ")])])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "modal fade",
+    attrs: {
+      "id": "sendMessage",
+      "role": "dialog"
+    }
+  }, [_c('div', {
+    staticClass: "modal-dialog"
+  }, [_c('div', {
+    staticClass: "modal-content"
+  }, [_c('div', {
+    staticClass: "modal-header"
+  }, [_c('button', {
+    staticClass: "close",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("×")]), _vm._v(" "), _c('h4', {
+    staticClass: "modal-title"
+  }, [_vm._v("Send Message to " + _vm._s(_vm.selectedUser.name))])]), _vm._v(" "), _c('div', {
+    staticClass: "modal-body"
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.message),
+      expression: "message"
+    }],
+    staticClass: "form-control",
+    domProps: {
+      "value": (_vm.message)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.message = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "modal-footer"
+  }, [_c('button', {
+    staticClass: "btn btn-default",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": function($event) {
+        _vm.sendMessage(_vm.selectedUser)
+      }
+    }
+  }, [_vm._v("Send Message")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-danger",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Close")])])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("Photo")]), _vm._v(" "), _c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("Email")]), _vm._v(" "), _c('th', [_vm._v("City")]), _vm._v(" "), _c('th', [_vm._v("State")]), _vm._v(" "), _c('th', [_vm._v("Zip")])])])
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Photo")]), _vm._v(" "), _c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("Email")]), _vm._v(" "), _c('th', [_vm._v("GPA")]), _vm._v(" "), _c('th', [_vm._v("City")]), _vm._v(" "), _c('th', [_vm._v("State")]), _vm._v(" "), _c('th', [_vm._v("Zip")]), _vm._v(" "), _c('th', [_vm._v("Action")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
