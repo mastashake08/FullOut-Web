@@ -43843,6 +43843,79 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -43850,13 +43923,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   data: function data() {
     return {
-      messages: []
+      messages: [],
+      user: {},
+      message: '',
+      show: false
     };
+  },
+  methods: {
+    openMessage: function openMessage(user) {
+      this.user = user;
+      console.log(user);
+      $("#sendMessage").modal();
+    },
+    sendMessage: function sendMessage(user) {
+      this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: user.id, message: this.message }).then(function (data) {
+        alert('Message Sent!');
+        $('#sendMessage').modal('hide');
+        this.$http.get('/message').then(function (data) {
+          this.messages = data.data;
+          this.show = true;
+        });
+
+        this.message = '';
+      }).bind(this);
+    }
   },
   created: function created() {
     this.$http.get('/message').then(function (data) {
-      console.log(data);
-      this.messages = data;
+      this.messages = data.data;
+      this.show = true;
     });
   }
 });
@@ -43866,7 +43961,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  return _c('transition', {
+    attrs: {
+      "name": "fade"
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.show),
+      expression: "show"
+    }],
     staticClass: "container"
   }, [_c('div', {
     staticClass: "row"
@@ -43876,15 +43981,108 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("Messages")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Sent Messages")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
-  }, [_c('ul', {
+  }, [_c('div', {
+    staticClass: "table-responsive"
+  }, [_c('table', {
+    staticClass: "table"
+  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Sender")]), _vm._v(" "), _c('th', [_vm._v("Receiver")]), _vm._v(" "), _c('th', [_vm._v("Message")])])]), _vm._v(" "), _c('tbody', _vm._l((_vm.messages.messages.sent.data), function(message) {
+    return _c('tr', [_c('td', [_vm._v(_vm._s(message.sender.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(message.receiver.name))]), _vm._v(" "), _c('td', [_c('p', [_vm._v(_vm._s(message.message) + " "), _c('button', {
+      staticClass: "btn btn-info pull-right",
+      on: {
+        "click": function($event) {
+          _vm.openMessage(message.receiver)
+        }
+      }
+    }, [_c('span', {
+      staticClass: "glyphicon glyphicon-envelope"
+    }), _vm._v(" Reply")])])])])
+  }))])])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8 col-md-offset-2"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Received Messages")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('div', {
+    staticClass: "table-responsive"
+  }, [_c('table', {
+    staticClass: "table"
+  }, [_c('thead', [_c('tr', [_c('th', [_vm._v("Sender")]), _vm._v(" "), _c('th', [_vm._v("Received")]), _vm._v(" "), _c('th', [_vm._v("Message")])])]), _vm._v(" "), _c('tbody', _vm._l((_vm.messages.messages.received.data), function(message) {
+    return _c('tr', [_c('td', [_vm._v(_vm._s(message.sender.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(message.receiver.name))]), _vm._v(" "), _c('td', [_c('p', [_vm._v(_vm._s(message.message) + " "), _c('button', {
+      staticClass: "btn btn-info pull-right",
+      on: {
+        "click": function($event) {
+          _vm.openMessage(message.sender)
+        }
+      }
+    }, [_c('span', {
+      staticClass: "glyphicon glyphicon-envelope"
+    }), _vm._v(" Reply")])])])])
+  }))])])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "modal fade",
     attrs: {
-      "id": "message-list"
+      "id": "sendMessage",
+      "role": "dialog"
     }
-  }, _vm._l((_vm.messages), function(message, index) {
-    return _c('li', [_vm._v("\n                        " + _vm._s(message.content) + "\n                      ")])
-  }))])])])])])
+  }, [_c('div', {
+    staticClass: "modal-dialog"
+  }, [_c('div', {
+    staticClass: "modal-content"
+  }, [_c('div', {
+    staticClass: "modal-header"
+  }, [_c('button', {
+    staticClass: "close",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("×")]), _vm._v(" "), _c('h4', {
+    staticClass: "modal-title"
+  }, [_vm._v("Send Message to " + _vm._s(_vm.user.name))])]), _vm._v(" "), _c('div', {
+    staticClass: "modal-body"
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.message),
+      expression: "message"
+    }],
+    staticClass: "form-control",
+    domProps: {
+      "value": (_vm.message)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.message = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "modal-footer"
+  }, [_c('button', {
+    staticClass: "btn btn-default",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": function($event) {
+        _vm.sendMessage(_vm.user)
+      }
+    }
+  }, [_vm._v("Send Message")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-danger",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Close")])])])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -44942,10 +45140,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   props: ['user-id'],
   methods: {
-    sendMessage: function sendMessage() {
-      this.$http.post('/send-message', { _token: Laravel.csrf, receiver_id: this.user.id, message: this.message }).then(function (data) {
+    openMessage: function openMessage() {
+      $("#sendMessage").modal();
+    },
+    sendMessage: function sendMessage(user) {
+      this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: user.id, message: this.message }).then(function (data) {
         alert('Message Sent!');
-      });
+        $('#sendMessage').modal('hide');
+        this.message = '';
+      }).bind(this);
     }
   },
   created: function created() {
@@ -44979,12 +45182,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel-body"
   }, [_c('span', [_vm._v("Name: " + _vm._s(_vm.user.name))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Phone Number: " + _vm._s(_vm.user.phone))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Email: " + _vm._s(_vm.user.email))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("GPA: " + _vm._s(_vm.user.gpa))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("ACT: " + _vm._s(_vm.user.act_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("SAT: " + _vm._s(_vm.user.sat_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("City: " + _vm._s(_vm.user.city))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("State: " + _vm._s(_vm.user.state))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Zip: " + _vm._s(_vm.user.zip))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Bio: " + _vm._s(_vm.user.bio))]), _vm._v(" "), _c('div', {
     staticClass: "pull-right"
-  }, [_c('a', {
-    staticClass: " btn btn-default",
-    attrs: {
-      "href": '/send-message/' + _vm.user.id + ''
+  }, [_c('span', {
+    staticClass: "glyphicon glyphicon-envelope",
+    on: {
+      "click": function($event) {
+        _vm.openMessage()
+      }
     }
-  }, [_vm._v("Send Message")])])]) : _vm._e()])], 1)])]), _vm._v(" "), _c('div', {
+  })])]) : _vm._e()])], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "modal fade",
     attrs: {
       "id": "sendMessage",
@@ -45033,7 +45238,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "button"
     },
     on: {
-      "click": _vm.sendMessage
+      "click": function($event) {
+        _vm.sendMessage(_vm.user)
+      }
     }
   }, [_vm._v("Send Message")]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-danger",

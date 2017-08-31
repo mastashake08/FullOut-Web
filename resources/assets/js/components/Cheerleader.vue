@@ -27,7 +27,7 @@
                     <br>
                     <span>Bio: {{user.bio}}</span>
                     <div class="pull-right">
-                      <a v-bind:href="'/send-message/'+user.id+''" class=" btn btn-default">Send Message</a>
+                      <span class="glyphicon glyphicon-envelope" v-on:click="openMessage()"></span>
                     </div>
                   </div>
                 </transition>
@@ -35,8 +35,8 @@
           </div>
       </div>
       <!-- Modal -->
-  <div id="sendMessage" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+      <div id="sendMessage" class="modal fade" role="dialog">
+      <div class="modal-dialog">
 
       <!-- Modal content-->
       <div class="modal-content">
@@ -50,13 +50,13 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" v-on:click="sendMessage">Send Message</button>
+          <button type="button" class="btn btn-default" v-on:click="sendMessage(user)">Send Message</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
 
-    </div>
-  </div>
+      </div>
+      </div>
     </div>
 
 
@@ -77,11 +77,17 @@
       },
       props: ['user-id'],
       methods: {
-        sendMessage: function(){
-          this.$http.post('/send-message',{_token:Laravel.csrf,receiver_id: this.user.id,message:this.message}).then(function(data){
+        openMessage: function(){
+          $("#sendMessage").modal();
+        },
+        sendMessage: function(user){
+          this.$http.post('/message',{_token:Laravel.csrfToken,receiver_id: user.id,message: this.message}).then(function(data){
             alert('Message Sent!');
-          });
-        }
+            $('#sendMessage').modal('hide');
+            this.message = '';
+          }).bind(this);
+
+        },
       },
       created(){
         this.$http.get('/cheerleader/'+this.userId).then(function(data){

@@ -19,7 +19,13 @@ class MessageController extends Controller
     {
         //
         if($request->expectsJson()){
-          return auth()->user()->messages;
+          $with = [
+            'messages' =>[
+              'sent' => $request->user()->sentMessages()->with(['sender','receiver'])->paginate(5),
+              'received' => $request->user()->messages()->with(['sender','receiver'])->paginate(5)
+            ]
+          ];
+          return response()->json($with);
         }
         else{
           $with = [
