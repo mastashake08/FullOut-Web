@@ -32,7 +32,7 @@
                           <td>{{user.cheerleader.zip}}</td>
                           <td>
 
-                            <span class="glyphicon glyphicon-heart-empty" v-on:click="unfavorite(index)"></span>
+                            <span class="glyphicon glyphicon-minus" v-on:click="unfavorite(index)"></span>
                             <span class="glyphicon glyphicon-envelope" v-on:click="openMessage(user.cheerleader)"></span>
                           </td>
                         </tr>
@@ -121,7 +121,6 @@
         },
         unfavorite: function(user){
           this.$http.post('/favorite/'+this.users.data[user].id,{_token:Laravel.csrfToken,_method:'DELETE'}).then(function(data){
-            alert('Unfavorited');
             this.users.data.splice(user,1);
           }).bind(this);
 

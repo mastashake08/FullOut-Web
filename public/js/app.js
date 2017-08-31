@@ -47635,7 +47635,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     unfavorite: function unfavorite(user) {
       this.$http.post('/favorite/' + this.users.data[user].id, { _token: Laravel.csrfToken, _method: 'DELETE' }).then(function (data) {
-        alert('Unfavorited');
         this.users.data.splice(user, 1);
       }).bind(this);
     },
@@ -47695,7 +47694,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "target": "_blank"
       }
     }, [_vm._v(_vm._s(user.cheerleader.name))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.cheerleader.email))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.cheerleader.gpa))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.cheerleader.city))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.cheerleader.state))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.cheerleader.zip))]), _vm._v(" "), _c('td', [_c('span', {
-      staticClass: "glyphicon glyphicon-heart-empty",
+      staticClass: "glyphicon glyphicon-minus",
       on: {
         "click": function($event) {
           _vm.unfavorite(index)
