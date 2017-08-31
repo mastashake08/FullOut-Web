@@ -4,34 +4,9 @@
       <div class="row" >
           <div class="col-md-8 col-md-offset-2">
               <div class="panel panel-default">
-                  <div class="panel-heading">Cheerleaders</div>
+                  <div class="panel-heading">Favorited Cheerleaders</div>
 
                   <div class="panel-body">
-                    <form class="form-inline">
-                      <input type="text" v-model="search.name" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Jane Doe">
-                      <input type="text" v-model="search.highest_gpa" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest GPA">
-                      <input type="text" v-model="search.city" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="City">
-                      <input type="text" v-model="search.state" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="State">
-                      <input type="text" v-model="search.zip" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="ZIP">
-                      <input type="text" v-model="search.highest_skill_score" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest Skill">
-                      <input type="text" v-model="search.highest_stunting_score" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest Stunting Score">
-                      <input type="text" v-model="search.highest_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest Tumbling Score">
-
-                      <div class="form-radio mb-2 mr-sm-2 mb-sm-0">
-                        <label class="form-radio-label">
-                          <input class="form-radio-input" value="female" type="radio" v-model="search.gender"> Female
-                        </label>
-                        <label class="form-radio-label">
-                          <input class="form-radio-input" value="male" type="radio" v-model="search.gender"> Male
-                        </label>
-                        <label class="form-radio-label">
-                          <input class="form-radio-input" value="*" type="radio" checked v-model="search.gender"> Both
-                        </label>
-                      </div>
-
-
-                      <button type="button" class="btn btn-primary" v-on:click="searchUsers()">Submit</button>
-                    </form>
                     <table class="table">
                       <thead>
                         <tr>
