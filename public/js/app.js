@@ -1205,6 +1205,7 @@ Vue.component('cheerleaders', __webpack_require__(47));
 Vue.component('cheerleader', __webpack_require__(50));
 Vue.component('private-instructors', __webpack_require__(53));
 Vue.component('private-instructor', __webpack_require__(56));
+Vue.component('favorites', __webpack_require__(85));
 Vue.component('passport-clients', __webpack_require__(59));
 
 Vue.component('passport-authorized-clients', __webpack_require__(65));
@@ -47444,6 +47445,633 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(86),
+  /* template */
+  __webpack_require__(87),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/Fullout/resources/assets/js/components/Favorites.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Favorites.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1b543a80", Component.options)
+  } else {
+    hotAPI.reload("data-v-1b543a80", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      users: {},
+      selectedUser: {},
+      search: {},
+      newData: false,
+      message: ''
+    };
+  },
+
+  methods: {
+    openMessage: function openMessage(user) {
+      this.selectedUser = user;
+      $("#sendMessage").modal();
+    },
+    sendMessage: function sendMessage(user) {
+      this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: user.id, message: this.message }).then(function (data) {
+        alert('Message Sent!');
+        $('#sendMessage').modal('hide');
+        this.message = '';
+      }).bind(this);
+    },
+    fetchUsers: function fetchUsers(url) {
+      this.newData = false;
+      this.$http.get(url).then(function (data) {
+        this.users = data.data;
+        this.newData = true;
+      });
+    },
+    favorite: function favorite(user) {
+      this.$http.post('/favorite', { _token: Laravel.csrfToken, cheerleader_id: this.users[user].id }).then(function (data) {
+        alert('Favorited!');
+      });
+    },
+    unfavorite: function unfavorite(user) {
+      this.$http.post('/favorite/' + this.users.data[user].id, { _token: Laravel.csrfToken, _method: 'DELETE' }).then(function (data) {
+        alert('Unfavorited');
+        this.users.data.splice(user, 1);
+      }).bind(this);
+    },
+    searchUsers: function searchUsers() {
+      this.newData = false;
+      this.$http.get('/api/search', { 'params': this.search }).then(function (data) {
+        this.users = data.data;
+        this.newData = true;
+      }).bind(this);
+    }
+  },
+  created: function created() {
+    this.$http.get('/favorite').then(function (data) {
+      this.users = data.data;
+      this.newData = true;
+    });
+  }
+});
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8 col-md-offset-2"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Cheerleaders")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('form', {
+    staticClass: "form-inline"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.name),
+      expression: "search.name"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "Jane Doe"
+    },
+    domProps: {
+      "value": (_vm.search.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.name = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.highest_gpa),
+      expression: "search.highest_gpa"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "Highest GPA"
+    },
+    domProps: {
+      "value": (_vm.search.highest_gpa)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.highest_gpa = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.city),
+      expression: "search.city"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "City"
+    },
+    domProps: {
+      "value": (_vm.search.city)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.city = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.state),
+      expression: "search.state"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "State"
+    },
+    domProps: {
+      "value": (_vm.search.state)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.state = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.zip),
+      expression: "search.zip"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "ZIP"
+    },
+    domProps: {
+      "value": (_vm.search.zip)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.zip = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.highest_skill_score),
+      expression: "search.highest_skill_score"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "Highest Skill"
+    },
+    domProps: {
+      "value": (_vm.search.highest_skill_score)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.highest_skill_score = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.highest_stunting_score),
+      expression: "search.highest_stunting_score"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "Highest Stunting Score"
+    },
+    domProps: {
+      "value": (_vm.search.highest_stunting_score)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.highest_stunting_score = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.highest_tumbling_score),
+      expression: "search.highest_tumbling_score"
+    }],
+    staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+    attrs: {
+      "type": "text",
+      "id": "inlineFormInput",
+      "placeholder": "Highest Tumbling Score"
+    },
+    domProps: {
+      "value": (_vm.search.highest_tumbling_score)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.search.highest_tumbling_score = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-radio mb-2 mr-sm-2 mb-sm-0"
+  }, [_c('label', {
+    staticClass: "form-radio-label"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.gender),
+      expression: "search.gender"
+    }],
+    staticClass: "form-radio-input",
+    attrs: {
+      "value": "female",
+      "type": "radio"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.search.gender, "female")
+    },
+    on: {
+      "__c": function($event) {
+        _vm.search.gender = "female"
+      }
+    }
+  }), _vm._v(" Female\n                      ")]), _vm._v(" "), _c('label', {
+    staticClass: "form-radio-label"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.gender),
+      expression: "search.gender"
+    }],
+    staticClass: "form-radio-input",
+    attrs: {
+      "value": "male",
+      "type": "radio"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.search.gender, "male")
+    },
+    on: {
+      "__c": function($event) {
+        _vm.search.gender = "male"
+      }
+    }
+  }), _vm._v(" Male\n                      ")]), _vm._v(" "), _c('label', {
+    staticClass: "form-radio-label"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.search.gender),
+      expression: "search.gender"
+    }],
+    staticClass: "form-radio-input",
+    attrs: {
+      "value": "*",
+      "type": "radio",
+      "checked": ""
+    },
+    domProps: {
+      "checked": _vm._q(_vm.search.gender, "*")
+    },
+    on: {
+      "__c": function($event) {
+        _vm.search.gender = "*"
+      }
+    }
+  }), _vm._v(" Both\n                      ")])]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": function($event) {
+        _vm.searchUsers()
+      }
+    }
+  }, [_vm._v("Submit")])]), _vm._v(" "), _c('table', {
+    staticClass: "table"
+  }, [_vm._m(0), _vm._v(" "), _c("transition-group", {
+    tag: "tbody",
+    attrs: {
+      "name": "fade"
+    }
+  }, _vm._l((_vm.users.data), function(user, index) {
+    return (_vm.newData) ? _c('tr', {
+      key: index
+    }, [_c('td', [_c('img', {
+      staticClass: "img img-circle",
+      attrs: {
+        "width": "50",
+        "height": "50",
+        "src": user.cheerleader.profile_pic
+      }
+    })]), _vm._v(" "), _c('td', [_c('a', {
+      attrs: {
+        "href": '/cheerleader/' + user.cheerleader.id + '',
+        "target": "_blank"
+      }
+    }, [_vm._v(_vm._s(user.cheerleader.name))])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.cheerleader.email))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.cheerleader.gpa))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.cheerleader.city))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.cheerleader.state))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(user.cheerleader.zip))]), _vm._v(" "), _c('td', [_c('span', {
+      staticClass: "glyphicon glyphicon-heart-empty",
+      on: {
+        "click": function($event) {
+          _vm.unfavorite(index)
+        }
+      }
+    }), _vm._v(" "), _c('span', {
+      staticClass: "glyphicon glyphicon-envelope",
+      on: {
+        "click": function($event) {
+          _vm.openMessage(user.cheerleader)
+        }
+      }
+    })])]) : _vm._e()
+  }))]), _vm._v(" "), _c('div', {
+    staticClass: "pagination"
+  }, [_c('button', {
+    staticClass: "btn btn-default",
+    attrs: {
+      "disabled": !_vm.users.prev_page_url
+    },
+    on: {
+      "click": function($event) {
+        _vm.fetchUsers(_vm.users.prev_page_url)
+      }
+    }
+  }, [_vm._v("\n                        Previous\n                    ")]), _vm._v(" "), _c('span', [_vm._v("Page " + _vm._s(_vm.users.current_page) + " of " + _vm._s(_vm.users.last_page))]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-default",
+    attrs: {
+      "disabled": !_vm.users.next_page_url
+    },
+    on: {
+      "click": function($event) {
+        _vm.fetchUsers(_vm.users.next_page_url)
+      }
+    }
+  }, [_vm._v("Next\n                    ")])])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "modal fade",
+    attrs: {
+      "id": "sendMessage",
+      "role": "dialog"
+    }
+  }, [_c('div', {
+    staticClass: "modal-dialog"
+  }, [_c('div', {
+    staticClass: "modal-content"
+  }, [_c('div', {
+    staticClass: "modal-header"
+  }, [_c('button', {
+    staticClass: "close",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("×")]), _vm._v(" "), _c('h4', {
+    staticClass: "modal-title"
+  }, [_vm._v("Send Message to " + _vm._s(_vm.selectedUser.name))])]), _vm._v(" "), _c('div', {
+    staticClass: "modal-body"
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.message),
+      expression: "message"
+    }],
+    staticClass: "form-control",
+    domProps: {
+      "value": (_vm.message)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.message = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "modal-footer"
+  }, [_c('button', {
+    staticClass: "btn btn-default",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": function($event) {
+        _vm.sendMessage(_vm.selectedUser)
+      }
+    }
+  }, [_vm._v("Send Message")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-danger",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Close")])])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Photo")]), _vm._v(" "), _c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("Email")]), _vm._v(" "), _c('th', [_vm._v("GPA")]), _vm._v(" "), _c('th', [_vm._v("City")]), _vm._v(" "), _c('th', [_vm._v("State")]), _vm._v(" "), _c('th', [_vm._v("Zip")]), _vm._v(" "), _c('th', [_vm._v("Action")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-1b543a80", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

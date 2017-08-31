@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Favorite;
 class FavoriteController extends Controller
 {
     /**
@@ -11,9 +11,12 @@ class FavoriteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if($request->expectsJson()){
+          return $request->user()->favorites()->with('cheerleader')->paginate(10);
+        }
     }
 
     /**
@@ -88,5 +91,9 @@ class FavoriteController extends Controller
     public function destroy($id)
     {
         //
+        Favorite::destroy($id);
+        return response()->json([
+          'success' => true
+        ]);
     }
 }
