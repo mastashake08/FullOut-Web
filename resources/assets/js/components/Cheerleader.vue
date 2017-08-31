@@ -27,6 +27,7 @@
                     <br>
                     <span>Bio: {{user.bio}}</span>
                     <div class="pull-right">
+                      <span class="glyphicon glyphicon-heart" v-on:click="favorite()"></span>
                       <span class="glyphicon glyphicon-envelope" v-on:click="openMessage()"></span>
                     </div>
                   </div>
@@ -81,19 +82,22 @@
           $("#sendMessage").modal();
         },
         sendMessage: function(user){
-          this.$http.post('/message',{_token:Laravel.csrfToken,receiver_id: user.id,message: this.message}).then(function(data){
+          this.$http.post('/message',{_token:Laravel.csrfToken,receiver_id: this.user.id,message: this.message}).then(function(data){
             alert('Message Sent!');
             $('#sendMessage').modal('hide');
             this.message = '';
           }).bind(this);
 
         },
+        favorite: function(){
+          this.$http.post('/favorite',{_token:Laravel.csrfToken,cheerleader_id:this.user.id}).then(function(data){
+            alert('Favorited!');
+          });
+        },
       },
       created(){
-        this.$http.get('/cheerleader/'+this.userId).then(function(data){
-          this.user = data.data;
-          this.newData = true;
-          });
+        this.user = this.userId;
+        this.newData = true;
       }
     }
 </script>

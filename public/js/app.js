@@ -45126,6 +45126,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -45145,18 +45146,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       $("#sendMessage").modal();
     },
     sendMessage: function sendMessage(user) {
-      this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: user.id, message: this.message }).then(function (data) {
+      this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: this.user.id, message: this.message }).then(function (data) {
         alert('Message Sent!');
         $('#sendMessage').modal('hide');
         this.message = '';
       }).bind(this);
+    },
+    favorite: function favorite() {
+      this.$http.post('/favorite', { _token: Laravel.csrfToken, cheerleader_id: this.user.id }).then(function (data) {
+        alert('Favorited!');
+      });
     }
   },
   created: function created() {
-    this.$http.get('/cheerleader/' + this.userId).then(function (data) {
-      this.user = data.data;
-      this.newData = true;
-    });
+    this.user = this.userId;
+    this.newData = true;
   }
 });
 
@@ -45184,6 +45188,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('span', [_vm._v("Name: " + _vm._s(_vm.user.name))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Phone Number: " + _vm._s(_vm.user.phone))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Email: " + _vm._s(_vm.user.email))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("GPA: " + _vm._s(_vm.user.gpa))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("ACT: " + _vm._s(_vm.user.act_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("SAT: " + _vm._s(_vm.user.sat_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("City: " + _vm._s(_vm.user.city))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("State: " + _vm._s(_vm.user.state))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Zip: " + _vm._s(_vm.user.zip))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Bio: " + _vm._s(_vm.user.bio))]), _vm._v(" "), _c('div', {
     staticClass: "pull-right"
   }, [_c('span', {
+    staticClass: "glyphicon glyphicon-heart",
+    on: {
+      "click": function($event) {
+        _vm.favorite()
+      }
+    }
+  }), _vm._v(" "), _c('span', {
     staticClass: "glyphicon glyphicon-envelope",
     on: {
       "click": function($event) {
