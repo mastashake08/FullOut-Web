@@ -39,33 +39,45 @@ class UserController extends Controller
               ['state','=',$request->has('state') ? $request->state : '*'],
                ['gpa','>=',$request->has('highest_gpa')? $request->highest_gpa : 0.00]
           ];
-          return \App\User::with(['skillSet','favorited'])->when($request->name != "" || $request->has('name'), function ($query) use ($request) {
+          return \App\User::with(['skillSet','favorited'])->when($request->name != "" && $request->has('name'), function ($query) use ($request) {
                     return $query->where('name',$request->name);
                   })
-                  ->when($request->highest_gpa != "" || $request->has('highest_gpa'), function ($query) use ($request) {
+                  ->when($request->highest_gpa != "" && $request->has('highest_gpa'), function ($query) use ($request) {
                           return $query->where('gpa','>=',$request->highest_gpa);
                       })
-                  ->when($request->zip != "" || $request->has('zip'), function ($query) use ($request) {
+                  ->when($request->zip != "" && $request->has('zip'), function ($query) use ($request) {
 
                               return $query->where('zip','=',$request->zip)
                                            ;
                           })
-                          ->when($request->city != "" || $request->has('city'), function ($query) use ($request) {
+                          ->when($request->city != "" && $request->has('city'), function ($query) use ($request) {
 
                                       return $query->where('city','=',$request->city)
                                                    ;
                                   })
-                                  ->when($request->state != "" || $request->has('state'), function ($query) use ($request) {
+                                  ->when($request->state != "" && $request->has('state'), function ($query) use ($request) {
 
-                                              return $query->where('state','=',$request->state)
+                                              return $query->where('state','=',$request->state);
                                                            ;
                                           })
-                                          ->when($request->gender != "" || $request->has('gender'), function ($query) use ($request) {
+                                          ->when($request->gender != "" && $request->has('gender'), function ($query) use ($request) {
                                                       if($request->gender === '*'){
                                                         return $query->where('gender','female')->orWhere('gender','male');
                                                       }
-                                                      return $query->where('gender','=',$request->gender)
-                                                                   ;
+                                                      return $query->where('gender','=',$request->gender);
+                                                  })
+                                                  ->when($request->has('highest_skill_score') && $request->highest_skill_score != "", function($query) use ($request){
+                                                    //return $query->where("(skills.spring_stunting_score + skills.spring_tumbling_score + skills.hard_stunting_score + skills.hard_tumbling_score + skills.group_stunting_score + skills.coed_stunting_score) >= {$request->highest_skill_score}");
+                                                    return $query->join('skills','users.id','=','skills.id')->raw('SUM(skills.spring_stunting_score) + SUM(skills.spring_tumbling_score) + SUM(skills.hard_stunting_score) + SUM(skills.hard_tumbling_score) + SUM(skills.group_stunting_score) + SUM(skills.coed_stunting_score)','>=',$request->highest_skill_score);
+                                                  })
+                                                  ->when($request->has('highest_stunting_score') && $request->highest_stunting_score != "", function($query) use ($request){
+                                                    //return $query->where("(skills.spring_stunting_score + skills.spring_tumbling_score + skills.hard_stunting_score + skills.hard_tumbling_score + skills.group_stunting_score + skills.coed_stunting_score) >= {$request->highest_skill_score}");
+                                                    return $query->join('skills','users.id','=','skills.id')->raw('SUM(skills.spring_stunting_score)  SUM(skills.hard_stunting_score) + SUM(skills.group_stunting_score) + SUM(skills.coed_stunting_score)','>=',$request->highest_stunting_score);
+                                                  })
+                                                  ->when($request->has('highest_tumbling_score') && $request->highest_tumbling_score != "", function($query) use ($request){
+
+                                                    //return $query->where("(skills.spring_stunting_score + skills.spring_tumbling_score + skills.hard_stunting_score + skills.hard_tumbling_score + skills.group_stunting_score + skills.coed_stunting_score) >= {$request->highest_skill_score}");
+                                                    return $query->whereRaw('(skills.spring_tumbling_score + skills.hard_tumbling_score) >= '.$request->highest_tumbling_score);
                                                   })->paginate(10);
          }
          else{

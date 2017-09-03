@@ -50,9 +50,17 @@ class CheerleaderController extends Controller
         if($request->expectsJson()){
           return $cheerleader;
         }
+        if(auth()->user()->type === 'coach'){
+          $with = [
+            'cheerleader' => $cheerleader,
+            'teams' => auth()->user()->school->teams
+          ];
+        }
+        else{
         $with = [
           'cheerleader' => $cheerleader
         ];
+      }
         return view('student.individual')->with($with);
     }
 
