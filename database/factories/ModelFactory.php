@@ -12,6 +12,8 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
@@ -35,24 +37,16 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
       ];
 });
 
+$factory->define(App\Skill::class, function(Faker\Generator $faker){
+  return [
+    'spring_tumbling_score' => $faker->numberBetween($min = 0, $max = 42),
+    'hard_tumbling_score' => $faker->numberBetween($min = 0, $max = 43),
+    'group_stunting_score' => $faker->numberBetween($min = 0, $max = 59),
+    'coed_stunting_score' => $faker->numberBetween($min = 0, $max = 57)
+  ];
+});
+
 $factory->define(App\School::class, function (Faker\Generator $faker) {
-    /*
-    $table->string('name');
-    $table->string('logo');
-    $table->longText('description');
-    $table->string('office_phone');
-    $table->string('cell_phone');
-    $table->longText('office_address');
-    $table->string('in_state_tuition');
-    $table->string('out_state_tuition');
-    $table->string('website');
-    $table->string('min_gpa');
-    $table->string('min_gpa_transfer');
-    //GPA needed to stay on team
-    $table->string('gpa_needed_for_team');
-    $table->string('act_score');
-    $table->string('sat_score');
-    */
 
     return [
         'name' => $faker->name,

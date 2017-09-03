@@ -31,6 +31,20 @@ class UsersTableSeeder extends Seeder
           'phone' => '8594024863'
         ]);
         */
-         factory(App\User::class, 1000)->create();
+        /*
+        42
+        43
+        59
+        57
+
+
+        */
+        $users = \App\User::where('id','>',3);
+        $users->each(function($item,$key){
+          $item->delete();
+        });
+         factory(App\User::class, 1000)->create()->each(function($u){
+           $u->skillSet()->save(factory(App\Skill::class)->make());
+         });
     }
 }
