@@ -15,7 +15,7 @@ class AddProfilePicToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('profile_pic');
+            $table->string('profile_pic')->nullable();
         });
     }
 

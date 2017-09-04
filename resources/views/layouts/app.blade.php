@@ -69,11 +69,7 @@
                                       <i class="fa fa-calendar" aria-hidden="true"></i> Try Outs
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="{{ url('/cheerleader/scholarships') }}">
-                                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>  Scholarships
-                                    </a>
-                                </li>
+
                                 <li>
                                     <a href="{{ url('/cheerleader/teams') }}">
                                       <i class="fa fa-users" aria-hidden="true"></i>  Teams
@@ -113,11 +109,6 @@
                                 <li>
                                     <a href="{{ url('coach/tryouts') }}">
                                       <i class="fa fa-calendar" aria-hidden="true"></i> Manage Try Outs
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('coach/scholarships') }}">
-                                      <i class="fa fa-graduation-cap" aria-hidden="true"></i> Manage Scholarships
                                     </a>
                                 </li>
                                 <li>

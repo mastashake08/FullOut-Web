@@ -18,9 +18,9 @@ class AddCategoryScores extends Migration
             $table->integer('spring_stunting_score')->default(0);
             $table->integer('spring_tumbling_score')->default(0);
             $table->integer('hard_stunting_score')->default(0);
-            $table->integer('hard_tumbling_score')->nullable(0);
-            $table->integer('group_stunting_score')->nullable(0);
-            $table->integer('coed_stunting_score')->nullable(0);
+            $table->integer('hard_tumbling_score')->default(0);
+            $table->integer('group_stunting_score')->default(0);
+            $table->integer('coed_stunting_score')->default(0);
         });
     }
 
