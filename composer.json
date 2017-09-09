@@ -9,7 +9,8 @@
         "laravel/framework": "5.4.*",
         "laravel/passport": "^1.0",
         "laravel-notification-channels/webpush": "^1.0",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "barryvdh/laravel-cors": "^0.9.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

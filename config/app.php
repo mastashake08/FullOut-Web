@@ -179,6 +179,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
         NotificationChannels\WebPush\WebPushServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
