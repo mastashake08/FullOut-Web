@@ -47,7 +47,7 @@ class ApiController extends Controller
               'client_secret' => $this->client_secret,
               'username' => $request->email,
               'password' => $request->password,
-              'scope' => '',
+              'scope' => '*',
           ],
       ]);
 
