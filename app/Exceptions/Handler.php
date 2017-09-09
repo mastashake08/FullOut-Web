@@ -42,13 +42,15 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
-    {
-        if($exception instanceof \Symfony\Component\Debug\Exception\FatalThrowableError){
-          
-        }
-        return parent::render($request, $exception);
-    }
+     public function render($request, Exception $e)
+ {
+     $response = parent::render($request, $e);
+
+     if ($request->is('api/*')) {
+         app('Asm89\Stack\CorsService')->addActualRequestHeaders($response, $request);
+     }
+     return $response;
+ }
 
     /**
      * Convert an authentication exception into an unauthenticated response.
