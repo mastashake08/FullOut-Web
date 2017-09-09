@@ -47,12 +47,12 @@ class Handler extends ExceptionHandler
         if($exception instanceof \Symfony\Component\Debug\Exception\FatalThrowableError){
 
         }
-        if($e instanceof \League\OAuth2\Server\Exception\OAuthException) {
+        if($exception instanceof \League\OAuth2\Server\Exception\OAuthException) {
             $data = [
-                'error' => $e->errorType,
-                'error_description' => $e->getMessage(),
+                'error' => $exception->errorType,
+                'error_description' => $exception->getMessage(),
             ];
-            return \Response::json($data, $e->httpStatusCode, $e->getHttpHeaders());
+            return \Response::json($data, $exception->httpStatusCode, $exception->getHttpHeaders());
         }
         return parent::render($request, $exception);
     }
