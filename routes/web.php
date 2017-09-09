@@ -18,7 +18,7 @@ Route::group(['prefix' => 'api'],funtion(){
   Route::post('/register', 'ApiController@register');
 
   Route::post('/login', 'ApiController@login');
-});
+})->middleware('cors');
 Auth::routes();
 Route::resource('favorite','FavoriteController');
 Route::get('/home', 'HomeController@index');
