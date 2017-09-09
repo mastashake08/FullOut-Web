@@ -8,8 +8,8 @@ class ApiController extends Controller
 {
     //
     public function __construct(){
-      $this->client_id = 6;
-      $this->client_secret = 'FWPfYiFFvPN8EH7QOIVho5kocTbtMifinqwg0XfQ';
+      $this->client_id = 1;
+      $this->client_secret = 'ccmmIwEP3ZzLhtZ2xw4XwaQ5IIQrlyUldrzhYDmG';
     }
     public function register(Request $request){
       $user = User::Create([
@@ -47,7 +47,7 @@ class ApiController extends Controller
               'client_secret' => $this->client_secret,
               'username' => $request->email,
               'password' => $request->password,
-              'scope' => '*',
+              'scope' => '',
           ],
       ]);
 
