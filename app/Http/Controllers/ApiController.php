@@ -22,7 +22,7 @@ class ApiController extends Controller
 
       $http = new \GuzzleHttp\Client;
 
-      $response = $http->post('/oauth/token', [
+      $response = $http->post('https://fullout.jyroneparker.com/oauth/token', [
           'form_params' => [
               'grant_type' => 'password',
               'client_id' => $this->client_id,
@@ -40,7 +40,7 @@ class ApiController extends Controller
 
       $http = new \GuzzleHttp\Client;
 
-      $response = $http->post('/oauth/token', [
+      $response = $http->post('https://fullout.jyroneparker.com/oauth/token', [
           'form_params' => [
               'grant_type' => 'password',
               'client_id' => $this->client_id,
