@@ -16,10 +16,15 @@ class SchoolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-
+        if($request->expectsJson()){
+          $with = [
+            'schools' => School::paginate(10)
+          ];
+          return response()->json($with);
+        }
         if(auth()->user()->cant('create',School::class)){
           $with = [
             'schools' => School::paginate(10)
