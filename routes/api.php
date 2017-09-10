@@ -17,7 +17,9 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
-    
+    Route::post('/register', 'ApiController@register');
+
+    Route::post('/login', 'ApiController@login');
     Route::get('/test','ApiController@test');
     Route::get('/school/search', 'SchoolController@search');
     Route::resource('/school','SchoolController');
