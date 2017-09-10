@@ -176,8 +176,13 @@ class SchoolController extends Controller
     {
         //
         $school = School::find($id);
+
         if(auth()->user()->can('update',$school)){
         $school->fill($request->all());
+        if($request->hasFile('logo')){
+          $path = $request->logo->store('public');
+          $school->logo = Storage::url($path);
+        }
         $school->save();
         return back();
       }
