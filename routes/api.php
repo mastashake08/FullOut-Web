@@ -24,6 +24,7 @@ Route::get('/user', function (Request $request) {
     Route::get('/search/instructor', 'PrivateController@search');
     Route::resource('/instructor','PrivateController');
     Route::resource('/message','MessageController');
+    Route::resource('/skill','SkillController');
   });
     Route::post('/register', 'ApiController@register');
 

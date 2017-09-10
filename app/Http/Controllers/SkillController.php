@@ -11,9 +11,14 @@ class SkillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if($request->expectsJson()){
+          return response()->json([
+            'skills' => $request->user()->skillSet
+          ]);
+        }
     }
 
     /**
