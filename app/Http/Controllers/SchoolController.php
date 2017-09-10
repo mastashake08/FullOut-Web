@@ -130,7 +130,7 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
         //
         $school = School::findOrFail($id);
@@ -140,6 +140,9 @@ class SchoolController extends Controller
           'teams' => $school->teams()->paginate(10),
           'tryouts' => $school->tryouts()->paginate(10)
         ];
+        if($request->expectsJson()){
+          return response()->json($with);
+        }
         return view('school.individual')->with($with);
     }
 
