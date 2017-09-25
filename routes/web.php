@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/video','VideoController@index');
 Auth::routes();
 Route::resource('favorite','FavoriteController');
 Route::get('/home', 'HomeController@index');

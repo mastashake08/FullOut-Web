@@ -39,12 +39,13 @@ class UsersTableSeeder extends Seeder
 
 
         */
-        $users = \App\User::where('id','>',3);
+        $users = \App\User::where('id','>',3)->get();
         $users->each(function($item,$key){
           $item->delete();
         });
          factory(App\User::class, 1000)->create()->each(function($u){
            $u->skillSet()->save(factory(App\Skill::class)->make());
+           $u->videos()->save(factory(App\Video::class)->make());
          });
     }
 }

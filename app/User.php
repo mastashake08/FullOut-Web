@@ -50,5 +50,8 @@ class User extends Authenticatable
     public function favorited(){
       return $this->hasMany('App\Favorite','cheerleader_id','id');
     }
+    public function videos(){
+      return $this->hasMany('App\Video');
+    }
 
 }

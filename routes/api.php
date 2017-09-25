@@ -26,3 +26,4 @@ Route::get('/user', function (Request $request) {
     Route::get('/search','UserController@search');
     Route::get('/search/instructor', 'PrivateController@search');
     Route::resource('/instructor','PrivateController');
+    Route::resource('/video','VideoController');

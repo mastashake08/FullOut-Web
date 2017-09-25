@@ -36,6 +36,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'gender' => 'female'
       ];
 });
+$factory->define(App\Video::class,function(Faker\Generator $faker){
+  return [
+    'embed' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/sV2t3tW_JTQ" frameborder="0" allowfullscreen></iframe>'
+  ];
+
+});
 
 $factory->define(App\Skill::class, function(Faker\Generator $faker){
   return [
