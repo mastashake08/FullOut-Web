@@ -15,15 +15,21 @@ use Illuminate\Http\Request;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
-});
+})->middleware('auth:api');
 
-    Route::post('/register', 'ApiController@register');
-
-    Route::post('/login', 'ApiController@login');
-    Route::get('/test','ApiController@test');
+  Route::middleware('auth:api')->group(function(){
     Route::get('/school/search', 'SchoolController@search');
     Route::resource('/school','SchoolController');
     Route::get('/search','UserController@search');
     Route::get('/search/instructor', 'PrivateController@search');
     Route::resource('/instructor','PrivateController');
+
+    Route::resource('/message','MessageController');
+    Route::resource('/skill','SkillController');
+  });
+    Route::post('/register', 'ApiController@register');
+
+    Route::post('/login', 'ApiController@login');
+    Route::get('/test','ApiController@test');
+
     Route::resource('/video','VideoController');

@@ -45,7 +45,14 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if($exception instanceof \Symfony\Component\Debug\Exception\FatalThrowableError){
-          
+
+        }
+        if($exception instanceof \League\OAuth2\Server\Exception\OAuthException) {
+            $data = [
+                'error' => $exception->errorType,
+                'error_description' => $exception->getMessage(),
+            ];
+            return \Response::json($data, $exception->httpStatusCode, $exception->getHttpHeaders());
         }
         return parent::render($request, $exception);
     }

@@ -8,7 +8,11 @@
               <div class="panel-heading">Manage School</div>
 
               <div class="panel-body">
+                @if(auth()->user()->school != null)
                 View your public profile <a href="{{url('/cheerleader/schools/'.auth()->user()->school->id)}}">here</a>
+                @else
+                Add a <a href="{{url('/coach/schools')}}">school</a>.
+                @endif
               </div>
           </div>
       </div>

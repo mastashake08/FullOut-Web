@@ -16,10 +16,15 @@ class SchoolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-
+        if($request->expectsJson()){
+          $with = [
+            'schools' => School::paginate(10)
+          ];
+          return response()->json($with);
+        }
         if(auth()->user()->cant('create',School::class)){
           $with = [
             'schools' => School::paginate(10)
@@ -125,7 +130,7 @@ class SchoolController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
         //
         $school = School::findOrFail($id);
@@ -135,6 +140,9 @@ class SchoolController extends Controller
           'teams' => $school->teams()->paginate(10),
           'tryouts' => $school->tryouts()->paginate(10)
         ];
+        if($request->expectsJson()){
+          return response()->json($with);
+        }
         return view('school.individual')->with($with);
     }
 
@@ -168,8 +176,13 @@ class SchoolController extends Controller
     {
         //
         $school = School::find($id);
+
         if(auth()->user()->can('update',$school)){
         $school->fill($request->all());
+        if($request->hasFile('logo')){
+          $path = $request->logo->store('public');
+          $school->logo = Storage::url($path);
+        }
         $school->save();
         return back();
       }

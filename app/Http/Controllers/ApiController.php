@@ -8,8 +8,8 @@ class ApiController extends Controller
 {
     //
     public function __construct(){
-      $this->client_id = 6;
-      $this->client_secret = 'FWPfYiFFvPN8EH7QOIVho5kocTbtMifinqwg0XfQ';
+      $this->client_id = 1;
+      $this->client_secret = 'ccmmIwEP3ZzLhtZ2xw4XwaQ5IIQrlyUldrzhYDmG';
     }
     public function register(Request $request){
       $user = User::Create([
@@ -22,7 +22,7 @@ class ApiController extends Controller
 
       $http = new \GuzzleHttp\Client;
 
-      $response = $http->post(url('/oauth/token'), [
+      $response = $http->post('https://fullout.jyroneparker.com/oauth/token', [
           'form_params' => [
               'grant_type' => 'password',
               'client_id' => $this->client_id,
@@ -40,7 +40,7 @@ class ApiController extends Controller
 
       $http = new \GuzzleHttp\Client;
 
-      $response = $http->post(url('/oauth/token'), [
+      $response = $http->post('https://fullout.jyroneparker.com/oauth/token', [
           'form_params' => [
               'grant_type' => 'password',
               'client_id' => $this->client_id,
