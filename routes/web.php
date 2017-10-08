@@ -20,6 +20,7 @@ Route::resource('favorite','FavoriteController');
 Route::get('/home', 'HomeController@index');
 Route::resource('user','UserController');
 Route::group(['prefix' => 'coach'],function(){
+  Auth::routes();
   Route::get('cheerleaders','UserController@index');
   Route::resource('schools', 'SchoolController');
   Route::resource('clinics','ClinicController');
@@ -35,6 +36,7 @@ Route::group(['prefix' => 'coach'],function(){
 });
 
 Route::group(['prefix' => 'cheerleader'],function(){
+  Auth::routes();
   Route::post('update-profile','CheerleaderController@updateProfile');
   Route::resource('teams','TeamController');
   //Route::resource('skills/beginner', 'BeginnerSkillController');
@@ -70,6 +72,7 @@ Route::get('/user', function (Illuminate\Http\Request $request) {
     return $request->user();
 });
 Route::group(['prefix' => 'instructor'],function(){
+  Auth::routes();
   Route::get('/{id}','PrivateController@show');
   Route::post('update-prices','UserController@updatePrices');
 });
