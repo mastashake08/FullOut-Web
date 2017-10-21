@@ -36,7 +36,7 @@
 								<li><a href="#gym">Gyms</a></li>
 								<li><a href="#private">Instructors</a></li>
                 @if (Auth::guest())
-                    <li><a href="{{ url('/chherleader/login') }}">Login</a></li>
+                    <li><a href="{{ url('/cheerleader/login') }}">Login</a></li>
 										<li><a href="{{ url('/coach/login') }}">Coach Login</a></li>
 										<li><a href="{{ url('/instructor/login') }}">Instructor Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>

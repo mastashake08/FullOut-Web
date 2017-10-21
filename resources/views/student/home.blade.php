@@ -8,6 +8,7 @@
               <div class="panel-heading"><a data-toggle="collapse" href="#main-info">Main Information</a></div>
               <div id="main-info" class="panel-collapse collapse">
               <div class="panel-body">
+                <a href="{{url('/cheerleader/'.auth()->user()->id)}}">View Public Profile</a>
                 <form class="form" action="{{url('/cheerleader/update-profile')}}" method="post" enctype="multipart/form-data">
                   {{csrf_field()}}
                   <div class="form-group{{ $errors->has('profile_pic') ? ' has-error' : '' }}">
@@ -78,6 +79,19 @@
                   <textarea class="form-control" name="bio">{{auth()->user()->bio}}</textarea>
                 </div>
               </div>
+              <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon">Weight</span>
+                <textarea class="form-control" name="weight">{{auth()->user()->weight}}</textarea>
+              </div>
+            </div>
+            <div class="form-group col-md-4">
+              <div class="input-group">
+              <span class="input-group-addon" >Height</span>
+              <textarea class="form-control" name="height">{{auth()->user()->height}}</textarea>
+            </div>
+          </div>
+
                   <div class="form-group col-md-4">
                   <button class="btn btn-primary" type="submit">Update</button>
                   </div>

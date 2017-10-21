@@ -109,6 +109,8 @@ class CheerleaderController extends Controller
       $user->act_score = $request->act_score;
       $user->sat_score = $request->sat_score;
       $user->bio = $request->bio;
+      $user->weight = $request->weight;
+      $user->height = $request->height;
       if($request->hasFile('profile_pic')){
         $path = $request->file('profile_pic')->store('public');
         $url = Storage::url($path);
