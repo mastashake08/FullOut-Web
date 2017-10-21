@@ -6,7 +6,7 @@
   <div class="row">
       <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-              <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling - @if(isset($teams)) @foreach($teams as $team) {{$team->team_name}}: @if($cheerleader->skillSet->spring_tumbling_score/($team->skillSet->spring_tumbling_score == 0) ? 1 : $team->skillSet->spring_tumbling_score < 1){{$cheerleader->skillSet->spring_tumbling_score/($team->skillSet->spring_tumbling_score == 0) ? 1 : $team->skillSet->spring_tumbling_score *100}} % @else 100% @endif @endif @endforeach @endif</a></div>
+              <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling - @if(isset($teams)) @foreach($teams as $team) {{$team->team_name}}: @if($team->skillSet->spring_tumbling_score > 0) @if($cheerleader->skillSet->spring_tumbling_score/$team->skillSet->spring_tumbling_score  < 1){{$cheerleader->skillSet->spring_tumbling_score/$team->skillSet->spring_tumbling_score *100}} % @else 100% @endif @endif @endforeach @endif</a></div>
               <div id="spring" class="panel-collapse collapse">
               <div class="panel-body">
 
