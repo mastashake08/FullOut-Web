@@ -177,7 +177,7 @@
                       <div class="row">
                           <div class="col-md-8 col-md-offset-2">
                               <div class="panel panel-default">
-                                  <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling - @if(isset($teams)) )@foreach($teams as $team) {{$team->team_name}}: @if($cheerleader->skillSet->hard_tumbling_score/$team->skillSet->hard_tumbling_score < 1){{$cheerleader->skillSet->hard_tumbling_score/$team->skillSet->hard_tumbling_score *100}} % @else 100% @endif @endforeach @endif</a></div>
+                                  <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling - @if(isset($teams)) )@foreach($teams as $team) {{$team->team_name}}: @if($team->skillSet->hard_tumbling_score > 0) @if($cheerleader->skillSet->hard_tumbling_score/$team->skillSet->hard_tumbling_score < 1){{$cheerleader->skillSet->hard_tumbling_score/$team->skillSet->hard_tumbling_score *100}} % @else 100% @endif  @endif @endforeach @endif</a></div>
                                   <div id="hard" class="panel-collapse collapse">
                                   <div class="panel-body">
 
@@ -347,7 +347,7 @@
                       <div class="row">
                           <div class="col-md-8 col-md-offset-2">
                               <div class="panel panel-default">
-                                  <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting - @if(isset($teams)) @foreach($teams as $team) {{$team->team_name}}: @if($cheerleader->skillSet->group_stunting_score/$team->skillSet->group_stunting_score < 1){{$cheerleader->skillSet->group_stunting_score/$team->skillSet->group_stunting_score *100}} % @else 100% @endif @endforeach @endif</a></div>
+                                  <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting - @if(isset($teams)) @foreach($teams as $team) {{$team->team_name}}: @if($team->skillSet->group_stunting_score > 0) @if($cheerleader->skillSet->group_stunting_score/$team->skillSet->group_stunting_score < 1){{$cheerleader->skillSet->group_stunting_score/$team->skillSet->group_stunting_score *100}} % @else 100% @endif @endif @endforeach @endif</a></div>
                                   <div id="group" class="panel-collapse collapse">
                                   <div class="panel-body ">
                                       <fieldset>
@@ -574,7 +574,7 @@
                       <div class="row">
                           <div class="col-md-8 col-md-offset-2">
                               <div class="panel panel-default">
-                                  <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting - @if(isset($teams)) @foreach($teams as $team) {{$team->team_name}}: @if($cheerleader->skillSet->coed_stunting_score/$team->skillSet->coed_stunting_score < 1){{$cheerleader->skillSet->coed_stunting_score/$team->skillSet->coed_stunting_score *100}} % @else 100% @endif @endforeach @endif</a></div>
+                                  <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting - @if(isset($teams)) @foreach($teams as $team) {{$team->team_name}}:@if($team->skillSet->coed_stunting_score > 0) @if($cheerleader->skillSet->coed_stunting_score/$team->skillSet->coed_stunting_score < 1){{$cheerleader->skillSet->coed_stunting_score/$team->skillSet->coed_stunting_score *100}} % @else 100% @endif @endforeach @endif</a></div>
                                   <div id="coed" class="panel-collapse collapse">
                                   <div class="panel-body ">
 
