@@ -61,7 +61,6 @@ class CheerleaderController extends Controller
           'cheerleader' => $cheerleader
         ];
       }
-      dd($with);
         return view('student.individual')->with($with);
     }
 
