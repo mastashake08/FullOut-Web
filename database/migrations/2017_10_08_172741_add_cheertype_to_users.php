@@ -15,6 +15,8 @@ class AddCheertypeToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->string('cheertype')->default('coed');
+            
         });
     }
 
