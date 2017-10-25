@@ -15,7 +15,8 @@ class UserController extends Controller
     {
         //
         if($request->expectsJson()){
-          return \App\User::with(['skillSet','favorited'])->paginate(10);
+
+          return \App\User::with(['skillSet','favorited'])->where('visibility','coach')->orWhere('visibility','all')->paginate(10);
         }
         else{
             return view('student.all');

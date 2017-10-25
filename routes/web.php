@@ -36,6 +36,7 @@ Route::group(['prefix' => 'coach'],function(){
 });
 
 Route::group(['prefix' => 'cheerleader'],function(){
+  Route::post('add-video','CheerleaderController@addVideo');
   Auth::routes();
   Route::post('update-profile','CheerleaderController@updateProfile');
   Route::resource('teams','TeamController');

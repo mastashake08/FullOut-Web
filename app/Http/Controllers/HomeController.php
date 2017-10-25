@@ -33,6 +33,9 @@ class HomeController extends Controller
           case 'instructor':
             return view('instructor.home');
             break;
+          default:
+          return view('student.home');
+          break;
 
         }
 

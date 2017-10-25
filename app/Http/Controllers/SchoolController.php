@@ -19,7 +19,9 @@ class SchoolController extends Controller
     public function index(Request $request)
     {
         //
+
         if($request->expectsJson()){
+          
           $with = [
             'schools' => School::paginate(10)
           ];

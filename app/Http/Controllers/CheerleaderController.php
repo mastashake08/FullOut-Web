@@ -111,12 +111,22 @@ class CheerleaderController extends Controller
       $user->bio = $request->bio;
       $user->weight = $request->weight;
       $user->height = $request->height;
+      $user->visibility = $request->visibility;
+      $user->type = 'student';
+      $user->cheertype = $request->cheertype;
       if($request->hasFile('profile_pic')){
         $path = $request->file('profile_pic')->store('public');
         $url = Storage::url($path);
         $user->profile_pic = $url;
       }
       $user->save();
+      return back();
+    }
+
+    public function addVideo(Request $request){
+      $request->user()->videos()->create([
+        'embed' => $request->embed
+      ]);
       return back();
     }
 }

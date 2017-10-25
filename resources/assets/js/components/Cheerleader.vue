@@ -26,6 +26,11 @@
                     <span>Zip: {{user.zip}}</span>
                     <br>
                     <span>Bio: {{user.bio}}</span>
+                    <br>
+                    <span>Height: {{user.height}}</span>
+                    <br>
+                    <span>Weight: {{user.weight}}</span>
+                    <br>
                     <div class="pull-right">
                       <span class="glyphicon glyphicon-heart" v-on:click="favorite()"></span>
                       <span class="glyphicon glyphicon-envelope" v-on:click="openMessage()"></span>

@@ -91,6 +91,24 @@
               <textarea class="form-control" name="height">{{auth()->user()->height}}</textarea>
             </div>
           </div>
+          <div class="form-group col-md-4">
+            <div class="input-group">
+            <span class="input-group-addon" >Cheer Type</span>
+            <select class="form-control" name="cheertype">
+              <option value="girl" @if(auth()->user()->cheertype == 'girl') selected @endif>All Girl Flyer</option>
+              <option value="coed" @if(auth()->user()->cheertype == 'coed') selected @endif>Coed Base</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="input-group">
+          <span class="input-group-addon" >Visibility</span>
+          <select class="form-control" name="visibility">
+            <option value="all" @if(auth()->user()->visibility == 'all') selected @endif>All</option>
+            <option value="coach" @if(auth()->user()->visibility == 'coach') selected @endif>Coaches/Gyms</option>
+          </select>
+        </div>
+      </div>
 
                   <div class="form-group col-md-4">
                   <button class="btn btn-primary" type="submit">Update</button>
@@ -103,6 +121,35 @@
         </div>
       </div>
     </div>
+    <div class="container">
+      <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+              <div class="panel panel-default">
+                  <div class="panel-heading"><a data-toggle="collapse" href="#videos">Videos</a></div>
+                  <div id="videos" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    @foreach(auth()->user()->videos as $video)
+                    {!! $video->embed!!}
+                    @endforeach
+                    <form class="form" action="{{url('/cheerleader/add-video')}}" method="post" enctype="multipart/form-data">
+                      {{csrf_field()}}
+                      <div class="form-group col-md-8">
+                        <div class="input-group">
+                        <span class="input-group-addon" >Youtube Embed Link</span>
+                        <textarea name="embed" class="form-control"></textarea>
+                      </div>
+                    </div>
+                      <div class="form-group col-md-4">
+                      <button class="btn btn-primary" type="submit">Add Video</button>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 <div class="container">
   <div class="row">
       <div class="col-md-8 col-md-offset-2">
