@@ -18,7 +18,8 @@ class CreateSosTable extends Migration
             $table->integer('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->longText('description');
-            $table->json('skills_needed');
+            $table->json('needed_skills');
+            $table->timestamp('needed_date');
             $table->timestamps();
         });
     }

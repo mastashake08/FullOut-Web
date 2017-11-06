@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Sos;
 class SosController extends Controller
 {
     /**
@@ -36,6 +36,15 @@ class SosController extends Controller
     public function store(Request $request)
     {
         //
+        $alert = Sos::Create([
+          'description',
+          'needed_date',
+          'needed_skills',
+          'team_id'
+        ]);
+        return response()->json([
+          'alert' => $alert
+        ]);
     }
 
     /**
@@ -81,5 +90,9 @@ class SosController extends Controller
     public function destroy($id)
     {
         //
+
+        return response()->json([
+          'success' =>   Sos::findOrFail($id)->delete()
+        ]);
     }
 }
