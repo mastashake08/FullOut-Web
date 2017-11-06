@@ -121,6 +121,11 @@
                                       <i class="fa fa-envelope" aria-hidden="true"></i>  My Messages
                                     </a>
                                 </li>
+                                <li>
+                                  <a href="{{url('/coach/sos')}}">
+                                    <i class="fa fa-rss" aria-hidden="true"></i> Manage SOS Alerts
+                                  </a>
+                                </li>
                         @endif
                         @endif
                     </ul>

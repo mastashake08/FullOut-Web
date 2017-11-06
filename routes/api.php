@@ -38,8 +38,12 @@ Route::post('/billing',function(Request $request){
   if($user->type == 'student'){
     $user->newSubscription('cheer', 'cheerleader-plan')->create($request->token);
   }
+  elseif($user->type == 'coach'){
+    $user->newSubscription('coach', 'sos')->create($request->token);
+  }
   else{
     $user->newSubscription('instructor', 'Instructor-Plan')->create($request->token);
   }
   return;
 });
+Route::resource('sos','SosController');

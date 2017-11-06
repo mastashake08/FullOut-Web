@@ -33,6 +33,7 @@ Route::group(['prefix' => 'coach'],function(){
   Route::resource('teams','TeamController');
   Route::resource('/team/skillset','TeamSkillController');
   Route::resource('programs','ProgramController');
+  Route::resource('sos','SosController');
 });
 
 Route::group(['prefix' => 'cheerleader','middleware' => 'subscribed'],function(){

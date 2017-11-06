@@ -14,4 +14,7 @@ class Team extends Model
     public function skillSet(){
       return $this->hasOne('App\Skill');
     }
+    public function alerts(){
+      return $this->hasMany('App\Sos');
+    }
 }
