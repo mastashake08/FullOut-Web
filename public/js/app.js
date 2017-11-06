@@ -45128,6 +45128,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -45186,7 +45229,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [(_vm.newData) ? _c('div', {
     staticClass: "panel-body"
-  }, [_c('span', [_vm._v("Name: " + _vm._s(_vm.user.name))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Phone Number: " + _vm._s(_vm.user.phone))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Email: " + _vm._s(_vm.user.email))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("GPA: " + _vm._s(_vm.user.gpa))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("ACT: " + _vm._s(_vm.user.act_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("SAT: " + _vm._s(_vm.user.sat_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("City: " + _vm._s(_vm.user.city))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("State: " + _vm._s(_vm.user.state))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Zip: " + _vm._s(_vm.user.zip))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Bio: " + _vm._s(_vm.user.bio))]), _vm._v(" "), _c('div', {
+  }, [_c('span', [_vm._v("Name: " + _vm._s(_vm.user.name))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Phone Number: " + _vm._s(_vm.user.phone))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Email: " + _vm._s(_vm.user.email))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("GPA: " + _vm._s(_vm.user.gpa))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("ACT: " + _vm._s(_vm.user.act_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("SAT: " + _vm._s(_vm.user.sat_score))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("City: " + _vm._s(_vm.user.city))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("State: " + _vm._s(_vm.user.state))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Zip: " + _vm._s(_vm.user.zip))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Bio: " + _vm._s(_vm.user.bio))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Height: " + _vm._s(_vm.user.height))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Weight: " + _vm._s(_vm.user.weight))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Looking For: " + _vm._s(_vm.user.looking_for))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Cheerleader Type: " + _vm._s(_vm.user.cheertype))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('span', [_vm._v("Current Team: " + _vm._s(_vm.user.current_team))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('div', {
     staticClass: "pull-right"
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-heart",
@@ -45203,6 +45246,46 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   })])]) : _vm._e()])], 1)])]), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8 col-md-offset-2"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Videos")]), _vm._v(" "), _c('transition', {
+    attrs: {
+      "name": "fade"
+    }
+  }, [(_vm.newData) ? _c('div', {
+    staticClass: "panel-body"
+  }, [_c('ul', _vm._l((_vm.user.videos), function(video) {
+    return _c('li', {
+      staticStyle: {
+        "list-style": "none"
+      }
+    }, [_c('span', {
+      domProps: {
+        "innerHTML": _vm._s(video.embed)
+      }
+    })])
+  }))]) : _vm._e()])], 1)])]), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8 col-md-offset-2"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("Awards")]), _vm._v(" "), _c('transition', {
+    attrs: {
+      "name": "fade"
+    }
+  }, [(_vm.newData) ? _c('div', {
+    staticClass: "panel-body"
+  }, [_c('ul', _vm._l((_vm.user.awards), function(award) {
+    return _c('li', [_vm._v("\n                  " + _vm._s(award.award) + "\n                ")])
+  }))]) : _vm._e()])], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "modal fade",
     attrs: {
       "id": "sendMessage",

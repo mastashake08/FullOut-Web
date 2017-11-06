@@ -5,9 +5,10 @@ use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use NotificationChannels\WebPush\HasPushSubscriptions;
+use Laravel\Cashier\Billable;
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens, HasPushSubscriptions;
+    use Notifiable, HasApiTokens, HasPushSubscriptions, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone','address','password', 'type','city','state','zip','gender'
+        'name', 'email', 'phone','address','password', 'type','city','state','zip','gender','height','weight','current_team'
     ];
 
     /**
@@ -52,6 +53,9 @@ class User extends Authenticatable
     }
     public function videos(){
       return $this->hasMany('App\Video');
+    }
+    public function awards(){
+      return $this->hasMany('App\Award');
     }
 
 }

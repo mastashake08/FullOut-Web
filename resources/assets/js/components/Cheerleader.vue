@@ -31,10 +31,48 @@
                     <br>
                     <span>Weight: {{user.weight}}</span>
                     <br>
+                    <span>Looking For: {{user.looking_for}}</span>
+                    <br>
+                    <span>Cheerleader Type: {{user.cheertype}}</span>
+                    <br>
+                    <span>Current Team: {{user.current_team}}</span>
+                    <br>
                     <div class="pull-right">
                       <span class="glyphicon glyphicon-heart" v-on:click="favorite()"></span>
                       <span class="glyphicon glyphicon-envelope" v-on:click="openMessage()"></span>
                     </div>
+                  </div>
+                </transition>
+              </div>
+          </div>
+      </div>
+      <div class="row" >
+          <div class="col-md-8 col-md-offset-2">
+              <div class="panel panel-default">
+                  <div class="panel-heading">Videos</div>
+                  <transition name="fade">
+                  <div class="panel-body" v-if="newData">
+                  <ul>
+                    <li  style="list-style: none;" v-for="video in user.videos">
+                      <span v-html="video.embed"></span>
+                    </li>
+                  </ul>
+                  </div>
+                </transition>
+              </div>
+          </div>
+      </div>
+      <div class="row" >
+          <div class="col-md-8 col-md-offset-2">
+              <div class="panel panel-default">
+                  <div class="panel-heading">Awards</div>
+                  <transition name="fade">
+                  <div class="panel-body" v-if="newData">
+                  <ul>
+                    <li v-for="award in user.awards">
+                      {{award.award}}
+                    </li>
+                  </ul>
                   </div>
                 </transition>
               </div>

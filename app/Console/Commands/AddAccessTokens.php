@@ -42,6 +42,8 @@ class AddAccessTokens extends Command
         $users->each(function($item,$key){
           // Creating a token without scopes...
           $token = $item->createToken('personal')->accessToken;
+          $item->save();
+          dd($item);
         });
     }
 }

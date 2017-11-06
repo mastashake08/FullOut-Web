@@ -93,6 +93,12 @@
           </div>
           <div class="form-group col-md-4">
             <div class="input-group">
+            <span class="input-group-addon">Current/Previous Team</span>
+            <input/] class="form-control" name="current_team" value="{{auth()->user()->current_team}}">
+          </div>
+        </div>
+          <div class="form-group col-md-4">
+            <div class="input-group">
             <span class="input-group-addon" >Cheer Type</span>
             <select class="form-control" name="cheertype">
               <option value="girl" @if(auth()->user()->cheertype == 'girl') selected @endif>All Girl Flyer</option>
@@ -109,6 +115,15 @@
           </select>
         </div>
       </div>
+      <div class="form-group col-md-4">
+        <div class="input-group">
+        <span class="input-group-addon" >What Are You Looking For</span>
+        <select class="form-control" name="looking_for">
+          <option value="scholarships" @if(auth()->user()->looking_for == 'scholarships') selected @endif>Scholarships</option>
+          <option value="gpa" @if(auth()->user()->looking_for == 'gpa') selected @endif>GPA</option>
+        </select>
+      </div>
+    </div>
 
                   <div class="form-group col-md-4">
                   <button class="btn btn-primary" type="submit">Update</button>
@@ -150,6 +165,37 @@
             </div>
           </div>
         </div>
+        <div class="container">
+          <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                  <div class="panel panel-default">
+                      <div class="panel-heading"><a data-toggle="collapse" href="#awards">Awards</a></div>
+                      <div id="awards" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <ul>
+                        @foreach(auth()->user()->awards as $award)
+                        <li>{{$award->award}}</li>
+                        @endforeach
+                      </ul>
+                        <form class="form" action="{{url('/cheerleader/add-award')}}" method="post" enctype="multipart/form-data">
+                          {{csrf_field()}}
+                          <div class="form-group col-md-4">
+                            <div class="input-group">
+                            <span class="input-group-addon" >Award Name</span>
+                            <input name="award" class="form-control">
+                          </div>
+                        </div>
+                          <div class="form-group col-md-4">
+                          <button class="btn btn-primary" type="submit">Add Award</button>
+                          </div>
+
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 <div class="container">
   <div class="row">
       <div class="col-md-8 col-md-offset-2">

@@ -139,7 +139,8 @@ class SkillController extends Controller
       $hard_floor_tumbling_count = array_sum(array_map("count", $skills['hard_floor_tumbling']));
       $skills = json_encode($request->skills);
 
-      $user = auth()->user();
+      $user = $request->user;
+      dd($request->user()->with('skillSet','school')->first());
       $user->skillSet()->update([
         'hard_floor_tumbling_skills' => $skills,
         /*'basic_standing_hardwood' => $basic_standing_spring,

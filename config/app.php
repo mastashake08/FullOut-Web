@@ -180,6 +180,7 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         NotificationChannels\WebPush\WebPushServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class
 
     ],
 

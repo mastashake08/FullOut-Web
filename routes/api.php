@@ -33,3 +33,13 @@ Route::get('/user', function (Request $request) {
     Route::get('/test','ApiController@test');
 
     Route::resource('/video','VideoController');
+Route::post('/billing',function(Request $request){
+  $user = \App\User::find($request->user_id);
+  if($user->type == 'student'){
+    $user->newSubscription('cheer', 'cheerleader-plan')->create($request->token);
+  }
+  else{
+    $user->newSubscription('cheer', 'Instructor-Plan')->create($request->token);
+  }
+  return;
+});

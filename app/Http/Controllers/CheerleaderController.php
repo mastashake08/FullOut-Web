@@ -46,15 +46,16 @@ class CheerleaderController extends Controller
     public function show(Request $request,$id)
     {
         //
-        $cheerleader = \App\User::with(['skillSet'])->findOrFail($id);
+        $cheerleader = \App\User::with(['skillSet','videos','awards'])->findOrFail($id);
         if($request->expectsJson()){
           return $cheerleader;
         }
         if(auth()->user()->type === 'coach'){
           $with = [
             'cheerleader' => $cheerleader,
-            'teams' => auth()->user()->school->teams
+            'teams' => $request->user()->school->teams
           ];
+
         }
         else{
         $with = [
@@ -114,6 +115,8 @@ class CheerleaderController extends Controller
       $user->visibility = $request->visibility;
       $user->type = 'student';
       $user->cheertype = $request->cheertype;
+      $user->current_team = $request->current_team;
+      $user->looking_for = $request->looking_for;
       if($request->hasFile('profile_pic')){
         $path = $request->file('profile_pic')->store('public');
         $url = Storage::url($path);
@@ -126,6 +129,13 @@ class CheerleaderController extends Controller
     public function addVideo(Request $request){
       $request->user()->videos()->create([
         'embed' => $request->embed
+      ]);
+      return back();
+    }
+
+    public function addAward(Request $request){
+      $request->user()->awards()->create([
+        'award' => $request->award
       ]);
       return back();
     }

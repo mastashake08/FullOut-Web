@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('/video','VideoController@index');
 Auth::routes();
 Route::resource('favorite','FavoriteController');
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->middleware('subscribed');
 Route::resource('user','UserController');
 Route::group(['prefix' => 'coach'],function(){
   Auth::routes();
@@ -35,8 +35,9 @@ Route::group(['prefix' => 'coach'],function(){
   Route::resource('programs','ProgramController');
 });
 
-Route::group(['prefix' => 'cheerleader'],function(){
+Route::group(['prefix' => 'cheerleader','middleware' => 'subscribed'],function(){
   Route::post('add-video','CheerleaderController@addVideo');
+  Route::post('add-award','CheerleaderController@addAward');
   Auth::routes();
   Route::post('update-profile','CheerleaderController@updateProfile');
   Route::resource('teams','TeamController');
@@ -72,9 +73,19 @@ Route::group(['prefix' => 'oauth'],function(){
 Route::get('/user', function (Illuminate\Http\Request $request) {
     return $request->user();
 });
-Route::group(['prefix' => 'instructor'],function(){
+Route::group(['prefix' => 'instructor','middleware' => 'subscribed'],function(){
   Auth::routes();
   Route::get('/{id}','PrivateController@show');
   Route::post('update-prices','UserController@updatePrices');
 });
 Route::resource('cheerleader','CheerleaderController');
+
+
+//billing
+Route::get('billing',function(){
+  if(auth()->user()->type="student")
+  return view('student.billing');
+  else {
+    return view('instructor.billing');
+  }
+});
