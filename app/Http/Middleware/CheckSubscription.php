@@ -15,7 +15,7 @@ class CheckSubscription
      */
     public function handle($request, Closure $next)
     {
-      if($request->user() && (!$request->user()->subscribed('cheerleader-plan') || !$request->user()->subscribed('Instructor-Plan'))){
+      if($request->user() && (!$request->user()->subscribed('cheer') && !$request->user()->subscribed('instructor'))){
         return redirect('billing');
       }
         return $next($request);

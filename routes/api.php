@@ -39,7 +39,7 @@ Route::post('/billing',function(Request $request){
     $user->newSubscription('cheer', 'cheerleader-plan')->create($request->token);
   }
   else{
-    $user->newSubscription('cheer', 'Instructor-Plan')->create($request->token);
+    $user->newSubscription('instructor', 'Instructor-Plan')->create($request->token);
   }
   return;
 });
