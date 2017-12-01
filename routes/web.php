@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/video','VideoController@index');
 Auth::routes();
 Route::resource('favorite','FavoriteController');
+Route::get('favorite-teams','FavoriteController@getFavoriteTeams');
 Route::get('/home', 'HomeController@index')->middleware('subscribed');
 Route::resource('user','UserController');
 Route::group(['prefix' => 'coach'],function(){
@@ -42,6 +43,7 @@ Route::group(['prefix' => 'cheerleader','middleware' => 'subscribed'],function()
   Auth::routes();
   Route::post('update-profile','CheerleaderController@updateProfile');
   Route::resource('teams','TeamController');
+  Route::get('search-teams','TeamController@getTeams');
   //Route::resource('skills/beginner', 'BeginnerSkillController');
   //Route::resource('skills/advanced', 'AdvancedSkillController');
   //Route::resource('skills/elite', 'EliteSkillController');

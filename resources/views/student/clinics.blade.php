@@ -10,17 +10,25 @@
                   <thead>
                     <tr>
                       <th>Name</th>
+                      <th>Team Name</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach($clinics as $clinic)
                     <tr>
                       <td><a href="{{url('/cheerleader/clinics/'.$clinic->id)}}" target="_blank">{{$clinic->name}}</a></td>
+                      <td>{{$clinic->team->team_name}}</td>
                     </tr>
                     @endforeach
                   </tbody>
                 </table>
-                {!! $clinics->links() !!}
+                  <div class="panel-body" >
+                      @if(isset($calendar) && !empty($calendar))
+                        {!! $calendar->calendar() !!}
+                        {{--{!! $calendar->script() !!}--}}
+                      @endif
+                  </div>
+                {{--{!! $clinics->links() !!}--}}
               </div>
             </div>
         </div>

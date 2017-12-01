@@ -17,4 +17,10 @@ class Team extends Model
     public function alerts(){
       return $this->hasMany('App\Sos');
     }
+    public function clinics(){
+        return $this->hasMany('App\Clinic');
+    }
+    public function tryouts(){
+        return $this->hasMany('App\Tryout');
+    }
 }

@@ -21,9 +21,11 @@ Vue.component('instructor',require('./components/Instructor.vue'));
 
 Vue.component('cheerleaders',require('./components/Cheerleaders.vue'));
 Vue.component('cheerleader',require('./components/Cheerleader.vue'));
+Vue.component('teams',require('./components/Teams.vue'));
 Vue.component('private-instructors',require('./components/PrivateInstructors.vue'));
 Vue.component('private-instructor',require('./components/PrivateInstructor.vue'));
 Vue.component('favorites',require('./components/Favorites.vue'));
+Vue.component('favorite-teams',require('./components/FavoriteTeams.vue'));
 Vue.component('videos',require('./components/Videos.vue'));
 Vue.component('sos-list',require('./components/SosList.vue'));
 Vue.component(

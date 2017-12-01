@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\School;
 use Illuminate\Http\Request;
 use App\Team;
+use App\User;
 class TeamController extends Controller
 {
     /**
@@ -11,17 +13,28 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        if(auth()->user()->cant('create',School::class)){
-          $with = [
-            'teams' => Team::paginate(10)
-          ];
-          return view('team.all')->with($with);
+        $user = auth()->user();
+        $coaches = User::where([['type', 'coach'],['school_id', $user->school_id]])->get();
+        $with = [
+            'teams' => Team::paginate(10),
+            'coaches' => $coaches
+        ];
+
+        if(auth()->user()->cant('create', School::class)){
+
+            if($request->expectsJson()){
+
+                return Team::paginate(10);
+            }
+            else{
+                return view('team.favorite');
+            }
         }
         else{
-          return view('team.all');
+          return view('team.all')->with($with);
         }
     }
 
@@ -44,6 +57,13 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'team_name' => 'required',
+            'coach_name' => 'required',
+            'mascot' => 'required',
+            'description' => 'required',
+            'team_type' => 'required',
+        ]);
         $team = $request->user()->school->teams()->create([
           'team_name' => $request->team_name,
           'coach_name' => $request->coach_name,
@@ -157,6 +177,43 @@ class TeamController extends Controller
         \App\Team::destroy($id);
         $request->session()->flash('success',"{$team->team_name} Deleted Successfully!" );
         return back();
+
+    }
+
+    public function getTeams(Request $request)
+    {
+        if($request->expectsJson()){
+
+            return Team::paginate(10);
+        }
+        else{
+            return view('team.all');
+        }
+    }
+
+    public function searchTeams(Request $request)
+    {
+        if($request->expectsJson()){
+            $conditions = [
+                ['team_name', '=', $request->has('name') ? $request->name : '*'],
+                ['coach_name', '=', $request->has('city') ? $request->city : '*'],
+
+            ];
+            return \App\Team::when($request->team_name != "" && $request->has('team_name'), function ($query) use ($request) {
+                return $query->where('team_name', 'LIKE', "(%$request->team_name%)");
+            })
+            ->when($request->coach_name != "" && $request->has('coach_name'), function ($query) use ($request) {
+                return $query->where('coach_name', 'LIKE', '%'.$request->coach_name.'%');
+            })
+            ->when($request->	team_type != "" && $request->has('team_type'), function ($query) use ($request) {
+
+                return $query->where('team_type','=',$request->	team_type)
+                    ;
+            })->paginate(10);
+        }
+        else{
+            return view('student.all');
+        }
 
     }
 }

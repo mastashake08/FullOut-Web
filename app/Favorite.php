@@ -8,7 +8,7 @@ class Favorite extends Model
 {
     //
     protected $fillable = [
-      'user_id','cheerleader_id','school_id'
+      'user_id','cheerleader_id','school_id', 'team_id'
     ];
 
     public function cheerleader(){
@@ -26,4 +26,10 @@ class Favorite extends Model
     public function team(){
       return $this->belongsTo('App\Team');
     }
+
+    public function scopeFavoriteTeam($query, $teamId)
+    {
+        return $query->whereIn('team_id', $teamId);
+    }
+
 }

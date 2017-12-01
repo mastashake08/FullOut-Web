@@ -17,7 +17,7 @@
                         <th>Coach Name</th>
                         <th>Start Date</th>
                         <th>End Date</th>
-                        <th>Phone</th>
+                        {{--<th>Phone</th>--}}
                       </tr>
                     </thead>
                     <tbody>
@@ -27,7 +27,7 @@
                         <td>{{$tryout->coach_name}}</td>
                         <td>{{$tryout->start_datetime}}</td>
                         <td>{{$tryout->end_datetime}}</td>
-                        <td>{{$tryout->phone}}</td>
+                        {{--<td>{{$tryout->phone}}</td>--}}
                         <td>
                             <form method="post" action="{{url('/coach/tryouts/'.$tryout->id)}}">
                               <div class="form-group">
@@ -60,19 +60,62 @@
                     {{csrf_field()}}
                     <fieldset>
                       <div class="form-group">
-                        <input name="name" class="form-control" placeholder="Tryout Name"/>
+                          <select class="form-control" id="team_id" name="team_id">
+                              <option value="">Select Team</option>
+                              @foreach($teams as $team)
+                                  <option @if(old('team_id', null) == $team['id']) value="{{ old('team_id') }}" selected @else value="{{ $team['id'] }}" @endif >{{ $team->team_name }}</option>
+                              @endforeach
+                          </select>
+                          @if ($errors->has('team_id'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('team_id') }}</strong>
+                                </span>
+                          @endif
                       </div>
                       <div class="form-group">
-                        <input name="coach_name" class="form-control" placeholder="Coach Name"/>
+                        <input name="name" class="form-control" value="{{old('name')}}" placeholder="Tryout Name"/>
+                          @if ($errors->has('name'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                          @endif
                       </div>
                       <div class="form-group">
-                        <input name="phone" type="tel" class="form-control" placeholder="Phone"/>
+                          <select class="form-control" id="coach_name" name="coach_name">
+                              <option value="">Coach Name</option>
+                              @foreach($coaches as $coach)
+                                  <option @if(old('coach_name', null) == $coach['name']) value="{{ old('coach_name') }}" selected @else value="{{ $coach['name'] }}" @endif >{{ $coach->name }}</option>
+                              @endforeach
+                          </select>
+                          @if ($errors->has('coach_name'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('coach_name') }}</strong>
+                                </span>
+                          @endif
                       </div>
                       <div class="form-group">
-                        <input name="start_datetime" type="datetime-local" class="form-control" placeholder="Start Date"/>
+                        <input name="phone" type="tel" class="form-control" value="{{old('phone')}}" placeholder="Phone"/>
+                          @if ($errors->has('phone'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('phone') }}</strong>
+                                </span>
+                          @endif
                       </div>
                       <div class="form-group">
-                        <input name="end_datetime" type="datetime-local" class="form-control" placeholder="End Date"/>
+                        <input name="start_datetime" type="datetime-local" class="form-control" value="{{old('start_datetime')}}" placeholder="Start Date"/>
+                          @if ($errors->has('start_datetime'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('start_datetime') }}</strong>
+                                </span>
+                          @endif
+                      </div>
+                      <div class="form-group">
+                        <input name="end_datetime" type="datetime-local" class="form-control" value="{{old('end_datetime')}}" placeholder="End Date"/>
+                          @if ($errors->has('end_datetime'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('end_datetime') }}</strong>
+                                </span>
+                          @endif
                       </div>
                       <div class="form-group">
                         <button class="btn btn-primary" type="submit">Add tryout</button>

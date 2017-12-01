@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Team;
+use App\User;
 use Illuminate\Http\Request;
 use App\Clinic;
+use Calendar;
 class ClinicController extends Controller
 {
 
@@ -18,22 +21,42 @@ class ClinicController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        $teams = Team::where([['coach_name', $user->name],['school_id', $user->school_id]])->get();
+        $coaches = User::where([['type', 'coach'],['school_id', $user->school_id]])->get();
 
-        if(auth()->user()->can('create',Clinic::class)){
-          $clinics = auth()->user()->school->clinics()->paginate(10);
-          $with = [
-            'clinics' => $clinics
-          ];
 
+        $with = [
+            'teams' => $teams,
+            'coaches' => $coaches
+        ];
+
+        if ($user->can('create', Clinic::class)) {
+            $clinics = $user->school->clinics()->paginate(10);
+            $with['clinics'] = $clinics;
+
+        } else {
+            $data = auth()->user()->favorites()->pluck('team_id')->toArray();
+            $clinics = Clinic::whereIn('team_id', $data)->with('team')->paginate(10);
+
+            $events = [];
+            if ($clinics->count()) {
+                foreach ($clinics as $key => $value) {
+                    $events[] = Calendar::event(
+                        $value->team->team_name . ",\n" . $value->name,
+                        true,
+                        new \DateTime($value->start_datetime),
+                        new \DateTime($value->end_datetime . ' +1 day')
+                    );
+                }
+            }
+            $calendar = Calendar::addEvents($events);
+            $with['clinics'] = $clinics;
+            $with['calendar'] = $calendar;
         }
-        else{
-          $clinics = Clinic::paginate(10);
-          $with = [
-            'clinics' => $clinics
-          ];
-        }
-          return view('clinic.all')->with($with);
+
+
+        return view('clinic.all')->with($with);
     }
 
     /**
@@ -61,6 +84,7 @@ class ClinicController extends Controller
         //
         if($request->user()->can('create',Clinic::class)){
           $this->validate($request, [
+            'team_id' => 'required',
             'name' => 'required',
             'coach_name' => 'required',
             'start_datetime' => 'required',
@@ -72,6 +96,7 @@ class ClinicController extends Controller
           ]);
           $clinic = Clinic::create([
             'school_id' => $request->user()->school->id,
+            'team_id' => $request->team_id,
             'name' => $request->name,
             'coach_name' => $request->coach_name,
             'start_datetime' => \Carbon\Carbon::parse($request->start_datetime),
@@ -137,11 +162,29 @@ class ClinicController extends Controller
     }
 
     public function search(Request $request){
-      $clinics = Clinic::where('name','=',$request->name)
+      $clinics = Clinic::where('name','LIKE', '%'.$request->name.'%')
       ->paginate(10);
       $with = [
         'clinics' => $clinics
       ];
       return view('clinic.all')->with($with);
     }
+
+//    public function getEvents()
+//    {
+//        $events = [];
+//        $data = Clinic::all();
+//        if($data->count()){
+//            foreach ($data as $key => $value) {
+//                $events[] = Calendar::event(
+//                    $value->title,
+//                    true,
+//                    new \DateTime($value->start_date),
+//                    new \DateTime($value->end_date.' +1 day')
+//                );
+//            }
+//        }
+//        $calendar = Calendar::addEvents($events);
+//        return view('mycalender', compact('calendar'));
+//    }
 }

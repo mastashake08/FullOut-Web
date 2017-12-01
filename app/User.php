@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone','address','password', 'type','city','state','zip','gender','height','weight','current_team'
+        'school_id', 'name', 'email', 'phone','address','password', 'type','city','state','zip','gender','height','weight','current_team'
     ];
 
     /**
@@ -30,6 +30,7 @@ class User extends Authenticatable
 
     public function school(){
       return $this->hasOne('App\School');
+//        return $this->belongsTo('App\School');
     }
 
     public function skillSet(){
@@ -44,8 +45,9 @@ class User extends Authenticatable
       return $this->hasMany('App\Message','receiver_id','id');
     }
 
-    public function favorites(){
-      return $this->hasMany('App\Favorite');
+    public function favorites()
+    {
+        return $this->hasMany('App\Favorite');
     }
 
     public function favorited(){
@@ -58,4 +60,13 @@ class User extends Authenticatable
       return $this->hasMany('App\Award');
     }
 
+    public static function teamIsFavorited($user_id, $team_id)
+    {
+        if ((Favorite::where([['user_id', $user_id], ['team_id', $team_id]])->count()) > 0) {
+
+            return true;
+        }
+
+        return false;
+    }
 }

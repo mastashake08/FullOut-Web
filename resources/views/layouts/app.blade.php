@@ -12,6 +12,11 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/bootstrap-select.min.css" rel="stylesheet">
+
+    {{--<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>--}}
+    <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}"/>
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -69,7 +74,11 @@
                                       <i class="fa fa-calendar" aria-hidden="true"></i> Try Outs
                                     </a>
                                 </li>
-
+                                <li>
+                                    <a href="{{ url('/cheerleader/search-teams') }}">
+                                        <i class="fa fa-users" aria-hidden="true"></i>  Search Teams
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="{{ url('/cheerleader/teams') }}">
                                       <i class="fa fa-users" aria-hidden="true"></i>  Teams
@@ -92,39 +101,39 @@
                                 <li>
                                     <a href="{{ url('coach/cheerleaders') }}">
 
-                                      <i class="fa fa-users" aria-hidden="true"></i>  Search Cheerleaders
+                                        <i class="fa fa-users" aria-hidden="true"></i> Search Cheerleaders
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('coach/schools') }}">
 
-                                      <i class="fa fa-university" aria-hidden="true"></i>  Manage School
+                                        <i class="fa fa-university" aria-hidden="true"></i> Manage School
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('coach/clinics') }}">
-                                      <i class="fa fa-check" aria-hidden="true"></i> Manage Clinics
+                                        <i class="fa fa-check" aria-hidden="true"></i> Manage Clinics
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('coach/tryouts') }}">
-                                      <i class="fa fa-calendar" aria-hidden="true"></i> Manage Try Outs
+                                        <i class="fa fa-calendar" aria-hidden="true"></i> Manage Try Outs
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('coach/teams') }}">
-                                      <i class="fa fa-users" aria-hidden="true"></i> Manage Teams
+                                        <i class="fa fa-users" aria-hidden="true"></i> Manage Teams
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/message') }}">
-                                      <i class="fa fa-envelope" aria-hidden="true"></i>  My Messages
+                                        <i class="fa fa-envelope" aria-hidden="true"></i> My Messages
                                     </a>
                                 </li>
                                 <li>
-                                  <a href="{{url('/coach/sos')}}">
-                                    <i class="fa fa-rss" aria-hidden="true"></i> Manage SOS Alerts
-                                  </a>
+                                    <a href="{{url('/coach/sos')}}">
+                                        <i class="fa fa-rss" aria-hidden="true"></i> Manage SOS Alerts
+                                    </a>
                                 </li>
                         @endif
                         @endif
@@ -174,6 +183,17 @@
   </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/moment.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
+
+    @if(isset($calendar) && !empty($calendar))
+        {!! $calendar->script() !!}
+    @endif
+
+
 </body>
 </html>

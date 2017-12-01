@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Clinic;
+use App\Team;
+use App\User;
 use Illuminate\Http\Request;
 use App\Tryout;
+use Calendar;
+
 class TryoutController extends Controller
 {
     /**
@@ -13,18 +18,40 @@ class TryoutController extends Controller
      */
     public function index()
     {
-        //
-        if(auth()->user()->can('create', Tryout::class)){
-          $tryouts = auth()->user()->school->tryouts()->paginate(10);
+        $user = auth()->user();
+        $teams = Team::where([['coach_name', $user->name],['school_id', $user->school_id]])->get();
+        $coaches = User::where([['type', 'coach'],['school_id', $user->school_id]])->get();
 
-        }
-        else{
-          $tryouts = Tryout::paginate(10);
-
-        }
         $with = [
-          'tryouts' => $tryouts
+            'teams' => $teams,
+            'coaches' => $coaches
         ];
+
+        if ($user->can('create', Tryout::class)) {
+            $tryouts = $user->school->clinics()->paginate(10);
+            $with['tryouts'] = $tryouts;
+
+        } else {
+            $data = $user->favorites()->pluck('team_id')->toArray();
+            $tryouts = Tryout::whereIn('team_id', $data)->with('team')->paginate(10);
+            $events = [];
+
+            if ($tryouts->count()) {
+                foreach ($tryouts as $key => $value) {
+                    $events[] = Calendar::event(
+                        $value->team->team_name . ",\n" . $value->name,
+                        true,
+                        new \DateTime($value->start_datetime),
+                        new \DateTime($value->end_datetime . ' +1 day')
+                    );
+                }
+            }
+            $calendar = Calendar::addEvents($events);
+
+            $with['tryouts'] = $tryouts;
+            $with['calendar'] = $calendar;
+        }
+
         return view('tryouts.all')->with($with);
 
     }
@@ -53,10 +80,16 @@ class TryoutController extends Controller
         //
         if(auth()->user()->can('create', Tryout::class)){
           $this->validate($request,[
-            'name' => 'required',
-
+              'team_id' => 'required',
+              'name' => 'required',
+              'coach_name' => 'required',
+              'start_datetime' => 'required',
+              'end_datetime' => 'required',
+              'phone' => 'required'
           ]);
           auth()->user()->school->tryouts()->create([
+            'school_id' => $request->user()->school->id,
+            'team_id' => $request->team_id,
             'name' => $request->name,
             'coach_name' => $request->coach_name,
             'start_datetime' => \Carbon\Carbon::parse($request->start_datetime),

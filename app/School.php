@@ -26,4 +26,7 @@ class School extends Model
     public function scholarships(){
       return $this->hasMany('App\Scholarship');
     }
+    public function users(){
+        return $this->hasMany('App\User');
+    }
 }

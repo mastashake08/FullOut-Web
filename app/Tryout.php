@@ -11,4 +11,7 @@ class Tryout extends Model
     public function school(){
       return $this->belongsTo('App\School');
     }
+    public function team(){
+        return $this->belongsTo('App\Team');
+    }
 }

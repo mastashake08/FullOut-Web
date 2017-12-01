@@ -25,3 +25,56 @@ body{
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0
 }
+
+/*Search School*/
+#search-school .btn-checkbox {
+  background-color: #ffffff;
+  border-color: #ccc;
+  box-shadow: none;
+  width: 75%;
+}
+
+#search-school .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+  width: 100%;
+}
+
+#search-school .form-group {
+  margin-bottom: 15px;
+  padding-left: 0;
+  padding-right: 3px;
+}
+
+#search-school .form-group .btn-group {
+  width: 100%;
+}
+
+#search-school .form-control {
+  width: 100%;
+}
+
+.form-group input[type="checkbox"] {
+  display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label {
+  width: 25%;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+  display: none;
+}
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+  display: inline-block;
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+  display: inline-block;
+}
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+  display: none;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+

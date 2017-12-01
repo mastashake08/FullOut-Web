@@ -13,9 +13,10 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
+                        <th>Team Name</th>
+                        <th>Coach Name</th>
+                        <th>Mascot</th>
+                        <th>Description</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -59,15 +60,40 @@
                     <fieldset>
                       <div class="form-group">
                         <input name="team_name" class="form-control" placeholder="Team Name"/>
+                          @if ($errors->has('team_name'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('coach_name') }}</strong>
+                                </span>
+                          @endif
                       </div>
                       <div class="form-group">
-                        <input name="coach_name" class="form-control" placeholder="Coach Name"/>
+                          <select class="form-control" id="coach_name" name="coach_name">
+                              <option value="">Coach Name</option>
+                              @foreach($coaches as $coach)
+                                  <option @if(old('coach_name', null) == $coach['name']) value="{{ old('coach_name') }}" selected @else value="{{ $coach['name'] }}" @endif >{{ $coach->name }}</option>
+                              @endforeach
+                          </select>
+                          @if ($errors->has('coach_name'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('coach_name') }}</strong>
+                                </span>
+                          @endif
                       </div>
                       <div class="form-group">
                         <input name="mascot" class="form-control" placeholder="Mascot"/>
+                          @if ($errors->has('team_name'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('coach_name') }}</strong>
+                                </span>
+                          @endif
                       </div>
                       <div class="form-group">
                         <textarea class="form-control" placeholder="Team Description" name="description"></textarea>
+                          @if ($errors->has('team_name'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('coach_name') }}</strong>
+                                </span>
+                          @endif
                       </div>
                       <div class="form-group">
                         <div class="radio">
@@ -79,6 +105,11 @@
                         <div class="radio">
                           <label><input type="radio" name="team_type" value="coed">Coed</label>
                         </div>
+                          @if ($errors->has('team_name'))
+                              <span class="help-block">
+                                    <strong>{{ $errors->first('coach_name') }}</strong>
+                                </span>
+                          @endif
                       </div>
                       <div class="form-group">
                         <button class="btn btn-primary" type="submit">Add Team</button>

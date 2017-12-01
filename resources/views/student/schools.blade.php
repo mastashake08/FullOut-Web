@@ -7,7 +7,7 @@
                 <div class="panel-body">
                   <div class="table-responsive">
                     @include('search.schools')
-                    <table class="table">
+                    <table class="table mt-25">
                      <thead>
                        <tr>
                          <th>Name</th>
@@ -19,14 +19,17 @@
                        </tr>
                      </thead>
                      <tbody>
+
                        @foreach($schools as $school)
                        <tr>
-                         <td><a href="{{url('/cheerleader/schools/'.$school->id)}}" target="_blank">{{$school->name}}</a></td>
-                         <td><a href="{{$school->website}}" target="_blank">{{$school->website}}</a></td>
-                         <td>{{$school->min_gpa}}</td>
-                         <td>{{$school->min_gpa_transfer}}</td>
-                         <td>${{money_format('%.2n', $school->in_state_tuition)}}</td>
-                         <td>${{money_format('%.2n', $school->out_state_tuition)}}</td>
+                         <td><a href="{{url('/cheerleader/schools/'.$school['id'])}}" target="_blank">{{$school['name']}}</a></td>
+                         <td><a href="{{$school['website']}}" target="_blank">{{$school['website']}}</a></td>
+                         <td>{{$school['min_gpa']}}</td>
+                         <td>{{$school['min_gpa_transfer']}}</td>
+{{--                         <td>${{money_format('%.2n', $school->in_state_tuition)}}</td>--}}
+{{--                         <td>${{money_format('%.2n', $school->out_state_tuition)}}</td>--}}
+                           <td>${{number_format($school['in_state_tuition'])}}</td>
+                           <td>${{number_format($school['out_state_tuition'])}}</td>
                        </tr>
                        @endforeach
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTeamsToFavorites extends Migration
+class AddTeamsToClinics extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class AddTeamsToFavorites extends Migration
      */
     public function up()
     {
-        Schema::table('favorites', function (Blueprint $table) {
-            //
-            $table->integer('team_id')->unsigned();
+        Schema::table('clinics', function (Blueprint $table) {
+            $table->integer('team_id')->unsigned()->after('school_id');
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
-            $table->unique(['cheerleader_id', 'school_id','team_id']);
         });
     }
 
@@ -28,9 +26,8 @@ class AddTeamsToFavorites extends Migration
      */
     public function down()
     {
-        Schema::table('favorites', function (Blueprint $table) {
-            //
-            $table->dropColumns(['favorites_team_id_foreign','team_id']);
+        Schema::table('clinics', function (Blueprint $table) {
+            $table->dropColumns(['clinics_team_id_foreign','team_id']);
         });
     }
 }

@@ -21,6 +21,7 @@ Route::get('/user', function (Request $request) {
     Route::get('/school/search', 'SchoolController@search');
     Route::resource('/school','SchoolController');
     Route::get('/search','UserController@search');
+    Route::get('/search-team','TeamController@search');
     Route::get('/search/instructor', 'PrivateController@search');
     Route::resource('/instructor','PrivateController');
 

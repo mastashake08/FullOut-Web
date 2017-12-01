@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\School;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 class SchoolController extends Controller
 {
 
@@ -62,7 +66,6 @@ class SchoolController extends Controller
     public function store(Request $request)
     {
         //
-        //dd($request->all());
         if($request->user()->can('create', \App\School::class)){
         $this->validate($request,[
             'name' => 'required',
@@ -209,16 +212,80 @@ class SchoolController extends Controller
 
     }
 
-    public function search(Request $request){
-      $schools = School::where('name','%LIKE%',$request->name)
-      ->orWhere('min_gpa', '>=', $request->min_gpa)
-      ->orWhere('act_score','>=', $request->act)
-      ->orWhere('sat_score', '>=', $request->sat)
+    public function search(Request $request)
+    {
+        $data = $request->all();
+        $schools = School::select();
+
+//      ->orWhere('min_gpa', '>=', $request->min_gpa)
+//      ->orWhere('act_score','>=', $request->act)
+//      ->orWhere('sat_score', '>=', $request->sat)
       //->orWhere('gpa_needed_for_team', '>=', $request->gpa_needed_for_team)
       //->orWhere('min_gpa_transfer', '>=', $request->min_gpa_transfer)
-      ->paginate(10);
+//      ->paginate(10);
+
+
+        if($data['name'] != '' ) {
+            $schools->where('name', 'LIKE', '%'.$data['name'].'%');
+        }
+        if($data['min_gpa'] != '') {
+            $schools->orWhere('min_gpa','>=', $data['min_gpa']);
+        }
+        if($data['act'] != '') {
+            $schools->orWhere('act_score','>=', $data['act']);
+        }
+        if($data['sat'] != '') {
+            $schools->orWhere('sat_score','>=', $data['sat']);
+        }
+        if(isset($data['most_scholarship'])  && !empty($data['most_scholarship'])) {
+//            $schools->leftJoin('scholarships', 'schools.id', '=', 'scholarships.school_id');
+//            $schools->orderBy('scholarships.amount', 'DESC');
+
+
+//            $schools =   DB::table('schools')
+//                ->leftJoin('scholarships', 'schools.id', '=', 'scholarships.school_id')
+//                ->selectRaw('scholarships.school_id, SUM(scholarships.amount) AS total_amount')
+//                ->orderBy('scholarships.amount', 'DESC')
+//                ->groupBy('scholarships.school_id')
+//                ;
+//
+////            $schools->with(['scholarships' => function($query)  {
+////                $query->orderBy('amount', 'DESC');
+////            }]);
+//            dd($schools->get());
+
+        }
+        if(isset($data['tuition_cost'])  && !empty($data['tuition_cost'])) {
+            $schools->orderBy('in_state_tuition','ASC');
+        }
+
+//        if(isset($data['skills']) && !empty($data['skills'])) {
+////            dd($schools->with('teams.skillSet')->get());
+//            $schools->whereHas('teams.skillSet', function($query) {
+//                $query->orderBy('spring_floor_tumbling_skills', 'DESC');
+//            })->with('teams.skillSet');
+//        }
+//        dd($schools->get());
+
+        $schools = $schools->get()->toArray();
+
+        // Get the ?page=1 from the url
+        $page = Input::get('page', 1);
+        // Number of items per page
+        $perPage = 10;
+        $offset = ($page * $perPage) - $perPage;
+
+        $schools = new LengthAwarePaginator(
+            array_slice($schools, $offset, $perPage, true), // Only grab the items we need
+            count($schools), // Total items
+            $perPage, // Items per page
+            $page, // Current page
+            ['path' => $request->url(), 'query' => $request->query()] // We need this so we can keep all old query parameters from the url
+        );
+
       $with = [
-        'schools' => $schools
+        'schools' => $schools,
+          'data'  => $data
       ];
       return view('school.all')->with($with);
     }

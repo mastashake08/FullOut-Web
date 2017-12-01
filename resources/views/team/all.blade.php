@@ -4,9 +4,9 @@
 @can('create', \App\School::class)
 @include('coach.teams')
 @endcan
-@if(isset($schools))
+{{--@if(isset($schools))--}}
 @cannot('create',\App\School::class)
 @include('student.teams')
 @endcannot
-@endif
+{{--@endif--}}
 @endsection

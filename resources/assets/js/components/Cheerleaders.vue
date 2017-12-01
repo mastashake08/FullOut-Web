@@ -62,7 +62,7 @@
                           </td>
                         </tr>
                       </tbody>
-                    </transition-group>
+                      </transition-group>
                     </table>
                     <div class="pagination">
                       <button class="btn btn-default" @click="fetchUsers(users.prev_page_url)"
@@ -135,7 +135,7 @@
         fetchUsers: function(url){
           this.newData = false;
           this.$http.get(url).then(function(data){
-            this.users = data.data
+            this.users = data.data;
             this.newData = true;
           })
         },
@@ -152,7 +152,7 @@
         },
         searchUsers: function(){
           this.newData = false;
-          this.$http.get('/api/search',{'params':this.search}).then(function(data){
+            this.$http.get('/api/search',{'params':this.search}).then(function(data){
             this.users = data.data;
             this.newData = true;
           }).bind(this);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Team;
 use Illuminate\Http\Request;
 use App\Favorite;
 class FavoriteController extends Controller
@@ -13,7 +14,6 @@ class FavoriteController extends Controller
      */
     public function index(Request $request)
     {
-        //
         if($request->expectsJson()){
           return $request->user()->favorites()->with('cheerleader')->paginate(10);
         }
@@ -37,13 +37,34 @@ class FavoriteController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $favorite = $request->user()->favorites()->create($request->all());
-        if($request->expectsJson()){
-          return $favorite->cheerleader;
+        $data = $request->all();
+        $data['school_id'] = $request->user()->school_id;
+
+        if ($request->has('team_id')) {
+            $data['cheerleader_id'] = $request->user()->id;
+            $request->merge([
+                'cheerleader_id' => $data['cheerleader_id'],
+                'school_id' => $data['school_id']
+                ]);
+
+        } else {
+            $team = Team::where('school_id', $data['school_id'])->first();
+            $data['team_id'] = $team->id;
+            $request->merge([
+                'team_id' =>  $data['team_id'],
+                'school_id' => $data['school_id']
+            ]);
         }
-        else{
-          return back();
+
+        $this->validate($request,[
+            'team_id' => 'unique_with:favorites,cheerleader_id,school_id',
+        ]);
+
+        $favorite = $request->user()->favorites()->create($data);
+        if ($request->expectsJson()) {
+            return $favorite->cheerleader;
+        } else {
+            return back();
         }
 
     }
@@ -95,5 +116,12 @@ class FavoriteController extends Controller
         return response()->json([
           'success' => true
         ]);
+    }
+
+    public function getFavoriteTeams(Request $request)
+    {
+        if($request->expectsJson()){
+            return $request->user()->favorites()->with('team')->paginate(10);
+        }
     }
 }

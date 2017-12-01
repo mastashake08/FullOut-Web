@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SchoolTableSeeder extends Seeder
 {
@@ -13,7 +14,9 @@ class SchoolTableSeeder extends Seeder
     {
         //
         $user = \App\User::where('email','test.coach@gmail.com')->first();
-        $school = $user->school()->create([
+//        $school = $user->school()->create([
+        $school = \App\School::create([
+          'user_id' => $user['id'],
           'name' => 'Test University',
           'logo' => '/',
           'description' => 'This is a test',
@@ -35,6 +38,10 @@ class SchoolTableSeeder extends Seeder
           'mascot' => 'Bulldogs',
           'team_type' => 'women',
           'description' => 'This is the A Team!'
+        ]);
+
+        DB::table('users')->update([
+            'school_id' => 1
         ]);
     }
 }

@@ -8351,7 +8351,7 @@ button.close {
 }
 
 body {
-  background-image: url(/images/cheer6.jpg?bf5d6a31a1e50c588219d61983ec6306);
+  background-image: url(/images/cheer6.jpg?bf13021e9e791cbac5a405eda27e2168);
   background-size: cover;
 }
 
@@ -8372,5 +8372,61 @@ body {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+/*Search School*/
+
+#search-school .btn-checkbox {
+  background-color: #ffffff;
+  border-color: #ccc;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 75%;
+}
+
+#search-school .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+  width: 100%;
+}
+
+#search-school .form-group {
+  margin-bottom: 15px;
+  padding-left: 0;
+  padding-right: 3px;
+}
+
+#search-school .form-group .btn-group {
+  width: 100%;
+}
+
+#search-school .form-control {
+  width: 100%;
+}
+
+.form-group input[type="checkbox"] {
+  display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label {
+  width: 25%;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+  display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+  display: inline-block;
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+  display: inline-block;
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+  display: none;
+}
+
+.mt-25 {
+  margin-top: 25px;
 }
 
