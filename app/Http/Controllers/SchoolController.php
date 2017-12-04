@@ -237,37 +237,65 @@ class SchoolController extends Controller
         if($data['sat'] != '') {
             $schools->orWhere('sat_score','>=', $data['sat']);
         }
-        if(isset($data['most_scholarship'])  && !empty($data['most_scholarship'])) {
-//            $schools->leftJoin('scholarships', 'schools.id', '=', 'scholarships.school_id');
-//            $schools->orderBy('scholarships.amount', 'DESC');
-
-
-//            $schools =   DB::table('schools')
-//                ->leftJoin('scholarships', 'schools.id', '=', 'scholarships.school_id')
-//                ->selectRaw('scholarships.school_id, SUM(scholarships.amount) AS total_amount')
-//                ->orderBy('scholarships.amount', 'DESC')
-//                ->groupBy('scholarships.school_id')
-//                ;
-//
-////            $schools->with(['scholarships' => function($query)  {
-////                $query->orderBy('amount', 'DESC');
-////            }]);
-//            dd($schools->get());
-
-        }
         if(isset($data['tuition_cost'])  && !empty($data['tuition_cost'])) {
             $schools->orderBy('in_state_tuition','ASC');
         }
 
-//        if(isset($data['skills']) && !empty($data['skills'])) {
-////            dd($schools->with('teams.skillSet')->get());
-//            $schools->whereHas('teams.skillSet', function($query) {
-//                $query->orderBy('spring_floor_tumbling_skills', 'DESC');
-//            })->with('teams.skillSet');
-//        }
-//        dd($schools->get());
+        if(isset($data['perfect_fit'])  && !empty($data['perfect_fit'])) {
+            if ($data['perfect_fit'] == 'act'){
+                $schools->orderBy('act_score','DESC');
+            }
+            elseif ($data['perfect_fit'] == 'sat') {
+                $schools->orderBy('sat_score','DESC');
+            }
+            else {
+                $schools->orderBy('gpa_needed_for_team','DESC');
+            }
 
-        $schools = $schools->get()->toArray();
+        }
+
+        if(isset($data['skills']) && !empty($data['skills'])) {
+            $schools_collection =  collect([]);
+            $schools->with('teams.skillSet');
+
+            foreach ($schools->get() as $school) {
+                $teams = $school->teams;
+                $team_total_skills = [];
+                foreach ($teams as $team) {
+                    $skill = $team->skillSet;
+                    $team_total_skills[] = $skill['spring_floor_tumbling_skills'] + $skill['hard_floor_tumbling_skills'] + $skill['group_stunting_skills'] + $skill['coed_stunting_skills'];
+                }
+
+                $school['total_skills'] = array_sum($team_total_skills);
+                $schools_collection[] = $school;
+            }
+
+            if ($data['skills'] == 'highest-to-lowest') {
+                $schools = $schools_collection->sortByDesc('total_skills');
+            }
+            else {
+                $schools = $schools_collection->sortBy('total_skills');
+            }
+        }
+
+//        if(isset($data['most_scholarship']) && !empty($data['most_scholarship'])) {
+//
+//            $schools_collection =  collect([]);
+//
+//            foreach ($schools->get() as $school) {
+//                $school['total_amount'] = $school->scholarships->sum('amount');
+//                $schools_collection[] = $school;
+//            }
+//
+//            $schools = $schools_collection->sortByDesc('total_amount');
+//        }
+
+        if (isset($data['skills']) && !empty($data['skills'])) {
+            $schools = $schools->toArray();
+        }
+        else {
+            $schools = $schools->get()->toArray();
+        }
 
         // Get the ?page=1 from the url
         $page = Input::get('page', 1);

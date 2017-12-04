@@ -33,13 +33,6 @@
     </div>
   </div>
   <div class="form-group col-xs-4 col-md-3">
-    <select class="selectpicker"  multiple="multiple" name="perfect_fit[]" id="perfect_fit" title="Perfect Fit">
-      <option value="gpa" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && in_array('gpa', $data['perfect_fit'])) selected="selected" @endif>G.P.A.</option>
-      <option value="act" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && in_array('act', $data['perfect_fit'])) selected="selected" @endif>ACT</option>
-      <option value="sat" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && in_array('sat', $data['perfect_fit'])) selected="selected" @endif>SAT</option>
-    </select>
-  </div>
-  <div class="form-group col-xs-4 col-md-3">
     <input type="checkbox" class="form-control" name="tuition_cost" @if (isset($data['tuition_cost']) && !empty($data['tuition_cost'])) checked="checked" @endif id="tuition_cost" autocomplete="off"/>
     <div class="btn-group">
       <label for="tuition_cost" class="btn btn-default">
@@ -52,9 +45,19 @@
     </div>
   </div>
   <div class="form-group col-xs-4 col-md-3">
+    <select class="selectpicker" name="perfect_fit" id="perfect_fit" title="Perfect Fit">
+      {{--<option value="gpa" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && in_array('gpa', $data['perfect_fit'])) selected="selected" @endif>G.P.A.</option>--}}
+      <option value="gpa" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && $data['perfect_fit'] == 'gpa') selected="selected" @endif>G.P.A.</option>
+      {{--<option value="act" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && in_array('act', $data['perfect_fit'])) selected="selected" @endif>ACT</option>--}}
+      <option value="act" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && $data['perfect_fit'] == 'act') selected="selected" @endif>ACT</option>
+      {{--<option value="sat" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && in_array('sat', $data['perfect_fit'])) selected="selected" @endif>SAT</option>--}}
+      <option value="sat" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && $data['perfect_fit'] == 'sat') selected="selected" @endif>SAT</option>
+    </select>
+  </div>
+  <div class="form-group col-xs-4 col-md-3">
     <select class="selectpicker" name="skills" id="skills" title="Skills">
-      <option value="lowest-to-highest" @if (isset($data['most_winning']) && !empty($data['skills']) && $data['skills'] == 'lowest-to-highest') selected="selected" @endif>Lowest to Highest</option>
-      <option value="highest-to-lowest" @if (isset($data['most_winning']) && !empty($data['skills']) && $data['skills'] == 'highest-to-lowest') selected="selected" @endif>Highest to Lowest</option>
+      <option value="lowest-to-highest" @if (isset($data['skills']) && !empty($data['skills']) && $data['skills'] == 'lowest-to-highest') selected="selected" @endif>Lowest to Highest</option>
+      <option value="highest-to-lowest" @if (isset($data['skills']) && !empty($data['skills']) && $data['skills'] == 'highest-to-lowest') selected="selected" @endif>Highest to Lowest</option>
     </select>
   </div>
 </div>
