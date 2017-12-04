@@ -8430,3 +8430,25 @@ body {
   margin-top: 25px;
 }
 
+@media (max-width: 370px) {
+  #search-school div label,
+  #search-school div span,
+  #search-school div input {
+    font-size: 11px;
+  }
+
+  #search-school div label {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #search-school input,
+  #search-school button {
+    height: 30px;
+  }
+
+  #search-school .form-group {
+    padding: 2px;
+  }
+}
+
