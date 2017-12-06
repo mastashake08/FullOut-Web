@@ -16,6 +16,7 @@
 
     {{--<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>--}}
     <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/helper.css') }}"/>
 
     <!-- Scripts -->
     <script>
@@ -189,6 +190,7 @@
     <script src="{{ asset('js/moment.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 
     @if(isset($calendar) && !empty($calendar))
         {!! $calendar->script() !!}

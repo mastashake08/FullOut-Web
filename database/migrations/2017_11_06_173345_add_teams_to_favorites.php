@@ -17,7 +17,7 @@ class AddTeamsToFavorites extends Migration
             //
             $table->integer('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
-            $table->unique(['cheerleader_id', 'school_id','team_id']);
+            $table->unique(['cheerleader_id', 'school_id', 'team_id']);
         });
     }
 

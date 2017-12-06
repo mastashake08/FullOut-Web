@@ -39,7 +39,11 @@ Route::group(['prefix' => 'coach'],function(){
 
 Route::group(['prefix' => 'cheerleader','middleware' => 'subscribed'],function(){
   Route::post('add-video','CheerleaderController@addVideo');
+  Route::post('update-video','CheerleaderController@updateVideo');
+  Route::post('delete-video','CheerleaderController@deleteVideo');
   Route::post('add-award','CheerleaderController@addAward');
+  Route::post('update-award','CheerleaderController@updateAward');
+  Route::post('delete-award','CheerleaderController@deleteAward');
   Auth::routes();
   Route::post('update-profile','CheerleaderController@updateProfile');
   Route::resource('teams','TeamController');

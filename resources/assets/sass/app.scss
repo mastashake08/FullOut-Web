@@ -51,10 +51,10 @@ body{
 #search-school .form-control {
   width: 100%;
 }
-
-.form-group input[type="checkbox"] {
-  display: none;
-}
+//
+//.form-group input[type="checkbox"] {
+//  display: none;
+//}
 
 .form-group input[type="checkbox"] + .btn-group > label {
   width: 25%;
@@ -76,6 +76,30 @@ body{
 
 .mt-25 {
   margin-top: 25px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mtb-5 {
+  margin: 5px 0;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-inline-block {
+  display: inline-block;
 }
 
 @media (max-width : 370px) {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Award;
+use App\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class CheerleaderController extends Controller
@@ -127,10 +129,49 @@ class CheerleaderController extends Controller
     }
 
     public function addVideo(Request $request){
-      $request->user()->videos()->create([
-        'embed' => $request->embed
-      ]);
-      return back();
+
+        $str = explode("/", $request->embed);
+        $emb = $str[count($str)-2];
+        if($str[0] == 'https:'){
+            if($emb != 'embed'){
+                $youtube_code = str_replace('watch?v=', '', end($str)) ;
+                $embed = 'https://www.youtube.com/embed/'.$youtube_code;
+            }
+            else{
+                $embed = $request->embed;
+            }
+            $request->user()->videos()->create([
+                'embed' => $embed
+            ]);
+        }
+
+        return back();
+    }
+
+    public function updateVideo(Request $request){
+
+        $video_id =  $request->video_id;
+        $video =  Video::find($video_id);
+        if($video && $video->user_id == $request->user()->id){
+
+            $video->update([
+                'embed' => $request->new_video
+            ]);
+        }
+
+        return back();
+    }
+
+    public function deleteVideo(Request $request){
+
+        $video_id =  $request->product_id;
+        $video =  Video::find($video_id);
+
+        if($video && $video->user_id == $request->user()->id){
+            $video->delete();
+        }
+
+        return back();
     }
 
     public function addAward(Request $request){
@@ -139,4 +180,29 @@ class CheerleaderController extends Controller
       ]);
       return back();
     }
+
+    public function updateAward(Request $request){
+       $award_id =  $request->award_id;
+       $award =  Award::find($award_id);
+       if($award && $award->user_id == $request->user()->id){
+           $award->update([
+               'award' => $request->new_award
+           ]);
+       }
+
+        return back();
+    }
+
+    public function deleteAward(Request $request){
+
+       $award_id =  $request->product_id;
+       $award =  Award::find($award_id);
+       if($award && $award->user_id == $request->user()->id){
+           $award->delete();
+       }
+
+        return back();
+    }
+
+
 }
