@@ -691,16 +691,15 @@
                   {{csrf_field()}}
 
                   <fieldset>
-                    <legend>Group Stunting</legend>
+                    <legend>Basic</legend>
 
-                    <h2> Basic</h2>
-                    <hr>
-                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_basic[]" id="skills" title="Most Winning">
-                      <option value="show_and_go" @if (isset($data['skills_group_stunting_basic']) && !empty($data['skills_group_stunting_basic']) && in_array('show_and_go', $data['skills_group_stunting_basic'])) selected="selected" @endif>show_and_go</option>
-                      <option value="extension"  @if (isset($data['skills_group_stunting_basic']) && !empty($data['skills_group_stunting_basic']) && in_array('extension', $data['skills_group_stunting_basic'])) selected="selected" @endif>extension</option>
-                      <option value="power_press"  @if (isset($data['skills_group_stunting_basic']) && !empty($data['skills_group_stunting_basic']) && in_array('power_press', $data['skills_group_stunting_basic'])) selected="selected" @endif>power_press</option>
-                      <option value="prep_level_liberty"  @if (isset($data['skills_group_stunting_basic']) && !empty($data['skills_group_stunting_basic']) && in_array('prep_level_liberty', $data['skills_group_stunting_basic'])) selected="selected" @endif>prep_level_liberty</option>
-                      <option value="extended_level_liberty"  @if (isset($data['skills_group_stunting_basic']) && !empty($data['skills_group_stunting_basic']) && in_array('extended_level_liberty', $data['skills_group_stunting_basic'])) selected="selected" @endif>extended_level_liberty</option>
+                    <h2>Group Stunting</h2>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_basic_group_stunting[]" id="skills_group_stunting_basic_group_stunting" title="">
+                      <option value="show_and_go" @if (isset($data['skills_group_stunting_basic_group_stunting']) && !empty($data['skills_group_stunting_basic_group_stunting']) && in_array('show_and_go', $data['skills_group_stunting_basic_group_stunting'])) selected="selected" @endif>Show and Go</option>
+                      <option value="extension"  @if (isset($data['skills_group_stunting_basic_group_stunting']) && !empty($data['skills_group_stunting_basic_group_stunting']) && in_array('extension', $data['skills_group_stunting_basic_group_stunting'])) selected="selected" @endif>Extension</option>
+                      <option value="power_press"  @if (isset($data['skills_group_stunting_basic_group_stunting']) && !empty($data['skills_group_stunting_basic_group_stunting']) && in_array('power_press', $data['skills_group_stunting_basic_group_stunting'])) selected="selected" @endif>Power Press</option>
+                      <option value="prep_level_liberty"  @if (isset($data['skills_group_stunting_basic_group_stunting']) && !empty($data['skills_group_stunting_basic_group_stunting']) && in_array('prep_level_liberty', $data['skills_group_stunting_basic_group_stunting'])) selected="selected" @endif>Prep Level Liberty</option>
+                      <option value="extended_level_liberty"  @if (isset($data['skills_group_stunting_basic_group_stunting']) && !empty($data['skills_group_stunting_basic_group_stunting']) && in_array('extended_level_liberty', $data['skills_group_stunting_basic_group_stunting'])) selected="selected" @endif>Extended Level Liberty</option>
                     </select>
                     {{--<div class="checkbox">--}}
                       {{--<label><input class="basic-group-stunting" type="checkbox"  name="skills[group_stunting][basic][group_stunting][show_and_go]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['basic']['group_stunting']['show_and_go']))checked @endif>Show and Go</label>--}}
@@ -722,239 +721,320 @@
                     {{--</div>--}}
 
                     <h2>Stationary Group Stunting</h2>
-                    <hr>
-                    <div class="checkbox">
-                      <label><input class="basic-stationary-group-stunting" type="checkbox"  name="skills[group_stunting][basic][stationary_group_stuntung][prep_level_half_twist_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Prep Level 1/2 Twist Up</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-stationary-group-stunting" type="checkbox"  name="skills[group_stunting][basic][stationary_group_stuntung][extended_level_half_twist_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['extended_level_half_twist_up']))checked @endif>Extended Level 1/2 Twist Up</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'basic-stationary-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_basic_stationary_group_stuntung[]" id="skills_group_stunting_basic_stationary_group_stuntung" title="">
+                      <option value="prep_level_half_twist_up" @if (isset($data['skills_group_stunting_basic_stationary_group_stuntung']) && !empty($data['skills_group_stunting_basic_stationary_group_stuntung']) && in_array('prep_level_half_twist_up', $data['skills_group_stunting_basic_stationary_group_stuntung'])) selected="selected" @endif>Prep Level 1/2 Twist Up</option>
+                      <option value="extended_level_half_twist_up"  @if (isset($data['skills_group_stunting_basic_stationary_group_stuntung']) && !empty($data['skills_group_stunting_basic_stationary_group_stuntung']) && in_array('extended_level_half_twist_up', $data['skills_group_stunting_basic_stationary_group_stuntung'])) selected="selected" @endif>Extended Level 1/2 Twist Up</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-stationary-group-stunting" type="checkbox"  name="skills[group_stunting][basic][stationary_group_stuntung][prep_level_half_twist_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Prep Level 1/2 Twist Up</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-stationary-group-stunting" type="checkbox"  name="skills[group_stunting][basic][stationary_group_stuntung][extended_level_half_twist_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['extended_level_half_twist_up']))checked @endif>Extended Level 1/2 Twist Up</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'basic-stationary-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
+
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="mt-5">
                     <legend>Advanced</legend>
+
                     <h2>Prep Level</h2>
-                    <hr>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_advance_prep_level[]" id="skills_group_stunting_advance_prep_level" title="">
+                      <option value="switch_up" @if (isset($data['skills_group_stunting_advance_prep_level']) && !empty($data['skills_group_stunting_advance_prep_level']) && in_array('switch_up', $data['skills_group_stunting_advance_prep_level'])) selected="selected" @endif>Switch Up</option>
+                      <option value="full_up"  @if (isset($data['skills_group_stunting_advance_prep_level']) && !empty($data['skills_group_stunting_advance_prep_level']) && in_array('full_up', $data['skills_group_stunting_advance_prep_level'])) selected="selected" @endif>Full Up (Semi Releasing)</option>
+                      <option value="one_half_full_up"  @if (isset($data['skills_group_stunting_advance_prep_level']) && !empty($data['skills_group_stunting_advance_prep_level']) && in_array('one_half_full_up', $data['skills_group_stunting_advance_prep_level'])) selected="selected" @endif>1 & 1/2 Full Ups (Semi Releasing)</option>
+                      <option value="double_ups"  @if (isset($data['skills_group_stunting_advance_prep_level']) && !empty($data['skills_group_stunting_advance_prep_level']) && in_array('double_ups', $data['skills_group_stunting_advance_prep_level'])) selected="selected" @endif>Double Ups</option>
+                      <option value="full_twisting_switch_up"  @if (isset($data['skills_group_stunting_advance_prep_level']) && !empty($data['skills_group_stunting_advance_prep_level']) && in_array('full_twisting_switch_up', $data['skills_group_stunting_advance_prep_level'])) selected="selected" @endif>Full Twisting Switch Up (Releasing)</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['switch_up']))checked @endif>Switch Up</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['full_up']))checked @endif>Full Up (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][one_half_full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][double_ups]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['one_half_full_up']))checked @endif>Double Ups</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][full_twisting_switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'advance-prep-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
 
-                    <div class="checkbox">
-                      <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['switch_up']))checked @endif>Switch Up</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['full_up']))checked @endif>Full Up (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][one_half_full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][double_ups]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['one_half_full_up']))checked @endif>Double Ups</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][full_twisting_switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'advance-prep-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
                     <h2>Extended Level</h2>
-                    <hr>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_advance_extended[]" id="skills_group_stunting_advance_extended" title="">
+                      <option value="switch_up" @if (isset($data['skills_group_stunting_advance_extended']) && !empty($data['skills_group_stunting_advance_extended']) && in_array('switch_up', $data['skills_group_stunting_advance_extended'])) selected="selected" @endif>Switch Up</option>
+                      <option value="full_up"  @if (isset($data['skills_group_stunting_advance_extended']) && !empty($data['skills_group_stunting_advance_extended']) && in_array('full_up', $data['skills_group_stunting_advance_extended'])) selected="selected" @endif>Full Up (Semi Releasing)</option>
+                      <option value="one_half_full_up"  @if (isset($data['skills_group_stunting_advance_extended']) && !empty($data['skills_group_stunting_advance_extended']) && in_array('one_half_full_up', $data['skills_group_stunting_advance_extended'])) selected="selected" @endif>1 & 1/2 Full Ups (Semi Releasing)</option>
+                      <option value="double_ups"  @if (isset($data['skills_group_stunting_advance_extended']) && !empty($data['skills_group_stunting_advance_extended']) && in_array('double_ups', $data['skills_group_stunting_advance_extended'])) selected="selected" @endif>Double Ups</option>
+                      <option value="full_twisting_switch_up"  @if (isset($data['skills_group_stunting_advance_extended']) && !empty($data['skills_group_stunting_advance_extended']) && in_array('full_twisting_switch_up', $data['skills_group_stunting_advance_extended'])) selected="selected" @endif>Full Twisting Switch Up (Releasing)</option>
+                    </select>
 
-                    <div class="checkbox">
-                      <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][one_half_full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][double_ups]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'basic-stationary-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][one_half_full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][double_ups]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-extended-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'basic-stationary-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
+
+
                     <h2>Full Down Dismount</h2>
-                    <hr>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_advance_full_down_dismount[]" id="skills_group_stunting_advance_full_down_dismount" title="">
+                      <option value="prep" @if (isset($data['skills_group_stunting_advance_full_down_dismount']) && !empty($data['skills_group_stunting_advance_full_down_dismount']) && in_array('prep', $data['skills_group_stunting_advance_full_down_dismount'])) selected="selected" @endif>Prep</option>
+                      <option value="extension"  @if (isset($data['skills_group_stunting_advance_full_down_dismount']) && !empty($data['skills_group_stunting_advance_full_down_dismount']) && in_array('extension', $data['skills_group_stunting_advance_full_down_dismount'])) selected="selected" @endif>Extension</option>
+                      <option value="liberty"  @if (isset($data['skills_group_stunting_advance_full_down_dismount']) && !empty($data['skills_group_stunting_advance_full_down_dismount']) && in_array('liberty', $data['skills_group_stunting_advance_full_down_dismount'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_group_stunting_advance_full_down_dismount']) && !empty($data['skills_group_stunting_advance_full_down_dismount']) && in_array('stretch', $data['skills_group_stunting_advance_full_down_dismount'])) selected="selected" @endif>Stretch</option>
+                      <option value="scorpion"  @if (isset($data['skills_group_stunting_advance_full_down_dismount']) && !empty($data['skills_group_stunting_advance_full_down_dismount']) && in_array('scorpion', $data['skills_group_stunting_advance_full_down_dismount'])) selected="selected" @endif>Scorpion</option>
+                      <option value="scale"  @if (isset($data['skills_group_stunting_advance_full_down_dismount']) && !empty($data['skills_group_stunting_advance_full_down_dismount']) && in_array('scale', $data['skills_group_stunting_advance_full_down_dismount'])) selected="selected" @endif>Scale</option>
+                    </select>
+                    {{--<div>--}}
+                      {{--<label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'advance-full-down-dismount-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
 
-                    <div class="checkbox">
-                      <label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_up']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['one_half_full_up']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['double_ups']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['full_twisting_switch_up']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'advance-full-down-dismount-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+
                     <h2>Double Down Dismount</h2>
-                    <hr>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_advance_double_down_dismount[]" id="skills_group_stunting_advance_double_down_dismount" title="">
+                      <option value="prep" @if (isset($data['skills_group_stunting_advance_double_down_dismount']) && !empty($data['skills_group_stunting_advance_double_down_dismount']) && in_array('prep', $data['skills_group_stunting_advance_double_down_dismount'])) selected="selected" @endif>Prep</option>
+                      <option value="extension"  @if (isset($data['skills_group_stunting_advance_double_down_dismount']) && !empty($data['skills_group_stunting_advance_double_down_dismount']) && in_array('extension', $data['skills_group_stunting_advance_double_down_dismount'])) selected="selected" @endif>Extension</option>
+                      <option value="liberty"  @if (isset($data['skills_group_stunting_advance_double_down_dismount']) && !empty($data['skills_group_stunting_advance_double_down_dismount']) && in_array('liberty', $data['skills_group_stunting_advance_double_down_dismount'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_group_stunting_advance_double_down_dismount']) && !empty($data['skills_group_stunting_advance_double_down_dismount']) && in_array('stretch', $data['skills_group_stunting_advance_double_down_dismount'])) selected="selected" @endif>Stretch</option>
+                      <option value="scorpion"  @if (isset($data['skills_group_stunting_advance_double_down_dismount']) && !empty($data['skills_group_stunting_advance_double_down_dismount']) && in_array('scorpion', $data['skills_group_stunting_advance_double_down_dismount'])) selected="selected" @endif>Scorpion</option>
+                      <option value="scale"  @if (isset($data['skills_group_stunting_advance_double_down_dismount']) && !empty($data['skills_group_stunting_advance_double_down_dismount']) && in_array('scale', $data['skills_group_stunting_advance_double_down_dismount'])) selected="selected" @endif>Scale</option>
+                    </select>
 
-                    <div class="checkbox">
-                      <label><input class="double-down-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="double-down-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="double-down-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][one_half_full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="double-down-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][double_ups]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="double-down-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'double-down-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="double-down-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="double-down-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="double-down-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][one_half_full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="double-down-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][double_ups]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="double-down-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'double-down-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
+
+
                     <h2>Other Dismount</h2>
-                    <hr>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_advance_other_dismount[]" id="skills_group_stunting_advance_other_dismount" title="">
+                      <option value="switch_up" @if (isset($data['skills_group_stunting_advance_other_dismount']) && !empty($data['skills_group_stunting_advance_other_dismount']) && in_array('switch_up', $data['skills_group_stunting_advance_other_dismount'])) selected="selected" @endif>Switch Up</option>
+                      <option value="full_up"  @if (isset($data['skills_group_stunting_advance_other_dismount']) && !empty($data['skills_group_stunting_advance_other_dismount']) && in_array('full_up', $data['skills_group_stunting_advance_other_dismount'])) selected="selected" @endif>Full Up (Semi Releasing)</option>
+                      <option value="one_half_full_up"  @if (isset($data['skills_group_stunting_advance_other_dismount']) && !empty($data['skills_group_stunting_advance_other_dismount']) && in_array('one_half_full_up', $data['skills_group_stunting_advance_other_dismount'])) selected="selected" @endif>1 & 1/2 Full Ups (Semi Releasing)</option>
+                      <option value="double_ups"  @if (isset($data['skills_group_stunting_advance_other_dismount']) && !empty($data['skills_group_stunting_advance_other_dismount']) && in_array('double_ups', $data['skills_group_stunting_advance_other_dismount'])) selected="selected" @endif>Double Ups</option>
+                      <option value="full_twisting_switch_up"  @if (isset($data['skills_group_stunting_advance_other_dismount']) && !empty($data['skills_group_stunting_advance_other_dismount']) && in_array('full_twisting_switch_up', $data['skills_group_stunting_advance_other_dismount'])) selected="selected" @endif>Full Twisting Switch Up (Releasing)</option>
+                    </select>
 
-                    <div class="checkbox">
-                      <label><input class="other-dismount-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="other-dismount-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="other-dismount-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][one_half_full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="other-dismount-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][double_ups]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="other-dismount-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'other-dismount-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="other-dismount-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="other-dismount-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_up']))checked @endif>Full Up (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="other-dismount-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][one_half_full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['one_half_full_up']))checked @endif>1 & 1/2 Full Ups (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="other-dismount-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][double_ups]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['double_ups']))checked @endif>Double Ups</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="other-dismount-group-stunting" type="checkbox"  name="skills[group_stunting][advance][extended][full_twisting_switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['full_twisting_switch_up']))checked @endif>Full Twisting Switch Up (Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'other-dismount-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="mt-5">
                     <legend>Elite</legend>
                     <h2>2 Based Stunts</h2>
-                    <div class="checkbox">
-                      <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][prep]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['prep']))checked @endif>Prep</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][extension]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['extension']))checked @endif>Extension</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][extended_level_liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['extended_level_liberty']))checked @endif>Extended Level Liberty</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][one_handed_cupie_or_awesome]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['one_handed_cupie_or_awesome']))checked @endif>One Handed Cupie or Awesome</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['full_up']))checked @endif>Full Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][low_to_high_full_around]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['low_to_high_full_around']))checked @endif>Low to High Full Around (Semi Releasing)</label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][high_to_high_full_around]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['high_to_high_full_around']))checked @endif>High to High Full Around (Semi Releasing)<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'elite-2-based-stunts-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_elite_2_based_stunts[]" id="skills_group_stunting_elite_2_based_stunts" title="">
+                      <option value="prep" @if (isset($data['skills_group_stunting_elite_2_based_stunts']) && !empty($data['skills_group_stunting_elite_2_based_stunts']) && in_array('prep', $data['skills_group_stunting_elite_2_based_stunts'])) selected="selected" @endif>Prep</option>
+                      <option value="extension"  @if (isset($data['skills_group_stunting_elite_2_based_stunts']) && !empty($data['skills_group_stunting_elite_2_based_stunts']) && in_array('extension', $data['skills_group_stunting_elite_2_based_stunts'])) selected="selected" @endif>Extension</option>
+                      <option value="extended_level_liberty"  @if (isset($data['skills_group_stunting_elite_2_based_stunts']) && !empty($data['skills_group_stunting_elite_2_based_stunts']) && in_array('extended_level_liberty', $data['skills_group_stunting_elite_2_based_stunts'])) selected="selected" @endif>Extended Level Liberty</option>
+                      <option value="one_handed_cupie_or_awesome"  @if (isset($data['skills_group_stunting_elite_2_based_stunts']) && !empty($data['skills_group_stunting_elite_2_based_stunts']) && in_array('one_handed_cupie_or_awesome', $data['skills_group_stunting_elite_2_based_stunts'])) selected="selected" @endif>One Handed Cupie or Awesome</option>
+                      <option value="full_up"  @if (isset($data['skills_group_stunting_elite_2_based_stunts']) && !empty($data['skills_group_stunting_elite_2_based_stunts']) && in_array('full_up', $data['skills_group_stunting_elite_2_based_stunts'])) selected="selected" @endif>Full Up</option>
+                      <option value="low_to_high_full_around"  @if (isset($data['skills_group_stunting_elite_2_based_stunts']) && !empty($data['skills_group_stunting_elite_2_based_stunts']) && in_array('low_to_high_full_around', $data['skills_group_stunting_elite_2_based_stunts'])) selected="selected" @endif>Low to High Full Around (Semi Releasing)</option>
+                      <option value="high_to_high_full_around"  @if (isset($data['skills_group_stunting_elite_2_based_stunts']) && !empty($data['skills_group_stunting_elite_2_based_stunts']) && in_array('high_to_high_full_around', $data['skills_group_stunting_elite_2_based_stunts'])) selected="selected" @endif>High to High Full Around (Semi Releasing)</option>
+                    </select>
+
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][prep]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['prep']))checked @endif>Prep</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][extension]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['extension']))checked @endif>Extension</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][extended_level_liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['extended_level_liberty']))checked @endif>Extended Level Liberty</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][one_handed_cupie_or_awesome]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['one_handed_cupie_or_awesome']))checked @endif>One Handed Cupie or Awesome</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['full_up']))checked @endif>Full Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][low_to_high_full_around]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['low_to_high_full_around']))checked @endif>Low to High Full Around (Semi Releasing)</label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-2-based-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][2_based_stunts][high_to_high_full_around]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['2_based_stunts']['high_to_high_full_around']))checked @endif>High to High Full Around (Semi Releasing)<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'elite-2-based-stunts-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
                     <h2>Flipping Group Stunting</h2>
-                    <hr>
-                    <div class="checkbox">
-                      <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][rewind]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['rewind']))checked @endif>Rewind<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['platform']))checked @endif>Platform<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][stretch]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'elite-flipping-stunts-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_elite_flipping_group_stunting[]" id="skills_group_stunting_elite_flipping_group_stunting" title="">
+                      <option value="rewind" @if (isset($data['skills_group_stunting_elite_flipping_group_stunting']) && !empty($data['skills_group_stunting_elite_flipping_group_stunting']) && in_array('rewind', $data['skills_group_stunting_elite_flipping_group_stunting'])) selected="selected" @endif>Rewind</option>
+                      <option value="platform"  @if (isset($data['skills_group_stunting_elite_flipping_group_stunting']) && !empty($data['skills_group_stunting_elite_flipping_group_stunting']) && in_array('platform', $data['skills_group_stunting_elite_flipping_group_stunting'])) selected="selected" @endif>Platform</option>
+                      <option value="liberty"  @if (isset($data['skills_group_stunting_elite_flipping_group_stunting']) && !empty($data['skills_group_stunting_elite_flipping_group_stunting']) && in_array('liberty', $data['skills_group_stunting_elite_flipping_group_stunting'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_group_stunting_elite_flipping_group_stunting']) && !empty($data['skills_group_stunting_elite_flipping_group_stunting']) && in_array('stretch', $data['skills_group_stunting_elite_flipping_group_stunting'])) selected="selected" @endif>Stretch</option>
+                    </select>
+
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][rewind]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['rewind']))checked @endif>Rewind<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['platform']))checked @endif>Platform<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-flipping-stunts-group-stunting" type="checkbox"  name="skills[group_stunting][elite][flipping_group_stunting][stretch]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['flipping_group_stunting']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'elite-flipping-stunts-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
+
                     <h2>Front Hand Spring Up</h2>
-                    <hr>
-                    <div class="checkbox">
-                      <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['platform']))checked @endif>Platform<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][stretch]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][1_and_half_twisting_full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['1_and_half_twisting_full_up']))checked @endif>1 & 1/2 Twisting Full Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll('elite-front-hand-spring-up-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_elite_front_hand_spring_up[]" id="skills_group_stunting_elite_front_hand_spring_up" title="">
+                      <option value="liberty" @if (isset($data['skills_group_stunting_elite_front_hand_spring_up']) && !empty($data['skills_group_stunting_elite_front_hand_spring_up']) && in_array('platform', $data['skills_group_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>Platform</option>
+                      <option value="platform"  @if (isset($data['skills_group_stunting_elite_front_hand_spring_up']) && !empty($data['skills_group_stunting_elite_front_hand_spring_up']) && in_array('liberty', $data['skills_group_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_group_stunting_elite_front_hand_spring_up']) && !empty($data['skills_group_stunting_elite_front_hand_spring_up']) && in_array('stretch', $data['skills_group_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>Stretch</option>
+                      <option value="1_and_half_twisting_full_up"  @if (isset($data['skills_group_stunting_elite_front_hand_spring_up']) && !empty($data['skills_group_stunting_elite_front_hand_spring_up']) && in_array('1_and_half_twisting_full_up', $data['skills_group_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>1 & 1/2 Twisting Full Up</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['platform']))checked @endif>Platform<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][stretch]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][1_and_half_twisting_full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['1_and_half_twisting_full_up']))checked @endif>1 & 1/2 Twisting Full Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll('elite-front-hand-spring-up-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
                     <h2>Back Hand Spring Up</h2>
-                    <hr>
-                    <div class="checkbox">
-                      <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['platform']))checked @endif>Platform<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][stretch]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['full_up']))checked @endif>Full Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'elite-back-hand-spring-up-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_elite_back_hand_spring_up[]" id="skills_group_stunting_elite_back_hand_spring_up" title="">
+                      <option value="liberty" @if (isset($data['skills_group_stunting_elite_back_hand_spring_up']) && !empty($data['skills_group_stunting_elite_back_hand_spring_up']) && in_array('platform', $data['skills_group_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Platform</option>
+                      <option value="platform"  @if (isset($data['skills_group_stunting_elite_back_hand_spring_up']) && !empty($data['skills_group_stunting_elite_back_hand_spring_up']) && in_array('liberty', $data['skills_group_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_group_stunting_elite_back_hand_spring_up']) && !empty($data['skills_group_stunting_elite_back_hand_spring_up']) && in_array('stretch', $data['skills_group_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Stretch</option>
+                      <option value="full_up"  @if (isset($data['skills_group_stunting_elite_back_hand_spring_up']) && !empty($data['skills_group_stunting_elite_back_hand_spring_up']) && in_array('full_up', $data['skills_group_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Full Up</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['platform']))checked @endif>Platform<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][stretch]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['full_up']))checked @endif>Full Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'elite-back-hand-spring-up-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
+
                     <h2>Hand in Hand</h2>
-                    <hr>
-                    <div class="checkbox">
-                      <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['platform']))checked @endif>Platform<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][stretch]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['full_up']))checked @endif>Full Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onClick="checkAll(this,'elite-hand-in-hand-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_elite_hand_in_hand[]" id="skills_group_stunting_elite_hand_in_hand" title="">
+                      <option value="liberty" @if (isset($data['skills_group_stunting_elite_hand_in_hand']) && !empty($data['skills_group_stunting_elite_hand_in_hand']) && in_array('platform', $data['skills_group_stunting_elite_hand_in_hand'])) selected="selected" @endif>Platform</option>
+                      <option value="platform"  @if (isset($data['skills_group_stunting_elite_hand_in_hand']) && !empty($data['skills_group_stunting_elite_hand_in_hand']) && in_array('liberty', $data['skills_group_stunting_elite_hand_in_hand'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_group_stunting_elite_hand_in_hand']) && !empty($data['skills_group_stunting_elite_hand_in_hand']) && in_array('stretch', $data['skills_group_stunting_elite_hand_in_hand'])) selected="selected" @endif>Stretch</option>
+                      <option value="full_up"  @if (isset($data['skills_group_stunting_elite_hand_in_hand']) && !empty($data['skills_group_stunting_elite_hand_in_hand']) && in_array('full_up', $data['skills_group_stunting_elite_hand_in_hand'])) selected="selected" @endif>Full Up</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['platform']))checked @endif>Platform<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][stretch]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['full_up']))checked @endif>Full Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onClick="checkAll(this,'elite-hand-in-hand-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
+
                     <h2>Extended Hand in Hand</h2>
-                    <hr>
-                    <div class="checkbox">
-                      <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['platform']))checked @endif>Platform<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][stretch]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['full_up']))checked @endif>Full Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onClick="checkAll(this,'elite-extended-hand-in-hand-group-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_group_stunting_elite_extended_hand_in_hand[]" id="skills_group_stunting_elite_extended_hand_in_hand" title="">
+                      <option value="liberty" @if (isset($data['skills_group_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_group_stunting_elite_extended_hand_in_hand']) && in_array('platform', $data['skills_group_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Platform</option>
+                      <option value="platform"  @if (isset($data['skills_group_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_group_stunting_elite_extended_hand_in_hand']) && in_array('liberty', $data['skills_group_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_group_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_group_stunting_elite_extended_hand_in_hand']) && in_array('stretch', $data['skills_group_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Stretch</option>
+                      <option value="full_up"  @if (isset($data['skills_group_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_group_stunting_elite_extended_hand_in_hand']) && in_array('full_up', $data['skills_group_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Full Up</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['platform']))checked @endif>Platform<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][liberty]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][stretch]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][full_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['full_up']))checked @endif>Full Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onClick="checkAll(this,'elite-extended-hand-in-hand-group-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
                   </fieldset>
-                  <button type="submit" class="btn btn-success">Save Group Stunting Skills</button>
+                  <button type="submit" class="btn btn-success mt-2">Save Group Stunting Skills</button>
                 </form>
               </div>
             </div>
