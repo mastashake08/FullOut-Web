@@ -185,10 +185,11 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
+
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/moment.min.js') }}"></script>
     <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 

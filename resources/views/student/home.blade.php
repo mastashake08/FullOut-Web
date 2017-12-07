@@ -251,11 +251,12 @@
                     <legend>Basic Running</legend>
 
                     <select class="selectpicker" multiple="multiple" name="skills_spring_floor_tumbling_basic_running[]" id="skills_spring_floor_tumbling_basic_running" title="">
-                      <option value="round_off" @if (isset($data['skills_spring_floor_tumbling_basic_running']) && !empty($data['skills_spring_floor_tumbling_basic_running']) && in_array('round_off', $data['skills_spring_floor_tumbling_basic_running'])) selected="selected" @endif>Round Off</option>
-                      <option value="backhand_spring"  @if (isset($data['skills_spring_floor_tumbling_basic_running']) && !empty($data['skills_spring_floor_tumbling_basic_running']) && in_array('backhand_spring', $data['skills_spring_floor_tumbling_basic_running'])) selected="selected" @endif>Backhand Spring</option>
-                      <option value="front_walk_over"  @if (isset($data['skills_spring_floor_tumbling_basic_running']) && !empty($data['skills_spring_floor_tumbling_basic_running']) && in_array('front_walk_over', $data['skills_spring_floor_tumbling_basic_running'])) selected="selected" @endif>Front Walk Over</option>
-                      <option value="round_off_2_backhand_spring"  @if (isset($data['skills_spring_floor_tumbling_basic_running']) && !empty($data['skills_spring_floor_tumbling_basic_running']) && in_array('round_off_2_backhand_spring', $data['skills_spring_floor_tumbling_basic_running'])) selected="selected" @endif>Round Off, 2 Backhand Spring</option>
-                      <option value="round_off_3_backhand_spring"  @if (isset($data['skills_spring_floor_tumbling_basic_running']) && !empty($data['skills_spring_floor_tumbling_basic_running']) && in_array('round_off_3_backhand_spring', $data['skills_spring_floor_tumbling_basic_running'])) selected="selected" @endif>Round Off, 3 Backhand Spring</option>
+                      <option class="skills_spring_floor_tumbling_basic_running" value="round_off" @if (isset($data['skills_spring_floor_tumbling_basic_running']) && !empty($data['skills_spring_floor_tumbling_basic_running']) && in_array('round_off', $data['skills_spring_floor_tumbling_basic_running'])) selected="selected" @endif>Round Off</option>
+                      <option class="skills_spring_floor_tumbling_basic_running" value="backhand_spring"  @if (isset($data['skills_spring_floor_tumbling_basic_running']) && !empty($data['skills_spring_floor_tumbling_basic_running']) && in_array('backhand_spring', $data['skills_spring_floor_tumbling_basic_running'])) selected="selected" @endif>Backhand Spring</option>
+                      <option class="skills_spring_floor_tumbling_basic_running" value="front_walk_over"  @if (isset($data['skills_spring_floor_tumbling_basic_running']) && !empty($data['skills_spring_floor_tumbling_basic_running']) && in_array('front_walk_over', $data['skills_spring_floor_tumbling_basic_running'])) selected="selected" @endif>Front Walk Over</option>
+                      <option class="skills_spring_floor_tumbling_basic_running" value="round_off_2_backhand_spring"  @if (isset($data['skills_spring_floor_tumbling_basic_running']) && !empty($data['skills_spring_floor_tumbling_basic_running']) && in_array('round_off_2_backhand_spring', $data['skills_spring_floor_tumbling_basic_running'])) selected="selected" @endif>Round Off, 2 Backhand Spring</option>
+                      <option class="skills_spring_floor_tumbling_basic_running" value="round_off_3_backhand_spring"  @if (isset($data['skills_spring_floor_tumbling_basic_running']) && !empty($data['skills_spring_floor_tumbling_basic_running']) && in_array('round_off_3_backhand_spring', $data['skills_spring_floor_tumbling_basic_running'])) selected="selected" @endif>Round Off, 3 Backhand Spring</option>
+                      <option value="All">Mark All</option>
                     </select>
 
                     {{--<div class="form-group">--}}
@@ -285,6 +286,7 @@
                       <option value="bhs" @if (isset($data['skills_spring_floor_tumbling_basic_standing']) && !empty($data['skills_spring_floor_tumbling_basic_standing']) && in_array('bhs', $data['skills_spring_floor_tumbling_basic_standing'])) selected="selected" @endif>Basic BackHand Spring</option>
                       <option value="2_bhs"  @if (isset($data['skills_spring_floor_tumbling_basic_standing']) && !empty($data['skills_spring_floor_tumbling_basic_standing']) && in_array('2_bhs', $data['skills_spring_floor_tumbling_basic_standing'])) selected="selected" @endif>2 Basic BackHand Spring</option>
                       <option value="3_bhs"  @if (isset($data['skills_spring_floor_tumbling_basic_standing']) && !empty($data['skills_spring_floor_tumbling_basic_standing']) && in_array('3_bhs', $data['skills_spring_floor_tumbling_basic_standing'])) selected="selected" @endif>3 or More Basic BackHand Spring</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="form-group">--}}
                       {{--<div class="checkbox">--}}
@@ -310,6 +312,7 @@
                       <option value="round_off_bhs_whip"  @if (isset($data['skills_spring_floor_tumbling_advanced_running']) && !empty($data['skills_spring_floor_tumbling_advanced_running']) && in_array('round_off_bhs_whip', $data['skills_spring_floor_tumbling_advanced_running'])) selected="selected" @endif>3 or More Basic BackHand Spring</option>
                       <option value="round_off_bhs_layout"  @if (isset($data['skills_spring_floor_tumbling_advanced_running']) && !empty($data['skills_spring_floor_tumbling_advanced_running']) && in_array('round_off_bhs_layout', $data['skills_spring_floor_tumbling_advanced_running'])) selected="selected" @endif>3 or More Basic BackHand Spring</option>
                       <option value="round_off_bhs_whip_2_bhs_layout"  @if (isset($data['skills_spring_floor_tumbling_advanced_running']) && !empty($data['skills_spring_floor_tumbling_advanced_running']) && in_array('round_off_bhs_whip_2_bhs_layout', $data['skills_spring_floor_tumbling_advanced_running'])) selected="selected" @endif>3 or More Basic BackHand Spring</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="form-group">--}}
                       {{--<div class="checkbox">--}}
@@ -346,6 +349,7 @@
                       <option value="2_bhs_layout"  @if (isset($data['skills_spring_floor_tumbling_advanced_standing']) && !empty($data['skills_spring_floor_tumbling_advanced_standing']) && in_array('2_bhs_layout', $data['skills_spring_floor_tumbling_advanced_standing'])) selected="selected" @endif>2x Backhand Spring, Layout</option>
                       <option value="bhs_layout"  @if (isset($data['skills_spring_floor_tumbling_advanced_standing']) && !empty($data['skills_spring_floor_tumbling_advanced_standing']) && in_array('bhs_layout', $data['skills_spring_floor_tumbling_advanced_standing'])) selected="selected" @endif>Backhand Spring, Layout</option>
                       <option value="tuck_2_bhs_layout"  @if (isset($data['skills_spring_floor_tumbling_advanced_standing']) && !empty($data['skills_spring_floor_tumbling_advanced_standing']) && in_array('tuck_2_bhs_layout', $data['skills_spring_floor_tumbling_advanced_standing'])) selected="selected" @endif>Tuck, 2x Backhand Spring, Layout</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="form-group">--}}
                       {{--<div class="checkbox">--}}
@@ -390,6 +394,7 @@
                       <option value="round_off_bhs_whip_double"  @if (isset($data['skills_spring_floor_tumbling_elite_running']) && !empty($data['skills_spring_floor_tumbling_elite_running']) && in_array('round_off_bhs_whip_double', $data['skills_spring_floor_tumbling_elite_running'])) selected="selected" @endif>Round Off, Backhand Spring, Whip, Double</option>
                       <option value="round_off_arabian_round_off_bhs_double"  @if (isset($data['skills_spring_floor_tumbling_elite_running']) && !empty($data['skills_spring_floor_tumbling_elite_running']) && in_array('round_off_arabian_round_off_bhs_double', $data['skills_spring_floor_tumbling_elite_running'])) selected="selected" @endif>Round Off, Arabian, Round Off, Backhand Spring, Double</option>
                       <option value="front_tuck_round_off_bhs_double"  @if (isset($data['skills_spring_floor_tumbling_elite_running']) && !empty($data['skills_spring_floor_tumbling_elite_running']) && in_array('front_tuck_round_off_bhs_double', $data['skills_spring_floor_tumbling_elite_running'])) selected="selected" @endif>Front Tuck, Round Off, Backhand Spring, Double</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="form-group">--}}
                       {{--<div class="checkbox">--}}
@@ -442,6 +447,7 @@
                       <option value="full_3_bhs_double"  @if (isset($data['skills_spring_floor_tumbling_elite_standing']) && !empty($data['skills_spring_floor_tumbling_elite_standing']) && in_array('full_3_bhs_double', $data['skills_spring_floor_tumbling_elite_standing'])) selected="selected" @endif>Full, 3 Backhand Spring, Double</option>
                       <option value="3_bhs_whip_full"  @if (isset($data['skills_spring_floor_tumbling_elite_standing']) && !empty($data['skills_spring_floor_tumbling_elite_standing']) && in_array('3_bhs_whip_full', $data['skills_spring_floor_tumbling_elite_standing'])) selected="selected" @endif>3 Backhand Spring, Whip, Full</option>
                       <option value="3_bhs_whip_double"  @if (isset($data['skills_spring_floor_tumbling_elite_standing']) && !empty($data['skills_spring_floor_tumbling_elite_standing']) && in_array('3_bhs_whip_double', $data['skills_spring_floor_tumbling_elite_standing'])) selected="selected" @endif>3 Backhand Spring, Whip, Double</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="form-group">--}}
                       {{--<div class="checkbox">--}}
@@ -498,183 +504,242 @@
                 <form class="form" method="post" action="{{url('/cheerleader/skills/hard')}}" role="form">
 
                   {{csrf_field()}}
-                  <fieldset>
+                  <fieldset class="mb-4">
                     <legend>Basic Running</legend>
-
-                    <div class="form-group">
-                      <div class="checkbox">
-                        <label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['round_off']))checked @endif>Round Off</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off_backhand_spring]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['round_off_backhand_spring']))checked @endif>Backhand Spring</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][front_walk_over]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['front_walk_over']))checked @endif>Front Walk Over</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off_2_backhand_spring]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['round_off_2_backhand_spring']))checked @endif>Round Off, 2 Backhand Spring</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off_3_backhand_spring]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['round_off_3_backhand_springs']))checked @endif>Round Off, 3 Backhand Spring</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input onclick="checkAll(this,'basic-running-hard')" type="checkbox" id="checkAllRunning">Mark All</label>
-                      </div>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_hard_floor_tumbling_basic_running[]" id="skills_hard_floor_tumbling_basic_running" title="">
+                      <option value="round_off" @if (isset($data['skills_hard_floor_tumbling_basic_running']) && !empty($data['skills_hard_floor_tumbling_basic_running']) && in_array('round_off', $data['skills_hard_floor_tumbling_basic_running'])) selected="selected" @endif>Round Off</option>
+                      <option value="round_off_backhand_spring"  @if (isset($data['skills_hard_floor_tumbling_basic_running']) && !empty($data['skills_hard_floor_tumbling_basic_running']) && in_array('round_off_backhand_spring', $data['skills_hard_floor_tumbling_basic_running'])) selected="selected" @endif>Backhand Spring</option>
+                      <option value="front_walk_over"  @if (isset($data['skills_hard_floor_tumbling_basic_running']) && !empty($data['skills_hard_floor_tumbling_basic_running']) && in_array('front_walk_over', $data['front_walk_over'])) selected="selected" @endif>Front Walk Over</option>
+                      <option value="round_off_2_backhand_spring"  @if (isset($data['skills_hard_floor_tumbling_basic_running']) && !empty($data['skills_hard_floor_tumbling_basic_running']) && in_array('round_off_2_backhand_spring', $data['skills_hard_floor_tumbling_basic_running'])) selected="selected" @endif>Round Off, 2 Backhand Spring</option>
+                      <option value="round_off_3_backhand_spring"  @if (isset($data['skills_hard_floor_tumbling_basic_running']) && !empty($data['skills_hard_floor_tumbling_basic_running']) && in_array('round_off_3_backhand_spring', $data['skills_hard_floor_tumbling_basic_running'])) selected="selected" @endif>Round Off, 3 Backhand Spring</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="form-group">--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['round_off']))checked @endif>Round Off</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off_backhand_spring]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['round_off_backhand_spring']))checked @endif>Backhand Spring</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][front_walk_over]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['front_walk_over']))checked @endif>Front Walk Over</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off_2_backhand_spring]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['round_off_2_backhand_spring']))checked @endif>Round Off, 2 Backhand Spring</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off_3_backhand_spring]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['round_off_3_backhand_springs']))checked @endif>Round Off, 3 Backhand Spring</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input onclick="checkAll(this,'basic-running-hard')" type="checkbox" id="checkAllRunning">Mark All</label>--}}
+                      {{--</div>--}}
+                    {{--</div>--}}
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="mb-4" >
                     <legend>Basic Standing</legend>
-
-                    <div class="form-group">
-                      <div class="checkbox">
-                        <label><input class="basic-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_standing][bhs]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_standing']['bhs']))checked @endif>Basic Handstand</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="basic-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_standing][2_bhs]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_standing']['2_bhs']))checked @endif>2 Basic Handstand</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="basic-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_standing][3_bhs]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_standing']['3_bhs']))checked @endif>3 or More Basic Handstand</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input onclick="checkAll(this,'basic-standing-hard')" type="checkbox" id="checkAllStanding">Mark All</label>
-                      </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_hard_floor_tumbling_basic_standing[]" id="skills_hard_floor_tumbling_basic_standing" title="">
+                      <option value="bhs" @if (isset($data['skills_hard_floor_tumbling_basic_standing']) && !empty($data['skills_hard_floor_tumbling_basic_standing']) && in_array('bhs', $data['skills_hard_floor_tumbling_basic_standing'])) selected="selected" @endif>Basic BackHand Spring</option>
+                      <option value="2_bhs"  @if (isset($data['skills_hard_floor_tumbling_basic_standing']) && !empty($data['skills_hard_floor_tumbling_basic_standing']) && in_array('2_bhs', $data['skills_hard_floor_tumbling_basic_standing'])) selected="selected" @endif>2 Basic BackHand Spring</option>
+                      <option value="3_bhs"  @if (isset($data['skills_hard_floor_tumbling_basic_standing']) && !empty($data['skills_hard_floor_tumbling_basic_standing']) && in_array('3_bhs', $data['skills_hard_floor_tumbling_basic_standing'])) selected="selected" @endif>3 or More Basic BackHand Spring</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="form-group">--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="basic-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_standing][bhs]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_standing']['bhs']))checked @endif>Basic Handstand</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="basic-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_standing][2_bhs]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_standing']['2_bhs']))checked @endif>2 Basic Handstand</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="basic-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_standing][3_bhs]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_standing']['3_bhs']))checked @endif>3 or More Basic Handstand</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input onclick="checkAll(this,'basic-standing-hard')" type="checkbox" id="checkAllStanding">Mark All</label>--}}
+                      {{--</div>--}}
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="mb-4">
                     <legend>Advanced Running</legend>
-                    <div class="form-group">
-                      <div class="checkbox">
-                        <label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_tuck']))checked @endif>Round Off, Tuck</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_bhs_tuck']))checked @endif>Round Off, Backhand Spring, Tuck</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_tuck_2_bhs_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_bhs_tuck_2_bhs_tuck']))checked @endif>Round Off, Backhand Spring, Tuck, 2x Backhand Spring, Tuck</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_whip]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_bhs_whip']))checked @endif>Round Off, Backhand Spring, Whip</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_bhs_layout']))checked @endif>Round Off, Backhand Spring, Layout</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_whip_2_bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_bhs_whip_2_bhs_layout']))checked @endif>Round Off, Backhand Spring, Whip, 2x Backhand Spring, Layout</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input onclick="checkAll(this,'advanced-running-spring')" type="checkbox" id="checkAllStanding">Mark All</label>
-                      </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_hard_floor_tumbling_advanced_running[]" id="skills_hard_floor_tumbling_advanced_running" title="">
+                      <option value="round_off_tuck" @if (isset($data['skills_hard_floor_tumbling_advanced_running']) && !empty($data['skills_hard_floor_tumbling_advanced_running']) && in_array('round_off_tuck', $data['skills_hard_floor_tumbling_advanced_running'])) selected="selected" @endif>Basic BackHand Spring</option>
+                      <option value="round_off_bhs_tuck"  @if (isset($data['skills_hard_floor_tumbling_advanced_running']) && !empty($data['skills_hard_floor_tumbling_advanced_running']) && in_array('round_off_bhs_tuck', $data['skills_hard_floor_tumbling_advanced_running'])) selected="selected" @endif>2 Basic BackHand Spring</option>
+                      <option value="round_off_bhs_tuck_2_bhs"  @if (isset($data['skills_hard_floor_tumbling_advanced_running']) && !empty($data['skills_hard_floor_tumbling_advanced_running']) && in_array('round_off_bhs_tuck_2_bhs', $data['skills_hard_floor_tumbling_advanced_running'])) selected="selected" @endif>3 or More Basic BackHand Spring</option>
+                      <option value="round_off_bhs_whip"  @if (isset($data['skills_hard_floor_tumbling_advanced_running']) && !empty($data['skills_hard_floor_tumbling_advanced_running']) && in_array('round_off_bhs_whip', $data['skills_hard_floor_tumbling_advanced_running'])) selected="selected" @endif>3 or More Basic BackHand Spring</option>
+                      <option value="round_off_bhs_layout"  @if (isset($data['skills_hard_floor_tumbling_advanced_running']) && !empty($data['skills_hard_floor_tumbling_advanced_running']) && in_array('round_off_bhs_layout', $data['skills_hard_floor_tumbling_advanced_running'])) selected="selected" @endif>3 or More Basic BackHand Spring</option>
+                      <option value="round_off_bhs_whip_2_bhs_layout"  @if (isset($data['skills_hard_floor_tumbling_advanced_running']) && !empty($data['skills_hard_floor_tumbling_advanced_running']) && in_array('round_off_bhs_whip_2_bhs_layout', $data['skills_hard_floor_tumbling_advanced_running'])) selected="selected" @endif>3 or More Basic BackHand Spring</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="form-group">--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_tuck']))checked @endif>Round Off, Tuck</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_bhs_tuck']))checked @endif>Round Off, Backhand Spring, Tuck</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_tuck_2_bhs_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_bhs_tuck_2_bhs_tuck']))checked @endif>Round Off, Backhand Spring, Tuck, 2x Backhand Spring, Tuck</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_whip]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_bhs_whip']))checked @endif>Round Off, Backhand Spring, Whip</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_bhs_layout']))checked @endif>Round Off, Backhand Spring, Layout</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_running][round_off_bhs_whip_2_bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_running']['round_off_bhs_whip_2_bhs_layout']))checked @endif>Round Off, Backhand Spring, Whip, 2x Backhand Spring, Layout</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input onclick="checkAll(this,'advanced-running-spring')" type="checkbox" id="checkAllStanding">Mark All</label>--}}
+                      {{--</div>--}}
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="mb-4" >
                     <legend>Advanced Standing</legend>
-                    <div class="form-group">
-                      <div class="checkbox">
-                        <label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][3_bhs_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['3_bhs_tuck']))checked @endif>3x Backhand Spring, Tuck</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][2_bhs_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['2_bhs_tuck']))checked @endif>2x Backhand Spring, Tuck</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][bhs_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['bhs_tuck']))checked @endif>Backhand Spring, Tuck</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['tuck']))checked @endif>Tuck</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][3_bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['3_bhs_layout']))checked @endif>3x Backhand Spring, Layout</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][2_bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['2_bhs_layout']))checked @endif>2x Backhand Spring, Layout</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['bhs_layout']))checked @endif>Backhand Spring, Layout</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][tuck_2_bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['tuck_2_bhs_layout']))checked @endif>Tuck, 2x Backhand Spring, Layout</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input onclick="checkAll(this,'advanced-standing-hard')" type="checkbox" id="checkAllAdvanceStanding">Mark All</label>
-                      </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_hard_floor_tumbling_advanced_standing[]" id="skills_hard_floor_tumbling_advanced_standing" title="">
+                      <option value="3_bhs_tuck" @if (isset($data['skills_hard_floor_tumbling_advanced_standing']) && !empty($data['skills_hard_floor_tumbling_advanced_standing']) && in_array('3_bhs_tuck', $data['skills_hard_floor_tumbling_advanced_standing'])) selected="selected" @endif>3x Backhand Spring, Tuck</option>
+                      <option value="2_bhs_tuck"  @if (isset($data['skills_hard_floor_tumbling_advanced_standing']) && !empty($data['skills_hard_floor_tumbling_advanced_standing']) && in_array('2_bhs_tuck', $data['skills_hard_floor_tumbling_advanced_standing'])) selected="selected" @endif>2x Backhand Spring, Tuck</option>
+                      <option value="bhs_tuck"  @if (isset($data['skills_hard_floor_tumbling_advanced_standing']) && !empty($data['skills_hard_floor_tumbling_advanced_standing']) && in_array('bhs_tuck', $data['skills_hard_floor_tumbling_advanced_standing'])) selected="selected" @endif>Backhand Spring, Tuck</option>
+                      <option value="tuck"  @if (isset($data['skills_hard_floor_tumbling_advanced_standing']) && !empty($data['skills_hard_floor_tumbling_advanced_standing']) && in_array('tuck', $data['skills_hard_floor_tumbling_advanced_standing'])) selected="selected" @endif>Tuck</option>
+                      <option value="3_bhs_layout"  @if (isset($data['skills_hard_floor_tumbling_advanced_standing']) && !empty($data['skills_hard_floor_tumbling_advanced_standing']) && in_array('3_bhs_layout', $data['skills_hard_floor_tumbling_advanced_standing'])) selected="selected" @endif>3x Backhand Spring, Layout</option>
+                      <option value="2_bhs_layout"  @if (isset($data['skills_hard_floor_tumbling_advanced_standing']) && !empty($data['skills_hard_floor_tumbling_advanced_standing']) && in_array('2_bhs_layout', $data['skills_hard_floor_tumbling_advanced_standing'])) selected="selected" @endif>2x Backhand Spring, Layout</option>
+                      <option value="bhs_layout"  @if (isset($data['skills_hard_floor_tumbling_advanced_standing']) && !empty($data['skills_hard_floor_tumbling_advanced_standing']) && in_array('bhs_layout', $data['skills_hard_floor_tumbling_advanced_standing'])) selected="selected" @endif>Backhand Spring, Layout</option>
+                      <option value="tuck_2_bhs_layout"  @if (isset($data['skills_hard_floor_tumbling_advanced_standing']) && !empty($data['skills_hard_floor_tumbling_advanced_standing']) && in_array('tuck_2_bhs_layout', $data['skills_hard_floor_tumbling_advanced_standing'])) selected="selected" @endif>Tuck, 2x Backhand Spring, Layout</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="form-group">--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][3_bhs_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['3_bhs_tuck']))checked @endif>3x Backhand Spring, Tuck</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][2_bhs_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['2_bhs_tuck']))checked @endif>2x Backhand Spring, Tuck</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][bhs_tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['bhs_tuck']))checked @endif>Backhand Spring, Tuck</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][tuck]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['tuck']))checked @endif>Tuck</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][3_bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['3_bhs_layout']))checked @endif>3x Backhand Spring, Layout</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][2_bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['2_bhs_layout']))checked @endif>2x Backhand Spring, Layout</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['bhs_layout']))checked @endif>Backhand Spring, Layout</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="advanced-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][advanced_standing][tuck_2_bhs_layout]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['advanced_standing']['tuck_2_bhs_layout']))checked @endif>Tuck, 2x Backhand Spring, Layout</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input onclick="checkAll(this,'advanced-standing-hard')" type="checkbox" id="checkAllAdvanceStanding">Mark All</label>--}}
+                      {{--</div>--}}
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="mb-4" >
                     <legend>Elite Running</legend>
-                    <div class="form-group">
-                      <div class="checkbox">
-                        <label><input class="elite-running-hard" type="checkbox" name="skills[hard_floor_tumbling][elite_running][round_off_bhs_half]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_half']))checked @endif>Round Off, Backhand Spring, Half</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_full']))checked @endif>Round Off, Backhand Spring, Full</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_double']))checked @endif>Round Off, Backhand Spring, Double</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][front_tuck_round_off_bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['front_tuck_round_off_bhs_full']))checked @endif>Front Tuck, Round Off, Backhand Spring, Full</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_full_and_half]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_full_and_half']))checked @endif>Round Off, Backhand Spring, Full and a 1/2</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_arabian_round_off_bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_arabian_round_off_bhs_full']))checked @endif>Round Off, Arabian, Round Off, Backhand Spring, Full</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_whip_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_whip_full']))checked @endif>Round Off, Backhand Spring, Whip, Full</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_whip_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_whip_double']))checked @endif>Round Off, Backhand Spring, Whip, Double</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_arabian_round_off_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_arabian_round_off_bhs_double']))checked @endif>Round Off, Arabian, Round Off, Backhand Spring, Double</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][front_tuck_round_off_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['front_tuck_round_off_bhs_double']))checked @endif>Front Tuck, Round Off, Backhand Spring, Double</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input onclick="checkAll(this,'elite-running-hard')" type="checkbox" id="checkAllEliteRunning">Mark All</label>
-                      </div>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_hard_floor_tumbling_elite_running[]" id="skills_hard_floor_tumbling_elite_running" title="">
+                      <option value="round_off_bhs_half" @if (isset($data['skills_hard_floor_tumbling_elite_running']) && !empty($data['skills_hard_floor_tumbling_elite_running']) && in_array('round_off_bhs_half', $data['skills_hard_floor_tumbling_elite_running'])) selected="selected" @endif>Round Off, Backhand Spring, Half</option>
+                      <option value="round_off_bhs_full"  @if (isset($data['skills_hard_floor_tumbling_elite_running']) && !empty($data['skills_hard_floor_tumbling_elite_running']) && in_array('round_off_bhs_full', $data['skills_hard_floor_tumbling_elite_running'])) selected="selected" @endif>Round Off, Backhand Spring, Full</option>
+                      <option value="round_off_bhs_double"  @if (isset($data['skills_hard_floor_tumbling_elite_running']) && !empty($data['skills_hard_floor_tumbling_elite_running']) && in_array('round_off_bhs_double', $data['skills_hard_floor_tumbling_elite_running'])) selected="selected" @endif>Round Off, Backhand Spring, Double</option>
+                      <option value="front_tuck_round_off_bhs_full"  @if (isset($data['skills_hard_floor_tumbling_elite_running']) && !empty($data['skills_hard_floor_tumbling_elite_running']) && in_array('front_tuck_round_off_bhs_full', $data['skills_hard_floor_tumbling_elite_running'])) selected="selected" @endif>Front Tuck, Round Off, Backhand Spring, Full</option>
+                      <option value="round_off_bhs_full_half"  @if (isset($data['skills_hard_floor_tumbling_elite_running']) && !empty($data['skills_hard_floor_tumbling_elite_running']) && in_array('round_off_bhs_full_half', $data['skills_hard_floor_tumbling_elite_running'])) selected="selected" @endif>Round Off, Backhand Spring, Full and a 1/2</option>
+                      <option value="round_off_arabian_round_off_bhs_full"  @if (isset($data['skills_hard_floor_tumbling_elite_running']) && !empty($data['skills_hard_floor_tumbling_elite_running']) && in_array('round_off_arabian_round_off_bhs_full', $data['skills_hard_floor_tumbling_elite_running'])) selected="selected" @endif>Round Off, Arabian, Round Off, Backhand Spring, Full</option>
+                      <option value="round_off_bhs_whip_full"  @if (isset($data['skills_hard_floor_tumbling_elite_running']) && !empty($data['skills_hard_floor_tumbling_elite_running']) && in_array('round_off_bhs_whip_full', $data['skills_hard_floor_tumbling_elite_running'])) selected="selected" @endif>Round Off, Backhand Spring, Whip, Full</option>
+                      <option value="round_off_bhs_whip_double"  @if (isset($data['skills_hard_floor_tumbling_elite_running']) && !empty($data['skills_hard_floor_tumbling_elite_running']) && in_array('round_off_bhs_whip_double', $data['skills_hard_floor_tumbling_elite_running'])) selected="selected" @endif>Round Off, Backhand Spring, Whip, Double</option>
+                      <option value="round_off_arabian_round_off_bhs_double"  @if (isset($data['skills_hard_floor_tumbling_elite_running']) && !empty($data['skills_hard_floor_tumbling_elite_running']) && in_array('round_off_arabian_round_off_bhs_double', $data['skills_hard_floor_tumbling_elite_running'])) selected="selected" @endif>Round Off, Arabian, Round Off, Backhand Spring, Double</option>
+                      <option value="front_tuck_round_off_bhs_double"  @if (isset($data['skills_hard_floor_tumbling_elite_running']) && !empty($data['skills_hard_floor_tumbling_elite_running']) && in_array('front_tuck_round_off_bhs_double', $data['skills_hard_floor_tumbling_elite_running'])) selected="selected" @endif>Front Tuck, Round Off, Backhand Spring, Double</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="form-group">--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-running-hard" type="checkbox" name="skills[hard_floor_tumbling][elite_running][round_off_bhs_half]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_half']))checked @endif>Round Off, Backhand Spring, Half</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_full']))checked @endif>Round Off, Backhand Spring, Full</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_double']))checked @endif>Round Off, Backhand Spring, Double</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][front_tuck_round_off_bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['front_tuck_round_off_bhs_full']))checked @endif>Front Tuck, Round Off, Backhand Spring, Full</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_full_and_half]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_full_and_half']))checked @endif>Round Off, Backhand Spring, Full and a 1/2</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_arabian_round_off_bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_arabian_round_off_bhs_full']))checked @endif>Round Off, Arabian, Round Off, Backhand Spring, Full</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_whip_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_whip_full']))checked @endif>Round Off, Backhand Spring, Whip, Full</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_bhs_whip_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_bhs_whip_double']))checked @endif>Round Off, Backhand Spring, Whip, Double</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][round_off_arabian_round_off_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['round_off_arabian_round_off_bhs_double']))checked @endif>Round Off, Arabian, Round Off, Backhand Spring, Double</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_running][front_tuck_round_off_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_running']['front_tuck_round_off_bhs_double']))checked @endif>Front Tuck, Round Off, Backhand Spring, Double</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input onclick="checkAll(this,'elite-running-hard')" type="checkbox" id="checkAllEliteRunning">Mark All</label>--}}
+                      {{--</div>--}}
+                    {{--</div>--}}
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="mb-4" >
                     <legend>Elite Standing</legend>
-                    <div class="form-group">
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_full]"  @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>3 Backhand Spring, Full</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox" name="skills[hard_floor_tumbling][elite_standing][2_bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>2 Backhand Spring, Full</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>Backhand Spring, Full</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>Full</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>3 Backhand Spring, Double</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][2_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>2 Backhand Spring, Double</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][bhs_double]"@if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>Backhand Spring, Double</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][full_2_bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>Full, 2 Backhand Spring, Full</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][full_3_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>Full, 3 Backhand Spring, Double</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_whip_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>3 Backhand Spring, Whip, Full</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_whip_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>3 Backhand Spring, Whip, Double</label>
-                      </div>
-                      <div class="checkbox">
-                        <label><input  type="checkbox" id="checkAllEliteStanding" onclick="checkAll(this,'elite-standing-hard')">Mark All</label>
-                      </div>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_hard_floor_tumbling_elite_standing[]" id="skills_hard_floor_tumbling_elite_standing" title="">
+                      <option value="3_bhs_full" @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('3_bhs_full', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>3 Backhand Spring, Full</option>
+                      <option value="2_bhs_full"  @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('2_bhs_full', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>2 Backhand Spring, Full</option>
+                      <option value="bhs_full"  @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('bhs_full', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>Backhand Spring, Full</option>
+                      <option value="full"  @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('full', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>Full</option>
+                      <option value="3_bhs_double"  @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('3_bhs_double', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>3 Backhand Spring, Double</option>
+                      <option value="2_bhs_double"  @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('2_bhs_double', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>2 Backhand Spring, Double</option>
+                      <option value="bhs_double"  @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('bhs_double', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>Backhand Spring, Double</option>
+                      <option value="full_2_bhs_full"  @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('full_2_bhs_full', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>Full, 2 Backhand Spring, Full</option>
+                      <option value="full_3_bhs_double"  @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('full_3_bhs_double', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>Full, 3 Backhand Spring, Double</option>
+                      <option value="3_bhs_whip_full"  @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('3_bhs_whip_full', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>3 Backhand Spring, Whip, Full</option>
+                      <option value="3_bhs_whip_double"  @if (isset($data['skills_hard_floor_tumbling_elite_standing']) && !empty($data['skills_hard_floor_tumbling_elite_standing']) && in_array('3_bhs_whip_double', $data['skills_hard_floor_tumbling_elite_standing'])) selected="selected" @endif>3 Backhand Spring, Whip, Double</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="form-group">--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_full]"  @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>3 Backhand Spring, Full</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox" name="skills[hard_floor_tumbling][elite_standing][2_bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>2 Backhand Spring, Full</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>Backhand Spring, Full</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>Full</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>3 Backhand Spring, Double</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][2_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>2 Backhand Spring, Double</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][bhs_double]"@if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>Backhand Spring, Double</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][full_2_bhs_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>Full, 2 Backhand Spring, Full</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][full_3_bhs_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>Full, 3 Backhand Spring, Double</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_whip_full]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>3 Backhand Spring, Whip, Full</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input class="elite-standing-hard" type="checkbox"  name="skills[hard_floor_tumbling][elite_standing][3_bhs_whip_double]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['elite_standing']['front_tuck_round_off_bhs_double']))checked @endif>3 Backhand Spring, Whip, Double</label>--}}
+                      {{--</div>--}}
+                      {{--<div class="checkbox">--}}
+                        {{--<label><input  type="checkbox" id="checkAllEliteStanding" onclick="checkAll(this,'elite-standing-hard')">Mark All</label>--}}
+                      {{--</div>--}}
+                    {{--</div>--}}
                   </fieldset>
-                  <button class="btn btn-success"> Save Hard Floor Skills</button>
+                  <button class="btn btn-success mt-2"> Save Hard Floor Skills</button>
                 </form>
               </div>
             </div>
@@ -700,6 +765,7 @@
                       <option value="power_press"  @if (isset($data['skills_group_stunting_basic_group_stunting']) && !empty($data['skills_group_stunting_basic_group_stunting']) && in_array('power_press', $data['skills_group_stunting_basic_group_stunting'])) selected="selected" @endif>Power Press</option>
                       <option value="prep_level_liberty"  @if (isset($data['skills_group_stunting_basic_group_stunting']) && !empty($data['skills_group_stunting_basic_group_stunting']) && in_array('prep_level_liberty', $data['skills_group_stunting_basic_group_stunting'])) selected="selected" @endif>Prep Level Liberty</option>
                       <option value="extended_level_liberty"  @if (isset($data['skills_group_stunting_basic_group_stunting']) && !empty($data['skills_group_stunting_basic_group_stunting']) && in_array('extended_level_liberty', $data['skills_group_stunting_basic_group_stunting'])) selected="selected" @endif>Extended Level Liberty</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="checkbox">--}}
                       {{--<label><input class="basic-group-stunting" type="checkbox"  name="skills[group_stunting][basic][group_stunting][show_and_go]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['basic']['group_stunting']['show_and_go']))checked @endif>Show and Go</label>--}}
@@ -724,6 +790,7 @@
                     <select class="selectpicker" multiple="multiple" name="skills_group_stunting_basic_stationary_group_stuntung[]" id="skills_group_stunting_basic_stationary_group_stuntung" title="">
                       <option value="prep_level_half_twist_up" @if (isset($data['skills_group_stunting_basic_stationary_group_stuntung']) && !empty($data['skills_group_stunting_basic_stationary_group_stuntung']) && in_array('prep_level_half_twist_up', $data['skills_group_stunting_basic_stationary_group_stuntung'])) selected="selected" @endif>Prep Level 1/2 Twist Up</option>
                       <option value="extended_level_half_twist_up"  @if (isset($data['skills_group_stunting_basic_stationary_group_stuntung']) && !empty($data['skills_group_stunting_basic_stationary_group_stuntung']) && in_array('extended_level_half_twist_up', $data['skills_group_stunting_basic_stationary_group_stuntung'])) selected="selected" @endif>Extended Level 1/2 Twist Up</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="checkbox">--}}
                       {{--<label><input class="basic-stationary-group-stunting" type="checkbox"  name="skills[group_stunting][basic][stationary_group_stuntung][prep_level_half_twist_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Prep Level 1/2 Twist Up</label>--}}
@@ -746,6 +813,7 @@
                       <option value="one_half_full_up"  @if (isset($data['skills_group_stunting_advance_prep_level']) && !empty($data['skills_group_stunting_advance_prep_level']) && in_array('one_half_full_up', $data['skills_group_stunting_advance_prep_level'])) selected="selected" @endif>1 & 1/2 Full Ups (Semi Releasing)</option>
                       <option value="double_ups"  @if (isset($data['skills_group_stunting_advance_prep_level']) && !empty($data['skills_group_stunting_advance_prep_level']) && in_array('double_ups', $data['skills_group_stunting_advance_prep_level'])) selected="selected" @endif>Double Ups</option>
                       <option value="full_twisting_switch_up"  @if (isset($data['skills_group_stunting_advance_prep_level']) && !empty($data['skills_group_stunting_advance_prep_level']) && in_array('full_twisting_switch_up', $data['skills_group_stunting_advance_prep_level'])) selected="selected" @endif>Full Twisting Switch Up (Releasing)</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="checkbox">--}}
                       {{--<label><input class="advance-prep-group-stunting" type="checkbox"  name="skills[group_stunting][advance][prep_level][switch_up]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['prep_level']['switch_up']))checked @endif>Switch Up</label>--}}
@@ -773,6 +841,7 @@
                       <option value="one_half_full_up"  @if (isset($data['skills_group_stunting_advance_extended']) && !empty($data['skills_group_stunting_advance_extended']) && in_array('one_half_full_up', $data['skills_group_stunting_advance_extended'])) selected="selected" @endif>1 & 1/2 Full Ups (Semi Releasing)</option>
                       <option value="double_ups"  @if (isset($data['skills_group_stunting_advance_extended']) && !empty($data['skills_group_stunting_advance_extended']) && in_array('double_ups', $data['skills_group_stunting_advance_extended'])) selected="selected" @endif>Double Ups</option>
                       <option value="full_twisting_switch_up"  @if (isset($data['skills_group_stunting_advance_extended']) && !empty($data['skills_group_stunting_advance_extended']) && in_array('full_twisting_switch_up', $data['skills_group_stunting_advance_extended'])) selected="selected" @endif>Full Twisting Switch Up (Releasing)</option>
+                      <option value="All">Mark All</option>
                     </select>
 
                     {{--<div class="checkbox">--}}
@@ -803,6 +872,7 @@
                       <option value="stretch"  @if (isset($data['skills_group_stunting_advance_full_down_dismount']) && !empty($data['skills_group_stunting_advance_full_down_dismount']) && in_array('stretch', $data['skills_group_stunting_advance_full_down_dismount'])) selected="selected" @endif>Stretch</option>
                       <option value="scorpion"  @if (isset($data['skills_group_stunting_advance_full_down_dismount']) && !empty($data['skills_group_stunting_advance_full_down_dismount']) && in_array('scorpion', $data['skills_group_stunting_advance_full_down_dismount'])) selected="selected" @endif>Scorpion</option>
                       <option value="scale"  @if (isset($data['skills_group_stunting_advance_full_down_dismount']) && !empty($data['skills_group_stunting_advance_full_down_dismount']) && in_array('scale', $data['skills_group_stunting_advance_full_down_dismount'])) selected="selected" @endif>Scale</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div>--}}
                       {{--<label><input class="advance-full-down-dismount-group-stunting" type="checkbox"  name="skills['group_stunting']['advance']['extended']['switch_up']" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['advance']['extended']['switch_up']))checked @endif>Switch Up</label>--}}
@@ -832,6 +902,7 @@
                       <option value="stretch"  @if (isset($data['skills_group_stunting_advance_double_down_dismount']) && !empty($data['skills_group_stunting_advance_double_down_dismount']) && in_array('stretch', $data['skills_group_stunting_advance_double_down_dismount'])) selected="selected" @endif>Stretch</option>
                       <option value="scorpion"  @if (isset($data['skills_group_stunting_advance_double_down_dismount']) && !empty($data['skills_group_stunting_advance_double_down_dismount']) && in_array('scorpion', $data['skills_group_stunting_advance_double_down_dismount'])) selected="selected" @endif>Scorpion</option>
                       <option value="scale"  @if (isset($data['skills_group_stunting_advance_double_down_dismount']) && !empty($data['skills_group_stunting_advance_double_down_dismount']) && in_array('scale', $data['skills_group_stunting_advance_double_down_dismount'])) selected="selected" @endif>Scale</option>
+                      <option value="All">Mark All</option>
                     </select>
 
                     {{--<div class="checkbox">--}}
@@ -861,6 +932,7 @@
                       <option value="one_half_full_up"  @if (isset($data['skills_group_stunting_advance_other_dismount']) && !empty($data['skills_group_stunting_advance_other_dismount']) && in_array('one_half_full_up', $data['skills_group_stunting_advance_other_dismount'])) selected="selected" @endif>1 & 1/2 Full Ups (Semi Releasing)</option>
                       <option value="double_ups"  @if (isset($data['skills_group_stunting_advance_other_dismount']) && !empty($data['skills_group_stunting_advance_other_dismount']) && in_array('double_ups', $data['skills_group_stunting_advance_other_dismount'])) selected="selected" @endif>Double Ups</option>
                       <option value="full_twisting_switch_up"  @if (isset($data['skills_group_stunting_advance_other_dismount']) && !empty($data['skills_group_stunting_advance_other_dismount']) && in_array('full_twisting_switch_up', $data['skills_group_stunting_advance_other_dismount'])) selected="selected" @endif>Full Twisting Switch Up (Releasing)</option>
+                      <option value="All">Mark All</option>
                     </select>
 
                     {{--<div class="checkbox">--}}
@@ -893,6 +965,7 @@
                       <option value="full_up"  @if (isset($data['skills_group_stunting_elite_2_based_stunts']) && !empty($data['skills_group_stunting_elite_2_based_stunts']) && in_array('full_up', $data['skills_group_stunting_elite_2_based_stunts'])) selected="selected" @endif>Full Up</option>
                       <option value="low_to_high_full_around"  @if (isset($data['skills_group_stunting_elite_2_based_stunts']) && !empty($data['skills_group_stunting_elite_2_based_stunts']) && in_array('low_to_high_full_around', $data['skills_group_stunting_elite_2_based_stunts'])) selected="selected" @endif>Low to High Full Around (Semi Releasing)</option>
                       <option value="high_to_high_full_around"  @if (isset($data['skills_group_stunting_elite_2_based_stunts']) && !empty($data['skills_group_stunting_elite_2_based_stunts']) && in_array('high_to_high_full_around', $data['skills_group_stunting_elite_2_based_stunts'])) selected="selected" @endif>High to High Full Around (Semi Releasing)</option>
+                      <option value="All">Mark All</option>
                     </select>
 
                     {{--<div class="checkbox">--}}
@@ -925,6 +998,7 @@
                       <option value="platform"  @if (isset($data['skills_group_stunting_elite_flipping_group_stunting']) && !empty($data['skills_group_stunting_elite_flipping_group_stunting']) && in_array('platform', $data['skills_group_stunting_elite_flipping_group_stunting'])) selected="selected" @endif>Platform</option>
                       <option value="liberty"  @if (isset($data['skills_group_stunting_elite_flipping_group_stunting']) && !empty($data['skills_group_stunting_elite_flipping_group_stunting']) && in_array('liberty', $data['skills_group_stunting_elite_flipping_group_stunting'])) selected="selected" @endif>Liberty</option>
                       <option value="stretch"  @if (isset($data['skills_group_stunting_elite_flipping_group_stunting']) && !empty($data['skills_group_stunting_elite_flipping_group_stunting']) && in_array('stretch', $data['skills_group_stunting_elite_flipping_group_stunting'])) selected="selected" @endif>Stretch</option>
+                      <option value="All">Mark All</option>
                     </select>
 
                     {{--<div class="checkbox">--}}
@@ -949,6 +1023,7 @@
                       <option value="platform"  @if (isset($data['skills_group_stunting_elite_front_hand_spring_up']) && !empty($data['skills_group_stunting_elite_front_hand_spring_up']) && in_array('liberty', $data['skills_group_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>Liberty</option>
                       <option value="stretch"  @if (isset($data['skills_group_stunting_elite_front_hand_spring_up']) && !empty($data['skills_group_stunting_elite_front_hand_spring_up']) && in_array('stretch', $data['skills_group_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>Stretch</option>
                       <option value="1_and_half_twisting_full_up"  @if (isset($data['skills_group_stunting_elite_front_hand_spring_up']) && !empty($data['skills_group_stunting_elite_front_hand_spring_up']) && in_array('1_and_half_twisting_full_up', $data['skills_group_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>1 & 1/2 Twisting Full Up</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="checkbox">--}}
                       {{--<label><input class="elite-front-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][front_hand_spring_up][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['front_hand_spring_up']['platform']))checked @endif>Platform<label>--}}
@@ -971,6 +1046,7 @@
                       <option value="platform"  @if (isset($data['skills_group_stunting_elite_back_hand_spring_up']) && !empty($data['skills_group_stunting_elite_back_hand_spring_up']) && in_array('liberty', $data['skills_group_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Liberty</option>
                       <option value="stretch"  @if (isset($data['skills_group_stunting_elite_back_hand_spring_up']) && !empty($data['skills_group_stunting_elite_back_hand_spring_up']) && in_array('stretch', $data['skills_group_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Stretch</option>
                       <option value="full_up"  @if (isset($data['skills_group_stunting_elite_back_hand_spring_up']) && !empty($data['skills_group_stunting_elite_back_hand_spring_up']) && in_array('full_up', $data['skills_group_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Full Up</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="checkbox">--}}
                       {{--<label><input class="elite-back-hand-spring-up-group-stunting" type="checkbox"  name="skills[group_stunting][elite][back_hand_spring_up][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['back_hand_spring_up']['platform']))checked @endif>Platform<label>--}}
@@ -994,6 +1070,7 @@
                       <option value="platform"  @if (isset($data['skills_group_stunting_elite_hand_in_hand']) && !empty($data['skills_group_stunting_elite_hand_in_hand']) && in_array('liberty', $data['skills_group_stunting_elite_hand_in_hand'])) selected="selected" @endif>Liberty</option>
                       <option value="stretch"  @if (isset($data['skills_group_stunting_elite_hand_in_hand']) && !empty($data['skills_group_stunting_elite_hand_in_hand']) && in_array('stretch', $data['skills_group_stunting_elite_hand_in_hand'])) selected="selected" @endif>Stretch</option>
                       <option value="full_up"  @if (isset($data['skills_group_stunting_elite_hand_in_hand']) && !empty($data['skills_group_stunting_elite_hand_in_hand']) && in_array('full_up', $data['skills_group_stunting_elite_hand_in_hand'])) selected="selected" @endif>Full Up</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="checkbox">--}}
                       {{--<label><input class="elite-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['hand_in_hand']['platform']))checked @endif>Platform<label>--}}
@@ -1017,6 +1094,7 @@
                       <option value="platform"  @if (isset($data['skills_group_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_group_stunting_elite_extended_hand_in_hand']) && in_array('liberty', $data['skills_group_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Liberty</option>
                       <option value="stretch"  @if (isset($data['skills_group_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_group_stunting_elite_extended_hand_in_hand']) && in_array('stretch', $data['skills_group_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Stretch</option>
                       <option value="full_up"  @if (isset($data['skills_group_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_group_stunting_elite_extended_hand_in_hand']) && in_array('full_up', $data['skills_group_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Full Up</option>
+                      <option value="All">Mark All</option>
                     </select>
                     {{--<div class="checkbox">--}}
                       {{--<label><input class="elite-extended-hand-in-hand-group-stunting" type="checkbox"  name="skills[group_stunting][elite][extended_hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->group_stunting_skills['group_stunting']['elite']['extended_hand_in_hand']['platform']))checked @endif>Platform<label>--}}
@@ -1053,7 +1131,7 @@
                   <fieldset>
                     <legend>Basic</legend>
                     <h2>Walk-in</h2>
-                    <hr>
+
                     <div class="checkbox">
                       <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['walk_in']['hands']))checked @endif>Hands<label>
                     </div>
@@ -1069,8 +1147,9 @@
                     <div class="checkbox">
                       <label><input onclick="(this,'basic-walk-in-coed-stunting')" type="checkbox">Mark All</label>
                     </div>
+
                     <h2>Toss</h2>
-                    <hr>
+
                     <div class="checkbox">
                       <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['toss']['hands']))checked @endif>Hands<label>
                     </div>
@@ -1087,7 +1166,7 @@
                       <label><input onclick="(this,'basic-toss-coed-stunting')" type="checkbox">Mark All</label>
                     </div>
                     <h2>From Hands</h2>
-                    <hr>
+
                     <div class="checkbox">
                       <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['from_hands']['hands']))checked @endif>Hands<label>
                     </div>
@@ -1105,9 +1184,10 @@
                     </div>
                   </fieldset>
                   <fieldset>
+
                     <legend>Advanced</legend>
                     <h2>One Arm</h2>
-                    <hr>
+
                     <div class="checkbox">
                       <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['hands']))checked @endif>Hands<label>
                     </div>
@@ -1123,8 +1203,8 @@
                     <div class="checkbox">
                       <label><input onclick="checkAll(this,'advanced-one-arm-coed-stunting')" type="checkbox">Mark All</label>
                     </div>
+
                     <h2>Full Up</h2>
-                    <hr>
                     <div class="checkbox">
                       <label><input class="advanced-full-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['full_up']['hands']))checked @endif>Hands<label>
                     </div>
@@ -1143,6 +1223,7 @@
                   </fieldset>
                   <fieldset>
                     <legend>Dismounts</legend>
+
                     <h2>Full Down</h2>
                     <div class="checkbox">
                       <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][prep]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['prep']))checked @endif>Prep<label>
@@ -1165,6 +1246,7 @@
                     <div class="checkbox">
                       <label><input onclick="checkAll(this,'dismounts-full-down-coed-stunting')" type="checkbox">Mark All</label>
                     </div>
+
                     <h2>Double Down</h2>
                     <div class="checkbox">
                       <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][prep]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['prep']))checked @endif>Prep<label>
@@ -1187,6 +1269,7 @@
                     <div class="checkbox">
                       <label><input onclick="checkAll(this,'dismounts-double-down-coed-stunting')" type="checkbox">Mark All</label>
                     </div>
+
                     <h2>Other</h2>
                     <div class="checkbox">
                       <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][low_to_high_tic_toc]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['low_to_high_tic_toc']))checked @endif>Low to High Tic Toc<label>
@@ -1210,7 +1293,7 @@
                   <fieldset>
                     <legend>Elite</legend>
                     <h2>Flipping Coed Stunting</h2>
-                    <hr>
+
                     <div class="checkbox">
                       <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][rewind]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['rewind']))checked @endif>Rewind<label>
                     </div>
@@ -1232,6 +1315,7 @@
                     <div class="checkbox">
                       <label><input onClick="checkAll(this,'elite-flipping-coed-stunting')" type="checkbox">Mark All</label>
                     </div>
+
                     <h2>Front Hand Spring Up</h2>
                     <div class="checkbox">
                       <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['platform']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['platform']))checked @endif>Platform<label>
@@ -1248,9 +1332,9 @@
                     <div class="checkbox">
                       <label><input onclick="checkAll(this,'elite-front-hand-spring-up-coed-stunting')" type="checkbox">Mark All</label>
                     </div>
-                    <hr>
+
                     <h2>Back Hand Spring Up</h2>
-                    <hr>
+
                     <div class="checkbox">
                       <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][platform]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['platform']))checked @endif>Platform<label>
                     </div>
@@ -1266,8 +1350,9 @@
                     <div class="checkbox">
                       <label><input onclick="checkAll(this,'elite-back-hand-spring-up-coed-stunting')" type="checkbox">Mark All</label>
                     </div>
+
                     <h2>Hand in Hand</h2>
-                    <hr>
+
                     <div class="checkbox">
                       <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['platform']))checked @endif>Platform<label>
                     </div>
@@ -1283,8 +1368,9 @@
                     <div class="checkbox">
                       <label><input onclick="checkAll(this,'elite-hand-hand-coed-stunting')" type="checkbox">Mark All</label>
                     </div>
+
                     <h2>Extended Hand in Hand</h2>
-                    <hr>
+
                     <div class="checkbox">
                       <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['platform']))checked @endif>Platform<label>
                     </div>
@@ -1306,8 +1392,9 @@
                     <div class="checkbox">
                       <label><input  type="checkbox" onclick="checkAll(this,'elite-extended-hand-hand-coed-stunting')">Mark All</label>
                     </div>
+
                     <h2>Other</h2>
-                    <hr>
+
                     <div class="checkbox">
                       <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][double_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Double Up<label>
                     </div>
@@ -1339,26 +1426,5 @@
       </div>
   </div>
 @include('delete-modal')
-<script>
-function checkAll(source,className){
-  var array = document.getElementsByTagName("input");
 
-
-for(var ii = 0; ii < array.length; ii++)
-{
-
-   if(array[ii].type == "checkbox")
-   {
-      if(array[ii].className == className)
-       {
-        array[ii].checked = source.checked;
-
-       }
-
-
-
-}
-}
-}
-</script>
 @endsection
