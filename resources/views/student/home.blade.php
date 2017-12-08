@@ -13,7 +13,7 @@
             {{csrf_field()}}
             <div class="form-group{{ $errors->has('profile_pic') ? ' has-error' : '' }}">
 
-                <div class="col-md-12">
+                <div class="col-md-12 mb-2">
                   <div class="input-group">
                   <span class="input-group-addon" >Profile Pic</span>
                     <input id="profile_pic" type="file"  class="form-control" name="profile_pic"  >
@@ -488,7 +488,7 @@
                       {{--</div>--}}
                     {{--</div>--}}
                   </fieldset>
-                  <button class="btn btn-success mt-5"> Save Spring Floor Skills</button>
+                  <button class="btn btn-success mt-2"> Save Spring Floor Skills</button>
                 </form>
               </div>
             </div>
@@ -1131,293 +1131,393 @@
                   <fieldset>
                     <legend>Basic</legend>
                     <h2>Walk-in</h2>
-
-                    <div class="checkbox">
-                      <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['walk_in']['hands']))checked @endif>Hands<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['walk_in']['extension']))checked @endif>Extension<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['walk_in']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['walk_in']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="(this,'basic-walk-in-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_basic_walk_in[]" id="skills_coed_stunting_basic_walk_in" title="">
+                      <option value="hands" @if (isset($data['skills_coed_stunting_basic_walk_in']) && !empty($data['skills_coed_stunting_basic_walk_in']) && in_array('hands', $data['skills_coed_stunting_basic_walk_in'])) selected="selected" @endif>Hands</option>
+                      <option value="extension" @if (isset($data['skills_coed_stunting_basic_walk_in']) && !empty($data['skills_coed_stunting_basic_walk_in']) && in_array('extension', $data['skills_coed_stunting_basic_walk_in'])) selected="selected" @endif>Extension</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_basic_walk_in']) && !empty($data['skills_coed_stunting_basic_walk_in']) && in_array('liberty', $data['skills_coed_stunting_basic_walk_in'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_basic_walk_in']) && !empty($data['skills_coed_stunting_basic_walk_in']) && in_array('stretch', $data['skills_coed_stunting_basic_walk_in'])) selected="selected" @endif>Stretch</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['walk_in']['hands']))checked @endif>Hands<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['walk_in']['extension']))checked @endif>Extension<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['walk_in']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-walk-in-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][walk_in][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['walk_in']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="(this,'basic-walk-in-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
 
                     <h2>Toss</h2>
-
-                    <div class="checkbox">
-                      <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['toss']['hands']))checked @endif>Hands<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['toss']['extension']))checked @endif>Extension<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['toss']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['toss']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="(this,'basic-toss-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_basic_toss[]" id="skills_coed_stunting_basic_toss" title="">
+                      <option value="hands" @if (isset($data['skills_coed_stunting_basic_toss']) && !empty($data['skills_coed_stunting_basic_toss']) && in_array('hands', $data['skills_coed_stunting_basic_toss'])) selected="selected" @endif>Hands</option>
+                      <option value="extension"  @if (isset($data['skills_coed_stunting_basic_toss']) && !empty($data['skills_coed_stunting_basic_toss']) && in_array('extension', $data['skills_coed_stunting_basic_toss'])) selected="selected" @endif>Extension</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_basic_toss']) && !empty($data['skills_coed_stunting_basic_toss']) && in_array('liberty', $data['skills_coed_stunting_basic_toss'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_basic_toss']) && !empty($data['skills_coed_stunting_basic_toss']) && in_array('stretch', $data['skills_coed_stunting_basic_toss'])) selected="selected" @endif>Stretch</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['toss']['hands']))checked @endif>Hands<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['toss']['extension']))checked @endif>Extension<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['toss']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][toss][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['toss']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="(this,'basic-toss-coed-stunting')" type="checkbox">Mark Alldiv></label>--}}
+                  {{--</--}}
                     <h2>From Hands</h2>
-
-                    <div class="checkbox">
-                      <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['from_hands']['hands']))checked @endif>Hands<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['from_hands']['extension']))checked @endif>Extension<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['from_hands']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['from_hands']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="(this,'basic-from-hands-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_basic_from_hands[]" id="skills_coed_stunting_basic_from_hands" title="">
+                      <option value="hands" @if (isset($data['skills_coed_stunting_basic_from_hands']) && !empty($data['skills_coed_stunting_basic_from_hands']) && in_array('hands', $data['skills_coed_stunting_basic_from_hands'])) selected="selected" @endif>Hands</option>
+                      <option value="extension"  @if (isset($data['skills_coed_stunting_basic_from_hands']) && !empty($data['skills_coed_stunting_basic_from_hands']) && in_array('extension', $data['skills_coed_stunting_basic_from_hands'])) selected="selected" @endif>Extension</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_basic_from_hands']) && !empty($data['skills_coed_stunting_basic_from_hands']) && in_array('liberty', $data['skills_coed_stunting_basic_from_hands'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_basic_from_hands']) && !empty($data['skills_coed_stunting_basic_from_hands']) && in_array('stretch', $data['skills_coed_stunting_basic_from_hands'])) selected="selected" @endif>Stretch</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['from_hands']['hands']))checked @endif>Hands<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['from_hands']['extension']))checked @endif>Extension<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['from_hands']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-from-hands-coed-stunting" type="checkbox"  name="skills[coed_stunting][basic][from_hands][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['basic']['from_hands']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="(this,'basic-from-hands-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
                   </fieldset>
                   <fieldset>
 
                     <legend>Advanced</legend>
                     <h2>One Arm</h2>
-
-                    <div class="checkbox">
-                      <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['hands']))checked @endif>Hands<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['extension']))checked @endif>Extension<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'advanced-one-arm-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_advanced_one_arm[]" id="skills_coed_stunting_advanced_one_arm" title="">
+                      <option value="hands" @if (isset($data['skills_coed_stunting_advanced_one_arm']) && !empty($data['skills_coed_stunting_advanced_one_arm']) && in_array('hands', $data['skills_coed_stunting_advanced_one_arm'])) selected="selected" @endif>Hands</option>
+                      <option value="extension"  @if (isset($data['skills_coed_stunting_advanced_one_arm']) && !empty($data['skills_coed_stunting_advanced_one_arm']) && in_array('extension', $data['skills_coed_stunting_advanced_one_arm'])) selected="selected" @endif>Extension</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_advanced_one_arm']) && !empty($data['skills_coed_stunting_advanced_one_arm']) && in_array('liberty', $data['skills_coed_stunting_advanced_one_arm'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_advanced_one_arm']) && !empty($data['skills_coed_stunting_advanced_one_arm']) && in_array('stretch', $data['skills_coed_stunting_advanced_one_arm'])) selected="selected" @endif>Stretch</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['hands']))checked @endif>Hands<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['extension']))checked @endif>Extension<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advanced-one-arm-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][one_arm][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['one_arm']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'advanced-one-arm-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
 
                     <h2>Full Up</h2>
-                    <div class="checkbox">
-                      <label><input class="advanced-full-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['full_up']['hands']))checked @endif>Hands<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['full_up']['extension']))checked @endif>Extension<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['full_up']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['full_up']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'basic-toss-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_advanced_full_up[]" id="skills_coed_stunting_advanced_full_up" title="">
+                      <option value="hands" @if (isset($data['skills_coed_stunting_advanced_full_up']) && !empty($data['skills_coed_stunting_advanced_full_up']) && in_array('hands', $data['skills_coed_stunting_advanced_full_up'])) selected="selected" @endif>Hands</option>
+                      <option value="extension"  @if (isset($data['skills_coed_stunting_advanced_full_up']) && !empty($data['skills_coed_stunting_advanced_full_up']) && in_array('extension', $data['skills_coed_stunting_advanced_full_up'])) selected="selected" @endif>Extension</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_advanced_full_up']) && !empty($data['skills_coed_stunting_advanced_full_up']) && in_array('liberty', $data['skills_coed_stunting_advanced_full_up'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_advanced_full_up']) && !empty($data['skills_coed_stunting_advanced_full_up']) && in_array('stretch', $data['skills_coed_stunting_advanced_full_up'])) selected="selected" @endif>Stretch</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="advanced-full-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][hands]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['full_up']['hands']))checked @endif>Hands<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['full_up']['extension']))checked @endif>Extension<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['full_up']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="basic-toss-coed-stunting" type="checkbox"  name="skills[coed_stunting][advanced][full_up][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['advanced']['full_up']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'basic-toss-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
                   </fieldset>
                   <fieldset>
                     <legend>Dismounts</legend>
 
                     <h2>Full Down</h2>
-                    <div class="checkbox">
-                      <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][prep]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['prep']))checked @endif>Prep<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['extension']))checked @endif>Extension<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][scorpion]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['scorpion']))checked @endif>Scorpion<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][scale]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['scale']))checked @endif>Scale<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'dismounts-full-down-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_dismounts_full_down[]" id="skills_coed_stunting_dismounts_full_down" title="">
+                      <option value="prep" @if (isset($data['skills_coed_stunting_dismounts_full_down']) && !empty($data['skills_coed_stunting_dismounts_full_down']) && in_array('prep', $data['skills_coed_stunting_dismounts_full_down'])) selected="selected" @endif>Prep</option>
+                      <option value="extension"  @if (isset($data['skills_coed_stunting_dismounts_full_down']) && !empty($data['skills_coed_stunting_dismounts_full_down']) && in_array('extension', $data['skills_coed_stunting_dismounts_full_down'])) selected="selected" @endif>Extension</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_dismounts_full_down']) && !empty($data['skills_coed_stunting_dismounts_full_down']) && in_array('liberty', $data['skills_coed_stunting_dismounts_full_down'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_dismounts_full_down']) && !empty($data['skills_coed_stunting_dismounts_full_down']) && in_array('stretch', $data['skills_coed_stunting_dismounts_full_down'])) selected="selected" @endif>Stretch</option>
+                      <option value="scorpion"  @if (isset($data['skills_coed_stunting_dismounts_full_down']) && !empty($data['skills_coed_stunting_dismounts_full_down']) && in_array('scorpion', $data['skills_coed_stunting_dismounts_full_down'])) selected="selected" @endif>Scorpion</option>
+                      <option value="scale"  @if (isset($data['skills_coed_stunting_dismounts_full_down']) && !empty($data['skills_coed_stunting_dismounts_full_down']) && in_array('scale', $data['skills_coed_stunting_dismounts_full_down'])) selected="selected" @endif>Scale</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][prep]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['prep']))checked @endif>Prep<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['extension']))checked @endif>Extension<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][scorpion]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['scorpion']))checked @endif>Scorpion<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-full-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][full_down][scale]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['full_down']['scale']))checked @endif>Scale<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'dismounts-full-down-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
 
                     <h2>Double Down</h2>
-                    <div class="checkbox">
-                      <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][prep]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['prep']))checked @endif>Prep<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['extension']))checked @endif>Extension<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][scorpion]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['scorpion']))checked @endif>Scorpion<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][scale]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['scale']))checked @endif>Scale<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'dismounts-double-down-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_dismounts_double_down[]" id="skills_coed_stunting_dismounts_double_down" title="">
+                      <option value="prep" @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('prep', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>Prep</option>
+                      <option value="extension"  @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('extension', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>Extension</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('liberty', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('stretch', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>Stretch</option>
+                      <option value="scorpion"  @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('scorpion', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>Scorpion</option>
+                      <option value="scale"  @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('scale', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>Scale</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][prep]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['prep']))checked @endif>Prep<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][extension]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['extension']))checked @endif>Extension<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][scorpion]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['scorpion']))checked @endif>Scorpion<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-double-down-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][double_down][scale]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['double_down']['scale']))checked @endif>Scale<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'dismounts-double-down-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
 
                     <h2>Other</h2>
-                    <div class="checkbox">
-                      <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][low_to_high_tic_toc]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['low_to_high_tic_toc']))checked @endif>Low to High Tic Toc<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other'][high_to_high_tic_toc]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['high_to_high_tic_toc']))checked @endif>High to High Tic Toc<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][low_to_high_full_around]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['low_to_high_full_around']))checked @endif>Low to High Full Around<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][high_to_high_full_around]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['high_to_high_full_around']))checked @endif>High to High Full Around<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][hands_full_around]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['hands_full_around']))checked @endif>Hands Full Around<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'dismounts-other-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_dismounts_other[]" id="skills_coed_stunting_dismounts_other" title="">
+                      <option value="low_to_high_tic_toc" @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('low_to_high_tic_toc', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>Low to High Tic Toc</option>
+                      <option value="high_to_high_tic_toc"  @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('high_to_high_tic_toc', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>High to High Tic Toc</option>
+                      <option value="low_to_high_full_around"  @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('low_to_high_full_around', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>Low to High Full Around</option>
+                      <option value="high_to_high_full_around"  @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('high_to_high_full_around', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>High to High Full Around</option>
+                      <option value="hands_full_around"  @if (isset($data['skills_coed_stunting_dismounts_double_down']) && !empty($data['skills_coed_stunting_dismounts_double_down']) && in_array('hands_full_around', $data['skills_coed_stunting_dismounts_double_down'])) selected="selected" @endif>Hands Full Around</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][low_to_high_tic_toc]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['low_to_high_tic_toc']))checked @endif>Low to High Tic Toc<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other'][high_to_high_tic_toc]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['high_to_high_tic_toc']))checked @endif>High to High Tic Toc<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][low_to_high_full_around]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['low_to_high_full_around']))checked @endif>Low to High Full Around<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][high_to_high_full_around]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['high_to_high_full_around']))checked @endif>High to High Full Around<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="dismounts-other-stunting" type="checkbox"  name="skills[coed_stunting][dismounts][other][hands_full_around]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['dismounts']['other']['hands_full_around']))checked @endif>Hands Full Around<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'dismounts-other-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
                   </fieldset>
                   <fieldset>
                     <legend>Elite</legend>
                     <h2>Flipping Coed Stunting</h2>
-
-                    <div class="checkbox">
-                      <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][rewind]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['rewind']))checked @endif>Rewind<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting]['platform']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['platform']))checked @endif>Platform<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['cupie']))checked @endif>Cupie<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][1_and_half_twisting_full_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['1_and_half_twisting_full_up']))checked @endif>1 & 1/2 Twisting Full Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onClick="checkAll(this,'elite-flipping-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_elite_flipping_coed_stunting[]" id="skills_coed_stunting_elite_flipping_coed_stunting" title="">
+                      <option value="rewind" @if (isset($data['skills_coed_stunting_elite_flipping_coed_stunting']) && !empty($data['skills_coed_stunting_elite_flipping_coed_stunting']) && in_array('rewind', $data['skills_coed_stunting_elite_flipping_coed_stunting'])) selected="selected" @endif>Rewind</option>
+                      <option value="platform"  @if (isset($data['skills_coed_stunting_elite_flipping_coed_stunting']) && !empty($data['skills_coed_stunting_elite_flipping_coed_stunting']) && in_array('platform', $data['skills_coed_stunting_elite_flipping_coed_stunting'])) selected="selected" @endif>Platform</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_elite_flipping_coed_stunting']) && !empty($data['skills_coed_stunting_elite_flipping_coed_stunting']) && in_array('liberty', $data['skills_coed_stunting_elite_flipping_coed_stunting'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_elite_flipping_coed_stunting']) && !empty($data['skills_coed_stunting_elite_flipping_coed_stunting']) && in_array('stretch', $data['skills_coed_stunting_elite_flipping_coed_stunting'])) selected="selected" @endif>Stretch</option>
+                      <option value="cupie"  @if (isset($data['skills_coed_stunting_elite_flipping_coed_stunting']) && !empty($data['skills_coed_stunting_elite_flipping_coed_stunting']) && in_array('cupie', $data['skills_coed_stunting_elite_flipping_coed_stunting'])) selected="selected" @endif>Cupie</option>
+                      <option value="1_and_half_twisting_full_up"  @if (isset($data['skills_coed_stunting_elite_flipping_coed_stunting']) && !empty($data['skills_coed_stunting_elite_flipping_coed_stunting']) && in_array('1_and_half_twisting_full_up', $data['skills_coed_stunting_elite_flipping_coed_stunting'])) selected="selected" @endif>1 & 1/2 Twisting Full Up</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][rewind]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['rewind']))checked @endif>Rewind<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting]['platform']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['platform']))checked @endif>Platform<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['cupie']))checked @endif>Cupie<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-flipping-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][flipping_coed_stunting][1_and_half_twisting_full_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['flipping_coed_stunting']['1_and_half_twisting_full_up']))checked @endif>1 & 1/2 Twisting Full Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onClick="checkAll(this,'elite-flipping-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
 
                     <h2>Front Hand Spring Up</h2>
-                    <div class="checkbox">
-                      <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['platform']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['platform']))checked @endif>Platform<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['liberty']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['stretch']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['cupie']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['cupie']))checked @endif>Cupie<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'elite-front-hand-spring-up-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_elite_front_hand_spring_up[]" id="skills_coed_stunting_elite_front_hand_spring_up" title="">
+                      <option value="platform"  @if (isset($data['skills_coed_stunting_elite_front_hand_spring_up']) && !empty($data['skills_coed_stunting_elite_front_hand_spring_up']) && in_array('platform', $data['skills_coed_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>Platform</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_elite_front_hand_spring_up']) && !empty($data['skills_coed_stunting_elite_front_hand_spring_up']) && in_array('liberty', $data['skills_coed_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_elite_front_hand_spring_up']) && !empty($data['skills_coed_stunting_elite_front_hand_spring_up']) && in_array('stretch', $data['skills_coed_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>Stretch</option>
+                      <option value="cupie"  @if (isset($data['skills_coed_stunting_elite_front_hand_spring_up']) && !empty($data['skills_coed_stunting_elite_front_hand_spring_up']) && in_array('cupie', $data['skills_coed_stunting_elite_front_hand_spring_up'])) selected="selected" @endif>Cupie</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['platform']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['platform']))checked @endif>Platform<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['liberty']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['stretch']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-front-hand-spring-up-coed-stunting" type="checkbox"  name="skills['coed_stunting']['elite']['front_hand_spring_up']['cupie']" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['front_hand_spring_up']['cupie']))checked @endif>Cupie<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'elite-front-hand-spring-up-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
 
                     <h2>Back Hand Spring Up</h2>
-
-                    <div class="checkbox">
-                      <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][platform]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['platform']))checked @endif>Platform<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['cupie']))checked @endif>Cupie<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'elite-back-hand-spring-up-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_elite_back_hand_spring_up[]" id="skills_coed_stunting_elite_back_hand_spring_up" title="">
+                      <option value="platform"  @if (isset($data['skills_coed_stunting_elite_back_hand_spring_up']) && !empty($data['skills_coed_stunting_elite_back_hand_spring_up']) && in_array('platform', $data['skills_coed_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Platform</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_elite_back_hand_spring_up']) && !empty($data['skills_coed_stunting_elite_back_hand_spring_up']) && in_array('liberty', $data['skills_coed_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_elite_back_hand_spring_up']) && !empty($data['skills_coed_stunting_elite_back_hand_spring_up']) && in_array('stretch', $data['skills_coed_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Stretch</option>
+                      <option value="cupie"  @if (isset($data['skills_coed_stunting_elite_back_hand_spring_up']) && !empty($data['skills_coed_stunting_elite_back_hand_spring_up']) && in_array('cupie', $data['skills_coed_stunting_elite_back_hand_spring_up'])) selected="selected" @endif>Cupie</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][platform]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['platform']))checked @endif>Platform<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-back-hand-spring-up-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][back_hand_spring_up][cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['back_hand_spring_up']['cupie']))checked @endif>Cupie<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'elite-back-hand-spring-up-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
 
                     <h2>Hand in Hand</h2>
-
-                    <div class="checkbox">
-                      <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['platform']))checked @endif>Platform<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['cupie']))checked @endif>Cupie<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'elite-hand-hand-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_elite_hand_in_hand[]" id="skills_coed_stunting_elite_hand_in_hand" title="">
+                      <option value="platform"  @if (isset($data['skills_coed_stunting_elite_hand_in_hand']) && !empty($data['skills_coed_stunting_elite_hand_in_hand']) && in_array('platform', $data['skills_coed_stunting_elite_hand_in_hand'])) selected="selected" @endif>Platform</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_elite_hand_in_hand']) && !empty($data['skills_coed_stunting_elite_hand_in_hand']) && in_array('liberty', $data['skills_coed_stunting_elite_hand_in_hand'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_elite_hand_in_hand']) && !empty($data['skills_coed_stunting_elite_hand_in_hand']) && in_array('stretch', $data['skills_coed_stunting_elite_hand_in_hand'])) selected="selected" @endif>Stretch</option>
+                      <option value="cupie"  @if (isset($data['skills_coed_stunting_elite_hand_in_hand']) && !empty($data['skills_coed_stunting_elite_hand_in_hand']) && in_array('cupie', $data['skills_coed_stunting_elite_hand_in_hand'])) selected="selected" @endif>Cupie</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['platform']))checked @endif>Platform<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][hand_in_hand][cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['hand_in_hand']['cupie']))checked @endif>Cupie<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'elite-hand-hand-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
 
                     <h2>Extended Hand in Hand</h2>
-
-                    <div class="checkbox">
-                      <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['platform']))checked @endif>Platform<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['liberty']))checked @endif>Liberty<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['stretch']))checked @endif>Stretch<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['cupie']))checked @endif>Cupie<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][full_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['full_up']))checked @endif>Full Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][inverted_cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['inverted_cupie']))checked @endif>Inverted Cupie<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input  type="checkbox" onclick="checkAll(this,'elite-extended-hand-hand-coed-stunting')">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_elite_extended_hand_in_hand[]" id="skills_coed_stunting_elite_extended_hand_in_hand" title="">
+                      <option value="platform"  @if (isset($data['skills_coed_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_coed_stunting_elite_extended_hand_in_hand']) && in_array('platform', $data['skills_coed_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Platform</option>
+                      <option value="liberty"  @if (isset($data['skills_coed_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_coed_stunting_elite_extended_hand_in_hand']) && in_array('liberty', $data['skills_coed_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Liberty</option>
+                      <option value="stretch"  @if (isset($data['skills_coed_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_coed_stunting_elite_extended_hand_in_hand']) && in_array('stretch', $data['skills_coed_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Stretch</option>
+                      <option value="cupie"  @if (isset($data['skills_coed_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_coed_stunting_elite_extended_hand_in_hand']) && in_array('cupie', $data['skills_coed_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Cupie</option>
+                      <option value="full_up"  @if (isset($data['skills_coed_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_coed_stunting_elite_extended_hand_in_hand']) && in_array('full_up', $data['skills_coed_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Full Up</option>
+                      <option value="inverted_cupie"  @if (isset($data['skills_coed_stunting_elite_extended_hand_in_hand']) && !empty($data['skills_coed_stunting_elite_extended_hand_in_hand']) && in_array('inverted_cupie', $data['skills_coed_stunting_elite_extended_hand_in_hand'])) selected="selected" @endif>Inverted Cupie</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][platform]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['platform']))checked @endif>Platform<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][liberty]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['liberty']))checked @endif>Liberty<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][stretch]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['stretch']))checked @endif>Stretch<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['cupie']))checked @endif>Cupie<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][full_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['full_up']))checked @endif>Full Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-extended-hand-hand-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][extended_hand_in_hand][inverted_cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['extended_hand_in_hand']['inverted_cupie']))checked @endif>Inverted Cupie<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input  type="checkbox" onclick="checkAll(this,'elite-extended-hand-hand-coed-stunting')">Mark All</label>--}}
+                    {{--</div>--}}
 
                     <h2>Other</h2>
-
-                    <div class="checkbox">
-                      <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][double_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Double Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][one_arm]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>One Arm<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][double_cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Double Cupie<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][cartwheel_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Cartwheel Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][side_sumy_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['other']['side_sumy_up']))checked @endif>Side Sumy Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][front_ariel_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['other']['front_ariel_up']))checked @endif>Front Ariel Up<label>
-                    </div>
-                    <div class="checkbox">
-                      <label><input onclick="checkAll(this,'elite-other-coed-stunting')" type="checkbox">Mark All</label>
-                    </div>
+                    <select class="selectpicker" multiple="multiple" name="skills_coed_stunting_elite_other[]" id="skills_coed_stunting_elite_other" title="">
+                      <option value="double_up"  @if (isset($data['skills_coed_stunting_elite_other']) && !empty($data['skills_coed_stunting_elite_other']) && in_array('double_up', $data['skills_coed_stunting_elite_other'])) selected="selected" @endif>Double Up</option>
+                      <option value="one_arm"  @if (isset($data['skills_coed_stunting_elite_other']) && !empty($data['skills_coed_stunting_elite_other']) && in_array('one_arm', $data['skills_coed_stunting_elite_other'])) selected="selected" @endif>One Ar</option>
+                      <option value="double_cupie"  @if (isset($data['skills_coed_stunting_elite_other']) && !empty($data['skills_coed_stunting_elite_other']) && in_array('double_cupie', $data['skills_coed_stunting_elite_other'])) selected="selected" @endif>Double Cupie</option>
+                      <option value="cartwheel_up"  @if (isset($data['skills_coed_stunting_elite_other']) && !empty($data['skills_coed_stunting_elite_other']) && in_array('cartwheel_up', $data['skills_coed_stunting_elite_other'])) selected="selected" @endif>Cartwheel Up</option>
+                      <option value="side_sumy_up"  @if (isset($data['skills_coed_stunting_elite_other']) && !empty($data['skills_coed_stunting_elite_other']) && in_array('side_sumy_up', $data['skills_coed_stunting_elite_other'])) selected="selected" @endif>Side Sumy Up</option>
+                      <option value="front_ariel_up"  @if (isset($data['skills_coed_stunting_elite_other']) && !empty($data['skills_coed_stunting_elite_other']) && in_array('front_ariel_up', $data['skills_coed_stunting_elite_other'])) selected="selected" @endif>Front Ariel Up</option>
+                      <option value="All">Mark All</option>
+                    </select>
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][double_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Double Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][one_arm]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>One Arm<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][double_cupie]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Double Cupie<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][cartwheel_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['group_stunting']['basic']['stationary_group_stuntung']['prep_level_half_twist_up']))checked @endif>Cartwheel Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][side_sumy_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['other']['side_sumy_up']))checked @endif>Side Sumy Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input class="elite-other-coed-stunting" type="checkbox"  name="skills[coed_stunting][elite][other][front_ariel_up]" @if(isset(auth()->user()->skillSet->coed_stunting_skills['coed_stunting']['elite']['other']['front_ariel_up']))checked @endif>Front Ariel Up<label>--}}
+                    {{--</div>--}}
+                    {{--<div class="checkbox">--}}
+                      {{--<label><input onclick="checkAll(this,'elite-other-coed-stunting')" type="checkbox">Mark All</label>--}}
+                    {{--</div>--}}
                   </fieldset>
-                  <button class="btn btn-success" type="submit">Save Coed Stunting</button>
+                  <button class="btn btn-success mt-2" type="submit">Save Coed Stunting</button>
                 </form>
               </div>
             </div>
