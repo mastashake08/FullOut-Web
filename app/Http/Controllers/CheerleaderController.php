@@ -126,7 +126,10 @@ class CheerleaderController extends Controller
           $old_pic_name = $user->profile_pic;
 
           $path = public_path('images\profile-pics\\'.$old_pic_name);
-          unlink($path);
+          if($old_pic_name){
+              unlink($path);
+          }
+         ;
 
           $picture_name = $request->profile_pic->getClientOriginalName();
           $request->file('profile_pic')->storeAs('images/profile-pics',  $picture_name);
