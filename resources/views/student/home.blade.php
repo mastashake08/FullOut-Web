@@ -2,143 +2,144 @@
 
 @section('content')
   <div class="container">
-  <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-        <div class="panel-heading"><a data-toggle="collapse" href="#main-info">Main Information</a></div>
-        <div id="main-info" class="panel-collapse collapse">
-        <div class="panel-body">
-          <a href="{{url('/cheerleader/'.auth()->user()->id)}}">View Public Profile</a>
-          <form class="form" action="{{url('/cheerleader/update-profile')}}" method="post" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <div class="form-group{{ $errors->has('profile_pic') ? ' has-error' : '' }}">
+    <div class="row">
+      <form class="form" action="{{url('/cheerleader/update-profile')}}" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+        <div class="col-md-8 col-md-offset-2">
+          <div class="panel panel-default">
+            <div class="panel-heading"><a data-toggle="collapse" href="#main-info">Main Information</a></div>
 
-                <div class="col-md-12 mb-2">
-                  <div class="input-group">
-                  <span class="input-group-addon" >Profile Pic</span>
-                    <input id="profile_pic" type="file"  class="form-control" name="profile_pic"  >
-                  </div>
+
+            <div id="main-info" class="panel-collapse collapse">
+              <div class="panel-body">
+
+                <div class="form-group{{ $errors->has('profile_pic') ? ' has-error' : '' }}">
+                  <a href="{{url('/cheerleader/'.auth()->user()->id)}}">View Public Profile</a>
+                    <div class="col-md-12 mb-2">
+                      <div class="input-group">
+                        <span class="input-group-addon" >Profile Pic</span>
+                        <img id="profile_img" src="{{ asset('images/profile-pics/'.auth()->user()->profile_pic) }}" alt="" />
+                        <input id="profile_pic" type="file"  class="form-control w-75" name="profile_pic">
+                      </div>
+                    </div>
                     @if ($errors->has('profile_pic'))
                         <span class="help-block">
                             <strong>{{ $errors->first('profile_pic') }}</strong>
                         </span>
                     @endif
+                  </div>
+                <div class="form-group col-md-6">
+                <div class="input-group">
+                <span class="input-group-addon" >Email</span>
+                <input type="text" class="form-control" placeholder="Email Address" name="email" required value="{{auth()->user()->email}}">
                 </div>
+                </div>
+                <div class="form-group col-md-6">
+                <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Address</span>
+                <input type="text" class="form-control" placeholder="Address" name="address" required value="{{auth()->user()->address}}" aria-describedby="basic-addon1">
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >City</span>
+                <input type="text" class="form-control" placeholder="City" name="city" required value="{{auth()->user()->city}}">
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >State</span>
+                <input type="text" class="form-control" placeholder="state" name="state" required value="{{auth()->user()->state}}">
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >ZIP</span>
+                <input type="text" class="form-control" placeholder="Zip" name="zip" required value="{{auth()->user()->zip}}">
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >GPA</span>
+                <input type="text" class="form-control" placeholder="GPA" name="gpa" required value="{{auth()->user()->gpa}}">
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >ACT Score</span>
+                <input type="text" class="form-control" placeholder="ACT Score" name="act_score" required value="{{auth()->user()->act_score}}">
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >SAT Score</span>
+                <input type="text" class="form-control" placeholder="SAT Score" name="sat_score" required value="{{auth()->user()->sat_score}}">
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >Bio</span>
+                <textarea class="form-control" name="bio">{{auth()->user()->bio}}</textarea>
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon">Weight</span>
+                <textarea class="form-control" name="weight">{{auth()->user()->weight}}</textarea>
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >Height</span>
+                <textarea class="form-control" name="height">{{auth()->user()->height}}</textarea>
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon">Current/Previous Team</span>
+                <input class="form-control" name="current_team" value="{{auth()->user()->current_team}}">
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >Cheer Type</span>
+                <select class="form-control" name="cheertype">
+                <option value="girl-flyer" @if(auth()->user()->cheertype == 'girl-flyer') selected @endif>All Girl Flyer</option>
+                <option value="girl-main-base" @if(auth()->user()->cheertype == 'girl-main-base') selected @endif>All Girl Main Base</option>
+                <option value="girl-secondary-base" @if(auth()->user()->cheertype == 'girl-secondary-base') selected @endif>All Girl Secondary Base</option>
+                <option value="girl-back-spot" @if(auth()->user()->cheertype == 'girl-back-spot') selected @endif>All Girl Back spot</option>
+                <option value="coed-base" @if(auth()->user()->cheertype == 'coed-base') selected @endif>Coed Base</option>
+                <option value="coed-flyer" @if(auth()->user()->cheertype == 'coed-flyer') selected @endif>Coed Flyer</option>
+                </select>
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >Visibility</span>
+                <select class="form-control" name="visibility">
+                <option value="all" @if(auth()->user()->visibility == 'all') selected @endif>All</option>
+                <option value="coach" @if(auth()->user()->visibility == 'coach') selected @endif>Coaches/Gyms</option>
+                </select>
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                <div class="input-group">
+                <span class="input-group-addon" >What Are You Looking For</span>
+                <select class="form-control" name="looking_for">
+                <option value="scholarships" @if(auth()->user()->looking_for == 'scholarships') selected @endif>Scholarships</option>
+                <option value="gpa" @if(auth()->user()->looking_for == 'gpa') selected @endif>GPA</option>
+                </select>
+                </div>
+                </div>
+                <div class="form-group col-md-4">
+                  <button class="btn btn-primary" type="submit">Update</button>
+                </div>
+              </div>
             </div>
-            <div class="form-group col-md-6">
-              <div class="input-group">
-              <span class="input-group-addon" >Email</span>
-            <input type="text" class="form-control" placeholder="Email Address" name="email" required value="{{auth()->user()->email}}"></input>
-            </div>
-          </div>
-            <div class="form-group col-md-6">
-              <div class="input-group">
-              <span class="input-group-addon" id="basic-addon1">Address</span>
-            <input type="text" class="form-control" placeholder="Address" name="address" required value="{{auth()->user()->address}}" aria-describedby="basic-addon1"></input>
-            </div>
-          </div>
-            <div class="form-group col-md-4">
-              <div class="input-group">
-              <span class="input-group-addon" >City</span>
-            <input type="text" class="form-control" placeholder="City" name="city" required value="{{auth()->user()->city}}"></input>
-            </div>
-          </div>
-            <div class="form-group col-md-4">
-              <div class="input-group">
-              <span class="input-group-addon" >State</span>
-            <input type="text" class="form-control" placeholder="state" name="state" required value="{{auth()->user()->state}}"></input>
-            </div>
-          </div>
-            <div class="form-group col-md-4">
-              <div class="input-group">
-              <span class="input-group-addon" >ZIP</span>
-            <input type="text" class="form-control" placeholder="Zip" name="zip" required value="{{auth()->user()->zip}}"></input>
-            </div>
-          </div>
-            <div class="form-group col-md-4">
-              <div class="input-group">
-              <span class="input-group-addon" >GPA</span>
-            <input type="text" class="form-control" placeholder="GPA" name="gpa" required value="{{auth()->user()->gpa}}"></input>
-            </div>
-          </div>
-            <div class="form-group col-md-4">
-              <div class="input-group">
-              <span class="input-group-addon" >ACT Score</span>
-            <input type="text" class="form-control" placeholder="ACT Score" name="act_score" required value="{{auth()->user()->act_score}}"></input>
-            </div>
-          </div>
-            <div class="form-group col-md-4">
-              <div class="input-group">
-              <span class="input-group-addon" >SAT Score</span>
-            <input type="text" class="form-control" placeholder="SAT Score" name="sat_score" required value="{{auth()->user()->sat_score}}"></input>
-            </div>
-          </div>
-          <div class="form-group col-md-4">
-            <div class="input-group">
-            <span class="input-group-addon" >Bio</span>
-            <textarea class="form-control" name="bio">{{auth()->user()->bio}}</textarea>
           </div>
         </div>
-        <div class="form-group col-md-4">
-          <div class="input-group">
-          <span class="input-group-addon">Weight</span>
-          <textarea class="form-control" name="weight">{{auth()->user()->weight}}</textarea>
-        </div>
-      </div>
-      <div class="form-group col-md-4">
-        <div class="input-group">
-        <span class="input-group-addon" >Height</span>
-        <textarea class="form-control" name="height">{{auth()->user()->height}}</textarea>
-      </div>
+      </form>
     </div>
-    <div class="form-group col-md-4">
-      <div class="input-group">
-      <span class="input-group-addon">Current/Previous Team</span>
-      <input class="form-control" name="current_team" value="{{auth()->user()->current_team}}">
-    </div>
-  </div>
-    <div class="form-group col-md-4">
-      <div class="input-group">
-      <span class="input-group-addon" >Cheer Type</span>
-      <select class="form-control" name="cheertype">
-        <option value="girl-flyer" @if(auth()->user()->cheertype == 'girl-flyer') selected @endif>All Girl Flyer</option>
-        <option value="girl-main-base" @if(auth()->user()->cheertype == 'girl-main-base') selected @endif>All Girl Main Base</option>
-        <option value="girl-secondary-base" @if(auth()->user()->cheertype == 'girl-secondary-base') selected @endif>All Girl Secondary Base</option>
-        <option value="girl-back-spot" @if(auth()->user()->cheertype == 'girl-back-spot') selected @endif>All Girl Back spot</option>
-        <option value="coed-base" @if(auth()->user()->cheertype == 'coed-base') selected @endif>Coed Base</option>
-        <option value="coed-flyer" @if(auth()->user()->cheertype == 'coed-flyer') selected @endif>Coed Flyer</option>
-      </select>
-    </div>
-  </div>
-  <div class="form-group col-md-4">
-    <div class="input-group">
-    <span class="input-group-addon" >Visibility</span>
-    <select class="form-control" name="visibility">
-      <option value="all" @if(auth()->user()->visibility == 'all') selected @endif>All</option>
-      <option value="coach" @if(auth()->user()->visibility == 'coach') selected @endif>Coaches/Gyms</option>
-    </select>
-  </div>
-  </div>
-  <div class="form-group col-md-4">
-  <div class="input-group">
-  <span class="input-group-addon" >What Are You Looking For</span>
-  <select class="form-control" name="looking_for">
-    <option value="scholarships" @if(auth()->user()->looking_for == 'scholarships') selected @endif>Scholarships</option>
-    <option value="gpa" @if(auth()->user()->looking_for == 'gpa') selected @endif>GPA</option>
-  </select>
-  </div>
-  </div>
-
-            <div class="form-group col-md-4">
-            <button class="btn btn-primary" type="submit">Update</button>
-            </div>
-
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
   </div>
   <div class="container">
   <div class="row">

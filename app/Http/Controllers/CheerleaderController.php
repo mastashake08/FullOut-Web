@@ -103,6 +103,7 @@ class CheerleaderController extends Controller
 
     public function updateProfile(Request $request){
       $user = $request->user();
+
       $user->email = $request->email;
       $user->address = $request->address;
       $user->city = $request->city;
@@ -119,11 +120,19 @@ class CheerleaderController extends Controller
       $user->cheertype = $request->cheertype;
       $user->current_team = $request->current_team;
       $user->looking_for = $request->looking_for;
+
       if($request->hasFile('profile_pic')){
-        $path = $request->file('profile_pic')->store('public');
-        $url = Storage::url($path);
-        $user->profile_pic = $url;
+
+          $old_pic_name = $user->profile_pic;
+
+          $path = public_path('images\profile-pics\\'.$old_pic_name);
+          unlink($path);
+
+          $picture_name = $request->profile_pic->getClientOriginalName();
+          $request->file('profile_pic')->storeAs('images/profile-pics',  $picture_name);
+          $user->profile_pic = $picture_name;
       }
+
       $user->save();
       return back();
     }

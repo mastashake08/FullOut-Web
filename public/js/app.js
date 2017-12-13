@@ -46352,6 +46352,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -46411,6 +46413,16 @@ var render = function() {
             _c("transition", { attrs: { name: "fade" } }, [
               _vm.newData
                 ? _c("div", { staticClass: "panel-body" }, [
+                    _c("div", [
+                      _c("img", {
+                        staticClass: "profile_img",
+                        attrs: {
+                          src: "/images/profile-pics/" + _vm.user.profile_pic,
+                          alt: ""
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
                     _c("span", [_vm._v("Name: " + _vm._s(_vm.user.name))]),
                     _vm._v(" "),
                     _c("br"),
@@ -46525,8 +46537,8 @@ var render = function() {
                           "li",
                           { staticStyle: { "list-style": "none" } },
                           [
-                            _c("span", {
-                              domProps: { innerHTML: _vm._s(video.embed) }
+                            _c("iframe", {
+                              attrs: { src: video.embed, frameborder: "0" }
                             })
                           ]
                         )
@@ -46555,13 +46567,17 @@ var render = function() {
                     _c(
                       "ul",
                       _vm._l(_vm.user.awards, function(award) {
-                        return _c("li", [
-                          _vm._v(
-                            "\n                  " +
-                              _vm._s(award.award) +
-                              "\n                "
-                          )
-                        ])
+                        return _c(
+                          "li",
+                          { staticStyle: { "list-style": "none" } },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(award.award) +
+                                "\n                "
+                            )
+                          ]
+                        )
                       })
                     )
                   ])

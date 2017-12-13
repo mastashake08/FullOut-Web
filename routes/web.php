@@ -19,7 +19,9 @@ Auth::routes();
 Route::resource('favorite','FavoriteController');
 Route::get('favorite-teams','FavoriteController@getFavoriteTeams');
 Route::get('/home', 'HomeController@index')->middleware('subscribed');
+
 Route::resource('user','UserController');
+
 Route::group(['prefix' => 'coach'],function(){
   Auth::routes();
   Route::get('cheerleaders','UserController@index');
@@ -68,6 +70,7 @@ Route::group(['prefix' => 'cheerleader','middleware' => 'subscribed'],function()
   Route::resource('privates','PrivateController');
 
 });
+
 Route::post('api/save-subscription','NotificationController@webPush');
 Route::get('test-webpush','NotificationController@sendTest');
 Route::get('/send-message/{id}','MessageController@getSendMessageView');
@@ -85,6 +88,7 @@ Route::group(['prefix' => 'instructor','middleware' => 'subscribed'],function(){
   Route::get('/{id}','PrivateController@show');
   Route::post('update-prices','UserController@updatePrices');
 });
+
 Route::resource('cheerleader','CheerleaderController');
 
 

@@ -93,7 +93,7 @@
 }
 
 .w-75 {
-    width: 75%;
+    width: 75% !important;
 }
 
 .w-100 {

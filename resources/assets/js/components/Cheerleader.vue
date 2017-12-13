@@ -7,6 +7,7 @@
                   <div class="panel-heading">{{user.name}}</div>
                   <transition name="fade">
                   <div class="panel-body" v-if="newData">
+                    <div><img :src="'/images/profile-pics/' + user.profile_pic" class="profile_img" alt=""></div>
                     <span>Name: {{user.name}}</span>
                     <br>
                     <span>Phone Number: {{user.phone}}</span>
@@ -54,7 +55,8 @@
                   <div class="panel-body" v-if="newData">
                   <ul>
                     <li  style="list-style: none;" v-for="video in user.videos">
-                      <span v-html="video.embed"></span>
+                        <iframe :src="video.embed" frameborder="0"></iframe>
+                      <!--<span v-html="video.embed"></span>-->
                     </li>
                   </ul>
                   </div>
@@ -69,7 +71,7 @@
                   <transition name="fade">
                   <div class="panel-body" v-if="newData">
                   <ul>
-                    <li v-for="award in user.awards">
+                    <li style="list-style: none;" v-for="award in user.awards">
                       {{award.award}}
                     </li>
                   </ul>
