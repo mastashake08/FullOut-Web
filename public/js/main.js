@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('.delete-btn').click(function () {
-        var id = $(this).data('id');
-        var product = $(this).data('route');
+        var id = $(this).attr('data-id');
+        var product = $(this).attr('data-route');
 
         var route = '/cheerleader/delete-'+ product;
 
@@ -19,6 +19,7 @@ $(document).ready(function(){
 
 //Mark All option
     function toggleSelectAll(control) {
+
         var allOptionIsSelected = (control.val() || []).indexOf("All") > -1;
         function valuesOf(elements) {
             return $.map(elements, function(element) {
@@ -26,7 +27,8 @@ $(document).ready(function(){
             });
         }
 
-        if (control.data('allOptionIsSelected') != allOptionIsSelected) {
+        if (control.attr('data-allOptionIsSelected') != allOptionIsSelected.toString()) {
+
             // User clicked 'All' option
             if (allOptionIsSelected) {
                 // Can't use .selectpicker('selectAll') because multiple "change" events will be triggered
@@ -34,7 +36,9 @@ $(document).ready(function(){
             } else {
                 control.selectpicker('val', []);
             }
-        } else {
+        }
+        else {
+
             // User clicked other option
             if (allOptionIsSelected && control.val().length != control.find('option').length) {
                 // All options were selected, user deselected one option
@@ -48,12 +52,13 @@ $(document).ready(function(){
                 allOptionIsSelected = true;
             }
         }
-        control.data('allOptionIsSelected', allOptionIsSelected);
+        control.attr('data-allOptionIsSelected', allOptionIsSelected);
     }
 
-    $('.selectpicker').selectpicker().change(function(){toggleSelectAll($(this));}).trigger('change');
+        $('.selectpicker').selectpicker().change(function(){toggleSelectAll($(this));}).trigger('change');
 
 
+// profile pic changing
     function readURL(input) {
 
         if (input.files && input.files[0]) {

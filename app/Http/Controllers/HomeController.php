@@ -23,9 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $skills = '';
+        if(auth()->user()->skillSet){
+            $skills = auth()->user()->skillSet->toArray();
+        }
+
         switch(auth()->user()->type){
           case 'student':
-            return view('student.home');
+            return view('student.home',compact('skills'));
           break;
           case 'coach':
             return view('coach.home');

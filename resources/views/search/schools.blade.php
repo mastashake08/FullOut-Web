@@ -21,7 +21,7 @@
     </select>
   </div>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
-    <input type="checkbox" class="form-control" name="most_scholarship" @if (isset($data['most_scholarship']) && !empty($data['most_scholarship'])) checked="checked" @endif  id="most_scholarship" autocomplete="off"/>
+    <input type="checkbox" class="form-control d-none" name="most_scholarship" @if (isset($data['most_scholarship']) && !empty($data['most_scholarship'])) checked="checked" @endif  id="most_scholarship" autocomplete="off"/>
     <div class="btn-group">
           <label for="most_scholarship" class="btn btn-default">
             <span class="glyphicon glyphicon-ok"></span>
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
-    <input type="checkbox" class="form-control" name="tuition_cost" @if (isset($data['tuition_cost']) && !empty($data['tuition_cost'])) checked="checked" @endif id="tuition_cost" autocomplete="off"/>
+    <input type="checkbox" class="form-control d-none" name="tuition_cost" @if (isset($data['tuition_cost']) && !empty($data['tuition_cost'])) checked="checked" @endif id="tuition_cost" autocomplete="off"/>
     <div class="btn-group">
       <label for="tuition_cost" class="btn btn-default">
         <span class="glyphicon glyphicon-ok"></span>

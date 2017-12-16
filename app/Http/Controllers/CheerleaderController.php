@@ -47,21 +47,28 @@ class CheerleaderController extends Controller
      */
     public function show(Request $request,$id)
     {
-        //
+        $skills = '';
         $cheerleader = \App\User::with(['skillSet','videos','awards'])->findOrFail($id);
         if($request->expectsJson()){
           return $cheerleader;
         }
+
+        if($cheerleader->skillSet){
+            $skills = $cheerleader->skillSet;
+        }
+
         if(auth()->user()->type === 'coach'){
           $with = [
-            'cheerleader' => $cheerleader,
-            'teams' => $request->user()->school->teams
+              'skills' => $skills,
+              'cheerleader' => $cheerleader,
+              'teams' => $request->user()->school->teams
           ];
 
         }
         else{
         $with = [
-          'cheerleader' => $cheerleader
+            'skills' => $skills,
+            'cheerleader' => $cheerleader
         ];
       }
         return view('student.individual')->with($with);
@@ -141,34 +148,37 @@ class CheerleaderController extends Controller
     }
 
     public function addVideo(Request $request){
-
-        $str = explode("/", $request->embed);
-        $emb = $str[count($str)-2];
-        if($str[0] == 'https:'){
-            if($emb != 'embed'){
-                $youtube_code = str_replace('watch?v=', '', end($str)) ;
-                $embed = 'https://www.youtube.com/embed/'.$youtube_code;
+        if($request->embed){
+            $str = explode("/", $request->embed);
+            $emb = $str[count($str)-2];
+            if($str[0] == 'https:'){
+                if($emb != 'embed'){
+                    $youtube_code = str_replace('watch?v=', '', end($str)) ;
+                    $embed = 'https://www.youtube.com/embed/'.$youtube_code;
+                }
+                else{
+                    $embed = $request->embed;
+                }
+                $request->user()->videos()->create([
+                    'embed' => $embed
+                ]);
             }
-            else{
-                $embed = $request->embed;
-            }
-            $request->user()->videos()->create([
-                'embed' => $embed
-            ]);
         }
+
 
         return back();
     }
 
     public function updateVideo(Request $request){
+        if($request->new_video){
+            $video_id =  $request->video_id;
+            $video =  Video::find($video_id);
+            if($video && $video->user_id == $request->user()->id){
 
-        $video_id =  $request->video_id;
-        $video =  Video::find($video_id);
-        if($video && $video->user_id == $request->user()->id){
-
-            $video->update([
-                'embed' => $request->new_video
-            ]);
+                $video->update([
+                    'embed' => $request->new_video
+                ]);
+            }
         }
 
         return back();
@@ -187,20 +197,25 @@ class CheerleaderController extends Controller
     }
 
     public function addAward(Request $request){
-      $request->user()->awards()->create([
-        'award' => $request->award
-      ]);
+        if($request->award){
+            $request->user()->awards()->create([
+                'award' => $request->award
+            ]);
+        }
+
       return back();
     }
 
     public function updateAward(Request $request){
-       $award_id =  $request->award_id;
-       $award =  Award::find($award_id);
-       if($award && $award->user_id == $request->user()->id){
-           $award->update([
-               'award' => $request->new_award
-           ]);
-       }
+        if($request->new_award){
+            $award_id =  $request->award_id;
+            $award =  Award::find($award_id);
+            if($award && $award->user_id == $request->user()->id){
+                $award->update([
+                    'award' => $request->new_award
+                ]);
+            }
+        }
 
         return back();
     }

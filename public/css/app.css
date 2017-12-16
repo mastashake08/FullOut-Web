@@ -8402,9 +8402,9 @@ body {
   width: 100%;
 }
 
-.form-group input[type="checkbox"] {
-  display: none;
-}
+/*.form-group input[type="checkbox"] {*/
+  /*display: none;*/
+/*}*/
 
 .form-group input[type="checkbox"] + .btn-group > label {
   width: 25%;
@@ -8447,7 +8447,7 @@ body {
 }
 
 .d-none {
-  display: none;
+  display: none !important;
 }
 
 .d-inline-block {
