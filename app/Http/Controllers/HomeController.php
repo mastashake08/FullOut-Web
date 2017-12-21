@@ -30,7 +30,7 @@ class HomeController extends Controller
 
         switch(auth()->user()->type){
           case 'student':
-            return view('student.home',compact('skills'));
+            return view('student.home', compact('skills'));
           break;
           case 'coach':
             return view('coach.home');
