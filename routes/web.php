@@ -47,7 +47,8 @@ Route::group(['prefix' => 'cheerleader','middleware' => 'subscribed'],function()
   Route::post('update-award','CheerleaderController@updateAward');
   Route::post('delete-award','CheerleaderController@deleteAward');
   Auth::routes();
-  Route::post('update-profile','CheerleaderController@updateProfile');
+  Route::post('update-profile-coach','CheerleaderController@updateProfileCoach');
+  Route::post('update-profile-student','CheerleaderController@updateProfileStudent');
   Route::resource('teams','TeamController');
   Route::get('search-teams','TeamController@getTeams');
   //Route::resource('skills/beginner', 'BeginnerSkillController');

@@ -20,9 +20,13 @@ class CreateTeamsTable extends Migration
             $table->string('team_name');
             $table->string('coach_name');
             $table->string('mascot');
-            $table->string('color_code');
+            $table->string('color_code')->nullable();
             $table->longText('description');
             $table->string('team_type');
+            $table->string('team_responsibilities');
+            $table->string('number_members');
+            $table->string('average_room');
+            $table->string('skills');
             $table->timestamps();
         });
     }

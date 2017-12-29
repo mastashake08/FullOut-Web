@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-{{--{{ dd($skills['coed_stunting_skills']['elite']) }}--}}
+  {{--{{ dd( auth()->user()->mainInformationStudent) }}--}}
   <div class="container">
     <div class="row">
-      <form class="form" action="{{url('/cheerleader/update-profile')}}" method="post" enctype="multipart/form-data">
+      <form class="form" action="{{url('/cheerleader/update-profile-student')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
@@ -39,7 +39,7 @@
                 <div class="form-group col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon">Full Name</span>
-                    <input type="text" class="form-control" placeholder="Full Name" name="full_name" required value="{{auth()->user()->full_name}}">
+                    <input type="text" class="form-control" placeholder="Full Name" name="name" required value="{{auth()->user()->name}}">
                   </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -49,11 +49,11 @@
                       <div class="row">
                         <div class="form-group col-xs-5 col-md-5">
                           <label for="gender-male">Male</label>
-                          <input id="gender-male" type="radio" class="" name="gender" required value="male" @if(auth()->user()->gender == 'male') checked @endif>
+                          <input id="gender-male" type="radio" class="" name="gender" required value="male" {{ (isset(auth()->user()->mainInformationStudent->gender) && auth()->user()->mainInformationStudent->gender == 'male' ? 'checked' : '') }}>
                         </div>
                         <div class="form-group col-xs-5 col-md-7">
                           <label for="gender-female">Female</label>
-                          <input id="gender-female" type="radio" class="" name="gender" required value="female" @if(auth()->user()->gender == 'female') checked @endif>
+                          <input id="gender-female" type="radio" class="" name="gender" required value="female" {{ (isset(auth()->user()->mainInformationStudent->gender) && auth()->user()->mainInformationStudent->gender == 'female' ? 'checked' : '') }}>
                         </div>
                       </div>
                     </div>
@@ -62,150 +62,151 @@
                 <div class="form-group col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon">Phone</span>
-                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" required value="{{auth()->user()->phone}}">
+                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" required value="{{ (isset(auth()->user()->mainInformationStudent->phone) ? auth()->user()->mainInformationStudent->phone : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Address</span>
-                    <input type="text" class="form-control" placeholder="Address" name="address" required value="{{auth()->user()->address}}" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" placeholder="Address" name="address" required value="{{ (isset(auth()->user()->mainInformationStudent->address) ? auth()->user()->mainInformationStudent->address : '') }}" aria-describedby="basic-addon1">
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon">City</span>
-                    <input type="text" class="form-control" placeholder="City" name="city" required value="{{auth()->user()->city}}">
+                    <input type="text" class="form-control" placeholder="City" name="city" required value="{{ (isset(auth()->user()->mainInformationStudent->city) ? auth()->user()->mainInformationStudent->city : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">State</span>
-                    <input type="text" class="form-control" placeholder="state" name="state" required value="{{auth()->user()->state}}">
+                    <input type="text" class="form-control" placeholder="state" name="state" required value="{{ (isset(auth()->user()->mainInformationStudent->state) ? auth()->user()->mainInformationStudent->state : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">D.O.B.</span>
-                    <input type="text" class="form-control" placeholder="D.O.B." name="dob" required value="{{auth()->user()->dob}}">
+                    <input type="text" class="form-control" placeholder="D.O.B." name="dob" required value="{{ (isset(auth()->user()->mainInformationStudent->dob) ? auth()->user()->mainInformationStudent->dob : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">ZIP</span>
-                    <input type="text" class="form-control" placeholder="Zip" name="zip" required value="{{auth()->user()->zip}}">
+                    <input type="text" class="form-control" placeholder="Zip" name="zip" required value="{{ (isset(auth()->user()->mainInformationStudent->zip) ? auth()->user()->mainInformationStudent->zip : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">School Type</span>
-                    <input type="text" class="form-control" placeholder="School Type" name="school_type" required value="{{auth()->user()->school_type}}">
+                    <input type="text" class="form-control" placeholder="School Type" name="school_type" required value="{{ (isset(auth()->user()->mainInformationStudent->school_type) ? auth()->user()->mainInformationStudent->school_type : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Current School</span>
-                    <input type="text" class="form-control" placeholder="Current School" name="current_school" required value="{{auth()->user()->current_school}}">
+                    <input type="text" class="form-control" placeholder="Current School" name="current_school" required value="{{ (isset(auth()->user()->mainInformationStudent->current_school) ? auth()->user()->mainInformationStudent->current_school : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Current Year</span>
-                    <input type="text" class="form-control" placeholder="Current Year" name="current_year" required value="{{auth()->user()->current_year}}">
+                    <input type="text" class="form-control" placeholder="Current Year" name="current_year" required value="{{ (isset(auth()->user()->mainInformationStudent->current_year) ? auth()->user()->mainInformationStudent->current_year : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Current GPA</span>
-                    <input type="text" class="form-control" placeholder="GPA" name="current_gpa" required value="{{auth()->user()->current_gpa}}">
+                    <input type="text" class="form-control" placeholder="GPA" name="current_gpa" required value="{{ (isset(auth()->user()->mainInformationStudent->current_gpa) ? auth()->user()->mainInformationStudent->current_gpa : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">ACT Score</span>
-                    <input type="text" class="form-control" placeholder="ACT Score" name="act_score" required value="{{auth()->user()->act_score}}">
+                    <input type="text" class="form-control" placeholder="ACT Score" name="act_score" required value="{{ (isset(auth()->user()->mainInformationStudent->act_score) ? auth()->user()->mainInformationStudent->act_score : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Highest SAT</span>
-                    <input type="text" class="form-control" placeholder="Highest SAT" name="highest_sat" required value="{{auth()->user()->highest_sat}}">
+                    <input type="text" class="form-control" placeholder="Highest SAT" name="highest_sat" required value="{{ (isset(auth()->user()->mainInformationStudent->highest_sat) ? auth()->user()->mainInformationStudent->highest_sat : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Bio</span>
-                    <textarea class="form-control" name="bio">{{auth()->user()->bio}}</textarea>
+                    <textarea class="form-control" name="bio">{{ (isset(auth()->user()->mainInformationStudent->bio) ? auth()->user()->mainInformationStudent->bio : '') }}</textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Weight</span>
-                    <textarea class="form-control" name="weight">{{auth()->user()->weight}}</textarea>
+                    <textarea class="form-control" name="weight">{{ (isset(auth()->user()->mainInformationStudent->weight) ? auth()->user()->mainInformationStudent->weight : '') }}</textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Height</span>
-                    <textarea class="form-control" name="height">{{auth()->user()->height}}</textarea>
+                    <textarea class="form-control" name="height">{{ (isset(auth()->user()->mainInformationStudent->height) ? auth()->user()->mainInformationStudent->height : '') }}</textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-12">
                   <div class="input-group">
                     <span class="input-group-addon">Current Cheer Program and Timeline</span>
-                    <input class="form-control" name="current_program_timeline" value="{{auth()->user()->current_program_timeline}}">
+                    <input class="form-control" name="current_program_timeline" value="{{ (isset(auth()->user()->mainInformationStudent->current_program_timeline) ? auth()->user()->mainInformationStudent->current_program_timeline : '') }}">
                   </div>
                 </div>
                 <div class="form-group col-md-12">
                   <div class="input-group">
                     <span class="input-group-addon">Past Cheer Program and Timeline</span>
-                    <input class="form-control" name="past_program_timeline" value="{{auth()->user()->past_program_timeline}}">
+                    <input class="form-control" name="past_program_timeline" value="{{ (isset(auth()->user()->mainInformationStudent->past_program_timeline) ? auth()->user()->mainInformationStudent->past_program_timeline : '') }}">
                   </div>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                   <div class="input-group">
                     <span class="input-group-addon">Accolades</span>
-                    <input class="form-control" name="accolades" value="{{auth()->user()->accolades}}">
+                    <input class="form-control" name="accolades" value="{{ (isset(auth()->user()->mainInformationStudent->accolades) ? auth()->user()->mainInformationStudent->accolades : '') }}">
                   </div>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                   <div class="input-group">
-                    <span class="input-group-addon">Cheer Type</span>
-                    <select class="form-control" name="cheertype">
-                      <option value="girl-flyer" @if(auth()->user()->cheertype == 'girl-flyer') selected @endif>All Girl Flyer</option>
-                      <option value="girl-main-base" @if(auth()->user()->cheertype == 'girl-main-base') selected @endif>All Girl Main Base</option>
-                      <option value="girl-secondary-base" @if(auth()->user()->cheertype == 'girl-secondary-base') selected @endif>All Girl SecondaryBase</option>
-                      <option value="girl-back-spot" @if(auth()->user()->cheertype == 'girl-back-spot') selected @endif>All Girl Back spot</option>
-                      <option value="coed-base" @if(auth()->user()->cheertype == 'coed-base') selected @endif>CoedBase</option>
-                      <option value="coed-flyer" @if(auth()->user()->cheertype == 'coed-flyer') selected @endif>CoedFlyer</option>
+                    <span class="input-group-addon">Select all that apply <br>Cheer Type</span>
+                    <select class="form-control selectpicker " data-allOptionIsSelected="false" multiple="multiple" name="cheertype[]" title="">
+                      <option value="girl-flyer" @if (isset(auth()->user()->mainInformationStudent->cheertype) && !empty(auth()->user()->mainInformationStudent->cheertype) && in_array('girl-flyer', auth()->user()->mainInformationStudent->cheertype)) selected="selected" @endif>All Girl Flyer</option>
+                      <option value="girl-main-base" @if(isset(auth()->user()->mainInformationStudent->cheertype) && !empty(auth()->user()->mainInformationStudent->cheertype) && in_array('girl-main-base', auth()->user()->mainInformationStudent->cheertype)) selected @endif>All Girl Main Base</option>
+                      <option value="girl-secondary-base" @if(isset(auth()->user()->mainInformationStudent->cheertype) && !empty(auth()->user()->mainInformationStudent->cheertype) && in_array('girl-secondary-base', auth()->user()->mainInformationStudent->cheertype)) selected @endif>All Girl SecondaryBase</option>
+                      <option value="girl-back-spot" @if(isset(auth()->user()->mainInformationStudent->cheertype) && !empty(auth()->user()->mainInformationStudent->cheertype) && in_array('girl-back-spot', auth()->user()->mainInformationStudent->cheertype)) selected @endif>All Girl Back spot</option>
+                      <option value="coed-base" @if(isset(auth()->user()->mainInformationStudent->cheertype) && !empty(auth()->user()->mainInformationStudent->cheertype) && in_array('coed-base', auth()->user()->mainInformationStudent->cheertype)) selected @endif>CoedBase</option>
+                      <option value="coed-flyer" @if(isset(auth()->user()->mainInformationStudent->cheertype) && !empty(auth()->user()->mainInformationStudent->cheertype) && in_array('coed-flyer', auth()->user()->mainInformationStudent->cheertype)) selected @endif>CoedFlyer</option>
+                      <option value="All">Mark All</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon">Visibility</span>
-                    <select class="form-control" name="visibility">
-                      <option value="all" @if(auth()->user()->visibility == 'all') selected @endif>All</option>
-                      <option value="coach" @if(auth()->user()->visibility == 'coach') selected @endif>Coaches/Gyms</option>
+                    <select class="form-control" name="visibility" title="">
+                      <option value="all" {{  (isset(auth()->user()->mainInformationStudent->visibility) && auth()->user()->mainInformationStudent->visibility == 'all' ? 'selected' : '')  }}>All</option>
+                      <option value="coach" {{  (isset(auth()->user()->mainInformationStudent->visibility) && auth()->user()->mainInformationStudent->visibility == 'coach' ? 'selected' : '')  }}>Coaches/Gyms</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon">What Are You Looking For</span>
-                    <select class="form-control" name="looking_for">
-                      <option value="scholarships" @if(auth()->user()->looking_for == 'scholarships') selected @endif>Scholarships</option>
-                      <option value="gpa" @if(auth()->user()->looking_for == 'gpa') selected @endif>GPA</option>
-                      <option value="location" @if(auth()->user()->looking_for == 'location') selected @endif>Location</option>
-                      <option value="national-championships" @if(auth()->user()->looking_for == 'national-championships') selected @endif>National Championships</option>
-                      <option value="instate" @if(auth()->user()->looking_for == 'instate') selected @endif>Instate</option>
-                      <option value="out-of-state " @if(auth()->user()->looking_for == 'out-of-state ') selected @endif>Out of State </option>
+                    <select class="form-control" name="looking_for" title="">
+                      <option value="scholarships" {{ (isset(auth()->user()->mainInformationStudent->looking_for) && auth()->user()->mainInformationStudent->looking_for == 'scholarships' ? 'selected' : '') }}>Scholarships</option>
+                      <option value="gpa" {{ (isset(auth()->user()->mainInformationStudent->looking_for) && auth()->user()->mainInformationStudent->looking_for == 'gpa' ? 'selected' : '') }}>GPA</option>
+                      <option value="location" {{ (isset(auth()->user()->mainInformationStudent->looking_for) && auth()->user()->mainInformationStudent->looking_for == 'location' ? 'selected' : '') }}>Location</option>
+                      <option value="national-championships" {{  (isset(auth()->user()->mainInformationStudent->looking_for) && auth()->user()->mainInformationStudent->looking_for == 'national-championships' ? 'selected' : '') }}>National Championships</option>
+                      <option value="instate" {{ (isset(auth()->user()->mainInformationStudent->looking_for) && auth()->user()->mainInformationStudent->looking_for == 'instate' ? 'selected' : '') }}>Instate</option>
+                      <option value="out-of-state" {{ (isset(auth()->user()->mainInformationStudent->looking_for) && auth()->user()->mainInformationStudent->looking_for == 'out-of-state' ? 'selected' : '') }}>Out of State </option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group col-md-12">
                   <div class="input-group">
                     <span class="input-group-addon">Brief description about you</span>
-                    <textarea class="form-control" name="description">{{auth()->user()->description}}</textarea>
+                    <textarea class="form-control" name="description">{{ (isset(auth()->user()->mainInformationStudent->description) ? auth()->user()->mainInformationStudent->description : '') }}</textarea>
                   </div>
                 </div>
                 <div class="form-group col-md-12">

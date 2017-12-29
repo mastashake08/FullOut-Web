@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Award;
+use App\MainInformationCoach;
+use App\MainInformationStudent;
 use App\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -48,7 +50,7 @@ class CheerleaderController extends Controller
     public function show(Request $request,$id)
     {
         $skills = '';
-        $cheerleader = \App\User::with(['skillSet','videos','awards'])->findOrFail($id);
+        $cheerleader = \App\User::with(['skillSet','videos','awards','mainInformationStudent'])->findOrFail($id);
         if($request->expectsJson()){
           return $cheerleader;
         }
@@ -108,43 +110,101 @@ class CheerleaderController extends Controller
         //
     }
 
-    public function updateProfile(Request $request){
-      $user = $request->user();
+    public function updateProfileStudent(Request $request){
+        $user = $request->user();
+        $cheertype = json_encode($request->cheertype);
 
-      $user->email = $request->email;
-      $user->address = $request->address;
-      $user->city = $request->city;
-      $user->state = $request->state;
-      $user->zip = $request->zip;
-      $user->gpa = $request->gpa;
-      $user->act_score = $request->act_score;
-      $user->sat_score = $request->sat_score;
-      $user->bio = $request->bio;
-      $user->weight = $request->weight;
-      $user->height = $request->height;
-      $user->visibility = $request->visibility;
-      $user->type = 'student';
-      $user->cheertype = $request->cheertype;
-      $user->current_team = $request->current_team;
-      $user->looking_for = $request->looking_for;
+        $data = [
+            'user_id' => $user->id,
+            'gender' => $request->gender,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'city' => $request->city,
+            'state' => $request->state,
+            'dob' => $request->dob,
+            'zip' => $request->zip,
+            'school_type' => $request->school_type,
+            'current_school' => $request->current_school,
+            'current_year' => $request->current_year,
+            'current_gpa' => $request->current_gpa,
+            'act_score' => $request->act_score,
+            'highest_sat' => $request->highest_sat,
+            'bio' => $request->bio,
+            'weight' => $request->weight,
+            'height' => $request->height,
+            'current_program_timeline' => $request->current_program_timeline,
+            'past_program_timeline' => $request->past_program_timeline,
+            'accolades' => $request->accolades,
+            'cheertype' => $cheertype,
+            'visibility' => $request->visibility,
+            'looking_for' => $request->looking_for,
+            'description' => $request->description,
+        ];
+        if(count(MainInformationCoach::where("user_id", $user->id)->get())){
+            $create = $user->mainInformationStudent()->update($data);
+        }else{
+            $create = MainInformationStudent::create($data);
+        }
 
-      if($request->hasFile('profile_pic')){
+        $user->email = $request->email;
+        $user->name = $request->name;
+
+        if($request->hasFile('profile_pic')){
 
           $old_pic_name = $user->profile_pic;
 
           $path = public_path('images\profile-pics\\'.$old_pic_name);
           if($old_pic_name){
               unlink($path);
-          }
-         ;
+          };
 
           $picture_name = $request->profile_pic->getClientOriginalName();
           $request->file('profile_pic')->storeAs('images/profile-pics',  $picture_name);
           $user->profile_pic = $picture_name;
-      }
+        }
 
+        if($create){
+            $request->session()->flash('success',"Main information was updated!" );
+        }
       $user->save();
+
+//        dd($user->load('mainInformationStudent'));
       return back();
+    }
+
+    public function updateProfileCoach(Request $request){
+        $user = $request->user();
+
+        $user->update([
+           'email' => $request->email,
+           'name' => $request->name,
+        ]);
+        $data = [
+            'user_id' => $user->id,
+            'program_name' => $request->program_name,
+            'coaching_title' => $request->coaching_title,
+            'financial_requirements' => $request->financial_requirements,
+            'same_information' => $request->same_information,
+            'offer_scholarship' => $request->offer_scholarship,
+            'scholarship_text' => $request->scholarship_text,
+            'tuition_cost' => $request->tuition_cost,
+            'description_program' => $request->description_program,
+        ];
+        if(count(MainInformationCoach::where("user_id", $user->id)->get())){
+            $create = $user->mainInformationCoach()->update($data);
+        }else{
+            $create = MainInformationCoach::create($data);
+        }
+
+        $user->email = $request->email;
+        $user->name = $request->name;
+
+        $user->save();
+        if($create){
+            $request->session()->flash('success',"Main information was updated!" );
+        }
+
+        return back();
     }
 
     public function addVideo(Request $request){

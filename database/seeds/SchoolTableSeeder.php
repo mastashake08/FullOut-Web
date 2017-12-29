@@ -27,6 +27,10 @@ class SchoolTableSeeder extends Seeder
           'out_state_tuition' => '10000',
           'website' => 'https://test.edu',
           'min_gpa' => '2.0',
+          'dob' => '111',
+          'other_testing' => '111',
+          'number_hours' => '111',
+          'popular_scholarship_outside_program' => '111',
           'min_gpa_transfer' => '2.4',
           'gpa_needed_for_team' => '2.3',
           'act_score' => '15',
@@ -37,7 +41,11 @@ class SchoolTableSeeder extends Seeder
           'coach_name' => 'Coach Johnson',
           'mascot' => 'Bulldogs',
           'team_type' => 'women',
-          'description' => 'This is the A Team!'
+          'description' => 'This is the A Team!',
+          'team_responsibilities' => '111!',
+          'number_members' => '111',
+          'average_room' => '111!',
+          'skills' => '111!'
         ]);
 
         DB::table('users')->update([

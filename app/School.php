@@ -20,9 +20,9 @@ class School extends Model
     public function tryouts(){
       return $this->hasMany('App\Tryout');
     }
-    public function user(){
-      return $this->belongsTo('App\User');
-    }
+//    public function user(){
+//      return $this->belongsTo('App\User');
+//    }
     public function scholarships(){
       return $this->hasMany('App\Scholarship');
     }

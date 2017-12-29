@@ -30,6 +30,10 @@ class CreateSchoolsTable extends Migration
             $table->string('min_gpa_transfer');
             //GPA needed to stay on team
             $table->string('gpa_needed_for_team');
+            $table->string('dob');
+            $table->string('number_hours');
+            $table->string('other_testing');
+            $table->string('popular_scholarship_outside_program');
             $table->decimal('act_score');
             $table->decimal('sat_score');
             $table->timestamps();

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{--{{ dd(isset($skills['spring_floor_tumbling_skills']['basic_running']['round_off'])) }}--}}
+{{--{{ dd($cheerleader) }}--}}
 <cheerleader :user-id="{{$cheerleader}}"></cheerleader>
 <div class="container">
   <div class="row">

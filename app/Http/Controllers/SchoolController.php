@@ -65,14 +65,16 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = $request->user();
+
         if($request->user()->can('create', \App\School::class)){
         $this->validate($request,[
             'name' => 'required',
             'description' => 'required',
-            'office_phone' => 'required',
-            'cell_phone' => 'required',
-            'address' => 'required',
+            'office_phone' => 'required|integer',
+            'cell_phone' => 'required|integer',
+            'office_address' => 'required',
+            'dob' => 'required',
             'in_state_tuition' => 'required',
             'out_state_tuition' => 'required',
             'website' => 'required',
@@ -81,49 +83,50 @@ class SchoolController extends Controller
             'gpa_needed_for_team' => 'required',
             'act_score' => 'required',
             'sat_score' => 'required',
-            'logo' => 'file',
+            'number_hours' => 'required',
+            'other_testing' => 'required',
+            'popular_scholarship_outside_program' => 'required',
+            'logo' => 'image|mimes:jpg,png,jpeg,JPG,JPEG,PNG',
           ]);
+
           $school = School::firstOrNew(['user_id' => $request->user()->id]);
 
-          if($request->hasFile('logo')){
-            $path = $request->file('logo')->store('public/logos');
+            if($request->hasFile('logo')) {
 
+                $old_pic_name = $user->school->logo;
+
+                $path = public_path('images\school-logo\\' . $old_pic_name);
+                if($old_pic_name) {
+                    unlink($path);
+                };
+                $picture_name = $request->logo->getClientOriginalName();
+                $request->file('logo')->storeAs('images/school-logo', $picture_name);
+
+                $school->fill([
+                    'logo' => $picture_name,
+                ]);
+
+            }
             $school->fill([
-              'name' => $request->name,
-              'logo' => Storage::url($path),
-              'description' => $request->description,
-              'office_phone' => $request->office_phone,
-              'cell_phone' => $request->cell_phone,
-              'office_address' => $request->address,
-              'in_state_tuition' => $request->in_state_tuition,
-              'out_state_tuition' => $request->out_state_tuition,
-              'website' => $request->website,
-              'min_gpa' => $request->min_gpa,
-              'min_gpa_transfer' => $request->min_gpa_transfer,
-              'gpa_needed_for_team' => $request->gpa_needed_for_team,
-              'act_score' => $request->act_score,
-              'sat_score' => $request->sat_score
+                'name' => $request->name,
+                'description' => $request->description,
+                'office_phone' => $request->office_phone,
+                'cell_phone' => $request->cell_phone,
+                'office_address' => $request->office_address,
+                'in_state_tuition' => $request->in_state_tuition,
+                'out_state_tuition' => $request->out_state_tuition,
+                'website' => $request->website,
+                'min_gpa' => $request->min_gpa,
+                'min_gpa_transfer' => $request->min_gpa_transfer,
+                'gpa_needed_for_team' => $request->gpa_needed_for_team,
+                'act_score' => $request->act_score,
+                'sat_score' => $request->sat_score,
+                'dob' => $request->dob,
+                'number_hours' => $request->number_hours,
+                'other_testing' => $request->other_testing,
+                'popular_scholarship_outside_program' => $request->popular_scholarship_outside_program,
             ]);
 
-
-          }
-          else{
-            $school->fill([
-              'name' => $request->name,
-              'description' => $request->description,
-              'office_phone' => $request->office_phone,
-              'cell_phone' => $request->cell_phone,
-              'office_address' => $request->address,
-              'in_state_tuition' => $request->in_state_tuition,
-              'out_state_tuition' => $request->out_state_tuition,
-              'website' => $request->website,
-              'min_gpa' => $request->min_gpa,
-              'min_gpa_transfer' => $request->min_gpa_transfer,
-              'gpa_needed_for_team' => $request->gpa_needed_for_team,
-              'act_score' => $request->act_score,
-              'sat_score' => $request->sat_score
-            ]);
-          }
           $school->save();
           return back();
       }
@@ -167,7 +170,6 @@ class SchoolController extends Controller
         if(auth()->user()->can('update',$school)){
           return view('school.edit')->with($with);
         }
-
     }
 
     /**
@@ -179,7 +181,6 @@ class SchoolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $school = School::find($id);
 
         if(auth()->user()->can('update',$school)){

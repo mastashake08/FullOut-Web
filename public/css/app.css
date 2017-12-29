@@ -8402,10 +8402,6 @@ body {
   width: 100%;
 }
 
-/*.form-group input[type="checkbox"] {*/
-  /*display: none;*/
-/*}*/
-
 .form-group input[type="checkbox"] + .btn-group > label {
   width: 25%;
 }
@@ -8446,8 +8442,12 @@ body {
   margin-left: 10px;
 }
 
+.p-9px {
+  padding: 9px;
+}
+
 .d-none {
-  display: none !important;
+  display: none;
 }
 
 .d-inline-block {
@@ -8476,7 +8476,8 @@ body {
   }
 }
 
-#profile_img {
+#profile_img,
+#school_logo_img {
   width: 50px;
   height: 50px;
   margin-left: 15px;
@@ -8487,8 +8488,17 @@ body {
   height: 50px;
 }
 
-#profile_pic {
+#profile_pic,
+#school_logo_pic {
   height: 50px;
   padding: 13px;
+}
+
+.filter-option {
+  max-width: 150px;
+}
+
+.bootstrap-select button {
+  padding: 9px;
 }
 

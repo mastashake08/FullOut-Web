@@ -59,18 +59,25 @@ class TeamController extends Controller
         //
         $this->validate($request,[
             'team_name' => 'required',
-            'coach_name' => 'required',
             'mascot' => 'required',
             'description' => 'required',
             'team_type' => 'required',
+            'team_responsibilities' => 'required',
+            'number_members' => 'required',
+            'average_room' => 'required',
+            'skills' => 'required',
         ]);
         $team = $request->user()->school->teams()->create([
           'team_name' => $request->team_name,
-          'coach_name' => $request->coach_name,
+          'coach_name' => $request->user()->name,
           'mascot' => $request->mascot,
-          'color_code' => $request->color_code,
+//          'color_code' => $request->color_code,
           'description' => $request->description,
-          'team_type' => $request->team_type
+          'team_type' => $request->team_type,
+          'team_responsibilities' => $request->team_responsibilities,
+          'number_members' => $request->number_members,
+          'average_room' => $request->average_room,
+          'skills' => $request->skills,
         ]);
         return back();
 
@@ -138,7 +145,6 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        //
         $team = \App\Team::findOrFail($id);
         $with = [
           'team' => $team

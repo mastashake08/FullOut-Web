@@ -123,7 +123,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('coach/teams') }}">
-                                        <i class="fa fa-users" aria-hidden="true"></i> Manage Teams
+                                        <i class="fa fa-users" aria-hidden="true"></i> Teams and Skills
                                     </a>
                                 </li>
                                 <li>

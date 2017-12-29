@@ -29,8 +29,8 @@ class User extends Authenticatable
     ];
 
     public function school(){
-      return $this->hasOne('App\School');
-//        return $this->belongsTo('App\School');
+//      return $this->hasOne('App\School');
+        return $this->belongsTo('App\School');
     }
 
     public function skillSet(){
@@ -58,6 +58,12 @@ class User extends Authenticatable
     }
     public function awards(){
       return $this->hasMany('App\Award');
+    }
+    public function mainInformationCoach(){
+      return $this->hasOne('App\MainInformationCoach');
+    }
+    public function mainInformationStudent(){
+      return $this->hasOne('App\MainInformationStudent');
     }
 
     public static function teamIsFavorited($user_id, $team_id)

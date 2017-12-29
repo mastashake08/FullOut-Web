@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Team;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Clinic;
 use Calendar;
@@ -99,8 +100,8 @@ class ClinicController extends Controller
             'team_id' => $request->team_id,
             'name' => $request->name,
             'coach_name' => $request->coach_name,
-            'start_datetime' => \Carbon\Carbon::parse($request->start_datetime),
-            'end_datetime' => \Carbon\Carbon::parse($request->end_datetime),
+            'start_datetime' => Carbon::parse($request->start_datetime),
+            'end_datetime' => Carbon::parse($request->end_datetime),
             'phone' => $request->phone,
             'skills_needed' => $request->skills_needed,
             'skills_taught' => $request->skills_taught,

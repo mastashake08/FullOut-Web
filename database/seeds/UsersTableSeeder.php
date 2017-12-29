@@ -18,9 +18,6 @@ class UsersTableSeeder extends Seeder
           'email' => 'test.cheerleader@gmail.com',
           'password' => bcrypt('n1nt3nd0'),
           'type' => 'student',
-          'address' => '113 East Mason Ave. Danville, KY 40422',
-          'phone' => '8594024863',
-          'gender' => 'male'
         ]);
 
         \App\User::create([
@@ -28,9 +25,6 @@ class UsersTableSeeder extends Seeder
           'email' => 'test.coach@gmail.com',
           'password' => bcrypt('n1nt3nd0'),
           'type' => 'coach',
-          'address' => '113 East Mason Ave. Danville, KY 40422',
-          'phone' => '8594024863',
-          'gender' => 'female'
         ]);
 
         /*
@@ -45,9 +39,9 @@ class UsersTableSeeder extends Seeder
         $users->each(function($item,$key){
           $item->delete();
         });
-         factory(App\User::class, 1000)->create()->each(function($u){
-           $u->skillSet()->save(factory(App\Skill::class)->make());
-           $u->videos()->save(factory(App\Video::class)->make());
-         });
+//         factory(App\User::class, 1000)->create()->each(function($u){
+//           $u->skillSet()->save(factory(App\Skill::class)->make());
+//           $u->videos()->save(factory(App\Video::class)->make());
+//         });
     }
 }
