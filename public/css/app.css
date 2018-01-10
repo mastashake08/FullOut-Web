@@ -8447,7 +8447,7 @@ body {
 }
 
 .d-none {
-  display: none;
+  display: none !important;
 }
 
 .d-inline-block {
