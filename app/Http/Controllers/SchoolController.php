@@ -87,6 +87,10 @@ class SchoolController extends Controller
             'other_testing' => 'required',
             'popular_scholarship_outside_program' => 'required',
             'logo' => 'image|mimes:jpg,png,jpeg,JPG,JPEG,PNG',
+            'wins_uca' => 'required',
+            'wins_nca' => 'required',
+            'wins_worlds' => 'required',
+            'wins_other' => 'required',
           ]);
 
           $school = School::firstOrNew(['user_id' => $request->user()->id]);
@@ -125,6 +129,12 @@ class SchoolController extends Controller
                 'number_hours' => $request->number_hours,
                 'other_testing' => $request->other_testing,
                 'popular_scholarship_outside_program' => $request->popular_scholarship_outside_program,
+                'offer_scholarship' => $request->offer_scholarship,
+                'scholarship_text' => $request->scholarship_text,
+                'wins_uca' => $request->wins_uca,
+                'wins_nca' => $request->wins_nca,
+                'wins_worlds' => $request->wins_worlds,
+                'wins_other' => $request->wins_other,
             ]);
 
           $school->save();

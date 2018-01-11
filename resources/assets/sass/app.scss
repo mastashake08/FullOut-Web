@@ -52,6 +52,17 @@ body{
   width: 100%;
 }
 
+.team_wins {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #555555;
+  text-align: center;
+  background-color: #eeeeee;
+  border: 1px solid #ccd0d2;
+  border-radius: 4px;
+}
 
 .form-group input[type="checkbox"] + .btn-group > label {
   width: 25%;
@@ -95,7 +106,11 @@ body{
 }
 
 .d-none {
-  display: none !important;
+   display: none !important;
+ }
+
+.d-block {
+  display: block !important;
 }
 
 .d-inline-block {

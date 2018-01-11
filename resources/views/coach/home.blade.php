@@ -68,17 +68,6 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <div class="input-group">
-                                        <span class="input-group-addon">Do you offer Scholarship?</span>
-                                        <label for="scholarship_text" class="form-control overflow-hidden">
-                                            <label for="scholarship">If yes, Check here</label>
-                                            <input id="scholarship" type="checkbox" class="" name="offer_scholarship" value="yes" @if(auth()->user()->mainInformationCoach && auth()->user()->mainInformationCoach->offer_scholarship == 'yes') checked @endif>
-                                            And explain with detail
-                                        </label>
-                                        <textarea id="scholarship_text" class="form-control" name="scholarship_text">{{ (auth()->user()->mainInformationCoach ? auth()->user()->mainInformationCoach->scholarship_text : "" ) }}</textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <div class="input-group">
                                         <span class="input-group-addon">Tuition cost</span>
                                         <div class="form-control">
                                             <div class="row">

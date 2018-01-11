@@ -101,6 +101,60 @@
                           </div>
                           <div class="form-group col-md-12">
                               <div class="input-group">
+                                  <span class="input-group-addon">Do you offer Scholarship?</span>
+                                  <label for="scholarship_text" class="form-control overflow-hidden">
+                                      <label for="scholarship">If yes, Check here</label>
+                                      <input id="scholarship" type="checkbox" class="" name="offer_scholarship" value="yes" @if(auth()->user()->school && auth()->user()->school->offer_scholarship == 'yes') checked @endif>
+                                      And explain with detail
+                                  </label>
+                                  <textarea id="scholarship_text" class="form-control" name="scholarship_text">{{ (auth()->user()->school ? auth()->user()->school->scholarship_text : "" ) }}</textarea>
+                              </div>
+                          </div>
+                          <div class="form-group col-md-12">
+                              <div class="input-group">
+                                  <span class="team_wins d-block w-100">Team Wins</span>
+                                  <div class="row">
+                                      <div class="col-md-3">
+                                          <label for="wins_uca">Wins UCA</label>
+                                          <input type="number" id="wins_uca" class="w-25" placeholder="" name="wins_uca" required value="{{(auth()->user()->school->wins_uca ? auth()->user()->school->wins_uca : "")}}">
+                                          @if ($errors->has('number_members'))
+                                              <span class="help-block">
+                                                 <strong>{{ $errors->first('wins_uca') }}</strong>
+                                            </span>
+                                          @endif
+                                      </div>
+                                      <div class="col-md-3">
+                                          <label for="wins_nca">Wins NCA</label>
+                                          <input type="number" id="wins_nca" class="w-25" placeholder="" name="wins_nca" required value="{{(auth()->user()->school->wins_nca ? auth()->user()->school->wins_nca : "")}}">
+                                          @if ($errors->has('number_members'))
+                                              <span class="help-block">
+                                                 <strong>{{ $errors->first('wins_nca') }}</strong>
+                                            </span>
+                                          @endif
+                                      </div>
+                                      <div class="col-md-3">
+                                          <label for="wins_worlds">Wins Worlds</label>
+                                          <input type="number" id="wins_worlds" class="w-25" placeholder="" name="wins_worlds" required value="{{(auth()->user()->school->wins_worlds ? auth()->user()->school->wins_worlds : "")}}">
+                                          @if ($errors->has('number_members'))
+                                              <span class="help-block">
+                                                 <strong>{{ $errors->first('wins_worlds') }}</strong>
+                                            </span>
+                                          @endif
+                                      </div>
+                                      <div class="col-md-3">
+                                          <label for="wins_other">Other Wins</label>
+                                          <input type="number" id="wins_other" class="w-25" placeholder="" name="wins_other" required value="{{(auth()->user()->school->wins_other ? auth()->user()->school->wins_other : "")}}">
+                                          @if ($errors->has('number_members'))
+                                              <span class="help-block">
+                                                 <strong>{{ $errors->first('wins_other') }}</strong>
+                                            </span>
+                                          @endif
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group col-md-12">
+                              <div class="input-group">
                                   <span class="input-group-addon">Number of hours that must be taken every semester to stay on the team</span>
                                   <input type="number" class="form-control" placeholder="Number" name="number_hours" required value="{{(auth()->user()->school->number_hours ? auth()->user()->school->number_hours : "")}}">
                               </div>

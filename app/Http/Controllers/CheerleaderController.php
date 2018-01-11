@@ -185,8 +185,6 @@ class CheerleaderController extends Controller
             'coaching_title' => $request->coaching_title,
             'financial_requirements' => $request->financial_requirements,
             'same_information' => $request->same_information,
-            'offer_scholarship' => $request->offer_scholarship,
-            'scholarship_text' => $request->scholarship_text,
             'tuition_cost' => $request->tuition_cost,
             'description_program' => $request->description_program,
         ];

@@ -13,7 +13,7 @@
     <input type="number" name="sat" @if (isset($data['sat']) && !empty($data['sat'])) value="{{ $data['sat'] }}" @endif class="form-control" id="sat" placeholder="SAT">
   </div>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
-    <select class="selectpicker" multiple="multiple" name="most_winning[]" id="most_winning" title="Most Winning">
+    <select class="selectpicker" name="most_winning" id="most_winning" title="Most Winning">
       <option value="UCA" @if (isset($data['most_winning']) && !empty($data['most_winning']) && in_array('UCA', $data['most_winning'])) selected="selected" @endif>UCA</option>
       <option value="NCA"  @if (isset($data['most_winning']) && !empty($data['most_winning']) && in_array('NCA', $data['most_winning'])) selected="selected" @endif>NCA</option>
       <option value="World"  @if (isset($data['most_winning']) && !empty($data['most_winning']) && in_array('World', $data['most_winning'])) selected="selected" @endif>World</option>
@@ -45,13 +45,11 @@
     </div>
   </div>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
-    <select class="selectpicker" name="perfect_fit" id="perfect_fit" title="Perfect Fit">
-      {{--<option value="gpa" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && in_array('gpa', $data['perfect_fit'])) selected="selected" @endif>G.P.A.</option>--}}
+    <select class="selectpicker" name="perfect_fit" data-title="Perfect Fit">
       <option value="gpa" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && $data['perfect_fit'] == 'gpa') selected="selected" @endif>G.P.A.</option>
-      {{--<option value="act" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && in_array('act', $data['perfect_fit'])) selected="selected" @endif>ACT</option>--}}
       <option value="act" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && $data['perfect_fit'] == 'act') selected="selected" @endif>ACT</option>
-      {{--<option value="sat" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && in_array('sat', $data['perfect_fit'])) selected="selected" @endif>SAT</option>--}}
       <option value="sat" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && $data['perfect_fit'] == 'sat') selected="selected" @endif>SAT</option>
+      <option></option>
     </select>
   </div>
   <div class="form-group col-xs-12 col-sm-4 col-md-3">

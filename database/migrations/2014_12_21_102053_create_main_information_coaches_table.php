@@ -20,8 +20,6 @@ class CreateMainInformationCoachesTable extends Migration
             $table->string('program_name');
             $table->string('coaching_title');
             $table->string('same_information')->nullable();
-            $table->string('offer_scholarship')->nullable();
-            $table->longText('scholarship_text');
             $table->string('tuition_cost');
             $table->longText('description_program');
             $table->longText('financial_requirements');
