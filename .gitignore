@@ -1,7 +1,7 @@
 /node_modules
 /public/storage
-/public/images/profile-pics
-/public/images/school-logo
+/public/images/profile-pics/*
+/public/images/school-logo/*
 /storage/*.key
 /vendor
 /.idea
