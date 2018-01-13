@@ -71,8 +71,8 @@ class SchoolController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'description' => 'required',
-            'office_phone' => 'required|integer',
-            'cell_phone' => 'required|integer',
+            'office_phone' => 'required',
+            'cell_phone' => 'required',
             'office_address' => 'required',
             'dob' => 'required',
             'in_state_tuition' => 'required',
