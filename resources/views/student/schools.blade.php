@@ -7,7 +7,7 @@
                 <div class="panel-body">
                   <div class="table-responsive">
                     @include('search.schools')
-                    <table class="table mt-25">
+                    <table class="table mt-25" id="search-school">
                      <thead>
                        <tr>
                          <th>Name</th>

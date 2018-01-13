@@ -75,6 +75,12 @@ $(document).ready(function(){
     $("#profile_pic").change(function() {
         readURL(this);
     });
+
+    //datatable search school in cheerleader side
+
+
+    $('#search-school').DataTable();
+
 });
 
 

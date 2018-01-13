@@ -45,11 +45,10 @@
     </div>
   </div>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
-    <select class="selectpicker" name="perfect_fit" data-title="Perfect Fit">
+    <select class="selectpicker" name="perfect_fit" >
       <option value="gpa" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && $data['perfect_fit'] == 'gpa') selected="selected" @endif>G.P.A.</option>
       <option value="act" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && $data['perfect_fit'] == 'act') selected="selected" @endif>ACT</option>
       <option value="sat" @if (isset($data['perfect_fit']) && !empty($data['perfect_fit']) && $data['perfect_fit'] == 'sat') selected="selected" @endif>SAT</option>
-      <option></option>
     </select>
   </div>
   <div class="form-group col-xs-12 col-sm-4 col-md-3">

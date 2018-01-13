@@ -929,7 +929,9 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
-
+// datatable
+    import $ from 'jquery';
+    import 'datatable.net';
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
