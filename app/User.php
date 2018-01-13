@@ -30,7 +30,7 @@ class User extends Authenticatable
 
     public function school(){
 //      return $this->hasOne('App\School');
-        return $this->belongsTo('App\School');
+        return $this->belongsTo('App\School','school_id','id');
     }
 
     public function skillSet(){

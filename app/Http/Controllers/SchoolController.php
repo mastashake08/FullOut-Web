@@ -97,12 +97,15 @@ class SchoolController extends Controller
 
             if($request->hasFile('logo')) {
 
-                $old_pic_name = $user->school->logo;
+                if($user->school){
+                    $old_pic_name = $user->school->logo;
+                    $path = public_path('images\school-logo\\' . $old_pic_name);
+                    if($old_pic_name) {
+                        unlink($path);
+                    };
+                }
 
-                $path = public_path('images\school-logo\\' . $old_pic_name);
-                if($old_pic_name) {
-                    unlink($path);
-                };
+
                 $picture_name = $request->logo->getClientOriginalName();
                 $request->file('logo')->storeAs('images/school-logo', $picture_name);
 
@@ -138,6 +141,9 @@ class SchoolController extends Controller
             ]);
 
           $school->save();
+            $user->update([
+                'school_id' => $school->id
+            ]);
           return back();
       }
     }
