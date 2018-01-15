@@ -9,28 +9,28 @@
                   <div class="panel-body" v-if="newData">
                     <div><img :src="'/images/profile-pics/' + user.profile_pic" class="profile_img" alt=""></div>
                       <span>Name: {{user.name}}</span><br>
-                      <span>Gender: {{user.main_information_student.gender}}</span><br>
                       <span>Email: {{user.email}}</span><br>
-                      <span>Address: {{user.main_information_student.address}}</span><br>
-                      <span>City: {{user.main_information_student.city}}</span><br>
-                      <span>Zip: {{user.main_information_student.zip}}</span><br>
-                      <span>Dob: {{user.main_information_student.dob}}</span><br>
-                      <span>School Type: {{user.main_information_student.school_type}}</span><br>
-                      <span>Current School: {{user.main_information_student.current_school}}</span><br>
-                      <span>Current Year: {{user.main_information_student.current_year}}</span><br>
-                      <span>Current Gpa: {{user.main_information_student.current_gpa}}</span><br>
-                      <span>Act Score: {{user.main_information_student.act_score}}</span><br>
-                      <span>Highest Sat: {{user.main_information_student.highest_sat}}</span><br>
-                      <span>Bio: {{user.main_information_student.bio}}</span><br>
-                      <span>Weight: {{user.main_information_student.weight}}</span><br>
-                      <span>Height: {{user.main_information_student.height}}</span><br>
-                      <span>Current program timeline: {{user.main_information_student.current_program_timeline}}</span><br>
-                      <span>Past program timeline: {{user.main_information_student.past_program_timeline}}</span><br>
-                      <span>Accolades: {{user.main_information_student.accolades}}</span><br>
-                      <span>Cheertype: </span><span v-for="type in user.main_information_student.cheertype">{{ type }}; </span><br>
-                      <span>Visibility: {{user.main_information_student.visibility}}</span><br>
-                      <span>Looking for: {{user.main_information_student.looking_for}}</span><br>
-                      <span>Description: {{user.main_information_student.description}}</span>
+                      <span>Address: <span v-if="user.main_information_student">{{user.main_information_student.address}}</span></span><br>
+                      <span>Gender: <span v-if="user.main_information_student">{{user.main_information_student.gender}}</span></span><br>
+                      <span>City: <span v-if="user.main_information_student">{{user.main_information_student.city}}</span></span><br>
+                      <span>Zip: <span v-if="user.main_information_student">{{user.main_information_student.zip}}</span></span><br>
+                      <span>Dob: <span v-if="user.main_information_student">{{user.main_information_student.dob}}</span></span><br>
+                      <span>School Type: <span v-if="user.main_information_student">{{user.main_information_student.school_type}}</span></span><br>
+                      <span>Current School: <span v-if="user.main_information_student">{{user.main_information_student.current_school}}</span></span><br>
+                      <span>Current Year: <span v-if="user.main_information_student">{{user.main_information_student.current_year}}</span></span><br>
+                      <span>Current Gpa: <span v-if="user.main_information_student">{{user.main_information_student.current_gpa}}</span></span><br>
+                      <span>Act Score: <span v-if="user.main_information_student">{{user.main_information_student.act_score}}</span></span><br>
+                      <span>Highest Sat: <span v-if="user.main_information_student">{{user.main_information_student.highest_sat}}</span></span><br>
+                      <span>Bio: <span v-if="user.main_information_student">{{user.main_information_student.bio}}</span></span><br>
+                      <span>Weight: <span v-if="user.main_information_student">{{user.main_information_student.weight}}</span></span><br>
+                      <span>Height: <span v-if="user.main_information_student">{{user.main_information_student.height}}</span></span><br>
+                      <span>Current program timeline: <span v-if="user.main_information_student">{{user.main_information_student.current_program_timeline}}</span></span><br>
+                      <span>Past program timeline: <span v-if="user.main_information_student">{{user.main_information_student.past_program_timeline}}</span></span><br>
+                      <span>Accolades: <span v-if="user.main_information_student">{{user.main_information_student.accolades}}</span></span><br>
+                      <span>Cheertype: <span v-if="user.main_information_student"><span v-for="type in user.main_information_student.cheertype">{{ type }} </span></span></span><br>
+                      <span>Visibility: <span v-if="user.main_information_student">{{user.main_information_student.visibility}}</span></span><br>
+                      <span>Looking for: <span v-if="user.main_information_student">{{user.main_information_student.looking_for}}</span></span><br>
+                      <span>Description: <span v-if="user.main_information_student">{{user.main_information_student.description}}</span></span>
                       <br>
                     <div class="pull-right">
                       <span class="glyphicon glyphicon-heart" @click="favorite()"></span>
@@ -90,7 +90,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" v-on:click="sendMessage(user)">Send Message</button>
+          <button type="button" class="btn btn-default" @click="sendMessage(user)">Send Message</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -105,9 +105,6 @@
 
 <script>
     export default {
-       mounted() {
-            console.log('Component mounted.')
-        },
         data() {
           return{
               user: {},
@@ -122,7 +119,7 @@
         },
         sendMessage: function(user){
           this.$http.post('/message',{_token:Laravel.csrfToken,receiver_id: this.user.id,message: this.message}).then(function(data){
-            alert('Message Sent!');
+//            alert('Message Sent!');
             $('#sendMessage').modal('hide');
             this.message = '';
           }).bind(this);
@@ -130,14 +127,14 @@
         },
         favorite: function(){
           this.$http.post('/favorite',{_token:Laravel.csrfToken,cheerleader_id:this.user.id}).then(function(data){
-            alert('Favorited!');
+//            alert('Favorited!');
           });
         },
       },
       created(){
         this.user = this.userId;
         this.newData = true;
-    }
+        }
     }
 
 </script>

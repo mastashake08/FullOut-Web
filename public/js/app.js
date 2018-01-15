@@ -929,9 +929,7 @@ module.exports = function bind(fn, thisArg) {
   };
 };
 
-// datatable
-//    import $ from 'jquery';
-//    import 'datatable.net';
+
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
@@ -46487,9 +46485,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
   data: function data() {
     return {
       user: {},
@@ -46505,14 +46500,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     sendMessage: function sendMessage(user) {
       this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: this.user.id, message: this.message }).then(function (data) {
-        alert('Message Sent!');
+        //            alert('Message Sent!');
         $('#sendMessage').modal('hide');
         this.message = '';
       }).bind(this);
     },
     favorite: function favorite() {
       this.$http.post('/favorite', { _token: Laravel.csrfToken, cheerleader_id: this.user.id }).then(function (data) {
-        alert('Favorited!');
+        //            alert('Favorited!');
       });
     }
   },
@@ -46543,238 +46538,326 @@ var render = function() {
             _vm._v(" "),
             _c("transition", { attrs: { name: "fade" } }, [
               _vm.newData
-                ? _c(
-                    "div",
-                    { staticClass: "panel-body" },
-                    [
-                      _c("div", [
-                        _c("img", {
-                          staticClass: "profile_img",
-                          attrs: {
-                            src: "/images/profile-pics/" + _vm.user.profile_pic,
-                            alt: ""
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("Name: " + _vm._s(_vm.user.name))]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Gender: " +
-                            _vm._s(_vm.user.main_information_student.gender)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("Email: " + _vm._s(_vm.user.email))]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Address: " +
-                            _vm._s(_vm.user.main_information_student.address)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "City: " +
-                            _vm._s(_vm.user.main_information_student.city)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Zip: " +
-                            _vm._s(_vm.user.main_information_student.zip)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Dob: " +
-                            _vm._s(_vm.user.main_information_student.dob)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "School Type: " +
-                            _vm._s(
-                              _vm.user.main_information_student.school_type
-                            )
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Current School: " +
-                            _vm._s(
-                              _vm.user.main_information_student.current_school
-                            )
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Current Year: " +
-                            _vm._s(
-                              _vm.user.main_information_student.current_year
-                            )
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Current Gpa: " +
-                            _vm._s(
-                              _vm.user.main_information_student.current_gpa
-                            )
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Act Score: " +
-                            _vm._s(_vm.user.main_information_student.act_score)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Highest Sat: " +
-                            _vm._s(
-                              _vm.user.main_information_student.highest_sat
-                            )
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Bio: " +
-                            _vm._s(_vm.user.main_information_student.bio)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Weight: " +
-                            _vm._s(_vm.user.main_information_student.weight)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Height: " +
-                            _vm._s(_vm.user.main_information_student.height)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Current program timeline: " +
-                            _vm._s(
-                              _vm.user.main_information_student
-                                .current_program_timeline
-                            )
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Past program timeline: " +
-                            _vm._s(
-                              _vm.user.main_information_student
-                                .past_program_timeline
-                            )
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Accolades: " +
-                            _vm._s(_vm.user.main_information_student.accolades)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("Cheertype: ")]),
-                      _vm._l(
-                        _vm.user.main_information_student.cheertype,
-                        function(type) {
-                          return _c("span", [_vm._v(_vm._s(type) + "; ")])
+                ? _c("div", { staticClass: "panel-body" }, [
+                    _c("div", [
+                      _c("img", {
+                        staticClass: "profile_img",
+                        attrs: {
+                          src: "/images/profile-pics/" + _vm.user.profile_pic,
+                          alt: ""
                         }
-                      ),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Visibility: " +
-                            _vm._s(_vm.user.main_information_student.visibility)
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Looking for: " +
-                            _vm._s(
-                              _vm.user.main_information_student.looking_for
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Name: " + _vm._s(_vm.user.name))]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("Email: " + _vm._s(_vm.user.email))]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Address: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(_vm.user.main_information_student.address)
                             )
-                        )
-                      ]),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("span", [
-                        _vm._v(
-                          "Description: " +
-                            _vm._s(
-                              _vm.user.main_information_student.description
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Gender: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(_vm.user.main_information_student.gender)
                             )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "pull-right" }, [
-                        _c("span", {
-                          staticClass: "glyphicon glyphicon-heart",
-                          on: {
-                            click: function($event) {
-                              _vm.favorite()
-                            }
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("City: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(_vm.user.main_information_student.city)
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Zip: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(_vm.user.main_information_student.zip)
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Dob: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(_vm.user.main_information_student.dob)
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("School Type: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student.school_type
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Current School: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student.current_school
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Current Year: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student.current_year
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Current Gpa: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student.current_gpa
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Act Score: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student.act_score
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Highest Sat: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student.highest_sat
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Bio: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(_vm.user.main_information_student.bio)
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Weight: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(_vm.user.main_information_student.weight)
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Height: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(_vm.user.main_information_student.height)
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Current program timeline: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student
+                                  .current_program_timeline
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Past program timeline: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student
+                                  .past_program_timeline
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Accolades: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student.accolades
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Cheertype: "),
+                      _vm.user.main_information_student
+                        ? _c(
+                            "span",
+                            _vm._l(
+                              _vm.user.main_information_student.cheertype,
+                              function(type) {
+                                return _c("span", [_vm._v(_vm._s(type) + " ")])
+                              }
+                            )
+                          )
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Visibility: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student.visibility
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Looking for: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student.looking_for
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v("Description: "),
+                      _vm.user.main_information_student
+                        ? _c("span", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.user.main_information_student.description
+                              )
+                            )
+                          ])
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "pull-right" }, [
+                      _c("span", {
+                        staticClass: "glyphicon glyphicon-heart",
+                        on: {
+                          click: function($event) {
+                            _vm.favorite()
                           }
-                        }),
-                        _vm._v(" "),
-                        _c("span", {
-                          staticClass: "glyphicon glyphicon-envelope",
-                          on: {
-                            click: function($event) {
-                              _vm.openMessage()
-                            }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", {
+                        staticClass: "glyphicon glyphicon-envelope",
+                        on: {
+                          click: function($event) {
+                            _vm.openMessage()
                           }
-                        })
-                      ])
-                    ],
-                    2
-                  )
+                        }
+                      })
+                    ])
+                  ])
                 : _vm._e()
             ])
           ],
