@@ -5,6 +5,7 @@
                 <div class="panel-heading">Search School</div>
 
                 <div class="panel-body">
+                    {{--<school-table></school-table>--}}
                   <div class="table-responsive">
                     @include('search.schools')
                     <table class="table mt-25" id="search-school">

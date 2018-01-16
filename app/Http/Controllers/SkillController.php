@@ -152,7 +152,7 @@ class SkillController extends Controller
         $hard_floor_tumbling_count = array_sum(array_map("count", $skills['hard_floor_tumbling_skills']));
         $skills = json_encode($skills['hard_floor_tumbling_skills']);
 
-        $user = $request->user()->with('skillSet','school')->first();
+        $user = auth()->user();
         $attr = [
             'hard_floor_tumbling_skills' => $skills,
             /*'basic_standing_hardwood' => $basic_standing_spring,

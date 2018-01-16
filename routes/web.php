@@ -29,10 +29,10 @@ Route::group(['prefix' => 'coach'],function(){
   Route::resource('clinics','ClinicController');
   Route::resource('tryouts','TryoutController');
   Route::resource('scholarships','ScholarshipController');
-  Route::post('/skills/spring', 'SkillController@springSkills');
-  Route::post('/skills/hard', 'SkillController@hardSkills');
-  Route::post('/skills/group', 'SkillController@groupSkills');
-  Route::post('/skills/coed', 'SkillController@coedSkills');
+  Route::post('/skills/spring/{team_id}', 'TeamSkillController@springSkills');
+  Route::post('/skills/hard/{team_id}', 'TeamSkillController@hardSkills');
+  Route::post('/skills/group/{team_id}', 'TeamSkillController@groupSkills');
+  Route::post('/skills/coed/{team_id}', 'TeamSkillController@coedSkills');
   Route::resource('teams','TeamController');
   Route::resource('/team/skillset','TeamSkillController');
   Route::resource('programs','ProgramController');

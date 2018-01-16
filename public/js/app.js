@@ -1412,6 +1412,7 @@ Vue.component('favorites', __webpack_require__(64));
 Vue.component('favorite-teams', __webpack_require__(67));
 Vue.component('videos', __webpack_require__(70));
 Vue.component('sos-list', __webpack_require__(73));
+Vue.component('school-table', __webpack_require__(103));
 Vue.component('passport-clients', __webpack_require__(76));
 
 Vue.component('passport-authorized-clients', __webpack_require__(82));
@@ -51335,6 +51336,46 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\SchoolDataTable.vue"
+
+module.exports = Component.exports
+
 
 /***/ })
 /******/ ]);

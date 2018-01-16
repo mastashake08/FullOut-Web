@@ -28,6 +28,7 @@ Vue.component('favorites',require('./components/Favorites.vue'));
 Vue.component('favorite-teams',require('./components/FavoriteTeams.vue'));
 Vue.component('videos',require('./components/Videos.vue'));
 Vue.component('sos-list',require('./components/SosList.vue'));
+Vue.component('school-table',require('./components/SchoolDataTable.vue'));
 Vue.component(
     'passport-clients',
     require('./components/passport/Clients.vue')

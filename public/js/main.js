@@ -79,7 +79,7 @@ $(document).ready(function(){
     //datatable search school in cheerleader side
 
 
-    //$('#search-school').DataTable();
+    //$('#search-school').dataTable();
 
 });
 
