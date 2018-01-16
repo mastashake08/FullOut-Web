@@ -36,10 +36,6 @@ class SchoolTableSeeder extends Seeder
           'act_score' => '15',
           'scholarship_text' => '15sdsd',
           'offer_scholarship' => 'yes',
-            'wins_uca' => '10',
-            'wins_nca' => '10',
-            'wins_worlds' => '10',
-            'wins_other' => '10',
           'sat_score' => '1250'
         ]);
         $school = \App\School::create([
@@ -63,10 +59,6 @@ class SchoolTableSeeder extends Seeder
             'act_score' => '144',
             'scholarship_text' => '15sdsd',
             'offer_scholarship' => 'yes',
-            'wins_uca' => '1',
-            'wins_nca' => '1',
-            'wins_worlds' => '1',
-            'wins_other' => '1',
             'sat_score' => '1660'
         ]);
         $school->teams()->create([
@@ -74,6 +66,10 @@ class SchoolTableSeeder extends Seeder
           'coach_name' => 'Coach Johnson',
           'mascot' => 'Bulldogs',
           'team_type' => 'women',
+            'wins_uca' => '1',
+            'wins_nca' => '1',
+            'wins_worlds' => '1',
+            'wins_other' => '1',
           'description' => 'This is the A Team!',
           'team_responsibilities' => '111!',
           'number_members' => '111',

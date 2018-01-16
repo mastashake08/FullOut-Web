@@ -23,6 +23,10 @@ class CreateTeamsTable extends Migration
             $table->string('color_code')->nullable();
             $table->longText('description');
             $table->string('team_type');
+            $table->string('wins_uca');
+            $table->string('wins_nca');
+            $table->string('wins_worlds');
+            $table->string('wins_other');
             $table->string('team_responsibilities');
             $table->string('number_members');
             $table->string('average_room');

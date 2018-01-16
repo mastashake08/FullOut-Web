@@ -38,10 +38,6 @@ class CreateSchoolsTable extends Migration
             $table->decimal('sat_score');
             $table->string('offer_scholarship')->nullable();
             $table->longText('scholarship_text');
-            $table->string('wins_uca');
-            $table->string('wins_nca');
-            $table->string('wins_worlds');
-            $table->string('wins_other');
             $table->timestamps();
         });
     }

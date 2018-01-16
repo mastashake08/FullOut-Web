@@ -62,6 +62,10 @@ class TeamController extends Controller
             'mascot' => 'required',
             'description' => 'required',
             'team_type' => 'required',
+            'wins_uca' => 'required',
+            'wins_nca' => 'required',
+            'wins_worlds' => 'required',
+            'wins_other' => 'required',
             'team_responsibilities' => 'required',
             'number_members' => 'required',
             'average_room' => 'required',
@@ -78,6 +82,10 @@ class TeamController extends Controller
           'number_members' => $request->number_members,
           'average_room' => $request->average_room,
           'skills' => $request->skills,
+            'wins_uca' => $request->wins_uca,
+            'wins_nca' => $request->wins_nca,
+            'wins_worlds' => $request->wins_worlds,
+            'wins_other' => $request->wins_other,
         ]);
         return back();
 
