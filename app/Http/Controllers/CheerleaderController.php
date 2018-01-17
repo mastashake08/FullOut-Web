@@ -207,35 +207,60 @@ class CheerleaderController extends Controller
 
     public function addVideo(Request $request){
         if($request->embed){
-            $str = explode("/", $request->embed);
+            $new_video = trim($request->embed);
+            $str = explode("/", $new_video);
             $emb = $str[count($str)-2];
+
             if($str[0] == 'https:'){
                 if($emb != 'embed'){
                     $youtube_code = str_replace('watch?v=', '', end($str)) ;
                     $embed = 'https://www.youtube.com/embed/'.$youtube_code;
                 }
                 else{
-                    $embed = $request->embed;
+                    $embed = $new_video;
                 }
+                $request->user()->videos()->create([
+                    'embed' => $embed
+                ]);
+            }elseif(end($str) == "iframe>"){
+                $emb = explode("\"", $new_video);
+                $embed = $emb[5];
                 $request->user()->videos()->create([
                     'embed' => $embed
                 ]);
             }
         }
-
-
         return back();
     }
 
     public function updateVideo(Request $request){
         if($request->new_video){
+            $new_video = trim($request->new_video);
             $video_id =  $request->video_id;
             $video =  Video::find($video_id);
-            if($video && $video->user_id == $request->user()->id){
 
-                $video->update([
-                    'embed' => $request->new_video
-                ]);
+            if($video && $video->user_id == auth()->user()->id){
+                $str = explode("/", $new_video);
+                $emb = $str[count($str)-2];
+                if($str[0] == 'https:'){
+
+                    if($emb != 'embed'){
+                        $youtube_code = str_replace('watch?v=', '', end($str)) ;
+                        $embed = 'https://www.youtube.com/embed/'.$youtube_code;
+                    }
+                    else{
+                        $embed = $new_video;
+                    }
+                    $video->update([
+                        'embed' => $embed
+                    ]);
+                }elseif(end($str) == "iframe>"){
+                    $emb = explode("\"", $new_video);
+                    $embed = $emb[5];
+                    $video->update([
+                        'embed' => $embed
+                    ]);
+                }
             }
         }
 
