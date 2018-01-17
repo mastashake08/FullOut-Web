@@ -49,8 +49,10 @@ class CheerleaderController extends Controller
      */
     public function show(Request $request,$id)
     {
+
         $skills = '';
         $cheerleader = \App\User::with(['skillSet','videos','awards','mainInformationStudent'])->findOrFail($id);
+
         if($request->expectsJson()){
           return $cheerleader;
         }
@@ -62,18 +64,19 @@ class CheerleaderController extends Controller
         if(auth()->user()->type === 'coach'){
           $with = [
               'skills' => $skills,
-              'cheerleader' => $cheerleader,
-              'teams' => $request->user()->school->teams
+              'coach' => $cheerleader,
+              'teams' => auth()->user()->school->teams
           ];
 
+            return view('coach.individual')->with($with);
         }
         else{
         $with = [
             'skills' => $skills,
             'cheerleader' => $cheerleader
         ];
+            return view('student.individual')->with($with);
       }
-        return view('student.individual')->with($with);
     }
 
     /**

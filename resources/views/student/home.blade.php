@@ -13,9 +13,9 @@
 
             <div id="main-info" class="panel-collapse collapse">
               <div class="panel-body">
-
                 <div class="form-group{{ $errors->has('profile_pic') ? ' has-error' : '' }}">
-                  <a href="{{url('/cheerleader/'.auth()->user()->id)}}">View Public Profile</a>
+
+                  <a href="{{url('/cheerleader/'.auth()->user()->id)}}" class="btn btn-primary ml-2 mb-2">View Public Profile</a>
 
                   <div class="col-md-12 mb-2">
                     <div class="input-group">
