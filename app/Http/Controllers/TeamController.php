@@ -30,7 +30,7 @@ class TeamController extends Controller
                 return Team::paginate(10);
             }
             else{
-                return view('team.favorite');
+                return view('team.all');
             }
         }
         else{

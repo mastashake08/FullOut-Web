@@ -76,13 +76,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/cheerleader/search-teams') }}">
-                                        <i class="fa fa-users" aria-hidden="true"></i>  Search Teams
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="{{ url('/cheerleader/teams') }}">
-                                      <i class="fa fa-users" aria-hidden="true"></i>  Teams
+                                      <i class="fa fa-users" aria-hidden="true"></i>  My Teams
                                     </a>
                                 </li>
                                 <li>
