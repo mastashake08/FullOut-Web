@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  {{--{{ dd( auth()->user()->mainInformationStudent) }}--}}
+{{--  {{ dd($skills['spring_floor_tumbling_skills']) }}--}}
   <div class="container">
     <div class="row">
       <form class="form" action="{{url('/cheerleader/update-profile-student')}}" method="post" enctype="multipart/form-data">
@@ -315,7 +315,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling</a></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling  </a><h4 class="d-inline-block"> {{ $spring_tumbling_percent }}%</h4></div>
             <div id="spring" class="panel-collapse collapse">
               <div class="panel-body">
                 Select the skills your team is looking for, and we will
@@ -577,7 +577,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling</a></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling  </a><h4 class="d-inline-block"> {{ $hard_tumbling_percent }}%</h4></div>
             <div id="hard" class="panel-collapse collapse">
               <div class="panel-body">
                 <form class="form" method="post" action="{{url('/cheerleader/skills/hard')}}" role="form">
@@ -828,7 +828,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting</a></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting  </a><h4 class="d-inline-block"> {{ $group_stunting_percent }}%</h4></div>
             <div id="group" class="panel-collapse collapse">
               <div class="panel-body ">
                 <form class="form" method="post" action="{{url('/cheerleader/skills/group')}}" role="form">
@@ -1201,7 +1201,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting</a></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting  </a><h4 class="d-inline-block"> {{ $coed_stunting_percent }}%</h4></div>
             <div id="coed" class="panel-collapse collapse">
               <div class="panel-body ">
                 <form class="form" method="post" action="{{url('/cheerleader/skills/coed')}}"role="form">

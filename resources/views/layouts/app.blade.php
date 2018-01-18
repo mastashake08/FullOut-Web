@@ -108,12 +108,12 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('coach/clinics') }}">
-                                        <i class="fa fa-check" aria-hidden="true"></i> Manage Clinics
+                                        <i class="fa fa-check" aria-hidden="true"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('coach/tryouts') }}">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i> Manage Try Outs
+                                        <i class="fa fa-calendar" aria-hidden="true"></i> Clinics and Try Outs
                                     </a>
                                 </li>
                                 <li>

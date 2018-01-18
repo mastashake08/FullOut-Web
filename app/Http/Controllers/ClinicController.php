@@ -56,7 +56,6 @@ class ClinicController extends Controller
             $with['calendar'] = $calendar;
         }
 
-
         return view('clinic.all')->with($with);
     }
 

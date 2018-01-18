@@ -120,7 +120,7 @@ class SkillController extends Controller
             'team_id' => $request->team_id,
             'user_id' => $user->id
         ];
-        if($user->skillSet){
+        if(count($user->skillSet)){
             $user->skillSet()->update($attr);
         }
         else{
@@ -165,7 +165,7 @@ class SkillController extends Controller
             'team_id' => $request->team_id,
             'user_id' => $user->id
         ];
-        if($user->skillSet){
+        if(count($user->skillSet)){
             $user->skillSet()->update($attr);
         }
         else{
@@ -199,7 +199,7 @@ class SkillController extends Controller
       $skills = json_encode($request->skills['group_stunting_skills']);
 
       $user = auth()->user();
-        if($user->skillSet){
+        if(count($user->skillSet)){
             $user->skillSet()->update([
                 'group_stunting_skills' => $skills,
                 'group_stunting_score' => $group_stunting_score,
@@ -245,7 +245,7 @@ class SkillController extends Controller
         $skills = json_encode($request->skills['coed_stunting_skills']);
 
       $user = auth()->user();
-        if( $user->skillSet){
+        if(count($user->skillSet)){
             $user->skillSet()->update([
                 'coed_stunting_skills' => $skills,
                 'coed_stunting_score' => $coed_stunting_score,
