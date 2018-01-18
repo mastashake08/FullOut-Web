@@ -48,9 +48,19 @@ class TeamSkillController extends Controller
     {
         //
         $team = \App\Team::findOrFail($id);
+        $skills = $team->skillSet;
+        $spring_tumbling_percent = ceil($skills['spring_tumbling_score'] * 100 / 43);
+        $hard_tumbling_percent = ceil($skills['hard_tumbling_score'] * 100 / 43);
+        $group_stunting_percent = ceil($skills['group_stunting_score'] * 100 / 61);
+        $coed_stunting_percent = ceil($skills['coed_stunting_score'] * 100 / 67);
         $with = [
           'team' => $team,
-          'skills' => $team->skillSet
+          'skills' => $skills,
+          'spring_tumbling_percent' => $spring_tumbling_percent,
+          'hard_tumbling_percent' => $hard_tumbling_percent,
+          'group_stunting_percent' =>  $group_stunting_percent,
+          'coed_stunting_percent' => $coed_stunting_percent
+
         ];
         return view('team.skills')->with($with);
     }
@@ -150,7 +160,7 @@ class TeamSkillController extends Controller
         foreach($skills['hard_floor_tumbling_skills'] as $k => $array){
             if (($key = array_search("All", $array)) !== false) {
                 unset($array[$key]);
-                $skills['hard_floor_tumbling'][$k] = $array;
+                $skills['hard_floor_tumbling_skills'][$k] = $array;
             }
         }
 
@@ -219,7 +229,7 @@ class TeamSkillController extends Controller
             $group_stunting_score += array_sum(array_map("count", $array));
         }
 
-        $skills = json_encode($request->skills['group_stunting_skills']);
+        $skills = json_encode($skills['group_stunting_skills']);
 
         $user = auth()->user();
         $exist = false;
@@ -270,7 +280,7 @@ class TeamSkillController extends Controller
             $coed_stunting_score += array_sum(array_map("count", $array));
         }
 
-        $skills = json_encode($request->skills['coed_stunting_skills']);
+        $skills = json_encode($skills['coed_stunting_skills']);
 
         $user = auth()->user();
         $exist = false;
