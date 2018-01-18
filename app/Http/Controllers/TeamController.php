@@ -69,7 +69,6 @@ class TeamController extends Controller
             'team_responsibilities' => 'required',
             'number_members' => 'required',
             'average_room' => 'required',
-            'skills' => 'required',
         ]);
         $team = $request->user()->school->teams()->create([
           'team_name' => $request->team_name,
@@ -81,7 +80,6 @@ class TeamController extends Controller
           'team_responsibilities' => $request->team_responsibilities,
           'number_members' => $request->number_members,
           'average_room' => $request->average_room,
-          'skills' => $request->skills,
             'wins_uca' => $request->wins_uca,
             'wins_nca' => $request->wins_nca,
             'wins_worlds' => $request->wins_worlds,

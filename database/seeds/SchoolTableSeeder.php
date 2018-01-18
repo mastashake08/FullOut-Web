@@ -74,7 +74,6 @@ class SchoolTableSeeder extends Seeder
           'team_responsibilities' => '111!',
           'number_members' => '111',
           'average_room' => '111!',
-          'skills' => '111!'
         ]);
 
         DB::table('users')->update([

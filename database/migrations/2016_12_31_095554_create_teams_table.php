@@ -30,7 +30,6 @@ class CreateTeamsTable extends Migration
             $table->string('team_responsibilities');
             $table->string('number_members');
             $table->string('average_room');
-            $table->string('skills');
             $table->timestamps();
         });
     }

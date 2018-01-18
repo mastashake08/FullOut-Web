@@ -205,17 +205,6 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <div class="input-group">
-                                <span class="input-group-addon">Skills</span>
-                                <input type="text" class="form-control" placeholder="" name="skills" required value="">
-                                @if ($errors->has('skills'))
-                                    <span class="help-block">
-                                         <strong>{{ $errors->first('skills') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                       {{--<div class="form-group">--}}
                           {{--<select class="form-control" id="coach_name" name="coach_name">--}}
