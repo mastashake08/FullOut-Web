@@ -28,14 +28,13 @@ class TryoutController extends Controller
         ];
 
         if ($user->can('create', Tryout::class)) {
-            $tryouts = $user->school->clinics()->paginate(10);
+            $tryouts = $user->school->tryouts()->paginate(10);
             $with['tryouts'] = $tryouts;
 
         } else {
             $data = $user->favorites()->pluck('team_id')->toArray();
             $tryouts = Tryout::whereIn('team_id', $data)->with('team')->paginate(10);
             $events = [];
-
             if ($tryouts->count()) {
                 foreach ($tryouts as $key => $value) {
                     $events[] = Calendar::event(

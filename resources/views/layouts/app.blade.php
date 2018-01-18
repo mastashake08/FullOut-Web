@@ -106,13 +106,9 @@
                                         <i class="fa fa-university" aria-hidden="true"></i> Manage School
                                     </a>
                                 </li>
+
                                 <li>
-                                    <a href="{{ url('coach/clinics') }}">
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('coach/tryouts') }}">
+                                    <a href="{{ url('coach/clinics-tryouts') }}">
                                         <i class="fa fa-calendar" aria-hidden="true"></i> Clinics and Try Outs
                                     </a>
                                 </li>

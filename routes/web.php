@@ -25,6 +25,7 @@ Route::resource('user','UserController');
 Route::group(['prefix' => 'coach'],function(){
   Auth::routes();
   Route::get('cheerleaders','UserController@index');
+  Route::get('clinics-tryouts','ClinicsTryoutsController@index');
   Route::resource('schools', 'SchoolController');
   Route::resource('clinics','ClinicController');
   Route::resource('tryouts','TryoutController');
