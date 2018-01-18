@@ -143,12 +143,12 @@ class CheerleaderController extends Controller
             'looking_for' => $request->looking_for,
             'description' => $request->description,
         ];
-        if(count(MainInformationCoach::where("user_id", $user->id)->get())){
+        if(count(MainInformationStudent::where("user_id", $user->id)->get())){
             $create = $user->mainInformationStudent()->update($data);
         }else{
             $create = MainInformationStudent::create($data);
         }
-
+//        dd($user->mainInformationStudent()->get());
         $user->email = $request->email;
         $user->name = $request->name;
 

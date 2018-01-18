@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $skills = '';
-        if(auth()->user()->skillSet && auth()->user()->type == 'student'){
+        if(count(auth()->user()->skillSet) && auth()->user()->type == 'student'){
             $skills = auth()->user()->skillSet;
             $skills = $skills->first()->toArray();
 

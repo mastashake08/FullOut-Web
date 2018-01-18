@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{--  {{ dd($skills['spring_floor_tumbling_skills']) }}--}}
+{{--  {{ dd($errors) }}--}}
   <div class="container">
     <div class="row">
       <form class="form" action="{{url('/cheerleader/update-profile-student')}}" method="post" enctype="multipart/form-data">
@@ -315,7 +315,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling  </a><h4 class="d-inline-block ml-2"> {{ $spring_tumbling_percent }}%</h4></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling  </a><h4 class="d-inline-block ml-2">@if (isset($spring_tumbling_percent)) {{ $spring_tumbling_percent }}@else 0 @endif %</h4></div>
             <div id="spring" class="panel-collapse collapse">
               <div class="panel-body">
                 Select the skills your team is looking for, and we will
@@ -423,7 +423,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling  </a><h4 class="d-inline-block ml-2"> {{ $hard_tumbling_percent }}%</h4></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling  </a><h4 class="d-inline-block ml-2">@if (isset($hard_tumbling_percent)) {{ $hard_tumbling_percent }}@else 0 @endif % </h4></div>
             <div id="hard" class="panel-collapse collapse">
               <div class="panel-body">
                 <form class="form" method="post" action="{{url('/cheerleader/skills/hard')}}" role="form">
@@ -524,7 +524,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting  </a><h4 class="d-inline-block ml-2"> {{ $group_stunting_percent }}%</h4></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting  </a><h4 class="d-inline-block ml-2"> @if (isset($group_stunting_percent)) {{ $group_stunting_percent }}@else 0 @endif %</h4></div>
             <div id="group" class="panel-collapse collapse">
               <div class="panel-body ">
                 <form class="form" method="post" action="{{url('/cheerleader/skills/group')}}" role="form">
@@ -678,7 +678,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting  </a><h4 class="d-inline-block ml-2"> {{ $coed_stunting_percent }}%</h4></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting  </a><h4 class="d-inline-block ml-2">@if (isset($coed_stunting_percent)) {{ $coed_stunting_percent }}@else 0 @endif %</h4></div>
             <div id="coed" class="panel-collapse collapse">
               <div class="panel-body ">
                 <form class="form" method="post" action="{{url('/cheerleader/skills/coed')}}"role="form">
