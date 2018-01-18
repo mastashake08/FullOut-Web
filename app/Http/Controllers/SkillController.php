@@ -90,7 +90,9 @@ class SkillController extends Controller
     public function springSkills(Request $request){
         $user = auth()->user();
         $skills = $request->skills;
-
+        if(!$skills['spring_floor_tumbling_skills']){
+            $skills['spring_floor_tumbling_skills'] = [];
+        }
         foreach($skills['spring_floor_tumbling_skills'] as $k => $array){
             if (($key = array_search("All", $array)) !== false) {
                 unset($array[$key]);
@@ -134,10 +136,13 @@ class SkillController extends Controller
     public function hardSkills(Request $request){
 
         $skills = $request->skills;
+        if(!$skills['hard_floor_tumbling_skills']){
+            $skills['hard_floor_tumbling_skills'] = [];
+        }
         foreach($skills['hard_floor_tumbling_skills'] as $k => $array){
             if (($key = array_search("All", $array)) !== false) {
                 unset($array[$key]);
-                $skills['hard_floor_tumbling'][$k] = $array;
+                $skills['hard_floor_tumbling_skills'][$k] = $array;
             }
         }
 
@@ -180,23 +185,25 @@ class SkillController extends Controller
     public function groupSkills(Request $request){
 
       $skills = $request->skills;
-
+        if(!$skills['group_stunting_skills']){
+            $skills['group_stunting_skills'] = [];
+        }
         foreach($skills['group_stunting_skills'] as $name => $big_array){
 
             foreach($big_array as $k => $array){
                 if (($key = array_search("All", $array)) !== false) {
                     unset($array[$key]);
                     $skills['group_stunting_skills'][$name][$k] = $array;
+//                    dd($skills['group_stunting_skills'][$name][$k]);
                 }
             }
         }
-
          $group_stunting_score = 0;
         foreach( $skills['group_stunting_skills'] as $key => $array){
             $group_stunting_score += array_sum(array_map("count", $array));
         }
 
-      $skills = json_encode($request->skills['group_stunting_skills']);
+      $skills = json_encode($skills['group_stunting_skills']);
 
       $user = auth()->user();
         if(count($user->skillSet)){
@@ -224,7 +231,9 @@ class SkillController extends Controller
 
     public function coedSkills(Request $request){
       $skills = $request->skills;
-
+        if(!$skills['coed_stunting_skills']){
+            $skills['coed_stunting_skills'] = [];
+        }
         foreach($skills['coed_stunting_skills'] as $name => $big_array){
 
             foreach($big_array as $k => $array){
@@ -242,7 +251,7 @@ class SkillController extends Controller
             $coed_stunting_score += array_sum(array_map("count", $array));
         }
 
-        $skills = json_encode($request->skills['coed_stunting_skills']);
+        $skills = json_encode($skills['coed_stunting_skills']);
 
       $user = auth()->user();
         if(count($user->skillSet)){

@@ -326,7 +326,7 @@
                 <form class="form" method="post" action="{{url('/cheerleader/skills/spring')}}" role="form">
                   {{csrf_field()}}
                     <fieldset class="mb-4">
-                      <legend>Basic Running</legend>
+                      <legend>Basic Running  <span class="color-r d-inline-block ml-2">@if (isset($skills['spring_floor_tumbling_skills']['basic_running'])){{ ceil(count($skills['spring_floor_tumbling_skills']['basic_running']) * 100 / 5) }}%@endif</span></legend>
                          <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[spring_floor_tumbling_skills][basic_running][]" id="skills_spring_floor_tumbling_basic_running" title="">
                            <option class="skills_spring_floor_tumbling_basic_running" value="round_off" @if (isset($skills['spring_floor_tumbling_skills']['basic_running']) && !empty($skills['spring_floor_tumbling_skills']['basic_running']) && in_array('round_off', $skills['spring_floor_tumbling_skills']['basic_running'])) selected="selected" @endif>Round Off</option>
                            <option class="skills_spring_floor_tumbling_basic_running" value="backhand_spring"  @if (isset($skills['spring_floor_tumbling_skills']['basic_running']) && !empty($skills['spring_floor_tumbling_skills']['basic_running']) && in_array('backhand_spring', $skills['spring_floor_tumbling_skills']['basic_running'])) selected="selected" @endif>Backhand Spring</option>
@@ -360,7 +360,7 @@
                       {{--</div>--}}
                     </fieldset>
                   <fieldset class="mb-4">
-                    <legend>Basic Standing</legend>
+                    <legend>Basic Standing  <span class="color-r d-inline-block ml-2">@if (isset($skills['spring_floor_tumbling_skills']['basic_standing'])){{ ceil(count($skills['spring_floor_tumbling_skills']['basic_standing']) * 100 / 3) }}%@endif</span></legend>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[spring_floor_tumbling_skills][basic_standing][]" id="skills_spring_floor_tumbling_basic_standing" title="">
                       <option value="bhs" @if (isset($skills['spring_floor_tumbling_skills']['basic_standing']) && !empty($skills['spring_floor_tumbling_skills']['basic_standing']) && in_array('bhs', $skills['spring_floor_tumbling_skills']['basic_standing'])) selected="selected" @endif>Basic BackHand Spring</option>
                       <option value="2_bhs"  @if (isset($skills['spring_floor_tumbling_skills']['basic_standing']) && !empty($skills['spring_floor_tumbling_skills']['basic_standing']) && in_array('2_bhs', $skills['spring_floor_tumbling_skills']['basic_standing'])) selected="selected" @endif>2 Basic BackHand Spring</option>
@@ -382,7 +382,7 @@
                       {{--</div>--}}
                   </fieldset>
                   <fieldset class="mb-4">
-                    <legend>Advanced Running</legend>
+                    <legend>Advanced Running  <span class="color-r d-inline-block ml-2">@if (isset($skills['spring_floor_tumbling_skills']['advanced_running'])){{ ceil(count($skills['spring_floor_tumbling_skills']['advanced_running']) * 100 / 6) }}%@endif</span></legend>
 
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[spring_floor_tumbling_skills][advanced_running][]" id="skills_spring_floor_tumbling_advanced_running" title="">
                       <option value="round_off_tuck" @if (isset($skills['spring_floor_tumbling_skills']['advanced_running']) && !empty($skills['spring_floor_tumbling_skills']['advanced_running']) && in_array('round_off_tuck', $skills['spring_floor_tumbling_skills']['advanced_running'])) selected="selected" @endif>Basic BackHand Spring</option>
@@ -417,7 +417,7 @@
                       {{--</div>--}}
                   </fieldset>
                   <fieldset class="mb-4">
-                    <legend>Advanced Standing</legend>
+                    <legend>Advanced Standing  <span class="color-r d-inline-block ml-2">@if (isset($skills['spring_floor_tumbling_skills']['advanced_standing'])){{ ceil(count($skills['spring_floor_tumbling_skills']['advanced_standing']) * 100 / 8) }}%@endif</span></legend>
 
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[spring_floor_tumbling_skills][advanced_standing][]" id="skills_spring_floor_tumbling_advanced_standing" title="">
                       <option value="3_bhs_tuck" @if (isset($skills['spring_floor_tumbling_skills']['advanced_standing']) && !empty($skills['spring_floor_tumbling_skills']['advanced_standing']) && in_array('3_bhs_tuck', $skills['spring_floor_tumbling_skills']['advanced_standing'])) selected="selected" @endif>3x Backhand Spring, Tuck</option>
@@ -460,7 +460,7 @@
                       {{--</div>--}}
                   </fieldset>
                   <fieldset class="mb-4">
-                    <legend>Elite Running</legend>
+                    <legend>Elite Running  <span class="color-r d-inline-block ml-2">@if (isset($skills['spring_floor_tumbling_skills']['elite_running'])){{ ceil(count($skills['spring_floor_tumbling_skills']['elite_running']) * 100 / 10) }}%@endif</span></legend>
 
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[spring_floor_tumbling_skills][elite_running][]" id="skills_spring_floor_tumbling_elite_running" title="">
                       <option value="round_off_bhs_half" @if (isset($skills['spring_floor_tumbling_skills']['elite_running']) && !empty($skills['spring_floor_tumbling_skills']['elite_running']) && in_array('round_off_bhs_half', $skills['spring_floor_tumbling_skills']['elite_running'])) selected="selected" @endif>Round Off, Backhand Spring, Half</option>
@@ -512,7 +512,7 @@
                     {{--</div>--}}
                   </fieldset>
                   <fieldset class="mb-4" >
-                    <legend>Elite Standing</legend>
+                    <legend>Elite Standing  <span class="color-r d-inline-block ml-2">@if (isset($skills['spring_floor_tumbling_skills']['elite_standing'])){{ ceil(count($skills['spring_floor_tumbling_skills']['elite_standing']) * 100 / 11) }}%@endif</span></legend>
 
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[spring_floor_tumbling_skills][elite_standing][]" id="skills_spring_floor_tumbling_elite_standing" title="">
                       <option value="3_bhs_full" @if (isset($skills['spring_floor_tumbling_skills']['elite_standing']) && !empty($skills['spring_floor_tumbling_skills']['elite_standing']) && in_array('3_bhs_full', $skills['spring_floor_tumbling_skills']['elite_standing'])) selected="selected" @endif>3 Backhand Spring, Full</option>
@@ -584,7 +584,8 @@
 
                   {{csrf_field()}}
                   <fieldset class="mb-4">
-                    <legend>Basic Running</legend>
+
+                    <legend>Basic Running <span class="color-r d-inline-block ml-2">@if (isset($skills['hard_floor_tumbling_skills']['basic_running'])){{ ceil(count($skills['hard_floor_tumbling_skills']['basic_running']) * 100 / 5) }}%@endif</span></legend>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[hard_floor_tumbling_skills][basic_running][]" id="skills_hard_floor_tumbling_basic_running" title="">
                       <option value="round_off" @if (isset($skills['hard_floor_tumbling_skills']['basic_running']) && !empty($skills['hard_floor_tumbling_skills']['basic_running']) && in_array('round_off', $skills['hard_floor_tumbling_skills']['basic_running'])) selected="selected" @endif>Round Off</option>
                       <option value="round_off_backhand_spring"  @if (isset($skills['hard_floor_tumbling_skills']['basic_running']) && !empty($skills['hard_floor_tumbling_skills']['basic_running']) && in_array('round_off_backhand_spring', $skills['hard_floor_tumbling_skills']['basic_running'])) selected="selected" @endif>Backhand Spring</option>
@@ -593,6 +594,7 @@
                       <option value="round_off_3_backhand_spring"  @if (isset($skills['hard_floor_tumbling_skills']['basic_running']) && !empty($skills['hard_floor_tumbling_skills']['basic_running']) && in_array('round_off_3_backhand_spring', $skills['hard_floor_tumbling_skills']['basic_running'])) selected="selected" @endif>Round Off, 3 Backhand Spring</option>
                       <option value="All">Mark All</option>
                     </select>
+
                     {{--<div class="form-group">--}}
                       {{--<div class="checkbox">--}}
                         {{--<label><input class="basic-running-hard" type="checkbox"  name="skills[hard_floor_tumbling][basic_running][round_off]" @if(isset(auth()->user()->skillSet->spring_floor_tumbling_skills['hard_floor_tumbling']['basic_running']['round_off']))checked @endif>Round Off</label>--}}
@@ -615,7 +617,7 @@
                     {{--</div>--}}
                   </fieldset>
                   <fieldset class="mb-4" >
-                    <legend>Basic Standing</legend>
+                    <legend>Basic Standing <span class="color-r d-inline-block ml-2">@if (isset($skills['hard_floor_tumbling_skills']['basic_standing'])){{ ceil(count($skills['hard_floor_tumbling_skills']['basic_standing']) * 100 / 3) }}%@endif</span></legend>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[hard_floor_tumbling_skills][basic_standing][]" id="skills_hard_floor_tumbling_basic_standing" title="">
                       <option value="bhs" @if (isset($skills['hard_floor_tumbling_skills']['basic_standing']) && !empty($skills['hard_floor_tumbling_skills']['basic_standing']) && in_array('bhs', $skills['hard_floor_tumbling_skills']['basic_standing'])) selected="selected" @endif>Basic BackHand Spring</option>
                       <option value="2_bhs"  @if (isset($skills['hard_floor_tumbling_skills']['basic_standing']) && !empty($skills['hard_floor_tumbling_skills']['basic_standing']) && in_array('2_bhs', $skills['hard_floor_tumbling_skills']['basic_standing'])) selected="selected" @endif>2 Basic BackHand Spring</option>
@@ -637,7 +639,7 @@
                       {{--</div>--}}
                   </fieldset>
                   <fieldset class="mb-4">
-                    <legend>Advanced Running</legend>
+                    <legend>Advanced Running <span class="color-r d-inline-block ml-2">@if (isset($skills['hard_floor_tumbling_skills']['advanced_running'])){{ ceil(count($skills['hard_floor_tumbling_skills']['advanced_running']) * 100 / 6) }}%@endif</span></legend>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[hard_floor_tumbling_skills][advanced_running][]" id="skills_hard_floor_tumbling_advanced_running" title="">
                       <option value="round_off_tuck" @if (isset($skills['hard_floor_tumbling_skills']['advanced_running']) && !empty($skills['hard_floor_tumbling_skills']['advanced_running']) && in_array('round_off_tuck', $skills['hard_floor_tumbling_skills']['advanced_running'])) selected="selected" @endif>Basic BackHand Spring</option>
                       <option value="round_off_bhs_tuck"  @if (isset($skills['hard_floor_tumbling_skills']['advanced_running']) && !empty($skills['hard_floor_tumbling_skills']['advanced_running']) && in_array('round_off_bhs_tuck', $skills['hard_floor_tumbling_skills']['advanced_running'])) selected="selected" @endif>2 Basic BackHand Spring</option>
@@ -671,7 +673,7 @@
                       {{--</div>--}}
                   </fieldset>
                   <fieldset class="mb-4" >
-                    <legend>Advanced Standing</legend>
+                    <legend>Advanced Standing <span class="color-r d-inline-block ml-2">@if (isset($skills['hard_floor_tumbling_skills']['advanced_standing'])){{ ceil(count($skills['hard_floor_tumbling_skills']['advanced_standing']) * 100 / 8) }}%@endif</span></legend>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[hard_floor_tumbling_skills][advanced_standing][]" id="skills_hard_floor_tumbling_advanced_standing" title="">
                       <option value="3_bhs_tuck" @if (isset($skills['hard_floor_tumbling_skills']['advanced_standing']) && !empty($skills['hard_floor_tumbling_skills']['advanced_standing']) && in_array('3_bhs_tuck', $skills['hard_floor_tumbling_skills']['advanced_standing'])) selected="selected" @endif>3x Backhand Spring, Tuck</option>
                       <option value="2_bhs_tuck"  @if (isset($skills['hard_floor_tumbling_skills']['advanced_standing']) && !empty($skills['hard_floor_tumbling_skills']['advanced_standing']) && in_array('2_bhs_tuck', $skills['hard_floor_tumbling_skills']['advanced_standing'])) selected="selected" @endif>2x Backhand Spring, Tuck</option>
@@ -713,7 +715,7 @@
                       {{--</div>--}}
                   </fieldset>
                   <fieldset class="mb-4" >
-                    <legend>Elite Running</legend>
+                    <legend>Elite Running <span class="color-r d-inline-block ml-2">@if (isset($skills['hard_floor_tumbling_skills']['elite_running'])){{ ceil(count($skills['hard_floor_tumbling_skills']['elite_running']) * 100 / 10) }}%@endif</span></legend>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[hard_floor_tumbling_skills][elite_running][]" id="skills_hard_floor_tumbling_elite_running" title="">
                       <option value="round_off_bhs_half" @if (isset($skills['hard_floor_tumbling_skills']['elite_running']) && !empty($skills['hard_floor_tumbling_skills']['elite_running']) && in_array('round_off_bhs_half', $skills['hard_floor_tumbling_skills']['elite_running'])) selected="selected" @endif>Round Off, Backhand Spring, Half</option>
                       <option value="round_off_bhs_full"  @if (isset($skills['hard_floor_tumbling_skills']['elite_running']) && !empty($skills['hard_floor_tumbling_skills']['elite_running']) && in_array('round_off_bhs_full', $skills['hard_floor_tumbling_skills']['elite_running'])) selected="selected" @endif>Round Off, Backhand Spring, Full</option>
@@ -764,7 +766,7 @@
                     {{--</div>--}}
                   </fieldset>
                   <fieldset class="mb-4" >
-                    <legend>Elite Standing</legend>
+                    <legend>Elite Standing <span class="color-r d-inline-block ml-2">@if (isset($skills['hard_floor_tumbling_skills']['elite_standing'])){{ ceil(count($skills['hard_floor_tumbling_skills']['elite_standing']) * 100 / 11) }}%@endif</span></legend>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[hard_floor_tumbling_skills][elite_standing][]" id="skills_hard_floor_tumbling_elite_standing" title="">
                       <option value="3_bhs_full" @if (isset($skills['hard_floor_tumbling_skills']['elite_standing']) && !empty($skills['hard_floor_tumbling_skills']['elite_standing']) && in_array('3_bhs_full', $skills['hard_floor_tumbling_skills']['elite_standing'])) selected="selected" @endif>3 Backhand Spring, Full</option>
                       <option value="2_bhs_full"  @if (isset($skills['hard_floor_tumbling_skills']['elite_standing']) && !empty($skills['hard_floor_tumbling_skills']['elite_standing']) && in_array('2_bhs_full', $skills['hard_floor_tumbling_skills']['elite_standing'])) selected="selected" @endif>2 Backhand Spring, Full</option>
@@ -836,8 +838,8 @@
 
                   <fieldset>
                     <legend>Basic</legend>
-
-                    <h2>Group Stunting</h2>
+{{--                    {{ dd($skills['group_stunting_skills']['basic']['group_stunting']) }}--}}
+                    <h2>Group Stunting <span class="color-r d-inline-block ml-2"> @if (isset($skills['group_stunting_skills']['basic']['group_stunting'])){{ ceil(count($skills['group_stunting_skills']['basic']['group_stunting']) * 100 / 5) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][basic][group_stunting][]" id="skills_group_stunting_basic_group_stunting" title="">
                       <option value="show_and_go" @if (isset($skills['group_stunting_skills']['basic']['group_stunting']) && !empty($skills['group_stunting_skills']['basic']['group_stunting']) && in_array('show_and_go', $skills['group_stunting_skills']['basic']['group_stunting'])) selected="selected" @endif>Show and Go</option>
                       <option value="extension"  @if (isset($skills['group_stunting_skills']['basic']['group_stunting']) && !empty($skills['group_stunting_skills']['basic']['group_stunting']) && in_array('extension', $skills['group_stunting_skills']['basic']['group_stunting'])) selected="selected" @endif>Extension</option>
@@ -865,7 +867,7 @@
                        {{--<label><input  onclick="checkAll(this,'basic-group-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Stationary Group Stunting</h2>
+                    <h2>Stationary Group Stunting <span class="color-r d-inline-block ml-2"> @if (isset($skills['group_stunting_skills']['basic']['stationary_group_stunting'])){{ ceil(count($skills['group_stunting_skills']['basic']['stationary_group_stunting']) * 100 / 2) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][basic][stationary_group_stunting][]" id="skills_group_stunting_basic_stationary_group_stuntung" title="">
                       <option value="prep_level_half_twist_up" @if (isset($skills['group_stunting_skills']['basic']['stationary_group_stunting']) && !empty($skills['group_stunting_skills']['basic']['stationary_group_stunting']) && in_array('prep_level_half_twist_up', $skills['group_stunting_skills']['basic']['stationary_group_stunting'])) selected="selected" @endif>Prep Level 1/2 Twist Up</option>
                       <option value="extended_level_half_twist_up"  @if (isset($skills['group_stunting_skills']['basic']['stationary_group_stunting']) && !empty($skills['group_stunting_skills']['basic']['stationary_group_stunting']) && in_array('extended_level_half_twist_up', $skills['group_stunting_skills']['basic']['stationary_group_stunting'])) selected="selected" @endif>Extended Level 1/2 Twist Up</option>
@@ -885,7 +887,7 @@
                   <fieldset class="mt-5">
                     <legend>Advanced</legend>
 
-                    <h2>Prep Level</h2>
+                    <h2>Prep Level <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['advance']['prep_level'])){{ ceil(count($skills['group_stunting_skills']['advance']['prep_level']) * 100 / 5) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][advance][prep_level][]" id="skills_group_stunting_advance_prep_level" title="">
                       <option value="switch_up" @if (isset($skills['group_stunting_skills']['advance']['prep_level']) && !empty($skills['group_stunting_skills']['advance']['prep_level']) && in_array('switch_up', $skills['group_stunting_skills']['advance']['prep_level'])) selected="selected" @endif>Switch Up</option>
                       <option value="full_up"  @if (isset($skills['group_stunting_skills']['advance']['prep_level']) && !empty($skills['group_stunting_skills']['advance']['prep_level']) && in_array('full_up', $skills['group_stunting_skills']['advance']['prep_level'])) selected="selected" @endif>Full Up (Semi Releasing)</option>
@@ -913,7 +915,7 @@
                       {{--<label><input onclick="checkAll(this,'advance-prep-group-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Extended Level</h2>
+                    <h2>Extended Level <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['advance']['extended'])){{ ceil(count($skills['group_stunting_skills']['advance']['extended']) * 100 / 5) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][advance][extended][]" id="skills_group_stunting_advance_extended" title="">
                       <option value="switch_up" @if (isset($skills['group_stunting_skills']['advance']['extended']) && !empty($skills['group_stunting_skills']['advance']['extended']) && in_array('switch_up', $skills['group_stunting_skills']['advance']['extended'])) selected="selected" @endif>Switch Up</option>
                       <option value="full_up"  @if (isset($skills['group_stunting_skills']['advance']['extended']) && !empty($skills['group_stunting_skills']['advance']['extended']) && in_array('full_up', $skills['group_stunting_skills']['advance']['extended'])) selected="selected" @endif>Full Up (Semi Releasing)</option>
@@ -943,7 +945,7 @@
                     {{--</div>--}}
 
 
-                    <h2>Full Down Dismount</h2>
+                    <h2>Full Down Dismount <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['advance']['full_down_dismount'])){{ ceil(count($skills['group_stunting_skills']['advance']['full_down_dismount']) * 100 / 6) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][advance][full_down_dismount][]" id="skills_group_stunting_advance_full_down_dismount" title="">
                       <option value="prep" @if (isset($skills['group_stunting_skills']['advance']['full_down_dismount']) && !empty($skills['group_stunting_skills']['advance']['full_down_dismount']) && in_array('prep', $skills['group_stunting_skills']['advance']['full_down_dismount'])) selected="selected" @endif>Prep</option>
                       <option value="extension"  @if (isset($skills['group_stunting_skills']['advance']['full_down_dismount']) && !empty($skills['group_stunting_skills']['advance']['full_down_dismount']) && in_array('extension', $skills['group_stunting_skills']['advance']['full_down_dismount'])) selected="selected" @endif>Extension</option>
@@ -973,7 +975,7 @@
                     {{--</div>--}}
 
 
-                    <h2>Double Down Dismount</h2>
+                    <h2>Double Down Dismount <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['advance']['double_down_dismount'])){{ ceil(count($skills['group_stunting_skills']['advance']['double_down_dismount']) * 100 / 6) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][advance][double_down_dismount][]" id="skills_group_stunting_advance_double_down_dismount" title="">
                       <option value="prep" @if (isset($skills['group_stunting_skills']['advance']['double_down_dismount']) && !empty($skills['group_stunting_skills']['advance']['double_down_dismount']) && in_array('prep', $skills['group_stunting_skills']['advance']['double_down_dismount'])) selected="selected" @endif>Prep</option>
                       <option value="extension"  @if (isset($skills['group_stunting_skills']['advance']['double_down_dismount']) && !empty($skills['group_stunting_skills']['advance']['double_down_dismount']) && in_array('extension', $skills['group_stunting_skills']['advance']['double_down_dismount'])) selected="selected" @endif>Extension</option>
@@ -1004,7 +1006,7 @@
                     {{--</div>--}}
 
 
-                    <h2>Other Dismount</h2>
+                    <h2>Other Dismount <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['advance']['other_dismount'])){{ ceil(count($skills['group_stunting_skills']['advance']['other_dismount']) * 100 / 5) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][advance][other_dismount][]" id="skills_group_stunting_advance_other_dismount" title="">
                       <option value="switch_up" @if (isset($skills['group_stunting_skills']['advance']['other_dismount']) && !empty($skills['group_stunting_skills']['advance']['other_dismount']) && in_array('switch_up', $skills['group_stunting_skills']['advance']['other_dismount'])) selected="selected" @endif>Switch Up</option>
                       <option value="full_up"  @if (isset($skills['group_stunting_skills']['advance']['other_dismount']) && !empty($skills['group_stunting_skills']['advance']['other_dismount']) && in_array('full_up', $skills['group_stunting_skills']['advance']['other_dismount'])) selected="selected" @endif>Full Up (Semi Releasing)</option>
@@ -1035,7 +1037,7 @@
                   </fieldset>
                   <fieldset class="mt-5">
                     <legend>Elite</legend>
-                    <h2>2 Based Stunts</h2>
+                    <h2>2 Based Stunts <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['elite']['2_based_stunts'])){{ ceil(count($skills['group_stunting_skills']['elite']['2_based_stunts']) * 100 / 7) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][elite][2_based_stunts][]" id="skills_group_stunting_elite_2_based_stunts" title="">
                       <option value="prep" @if (isset($skills['group_stunting_skills']['elite']['2_based_stunts']) && !empty($skills['group_stunting_skills']['elite']['2_based_stunts']) && in_array('prep', $skills['group_stunting_skills']['elite']['2_based_stunts'])) selected="selected" @endif>Prep</option>
                       <option value="extension"  @if (isset($skills['group_stunting_skills']['elite']['2_based_stunts']) && !empty($skills['group_stunting_skills']['elite']['2_based_stunts']) && in_array('extension', $skills['group_stunting_skills']['elite']['2_based_stunts'])) selected="selected" @endif>Extension</option>
@@ -1071,7 +1073,7 @@
                     {{--<div class="checkbox">--}}
                       {{--<label><input onclick="checkAll(this,'elite-2-based-stunts-group-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
-                    <h2>Flipping Group Stunting</h2>
+                    <h2>Flipping Group Stunting <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['elite']['flipping_group_stunting'])){{ ceil(count($skills['group_stunting_skills']['elite']['flipping_group_stunting']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][elite][flipping_group_stunting][]" id="skills_group_stunting_elite_flipping_group_stunting" title="">
                       <option value="rewind" @if (isset($skills['group_stunting_skills']['elite']['flipping_group_stunting']) && !empty($skills['group_stunting_skills']['elite']['flipping_group_stunting']) && in_array('rewind', $skills['group_stunting_skills']['elite']['flipping_group_stunting'])) selected="selected" @endif>Rewind</option>
                       <option value="platform"  @if (isset($skills['group_stunting_skills']['elite']['flipping_group_stunting']) && !empty($skills['group_stunting_skills']['elite']['flipping_group_stunting']) && in_array('platform', $skills['group_stunting_skills']['elite']['flipping_group_stunting'])) selected="selected" @endif>Platform</option>
@@ -1096,7 +1098,7 @@
                       {{--<label><input onclick="checkAll(this,'elite-flipping-stunts-group-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Front Hand Spring Up</h2>
+                    <h2>Front Hand Spring Up <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['elite']['front_hand_spring_up'])){{ ceil(count($skills['group_stunting_skills']['elite']['front_hand_spring_up']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][elite][front_hand_spring_up][]" id="skills_group_stunting_elite_front_hand_spring_up" title="">
                       <option value="platform" @if (isset($skills['group_stunting_skills']['elite']['front_hand_spring_up']) && !empty($skills['group_stunting_skills']['elite']['front_hand_spring_up']) && in_array('platform', $skills['group_stunting_skills']['elite']['front_hand_spring_up'])) selected="selected" @endif>Platform</option>
                       <option value="liberty"  @if (isset($skills['group_stunting_skills']['elite']['front_hand_spring_up']) && !empty($skills['group_stunting_skills']['elite']['front_hand_spring_up']) && in_array('liberty', $skills['group_stunting_skills']['elite']['front_hand_spring_up'])) selected="selected" @endif>Liberty</option>
@@ -1119,7 +1121,7 @@
                     {{--<div class="checkbox">--}}
                       {{--<label><input onclick="checkAll('elite-front-hand-spring-up-group-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
-                    <h2>Back Hand Spring Up</h2>
+                    <h2>Back Hand Spring Up <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['elite']['back_hand_spring_up'])){{ ceil(count($skills['group_stunting_skills']['elite']['back_hand_spring_up']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][elite][back_hand_spring_up][]" id="skills_group_stunting_elite_back_hand_spring_up" title="">
                       <option value="platform" @if (isset($skills['group_stunting_skills']['elite']['back_hand_spring_up']) && !empty($skills['group_stunting_skills']['elite']['back_hand_spring_up']) && in_array('platform', $skills['group_stunting_skills']['elite']['back_hand_spring_up'])) selected="selected" @endif>Platform</option>
                       <option value="liberty"  @if (isset($skills['group_stunting_skills']['elite']['back_hand_spring_up']) && !empty($skills['group_stunting_skills']['elite']['back_hand_spring_up']) && in_array('liberty', $skills['group_stunting_skills']['elite']['back_hand_spring_up'])) selected="selected" @endif>Liberty</option>
@@ -1143,7 +1145,7 @@
                       {{--<label><input onclick="checkAll(this,'elite-back-hand-spring-up-group-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Hand in Hand</h2>
+                    <h2>Hand in Hand <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['elite']['hand_in_hand'])){{ ceil(count($skills['group_stunting_skills']['elite']['hand_in_hand']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][elite][hand_in_hand][]" id="skills_group_stunting_elite_hand_in_hand" title="">
                       <option value="platform" @if (isset($skills['group_stunting_skills']['elite']['hand_in_hand']) && !empty($skills['group_stunting_skills']['elite']['hand_in_hand']) && in_array('platform', $skills['group_stunting_skills']['elite']['hand_in_hand'])) selected="selected" @endif>Platform</option>
                       <option value="liberty"  @if (isset($skills['group_stunting_skills']['elite']['hand_in_hand']) && !empty($skills['group_stunting_skills']['elite']['hand_in_hand']) && in_array('liberty', $skills['group_stunting_skills']['elite']['hand_in_hand'])) selected="selected" @endif>Liberty</option>
@@ -1167,7 +1169,7 @@
                       {{--<label><input onClick="checkAll(this,'elite-hand-in-hand-group-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Extended Hand in Hand</h2>
+                    <h2>Extended Hand in Hand <span class="color-r d-inline-block ml-2">@if (isset($skills['group_stunting_skills']['elite']['extended_hand_in_hand'])){{ ceil(count($skills['group_stunting_skills']['elite']['extended_hand_in_hand']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[group_stunting_skills][elite][extended_hand_in_hand][]" id="skills_group_stunting_elite_extended_hand_in_hand" title="">
                       <option value="platform" @if (isset($skills['group_stunting_skills']['elite']['extended_hand_in_hand']) && !empty($skills['group_stunting_skills']['elite']['extended_hand_in_hand']) && in_array('platform', $skills['group_stunting_skills']['elite']['extended_hand_in_hand'])) selected="selected" @endif>Platform</option>
                       <option value="liberty"  @if (isset($skills['group_stunting_skills']['elite']['extended_hand_in_hand']) && !empty($skills['group_stunting_skills']['elite']['extended_hand_in_hand']) && in_array('liberty', $skills['group_stunting_skills']['elite']['extended_hand_in_hand'])) selected="selected" @endif>Liberty</option>
@@ -1209,7 +1211,7 @@
 
                   <fieldset>
                     <legend>Basic</legend>
-                    <h2>Walk-in</h2>
+                    <h2>Walk-in <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['basic']['walk_in'])){{ ceil(count($skills['coed_stunting_skills']['basic']['walk_in']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][basic][walk_in][]" id="skills_coed_stunting_basic_walk_in" title="">
                       <option value="hands" @if (isset($skills['coed_stunting_skills']['basic']['walk_in']) && !empty($skills['coed_stunting_skills']['basic']['walk_in']) && in_array('hands', $skills['coed_stunting_skills']['basic']['walk_in'])) selected="selected" @endif>Hands</option>
                       <option value="extension" @if (isset($skills['coed_stunting_skills']['basic']['walk_in']) && !empty($skills['coed_stunting_skills']['basic']['walk_in']) && in_array('extension', $skills['coed_stunting_skills']['basic']['walk_in'])) selected="selected" @endif>Extension</option>
@@ -1233,7 +1235,7 @@
                       {{--<label><input onclick="(this,'basic-walk-in-coed-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Toss</h2>
+                    <h2>Toss <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['basic']['toss'])){{ ceil(count($skills['coed_stunting_skills']['basic']['toss']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][basic][toss][]" id="skills_coed_stunting_basic_toss" title="">
                       <option value="hands" @if (isset($skills['coed_stunting_skills']['basic']['toss']) && !empty($skills['coed_stunting_skills']['basic']['toss']) && in_array('hands', $skills['coed_stunting_skills']['basic']['toss'])) selected="selected" @endif>Hands</option>
                       <option value="extension"  @if (isset($skills['coed_stunting_skills']['basic']['toss']) && !empty($skills['coed_stunting_skills']['basic']['toss']) && in_array('extension', $skills['coed_stunting_skills']['basic']['toss'])) selected="selected" @endif>Extension</option>
@@ -1256,7 +1258,7 @@
                     {{--<div class="checkbox">--}}
                       {{--<label><input onclick="(this,'basic-toss-coed-stunting')" type="checkbox">Mark Alldiv></label>--}}
                   {{--</--}}
-                    <h2>From Hands</h2>
+                    <h2>From Hands <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['basic']['from_hands'])){{ ceil(count($skills['coed_stunting_skills']['basic']['from_hands']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][basic][from_hands][]" id="skills_coed_stunting_basic_from_hands" title="">
                       <option value="hands" @if (isset($skills['coed_stunting_skills']['basic']['from_hands']) && !empty($skills['coed_stunting_skills']['basic']['from_hands']) && in_array('hands', $skills['coed_stunting_skills']['basic']['from_hands'])) selected="selected" @endif>Hands</option>
                       <option value="extension"  @if (isset($skills['coed_stunting_skills']['basic']['from_hands']) && !empty($skills['coed_stunting_skills']['basic']['from_hands']) && in_array('extension', $skills['coed_stunting_skills']['basic']['from_hands'])) selected="selected" @endif>Extension</option>
@@ -1283,7 +1285,7 @@
                   <fieldset>
 
                     <legend>Advanced</legend>
-                    <h2>One Arm</h2>
+                    <h2>One Arm <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['advanced']['one_arm'])){{ ceil(count($skills['coed_stunting_skills']['advanced']['one_arm']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][advanced][one_arm][]" id="skills_coed_stunting_advanced_one_arm" title="">
                       <option value="hands" @if (isset($skills['coed_stunting_skills']['advanced']['one_arm']) && !empty($skills['coed_stunting_skills']['advanced']['one_arm']) && in_array('hands', $skills['coed_stunting_skills']['advanced']['one_arm'])) selected="selected" @endif>Hands</option>
                       <option value="extension"  @if (isset($skills['coed_stunting_skills']['advanced']['one_arm']) && !empty($skills['coed_stunting_skills']['advanced']['one_arm']) && in_array('extension', $skills['coed_stunting_skills']['advanced']['one_arm'])) selected="selected" @endif>Extension</option>
@@ -1307,7 +1309,7 @@
                       {{--<label><input onclick="checkAll(this,'advanced-one-arm-coed-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Full Up</h2>
+                    <h2>Full Up <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['advanced']['full_up'])){{ ceil(count($skills['coed_stunting_skills']['advanced']['full_up']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][advanced][full_up][]" id="skills_coed_stunting_advanced_full_up" title="">
                       <option value="hands" @if (isset($skills['coed_stunting_skills']['advanced']['full_up']) && !empty($skills['coed_stunting_skills']['advanced']['full_up']) && in_array('hands', $skills['coed_stunting_skills']['advanced']['full_up'])) selected="selected" @endif>Hands</option>
                       <option value="extension"  @if (isset($skills['coed_stunting_skills']['advanced']['full_up']) && !empty($skills['coed_stunting_skills']['advanced']['full_up']) && in_array('extension', $skills['coed_stunting_skills']['advanced']['full_up'])) selected="selected" @endif>Extension</option>
@@ -1334,7 +1336,7 @@
                   <fieldset>
                     <legend>Dismounts</legend>
 
-                    <h2>Full Down</h2>
+                    <h2>Full Down <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['dismounts']['full_down'])){{ ceil(count($skills['coed_stunting_skills']['dismounts']['full_down']) * 100 / 6) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][dismounts][full_down][]" id="skills_coed_stunting_dismounts_full_down" title="">
                       <option value="prep" @if (isset($skills['coed_stunting_skills']['dismounts']['full_down']) && !empty($skills['coed_stunting_skills']['dismounts']['full_down']) && in_array('prep', $skills['coed_stunting_skills']['dismounts']['full_down'])) selected="selected" @endif>Prep</option>
                       <option value="extension"  @if (isset($skills['coed_stunting_skills']['dismounts']['full_down']) && !empty($skills['coed_stunting_skills']['dismounts']['full_down']) && in_array('extension', $skills['coed_stunting_skills']['dismounts']['full_down'])) selected="selected" @endif>Extension</option>
@@ -1366,7 +1368,7 @@
                       {{--<label><input onclick="checkAll(this,'dismounts-full-down-coed-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Double Down</h2>
+                    <h2>Double Down <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['dismounts']['double_down'])){{ ceil(count($skills['coed_stunting_skills']['dismounts']['double_down']) * 100 / 6) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][dismounts][double_down][]" id="skills_coed_stunting_dismounts_double_down" title="">
                       <option value="prep" @if (isset($skills['coed_stunting_skills']['dismounts']['double_down']) && !empty($skills['coed_stunting_skills']['dismounts']['double_down']) && in_array('prep', $skills['coed_stunting_skills']['dismounts']['double_down'])) selected="selected" @endif>Prep</option>
                       <option value="extension"  @if (isset($skills['coed_stunting_skills']['dismounts']['double_down']) && !empty($skills['coed_stunting_skills']['dismounts']['double_down']) && in_array('extension', $skills['coed_stunting_skills']['dismounts']['double_down'])) selected="selected" @endif>Extension</option>
@@ -1398,7 +1400,7 @@
                       {{--<label><input onclick="checkAll(this,'dismounts-double-down-coed-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Other</h2>
+                    <h2>Other <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['dismounts']['other'])){{ ceil(count($skills['coed_stunting_skills']['dismounts']['other']) * 100 / 5) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][dismounts][other][]" id="skills_coed_stunting_dismounts_other" title="">
                       <option value="low_to_high_tic_toc" @if (isset($skills['coed_stunting_skills']['dismounts']['other']) && !empty($skills['coed_stunting_skills']['dismounts']['other']) && in_array('low_to_high_tic_toc', $skills['coed_stunting_skills']['dismounts']['other'])) selected="selected" @endif>Low to High Tic Toc</option>
                       <option value="high_to_high_tic_toc"  @if (isset($skills['coed_stunting_skills']['dismounts']['other']) && !empty($skills['coed_stunting_skills']['dismounts']['other']) && in_array('high_to_high_tic_toc', $skills['coed_stunting_skills']['dismounts']['other'])) selected="selected" @endif>High to High Tic Toc</option>
@@ -1428,7 +1430,7 @@
                   </fieldset>
                   <fieldset>
                     <legend>Elite</legend>
-                    <h2>Flipping Coed Stunting</h2>
+                    <h2>Flipping Coed Stunting <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['elite']['flipping_coed_stunting'])){{ ceil(count($skills['coed_stunting_skills']['elite']['flipping_coed_stunting']) * 100 / 6) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][elite][flipping_coed_stunting][]" id="skills_coed_stunting_elite_flipping_coed_stunting" title="">
                       <option value="rewind" @if (isset($skills['coed_stunting_skills']['elite']['flipping_coed_stunting']) && !empty($skills['coed_stunting_skills']['elite']['flipping_coed_stunting']) && in_array('rewind', $skills['coed_stunting_skills']['elite']['flipping_coed_stunting'])) selected="selected" @endif>Rewind</option>
                       <option value="platform"  @if (isset($skills['coed_stunting_skills']['elite']['flipping_coed_stunting']) && !empty($skills['coed_stunting_skills']['elite']['flipping_coed_stunting']) && in_array('platform', $skills['coed_stunting_skills']['elite']['flipping_coed_stunting'])) selected="selected" @endif>Platform</option>
@@ -1460,7 +1462,7 @@
                       {{--<label><input onClick="checkAll(this,'elite-flipping-coed-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Front Hand Spring Up</h2>
+                    <h2>Front Hand Spring Up <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['elite']['front_hand_spring_up'])){{ ceil(count($skills['coed_stunting_skills']['elite']['front_hand_spring_up']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][elite][front_hand_spring_up][]" id="skills_coed_stunting_elite_front_hand_spring_up" title="">
                       <option value="platform"  @if (isset($skills['coed_stunting_skills']['elite']['front_hand_spring_up']) && !empty($skills['coed_stunting_skills']['elite']['front_hand_spring_up']) && in_array('platform', $skills['coed_stunting_skills']['elite']['front_hand_spring_up'])) selected="selected" @endif>Platform</option>
                       <option value="liberty"  @if (isset($skills['coed_stunting_skills']['elite']['front_hand_spring_up']) && !empty($skills['coed_stunting_skills']['elite']['front_hand_spring_up']) && in_array('liberty', $skills['coed_stunting_skills']['elite']['front_hand_spring_up'])) selected="selected" @endif>Liberty</option>
@@ -1484,7 +1486,7 @@
                       {{--<label><input onclick="checkAll(this,'elite-front-hand-spring-up-coed-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Back Hand Spring Up</h2>
+                    <h2>Back Hand Spring Up <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['elite']['back_hand_spring_up'])){{ ceil(count($skills['coed_stunting_skills']['elite']['back_hand_spring_up']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][elite][back_hand_spring_up][]" id="skills_coed_stunting_elite_back_hand_spring_up" title="">
                       <option value="platform"  @if (isset($skills['coed_stunting_skills']['elite']['back_hand_spring_up']) && !empty($skills['coed_stunting_skills']['elite']['back_hand_spring_up']) && in_array('platform', $skills['coed_stunting_skills']['elite']['back_hand_spring_up'])) selected="selected" @endif>Platform</option>
                       <option value="liberty"  @if (isset($skills['coed_stunting_skills']['elite']['back_hand_spring_up']) && !empty($skills['coed_stunting_skills']['elite']['back_hand_spring_up']) && in_array('liberty', $skills['coed_stunting_skills']['elite']['back_hand_spring_up'])) selected="selected" @endif>Liberty</option>
@@ -1508,7 +1510,7 @@
                       {{--<label><input onclick="checkAll(this,'elite-back-hand-spring-up-coed-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Hand in Hand</h2>
+                    <h2>Hand in Hand <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['elite']['hand_in_hand'])){{ ceil(count($skills['coed_stunting_skills']['elite']['hand_in_hand']) * 100 / 4) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][elite][hand_in_hand][]" id="skills_coed_stunting_elite_hand_in_hand" title="">
                       <option value="platform"  @if (isset($skills['coed_stunting_skills']['elite']['hand_in_hand']) && !empty($skills['coed_stunting_skills']['elite']['hand_in_hand']) && in_array('platform', $skills['coed_stunting_skills']['elite']['hand_in_hand'])) selected="selected" @endif>Platform</option>
                       <option value="liberty"  @if (isset($skills['coed_stunting_skills']['elite']['hand_in_hand']) && !empty($skills['coed_stunting_skills']['elite']['hand_in_hand']) && in_array('liberty', $skills['coed_stunting_skills']['elite']['hand_in_hand'])) selected="selected" @endif>Liberty</option>
@@ -1532,7 +1534,7 @@
                       {{--<label><input onclick="checkAll(this,'elite-hand-hand-coed-stunting')" type="checkbox">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Extended Hand in Hand</h2>
+                    <h2>Extended Hand in Hand <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['elite']['extended_hand_in_hand'])){{ ceil(count($skills['coed_stunting_skills']['elite']['extended_hand_in_hand']) * 100 / 6) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][elite][extended_hand_in_hand][]" id="skills_coed_stunting_elite_extended_hand_in_hand" title="">
                       <option value="platform"  @if (isset($skills['coed_stunting_skills']['elite']['extended_hand_in_hand']) && !empty($skills['coed_stunting_skills']['elite']['extended_hand_in_hand']) && in_array('platform', $skills['coed_stunting_skills']['elite']['extended_hand_in_hand'])) selected="selected" @endif>Platform</option>
                       <option value="liberty"  @if (isset($skills['coed_stunting_skills']['elite']['extended_hand_in_hand']) && !empty($skills['coed_stunting_skills']['elite']['extended_hand_in_hand']) && in_array('liberty', $skills['coed_stunting_skills']['elite']['extended_hand_in_hand'])) selected="selected" @endif>Liberty</option>
@@ -1564,7 +1566,7 @@
                       {{--<label><input  type="checkbox" onclick="checkAll(this,'elite-extended-hand-hand-coed-stunting')">Mark All</label>--}}
                     {{--</div>--}}
 
-                    <h2>Other</h2>
+                    <h2>Other <span class="color-r d-inline-block ml-2">@if (isset($skills['coed_stunting_skills']['elite']['other'])){{ ceil(count($skills['coed_stunting_skills']['elite']['other']) * 100 / 6) }}%@endif</span></h2>
                     <select class="selectpicker" data-allOptionIsSelected="false" multiple="multiple" name="skills[coed_stunting_skills][elite][other][]" id="skills_coed_stunting_elite_other" title="">
                       <option value="double_up"  @if (isset($skills['coed_stunting_skills']['elite']['other']) && !empty($skills['coed_stunting_skills']['elite']['other']) && in_array('double_up', $skills['coed_stunting_skills']['elite']['other'])) selected="selected" @endif>Double Up</option>
                       <option value="one_arm"  @if (isset($skills['coed_stunting_skills']['elite']['other']) && !empty($skills['coed_stunting_skills']['elite']['other']) && in_array('one_arm', $skills['coed_stunting_skills']['elite']['other'])) selected="selected" @endif>One Ar</option>

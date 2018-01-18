@@ -29,7 +29,7 @@ class HomeController extends Controller
             $skills = $skills->first()->toArray();
 
             $spring_tumbling_percent = ceil($skills['spring_tumbling_score'] * 100 / 43);
-            $hard_tumbling_percent = ceil($skills['hard_tumbling_score'] * 100 / 49);
+            $hard_tumbling_percent = ceil($skills['hard_tumbling_score'] * 100 / 43);
             $group_stunting_percent = ceil($skills['group_stunting_score'] * 100 / 61);
             $coed_stunting_percent = ceil($skills['coed_stunting_score'] * 100 / 67);
 
