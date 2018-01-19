@@ -56,7 +56,7 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request->all());
         $this->validate($request,[
             'team_name' => 'required',
             'mascot' => 'required',
@@ -85,7 +85,8 @@ class TeamController extends Controller
             'wins_worlds' => $request->wins_worlds,
             'wins_other' => $request->wins_other,
         ]);
-        return back();
+
+        return $this->addTeamSkills($request->skills,$team->id);
 
     }
 
@@ -227,5 +228,115 @@ class TeamController extends Controller
             return view('student.all');
         }
 
+    }
+
+
+    public function addTeamSkills($skills,$team_id){
+
+        $user = auth()->user();
+        if($skills){
+
+            if(isset($skills['spring_floor_tumbling_skills'])){
+                foreach($skills['spring_floor_tumbling_skills'] as $k => $array){
+                    if (($key = array_search("All", $array)) !== false) {
+                        unset($array[$key]);
+                        $skills['spring_floor_tumbling_skills'][$k] = $array;
+                    }
+                }
+                $spring_tumbling_score = array_sum(array_map("count", $skills['spring_floor_tumbling_skills']));
+                $spring_floor_tumbling_skills = json_encode($skills['spring_floor_tumbling_skills']);
+            }else{
+                $spring_tumbling_score = 0;
+                $spring_floor_tumbling_skills = null;
+            }
+
+            if(isset($skills['hard_floor_tumbling_skills'])){
+                foreach($skills['hard_floor_tumbling_skills'] as $k => $array){
+                    if (($key = array_search("All", $array)) !== false) {
+                        unset($array[$key]);
+                        $skills['hard_floor_tumbling_skills'][$k] = $array;
+                    }
+                }
+                $hard_floor_tumbling_score = array_sum(array_map("count", $skills['hard_floor_tumbling_skills']));
+                $hard_floor_tumbling_skills = json_encode($skills['hard_floor_tumbling_skills']);
+            }else{
+                $hard_floor_tumbling_score = 0;
+                $hard_floor_tumbling_skills = null;
+            }
+
+
+            if(isset($skills['group_stunting_skills'])){
+                foreach($skills['group_stunting_skills'] as $name => $big_array){
+
+                    foreach($big_array as $k => $array){
+                        if (($key = array_search("All", $array)) !== false) {
+                            unset($array[$key]);
+                            $skills['group_stunting_skills'][$name][$k] = $array;
+                        }
+                    }
+                }
+
+                $group_stunting_score = 0;
+                foreach( $skills['group_stunting_skills'] as $key => $array){
+                    $group_stunting_score += array_sum(array_map("count", $array));
+                }
+                $group_stunting_skills = json_encode($skills['group_stunting_skills']);
+            }else{
+                $group_stunting_score = 0;
+                $group_stunting_skills = null;
+            }
+
+
+            if(isset($skills['coed_stunting_skills'])){
+                foreach($skills['coed_stunting_skills'] as $name => $big_array){
+
+                    foreach($big_array as $k => $array){
+                        if (($key = array_search("All", $array)) !== false) {
+                            unset($array[$key]);
+                            $skills['coed_stunting_skills'][$name][$k] = $array;
+                        }
+                    }
+                }
+
+                $coed_stunting_score = 0;
+                foreach( $skills['coed_stunting_skills'] as $key => $array){
+                    $coed_stunting_score += array_sum(array_map("count", $array));
+                }
+                $coed_stunting_skills = json_encode($skills['coed_stunting_skills']);
+            }else{
+                $coed_stunting_score = 0;
+                $coed_stunting_skills = null;
+            }
+
+
+            $attr = [
+                'spring_floor_tumbling_skills' => $spring_floor_tumbling_skills,
+                'hard_floor_tumbling_skills' => $hard_floor_tumbling_skills,
+                'group_stunting_skills' => $group_stunting_skills,
+                'coed_stunting_skills' => $coed_stunting_skills,
+                /*  'basic_standing_spring' => $basic_standing_spring,
+                'basic_running_spring' => $basic_running_spring,
+                'advanced_standing_spring' => $advanced_standing_spring,
+                'advanced_running_spring' => $advanced_running_spring,
+                'elite_standing_spring' => $elite_standing_spring,
+                'elite_running_spring' => $elite_running_spring,
+                */
+                'spring_tumbling_score' => $spring_tumbling_score,
+                'hard_tumbling_score' => $hard_floor_tumbling_score,
+                'group_stunting_score' => $group_stunting_score,
+                'coed_stunting_score' => $coed_stunting_score,
+                'team_id' => $team_id,
+                'user_id' => $user->id
+            ];
+
+            $created = $user->skillSet()->create($attr);
+            if($created){
+                request()->session()->flash('success',"Coed Skills Updated!" );
+            }
+
+            //      $user->notify(new \App\Notifications\SkillsUpdated($skills));
+        }
+
+        return view('team.all');
     }
 }

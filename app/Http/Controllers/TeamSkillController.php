@@ -157,157 +157,163 @@ class TeamSkillController extends Controller
     public function hardSkills(Request $request,$team_id){
 
         $skills = $request->skills;
-        foreach($skills['hard_floor_tumbling_skills'] as $k => $array){
-            if (($key = array_search("All", $array)) !== false) {
-                unset($array[$key]);
-                $skills['hard_floor_tumbling_skills'][$k] = $array;
+        if($skills){
+            foreach($skills['hard_floor_tumbling_skills'] as $k => $array){
+                if (($key = array_search("All", $array)) !== false) {
+                    unset($array[$key]);
+                    $skills['hard_floor_tumbling_skills'][$k] = $array;
+                }
             }
-        }
 
-        /*
-        $basic_standing_spring = isset($skills['hard_floor_tumbling']['basic_standing']) ? count($skills['hard_floor_tumbling']['basic_standing']) : 0;
-        $basic_running_spring = isset($skills['hard_floor_tumbling']['basic_running']) ? count($skills['hard_floor_tumbling']['basic_running']) : 0;
-        $advanced_standing_spring = isset($skills['hard_floor_tumbling']['advanced_standing']) ? count($skills['hard_floor_tumbling']['advanced_standing']) : 0;
-        $advanced_running_spring = isset($skills['hard_floor_tumbling']['advanced_running']) ? count($skills['hard_floor_tumbling']['advanced_running']) : 0;
-        $elite_standing_spring = isset($skills['hard_floor_tumbling']['elite_standing']) ? count($skills['hard_floor_tumbling']['elite_standing']) : 0;
-        $elite_running_spring = isset($skills['hard_floor_tumbling']['elite_running']) ? count($skills['hard_floor_tumbling']['elite_running']) : 0;
-        */
-        $hard_floor_tumbling_count = array_sum(array_map("count", $skills['hard_floor_tumbling_skills']));
-        $skills = json_encode($skills['hard_floor_tumbling_skills']);
+            /*
+            $basic_standing_spring = isset($skills['hard_floor_tumbling']['basic_standing']) ? count($skills['hard_floor_tumbling']['basic_standing']) : 0;
+            $basic_running_spring = isset($skills['hard_floor_tumbling']['basic_running']) ? count($skills['hard_floor_tumbling']['basic_running']) : 0;
+            $advanced_standing_spring = isset($skills['hard_floor_tumbling']['advanced_standing']) ? count($skills['hard_floor_tumbling']['advanced_standing']) : 0;
+            $advanced_running_spring = isset($skills['hard_floor_tumbling']['advanced_running']) ? count($skills['hard_floor_tumbling']['advanced_running']) : 0;
+            $elite_standing_spring = isset($skills['hard_floor_tumbling']['elite_standing']) ? count($skills['hard_floor_tumbling']['elite_standing']) : 0;
+            $elite_running_spring = isset($skills['hard_floor_tumbling']['elite_running']) ? count($skills['hard_floor_tumbling']['elite_running']) : 0;
+            */
+            $hard_floor_tumbling_count = array_sum(array_map("count", $skills['hard_floor_tumbling_skills']));
+            $skills = json_encode($skills['hard_floor_tumbling_skills']);
 
-        $user = auth()->user();
-        $attr = [
-            'hard_floor_tumbling_skills' => $skills,
-            /*'basic_standing_hardwood' => $basic_standing_spring,
-                'basic_running_hardwood' => $basic_running_spring,
-                'advanced_standing_hardwood' => $advanced_standing_spring,
-                'advanced_running_hardwood' => $advanced_running_spring,
-                'elite_standing_hardwood' => $elite_standing_spring,
-                'elite_running_hardwood' => $elite_running_spring,*/
-            'hard_tumbling_score' => $hard_floor_tumbling_count,
-            'team_id' => $team_id,
-            'user_id' => $user->id
-        ];
+            $user = auth()->user();
+            $attr = [
+                'hard_floor_tumbling_skills' => $skills,
+                /*'basic_standing_hardwood' => $basic_standing_spring,
+                    'basic_running_hardwood' => $basic_running_spring,
+                    'advanced_standing_hardwood' => $advanced_standing_spring,
+                    'advanced_running_hardwood' => $advanced_running_spring,
+                    'elite_standing_hardwood' => $elite_standing_spring,
+                    'elite_running_hardwood' => $elite_running_spring,*/
+                'hard_tumbling_score' => $hard_floor_tumbling_count,
+                'team_id' => $team_id,
+                'user_id' => $user->id
+            ];
 
-        $exist = false;
-        foreach($user->skillSet as $skillset){
-            if($skillset->team_id == $team_id){
-                $exist = true;
+            $exist = false;
+            foreach($user->skillSet as $skillset){
+                if($skillset->team_id == $team_id){
+                    $exist = true;
+                }
             }
-        }
 //            dd($attr);
 
-        if($exist){
-            $user->skillSet()->where('team_id', $team_id)->update($attr);
+            if($exist){
+                $user->skillSet()->where('team_id', $team_id)->update($attr);
 //            dd($user->skillSet()->where('team_id', $team_id)->get());
+            }
+            else{
+                $user->skillSet()->create($attr);
+            }
+            $request->session()->flash('success',"Hard Skills Updated!" );
+            //      $user->notify(new \App\Notifications\SkillsUpdated($skills));
         }
-        else{
-            $user->skillSet()->create($attr);
-        }
-        $request->session()->flash('success',"Hard Skills Updated!" );
-        //      $user->notify(new \App\Notifications\SkillsUpdated($skills));
+
       return back();
     }
 
     public function groupSkills(Request $request, $team_id){
 
-
         $skills = $request->skills;
+        if($skills){
+            foreach($skills['group_stunting_skills'] as $name => $big_array){
 
-        foreach($skills['group_stunting_skills'] as $name => $big_array){
-
-            foreach($big_array as $k => $array){
-                if (($key = array_search("All", $array)) !== false) {
-                    unset($array[$key]);
-                    $skills['group_stunting_skills'][$name][$k] = $array;
+                foreach($big_array as $k => $array){
+                    if (($key = array_search("All", $array)) !== false) {
+                        unset($array[$key]);
+                        $skills['group_stunting_skills'][$name][$k] = $array;
+                    }
                 }
             }
-        }
 
-        $group_stunting_score = 0;
-        foreach( $skills['group_stunting_skills'] as $key => $array){
-            $group_stunting_score += array_sum(array_map("count", $array));
-        }
-
-        $skills = json_encode($skills['group_stunting_skills']);
-
-        $user = auth()->user();
-        $exist = false;
-        foreach($user->skillSet as $skillset){
-            if($skillset->team_id == $team_id){
-                $exist = true;
+            $group_stunting_score = 0;
+            foreach( $skills['group_stunting_skills'] as $key => $array){
+                $group_stunting_score += array_sum(array_map("count", $array));
             }
-        }
-        if($exist){
-            $user->skillSet()->where('team_id', $team_id)->update([
-                'group_stunting_skills' => $skills,
-                'group_stunting_score' => $group_stunting_score,
-                'team_id' => $team_id,
-                'user_id' => $user->id,
 
-            ]);
-        }
-        else{
-            $user->skillSet()->create([
-                'group_stunting_skills' => $skills,
-                'group_stunting_score' => $group_stunting_score,
-                'team_id' => $team_id,
-                'user_id' => $user->id
-            ]);
-        }
+            $skills = json_encode($skills['group_stunting_skills']);
 
-        $request->session()->flash('success',"Group Skills Updated!" );
+            $user = auth()->user();
+            $exist = false;
+            foreach($user->skillSet as $skillset){
+                if($skillset->team_id == $team_id){
+                    $exist = true;
+                }
+            }
+            if($exist){
+                $user->skillSet()->where('team_id', $team_id)->update([
+                    'group_stunting_skills' => $skills,
+                    'group_stunting_score' => $group_stunting_score,
+                    'team_id' => $team_id,
+                    'user_id' => $user->id,
+
+                ]);
+            }
+            else{
+                $user->skillSet()->create([
+                    'group_stunting_skills' => $skills,
+                    'group_stunting_score' => $group_stunting_score,
+                    'team_id' => $team_id,
+                    'user_id' => $user->id
+                ]);
+            }
+
+            $request->session()->flash('success',"Group Skills Updated!" );
 //      $user->notify(new \App\Notifications\SkillsUpdated($skills));
+        }
+
       return back();
     }
 
     public function coedSkills(Request $request, $team_id){
         $skills = $request->skills;
+        if($skills){
+            foreach($skills['coed_stunting_skills'] as $name => $big_array){
 
-        foreach($skills['coed_stunting_skills'] as $name => $big_array){
-
-            foreach($big_array as $k => $array){
-                if (($key = array_search("All", $array)) !== false) {
-                    unset($array[$key]);
-                    $skills['coed_stunting_skills'][$name][$k] = $array;
+                foreach($big_array as $k => $array){
+                    if (($key = array_search("All", $array)) !== false) {
+                        unset($array[$key]);
+                        $skills['coed_stunting_skills'][$name][$k] = $array;
+                    }
                 }
             }
-        }
 
-        $coed_stunting_score = 0;
+            $coed_stunting_score = 0;
 
-        foreach( $skills['coed_stunting_skills'] as $key => $array){
-            $coed_stunting_score += array_sum(array_map("count", $array));
-        }
-
-        $skills = json_encode($skills['coed_stunting_skills']);
-
-        $user = auth()->user();
-        $exist = false;
-        foreach($user->skillSet as $skillset){
-            if($skillset->team_id == $team_id){
-                $exist = true;
+            foreach( $skills['coed_stunting_skills'] as $key => $array){
+                $coed_stunting_score += array_sum(array_map("count", $array));
             }
-        }
-        if($exist){
-            $user->skillSet()->where('team_id', $team_id)->update([
-                'coed_stunting_skills' => $skills,
-                'coed_stunting_score' => $coed_stunting_score,
-                'team_id' => $team_id,
-                'user_id' => $user->id
-            ]);
-        }
-        else{
-            $user->skillSet()->create([
-                'coed_stunting_skills' => $skills,
-                'coed_stunting_score' => $coed_stunting_score,
-                'team_id' => $team_id,
-                'user_id' => $user->id
-            ]);
+
+            $skills = json_encode($skills['coed_stunting_skills']);
+
+            $user = auth()->user();
+            $exist = false;
+            foreach($user->skillSet as $skillset){
+                if($skillset->team_id == $team_id){
+                    $exist = true;
+                }
+            }
+            if($exist){
+                $user->skillSet()->where('team_id', $team_id)->update([
+                    'coed_stunting_skills' => $skills,
+                    'coed_stunting_score' => $coed_stunting_score,
+                    'team_id' => $team_id,
+                    'user_id' => $user->id
+                ]);
+            }
+            else{
+                $user->skillSet()->create([
+                    'coed_stunting_skills' => $skills,
+                    'coed_stunting_score' => $coed_stunting_score,
+                    'team_id' => $team_id,
+                    'user_id' => $user->id
+                ]);
+            }
+
+            $request->session()->flash('success',"Coed Skills Updated!" );
+//      $user->notify(new \App\Notifications\SkillsUpdated($skills));
         }
 
-        $request->session()->flash('success',"Coed Skills Updated!" );
-//      $user->notify(new \App\Notifications\SkillsUpdated($skills));
       return back();
     }
 }
