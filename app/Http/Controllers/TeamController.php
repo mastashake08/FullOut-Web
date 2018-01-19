@@ -56,7 +56,7 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
+
         $this->validate($request,[
             'team_name' => 'required',
             'mascot' => 'required',
@@ -69,22 +69,41 @@ class TeamController extends Controller
             'team_responsibilities' => 'required',
             'number_members' => 'required',
             'average_room' => 'required',
+            'logo' => 'image|mimes:jpg,png,jpeg,JPG,JPEG,PNG',
         ]);
-        $team = $request->user()->school->teams()->create([
-          'team_name' => $request->team_name,
-          'coach_name' => $request->user()->name,
-          'mascot' => $request->mascot,
-//          'color_code' => $request->color_code,
-          'description' => $request->description,
-          'team_type' => $request->team_type,
-          'team_responsibilities' => $request->team_responsibilities,
-          'number_members' => $request->number_members,
-          'average_room' => $request->average_room,
+        $picture_name = '';
+        if($request->hasFile('logo')) {
+//            dd(1);
+
+//            if($user->school){
+//                $old_pic_name = $user->school->logo;
+//                $path = public_path('images\school-logo\\' . $old_pic_name);
+//                if($old_pic_name) {
+//                    unlink($path);
+//                };
+//            }
+            $picture_name = $request->logo->getClientOriginalName();
+            $request->file('logo')->storeAs('images/team-logo', $picture_name);
+
+        }
+
+        $data = [
+            'team_name' => $request->team_name,
+            'coach_name' => $request->user()->name,
+            'mascot' => $request->mascot,
+            'logo' => $picture_name,
+            'description' => $request->description,
+            'team_type' => $request->team_type,
+            'team_responsibilities' => $request->team_responsibilities,
+            'number_members' => $request->number_members,
+            'average_room' => $request->average_room,
             'wins_uca' => $request->wins_uca,
             'wins_nca' => $request->wins_nca,
             'wins_worlds' => $request->wins_worlds,
             'wins_other' => $request->wins_other,
-        ]);
+        ];
+
+        $team = auth()->user()->school->teams()->create($data);
 
         return $this->addTeamSkills($request->skills,$team->id);
 
@@ -168,10 +187,60 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        //
+
         $team = \App\Team::findOrFail($id);
-        $team->fill($request->all())->save();
+        $user = auth()->user();
+
+        $this->validate($request,[
+            'team_name' => 'required',
+            'mascot' => 'required',
+            'description' => 'required',
+            'team_type' => 'required',
+            'wins_uca' => 'required',
+            'wins_nca' => 'required',
+            'wins_worlds' => 'required',
+            'wins_other' => 'required',
+            'team_responsibilities' => 'required',
+            'number_members' => 'required',
+            'average_room' => 'required',
+            'logo' => 'image|mimes:jpg,png,jpeg,JPG,JPEG,PNG',
+        ]);
+        $picture_name = "";
+        if($team->logo){
+            $picture_name = $team->logo ;
+        }
+
+        if($request->hasFile('logo')) {
+
+            if($team->logo){
+                $old_pic_name = $team->logo;
+                $path = public_path('images\team-logo\\' . $old_pic_name);
+                if($old_pic_name) {
+                    unlink($path);
+                };
+            }
+            $picture_name = $request->logo->getClientOriginalName();
+            $request->file('logo')->storeAs('images/team-logo', $picture_name);
+
+        }
+
+        $data = [
+            'team_name' => $request->team_name,
+            'coach_name' => $request->user()->name,
+            'mascot' => $request->mascot,
+            'logo' => $picture_name,
+            'description' => $request->description,
+            'team_type' => $request->team_type,
+            'team_responsibilities' => $request->team_responsibilities,
+            'number_members' => $request->number_members,
+            'average_room' => $request->average_room,
+            'wins_uca' => $request->wins_uca,
+            'wins_nca' => $request->wins_nca,
+            'wins_worlds' => $request->wins_worlds,
+            'wins_other' => $request->wins_other,
+        ];
+
+        $team->fill($data)->save();
 
         $request->session()->flash('success',"{$team->team_name} Updated Successfully!" );
         return back();
@@ -337,6 +406,6 @@ class TeamController extends Controller
             //      $user->notify(new \App\Notifications\SkillsUpdated($skills));
         }
 
-        return view('team.all');
+        return redirect('coach/teams');
     }
 }

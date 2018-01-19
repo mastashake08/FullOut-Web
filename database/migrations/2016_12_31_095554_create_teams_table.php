@@ -19,6 +19,7 @@ class CreateTeamsTable extends Migration
             $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
             $table->string('team_name');
             $table->string('coach_name');
+            $table->string('logo');
             $table->string('mascot');
             $table->string('color_code')->nullable();
             $table->longText('description');

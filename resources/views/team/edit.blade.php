@@ -1,18 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
+  {{--{{ dd( $errors) }}--}}
 <div class="container">
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Add Team</div>
+                <div class="panel-heading">Edit Team</div>
 
                 <div class="panel-body">
                   <form class="form" role="form" action="{{url('/coach/teams/'.$team->id)}}" method="post" enctype="multipart/form-data">
                     {{ method_field('PUT') }}
                     {{csrf_field()}}
                     <fieldset>
+                      <div class="form-group{{ $errors->has('logo') ? ' has-error' : '' }}">
+                        <div class="col-md-12 mb-2">
+                          <div class="input-group">
+                            <span class="input-group-addon">Upload Team logo</span>
+                            <img id="school_logo_img" src="{{ asset('images/team-logo/'.($team->logo ? $team->logo : "")) }}" alt=""/>
+                            <input id="school_logo_pic" type="file" class="form-control w-75" name="logo">
+                          </div>
+                        </div>
+                        @if ($errors->has('logo'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('logo') }}</strong>
+                          </span>
+                        @endif
+                      </div>
                       <div class="form-group col-md-12">
                         <div class="input-group">
                           <span class="input-group-addon">Team Name</span>
@@ -74,6 +89,49 @@
                       </div>
                       <div class="form-group col-md-12">
                         <div class="input-group">
+                          <span class="team_wins d-block w-100">Team Wins</span>
+                          <div class="row">
+                            <div class="col-md-3">
+                              <label for="wins_uca">Wins UCA</label>
+                              <input type="number" id="wins_uca" class="w-25" placeholder="" name="wins_uca" required value="{{($team->wins_uca ? $team->wins_uca : "")}}">
+                              @if ($errors->has('number_members'))
+                                <span class="help-block">
+                                     <strong>{{ $errors->first('wins_uca') }}</strong>
+                                </span>
+                              @endif
+                            </div>
+                            <div class="col-md-3">
+                              <label for="wins_nca">Wins NCA</label>
+                              <input type="number" id="wins_nca" class="w-25" placeholder="" name="wins_nca" required value="{{($team->wins_nca ? $team->wins_nca : "")}}">
+                              @if ($errors->has('number_members'))
+                                <span class="help-block">
+                                     <strong>{{ $errors->first('wins_nca') }}</strong>
+                                </span>
+                              @endif
+                            </div>
+                            <div class="col-md-3">
+                              <label for="wins_worlds">Wins Worlds</label>
+                              <input type="number" id="wins_worlds" class="w-25" placeholder="" name="wins_worlds" required value="{{($team->wins_worlds ? $team->wins_worlds : "")}}">
+                              @if ($errors->has('number_members'))
+                                <span class="help-block">
+                                     <strong>{{ $errors->first('wins_worlds') }}</strong>
+                                </span>
+                              @endif
+                            </div>
+                            <div class="col-md-3">
+                              <label for="wins_other">Other Wins</label>
+                              <input type="number" id="wins_other" class="w-25" placeholder="" name="wins_other" required value="{{($team->wins_other ? $team->wins_other : "")}}">
+                              @if ($errors->has('number_members'))
+                                <span class="help-block">
+                                     <strong>{{ $errors->first('wins_other') }}</strong>
+                                </span>
+                              @endif
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <div class="input-group">
                           <span class="input-group-addon">Team Responsibilities</span>
                           <input type="text" class="form-control" placeholder="Team Responsibilities" name="team_responsibilities" required value="{{ $team->team_responsibilities }}">
                           @if ($errors->has('team_responsibilities'))
@@ -101,17 +159,6 @@
                           @if ($errors->has('average_room'))
                             <span class="help-block">
                                  <strong>{{ $errors->first('average_room') }}</strong>
-                            </span>
-                          @endif
-                        </div>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <div class="input-group">
-                          <span class="input-group-addon">Skills</span>
-                          <input type="text" class="form-control" placeholder="" name="skills" required value="{{ $team->skills }}">
-                          @if ($errors->has('skills'))
-                            <span class="help-block">
-                                 <strong>{{ $errors->first('skills') }}</strong>
                             </span>
                           @endif
                         </div>

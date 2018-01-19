@@ -13,6 +13,7 @@
                   <table class="table">
                     <thead>
                       <tr>
+                        <th>Team Logo</th>
                         <th>Team Name</th>
                         <th>Coach Name</th>
                         <th>Mascot</th>
@@ -20,13 +21,13 @@
                         <th>Team Responsibilities</th>
                         <th>Number Members</th>
                         <th>Average Room</th>
-                        <th>Skills</th>
                         <th>Description</th>
                       </tr>
                     </thead>
                     <tbody>
                       @foreach(auth()->user()->school->teams as $team)
                       <tr>
+                        <td> <img id="school_logo_img" src="{{ asset('images/team-logo/'.($team->logo ? $team->logo : "")) }}" alt=""/></td>
                         <td>{{$team->team_name}}</td>
                         <td>{{$team->coach_name}}</td>
                         <td>{{$team->mascot}}</td>
@@ -34,7 +35,6 @@
                         <td>{{$team->team_responsibilities}}</td>
                         <td>{{$team->number_members}}</td>
                         <td>{{$team->average_room}}</td>
-                        <td>{{$team->skills}}</td>
                         <td><p>{{$team->description}}</p></td>
 
                       </tr>
@@ -70,6 +70,20 @@
                   <form class="form" role="form" action="{{url('/coach/teams')}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <fieldset>
+                        <div class="form-group{{ $errors->has('logo') ? ' has-error' : '' }}">
+                            <div class="col-md-12 mb-2">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Upload Team logo</span>
+                                    <img id="school_logo_img" src="" alt=""/>
+                                    <input id="school_logo_pic" type="file" class="form-control w-75" name="logo">
+                                </div>
+                            </div>
+                            @if ($errors->has('logo'))
+                                <span class="help-block">
+                                      <strong>{{ $errors->first('logo') }}</strong>
+                                  </span>
+                            @endif
+                        </div>
                         <div class="form-group col-md-12">
                             <div class="input-group">
                                 <span class="input-group-addon">Team Name</span>

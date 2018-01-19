@@ -66,6 +66,7 @@ class SchoolTableSeeder extends Seeder
           'coach_name' => 'Coach Johnson',
           'mascot' => 'Bulldogs',
           'team_type' => 'women',
+            'logo' => '/',
             'wins_uca' => '1',
             'wins_nca' => '1',
             'wins_worlds' => '1',
