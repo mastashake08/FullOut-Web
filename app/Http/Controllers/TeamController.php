@@ -214,7 +214,7 @@ class TeamController extends Controller
 
             if($team->logo){
                 $old_pic_name = $team->logo;
-                $path = public_path('images\team-logo\\' . $old_pic_name);
+                $path = public_path('images/team-logo/' . $old_pic_name);
                 if($old_pic_name) {
                     unlink($path);
                 };
