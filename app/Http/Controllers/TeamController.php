@@ -56,7 +56,7 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-
+        $user = auth()->user();
         $this->validate($request,[
             'team_name' => 'required',
             'mascot' => 'required',
@@ -82,7 +82,12 @@ class TeamController extends Controller
 //                    unlink($path);
 //                };
 //            }
-            $picture_name = $request->logo->getClientOriginalName();
+            $file = $request->logo->getClientOriginalName();
+
+            $filename = pathinfo($file, PATHINFO_FILENAME);
+            $extension = pathinfo($file, PATHINFO_EXTENSION);
+
+            $picture_name = $filename.'-'.$user->id.'.'.$extension;
             $request->file('logo')->storeAs('images/team-logo', $picture_name);
 
         }
@@ -219,7 +224,13 @@ class TeamController extends Controller
                     unlink($path);
                 };
             }
-            $picture_name = $request->logo->getClientOriginalName();
+
+            $file = $request->logo->getClientOriginalName();
+
+            $filename = pathinfo($file, PATHINFO_FILENAME);
+            $extension = pathinfo($file, PATHINFO_EXTENSION);
+
+            $picture_name = $filename.'-'.$user->id.'.'.$extension;
             $request->file('logo')->storeAs('images/team-logo', $picture_name);
 
         }
