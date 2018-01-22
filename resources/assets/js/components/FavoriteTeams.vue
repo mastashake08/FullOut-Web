@@ -22,8 +22,9 @@
                                 <td>{{team.team.team_name}}</td>
                                 <td>{{team.team.coach_name}}</td>
                                 <td>{{team.team.team_type}}</td>
-                                <td><span class="glyphicon glyphicon-minus" v-on:click="unfavorite(index)"></span></td>
+                                <td><span class="glyphicon glyphicon-minus" @click="openModal(index,team.team.team_name)" data-toggle="modal" data-target=".bs-delete-modal-sm"></span></td>
                             </tr>
+
                             </tbody>
                             </transition-group>
                         </table>
@@ -41,19 +42,56 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade bs-delete-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Delete</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure to delete team '{{teamName}}'<span class="delete-modal-content"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="hidden" name="product_id" value="" class="delete-modal-form-input-hidden">
+                        <button type="submit" data-dismiss="modal" class="btn btn-danger ml-10 delete-sure" @click="unfavorite(team)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
 </template>
 
 <script>
     export default {
+
+
         mounted() {
-            console.log('Component mounted.')
+            console.log('Component mounted.');
         },
         data() {
             return{
                 teams: {},
                 newData: false,
+                teamName: null,
+                team: null,
+                newteam: null,
+            }
+        },
+        watch: {
+            teams: {
+                handler: function(newValue, oldValue) {
+                    console.log("changed");
+                    this.teams = newValue;
+                },
+                deep: true,
+            },
+            newData: {
+                handler: function(newValue, oldValue) {
+                    console.log("changed newData");
+                    this.newData = true;
+                }
             }
         },
         methods: {
@@ -70,11 +108,25 @@
                 }).bind(this);
 
             },
+            openModal: function(team,name){
+                this.team = team;
+                this.teamName = name;
+            }
         },
         created(){
             this.$http.get('/favorite-teams').then(function(data){
                 this.teams = data.data;
                 this.newData = true;
+            });
+            this.$eventHub.$on('id-selected', function (team) {
+                console.log(8888888);
+//                this.teams.push(team);
+                this.newData = false;
+                this.$http.get('/favorite-teams').then(function(data){
+                    console.log(999);
+                    this.teams = data.data;
+                    this.newData = true;
+                });
             });
         }
     }

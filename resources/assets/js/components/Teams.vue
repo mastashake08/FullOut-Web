@@ -39,7 +39,7 @@
                                 <td>{{team.team_name}}</td>
                                 <td>{{team.coach_name}}</td>
                                 <td>{{team.team_type}}</td>
-                                <td><span class="glyphicon glyphicon-heart" v-on:click="favorite(team)"></span></td>
+                                <td><span class="glyphicon glyphicon-heart" @click="favorite(team)"></span></td>
                             </tr>
                             </tbody>
                             </transition-group>
@@ -64,6 +64,8 @@
 
 <script>
     export default {
+
+
         mounted() {
             console.log('Component mounted.')
         },
@@ -87,13 +89,13 @@
             favorite: function(team){
                 this.$http.post('/favorite',{_token:Laravel.csrfToken,team_id:team.id}).then(function(data){
                     alert('Favorited!');
+                    this.$eventHub.$emit('id-selected', team);
                 });
             },
             unfavorite: function(team){
                 this.$http.delete('/favorite/'+team.id).then(function(data){
                     alert('Unfavorited');
                 });
-
             },
             searchTeams: function(){
                 this.newData = false;

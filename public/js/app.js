@@ -1419,6 +1419,9 @@ Vue.component('passport-clients', __webpack_require__(80));
 Vue.component('passport-authorized-clients', __webpack_require__(86));
 
 Vue.component('passport-personal-access-tokens', __webpack_require__(91));
+
+Vue.prototype.$eventHub = new Vue(); // Global event bus
+
 var app = new Vue({
     el: '#fullout'
 });
@@ -47520,6 +47523,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         favorite: function favorite(team) {
             this.$http.post('/favorite', { _token: Laravel.csrfToken, team_id: team.id }).then(function (data) {
                 alert('Favorited!');
+                this.$eventHub.$emit('id-selected', team);
             });
         },
         unfavorite: function unfavorite(team) {
@@ -48888,6 +48892,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -48896,10 +48918,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             teams: {},
-            newData: false
+            newData: false,
+            teamName: null,
+            team: null,
+            newteam: null
         };
     },
 
+    watch: {
+        teams: {
+            handler: function handler(newValue, oldValue) {
+                console.log("changed");
+                this.teams = newValue;
+            },
+            deep: true
+        },
+        newData: {
+            handler: function handler(newValue, oldValue) {
+                console.log("changed newData");
+                this.newData = true;
+            }
+        }
+    },
     methods: {
         fetchTeams: function fetchTeams(url) {
             this.newData = false;
@@ -48912,12 +48952,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$http.post('/favorite/' + this.teams.data[team].id, { _token: Laravel.csrfToken, _method: 'DELETE' }).then(function (data) {
                 this.teams.data.splice(team, 1);
             }).bind(this);
+        },
+        openModal: function openModal(team, name) {
+            this.team = team;
+            this.teamName = name;
         }
     },
     created: function created() {
         this.$http.get('/favorite-teams').then(function (data) {
             this.teams = data.data;
             this.newData = true;
+        });
+        this.$eventHub.$on('id-selected', function (team) {
+            console.log(8888888);
+            //                this.teams.push(team);
+            this.newData = false;
+            this.$http.get('/favorite-teams').then(function (data) {
+                console.log(999);
+                this.teams = data.data;
+                this.newData = true;
+            });
         });
     }
 });
@@ -48957,9 +49011,13 @@ var render = function() {
                         _c("td", [
                           _c("span", {
                             staticClass: "glyphicon glyphicon-minus",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": ".bs-delete-modal-sm"
+                            },
                             on: {
                               click: function($event) {
-                                _vm.unfavorite(index)
+                                _vm.openModal(index, team.team.team_name)
                               }
                             }
                           })
@@ -49015,7 +49073,69 @@ var render = function() {
           ])
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade bs-delete-modal-sm",
+        attrs: {
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "mySmallModalLabel"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog modal-sm", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("p", [
+                  _vm._v(
+                    "Are you sure to delete team '" + _vm._s(_vm.teamName) + "'"
+                  ),
+                  _c("span", { staticClass: "delete-modal-content" })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-default",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "delete-modal-form-input-hidden",
+                  attrs: { type: "hidden", name: "product_id", value: "" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger ml-10 delete-sure",
+                    attrs: { type: "submit", "data-dismiss": "modal" },
+                    on: {
+                      click: function($event) {
+                        _vm.unfavorite(_vm.team)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -49033,6 +49153,27 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      ),
+      _vm._v(" "),
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Delete")])
     ])
   }
 ]

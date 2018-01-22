@@ -44,6 +44,9 @@ Vue.component(
     'passport-personal-access-tokens',
     require('./components/passport/PersonalAccessTokens.vue')
 );
+
+Vue.prototype.$eventHub = new Vue(); // Global event bus
+
 const app = new Vue({
     el: '#fullout'
 });

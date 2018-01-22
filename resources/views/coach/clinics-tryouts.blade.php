@@ -12,13 +12,25 @@
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Actions</th>
+                                <th>Coach Name</th>
+                                <th>Team Name</th>
+                                <th>Phone</th>
+                                <th>Start date</th>
+                                <th>End date</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($clinics as $clinic)
                                 <tr>
                                     <td><a href="{{url('/coach/clinics/'.$clinic->id)}}" target="_blank">{{$clinic->name}}</a></td>
+                                    <td>{{$clinic->coach_name}}</td>
+                                    <td>{{$clinic->team->team_name}}</td>
+                                    <td>{{$clinic->phone}}</td>
+                                    <td>{{$clinic->start_datetime}}</td>
+                                    <td>{{$clinic->end_datetime}}</td>
+
+                                </tr>
+                                <tr>
                                     <td>
                                         <form method="post" action="{{url('/coach/clinics/'.$clinic->id)}}">
                                             <div class="form-group">
@@ -86,7 +98,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control date" type="date"  name="start_datetime" placeholder="Start Date" value="{{old('start_datetime')}}"/>
+                                    <input class="form-control date" type="datetime-local"  name="start_datetime" placeholder="Start Date" value="{{old('start_datetime')}}"/>
                                     @if ($errors->has('start_datetime'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('start_datetime') }}</strong>
@@ -94,7 +106,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control date" type="date"  name="end_datetime" placeholder="End Date" value="{{old('end_datetime')}}"/>
+                                    <input class="form-control date" type="datetime-local"  name="end_datetime" placeholder="End Date" value="{{old('end_datetime')}}"/>
                                     @if ($errors->has('end_datetime'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('end_datetime') }}</strong>
@@ -162,9 +174,10 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Coach Name</th>
+                                    <th>Team Name</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
-                                    {{--<th>Phone</th>--}}
+                                    <th>Phone</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -172,9 +185,12 @@
                                     <tr>
                                         <td>{{$tryout->name}}</td>
                                         <td>{{$tryout->coach_name}}</td>
+                                        <td>{{$tryout->team->team_name}}</td>
                                         <td>{{$tryout->start_datetime}}</td>
                                         <td>{{$tryout->end_datetime}}</td>
-                                        {{--<td>{{$tryout->phone}}</td>--}}
+                                        <td>{{$tryout->phone}}</td>
+                                    </tr>
+                                    <tr>
                                         <td>
                                             <form method="post" action="{{url('/coach/tryouts/'.$tryout->id)}}">
                                                 <div class="form-group">
@@ -184,8 +200,6 @@
                                                     <button type="submit" class="btn btn-danger">Delete tryout</button>
                                                 </div>
                                             </form>
-
-
                                         </td>
                                     </tr>
                                 @endforeach

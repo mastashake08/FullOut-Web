@@ -121,7 +121,11 @@ class TryoutController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tryout = Tryout::findOrFail($id);
+        $with = [
+            'clinic' => $tryout
+        ];
+        return view('tryouts.edit')->with($with);
     }
 
     /**
