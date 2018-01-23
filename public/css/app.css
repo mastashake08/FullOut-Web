@@ -8522,3 +8522,7 @@ body {
   color: red;
 }
 
+.curs-pointer {
+  cursor: pointer;
+}
+

@@ -7,6 +7,7 @@
                     <div class="panel-heading">Teams</div>
 
                     <div class="panel-body">
+
                         <!--<form class="form-inline">-->
                             <!--<input type="text" v-model="search.team_name" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Team Name">-->
                             <!--<input type="text" v-model="search.coach_name" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Coach Name">-->
@@ -39,7 +40,7 @@
                                 <td>{{team.team_name}}</td>
                                 <td>{{team.coach_name}}</td>
                                 <td>{{team.team_type}}</td>
-                                <td><span class="glyphicon glyphicon-heart" @click="favorite(team)"></span></td>
+                                <td><span class="glyphicon glyphicon-heart curs-pointer" @click="favorite(team,team.team_name)" data-toggle="modal" data-target=".bs-success-modal-sm"></span></td>
                             </tr>
                             </tbody>
                             </transition-group>
@@ -58,16 +59,33 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade bs-success-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Favorite!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>You have added to Favorites '{{teamName}}'<span class="delete-modal-content"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </template>
 
 <script>
+
     export default {
 
 
         mounted() {
-            console.log('Component mounted.')
+
         },
         data() {
             return{
@@ -75,7 +93,8 @@
                 selectedTeam: {},
                 search: {},
                 newData: false,
-                message: ''
+                message: '',
+                teamName: ''
             }
         },
         methods: {
@@ -86,10 +105,11 @@
                     this.newData = true;
                 })
             },
-            favorite: function(team){
+            favorite: function(team,name){
                 this.$http.post('/favorite',{_token:Laravel.csrfToken,team_id:team.id}).then(function(data){
-                    alert('Favorited!');
-                    this.$eventHub.$emit('id-selected', team);
+                    this.teamName = name;
+                    this.$eventHub.$emit('eventFired');
+                    this.msg = 'I fired an event.'
                 });
             },
             unfavorite: function(team){

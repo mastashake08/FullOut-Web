@@ -18,11 +18,11 @@
                             </thead>
                             <tbody is="transition-group" name="fade">
 
-                            <tr v-if="newData" v-for="(team,index) in teams.data" :key="index">
+                            <tr id="demo" v-if="newData" v-for="(team,index) in teams.data" :key="index">
                                 <td>{{team.team.team_name}}</td>
                                 <td>{{team.team.coach_name}}</td>
                                 <td>{{team.team.team_type}}</td>
-                                <td><span class="glyphicon glyphicon-minus" @click="openModal(index,team.team.team_name)" data-toggle="modal" data-target=".bs-delete-modal-sm"></span></td>
+                                <td><span class="glyphicon glyphicon-minus curs-pointer" @click="openModal(index,team.team.team_name)" data-toggle="modal" data-target=".bs-delete-modal-sm"></span></td>
                             </tr>
 
                             </tbody>
@@ -64,11 +64,15 @@
 </template>
 
 <script>
+
+
     export default {
 
-
         mounted() {
-            console.log('Component mounted.');
+            this.$eventHub.$on('eventFired', () => {
+                 this.newteams();
+
+             });
         },
         data() {
             return{
@@ -76,24 +80,10 @@
                 newData: false,
                 teamName: null,
                 team: null,
-                newteam: null,
+                newteam: null
             }
         },
-        watch: {
-            teams: {
-                handler: function(newValue, oldValue) {
-                    console.log("changed");
-                    this.teams = newValue;
-                },
-                deep: true,
-            },
-            newData: {
-                handler: function(newValue, oldValue) {
-                    console.log("changed newData");
-                    this.newData = true;
-                }
-            }
-        },
+
         methods: {
             fetchTeams: function(url){
                 this.newData = false;
@@ -111,22 +101,18 @@
             openModal: function(team,name){
                 this.team = team;
                 this.teamName = name;
+            },
+            newteams: function(){
+                this.$http.get('/favorite-teams').then(function(data){
+                    this.teams = data.data;
+                    this.newData = true;
+                });
             }
         },
         created(){
             this.$http.get('/favorite-teams').then(function(data){
                 this.teams = data.data;
                 this.newData = true;
-            });
-            this.$eventHub.$on('id-selected', function (team) {
-                console.log(8888888);
-//                this.teams.push(team);
-                this.newData = false;
-                this.$http.get('/favorite-teams').then(function(data){
-                    console.log(999);
-                    this.teams = data.data;
-                    this.newData = true;
-                });
             });
         }
     }

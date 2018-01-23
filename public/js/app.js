@@ -47497,18 +47497,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    },
+    mounted: function mounted() {},
     data: function data() {
         return {
             teams: {},
             selectedTeam: {},
             search: {},
             newData: false,
-            message: ''
+            message: '',
+            teamName: ''
         };
     },
 
@@ -47520,10 +47537,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.newData = true;
             });
         },
-        favorite: function favorite(team) {
+        favorite: function favorite(team, name) {
             this.$http.post('/favorite', { _token: Laravel.csrfToken, team_id: team.id }).then(function (data) {
-                alert('Favorited!');
-                this.$eventHub.$emit('id-selected', team);
+                this.teamName = name;
+                this.$eventHub.$emit('eventFired');
+                this.msg = 'I fired an event.';
             });
         },
         unfavorite: function unfavorite(team) {
@@ -47579,10 +47597,15 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [
                           _c("span", {
-                            staticClass: "glyphicon glyphicon-heart",
+                            staticClass:
+                              "glyphicon glyphicon-heart curs-pointer",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": ".bs-success-modal-sm"
+                            },
                             on: {
                               click: function($event) {
-                                _vm.favorite(team)
+                                _vm.favorite(team, team.team_name)
                               }
                             }
                           })
@@ -47638,7 +47661,41 @@ var render = function() {
           ])
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade bs-success-modal-sm",
+        attrs: {
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "mySmallModalLabel"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog modal-sm", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("p", [
+                  _vm._v(
+                    "You have added to Favorites '" + _vm._s(_vm.teamName) + "'"
+                  ),
+                  _c("span", { staticClass: "delete-modal-content" })
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -47656,6 +47713,42 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      ),
+      _vm._v(" "),
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Favorite!")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Ok")]
+      )
     ])
   }
 ]
@@ -48911,9 +49004,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
-        console.log('Component mounted.');
+        var _this = this;
+
+        this.$eventHub.$on('eventFired', function () {
+            _this.newteams();
+        });
     },
     data: function data() {
         return {
@@ -48925,21 +49023,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
-    watch: {
-        teams: {
-            handler: function handler(newValue, oldValue) {
-                console.log("changed");
-                this.teams = newValue;
-            },
-            deep: true
-        },
-        newData: {
-            handler: function handler(newValue, oldValue) {
-                console.log("changed newData");
-                this.newData = true;
-            }
-        }
-    },
+
     methods: {
         fetchTeams: function fetchTeams(url) {
             this.newData = false;
@@ -48956,22 +49040,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         openModal: function openModal(team, name) {
             this.team = team;
             this.teamName = name;
+        },
+        newteams: function newteams() {
+            this.$http.get('/favorite-teams').then(function (data) {
+                this.teams = data.data;
+                this.newData = true;
+            });
         }
     },
     created: function created() {
         this.$http.get('/favorite-teams').then(function (data) {
             this.teams = data.data;
             this.newData = true;
-        });
-        this.$eventHub.$on('id-selected', function (team) {
-            console.log(8888888);
-            //                this.teams.push(team);
-            this.newData = false;
-            this.$http.get('/favorite-teams').then(function (data) {
-                console.log(999);
-                this.teams = data.data;
-                this.newData = true;
-            });
         });
     }
 });
@@ -49001,7 +49081,7 @@ var render = function() {
                 { tag: "tbody", attrs: { name: "fade" } },
                 _vm._l(_vm.teams.data, function(team, index) {
                   return _vm.newData
-                    ? _c("tr", { key: index }, [
+                    ? _c("tr", { key: index, attrs: { id: "demo" } }, [
                         _c("td", [_vm._v(_vm._s(team.team.team_name))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(team.team.coach_name))]),
@@ -49010,7 +49090,8 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [
                           _c("span", {
-                            staticClass: "glyphicon glyphicon-minus",
+                            staticClass:
+                              "glyphicon glyphicon-minus curs-pointer",
                             attrs: {
                               "data-toggle": "modal",
                               "data-target": ".bs-delete-modal-sm"
