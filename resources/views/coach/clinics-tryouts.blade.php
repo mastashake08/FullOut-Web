@@ -15,6 +15,7 @@
                                 <th>Coach Name</th>
                                 <th>Team Name</th>
                                 <th>Phone</th>
+                                <th>Address</th>
                                 <th>Start date</th>
                                 <th>End date</th>
                             </tr>
@@ -22,10 +23,11 @@
                             <tbody>
                             @foreach($clinics as $clinic)
                                 <tr>
-                                    <td><a href="{{url('/coach/clinics/'.$clinic->id)}}" target="_blank">{{$clinic->name}}</a></td>
+                                    <td>{{$clinic->name}}</td>
                                     <td>{{$clinic->coach_name}}</td>
                                     <td>{{$clinic->team->team_name}}</td>
                                     <td>{{$clinic->phone}}</td>
+                                    <td>{{$clinic->address}}</td>
                                     <td>{{$clinic->start_datetime}}</td>
                                     <td>{{$clinic->end_datetime}}</td>
 
@@ -63,7 +65,9 @@
                         <form class="form" role="form" action="{{url('/coach/clinics')}}" method="post">
                             {!!csrf_field()!!}
                             <fieldset>
-                                <div class="form-group">
+
+                                <div class="form-group col-md-12">
+                                    <span class="team_wins d-block w-100">Team Name</span>
                                     <select class="form-control" id="team_id" name="team_id">
                                         <option value="">Select Team</option>
                                         @foreach($teams as $team)
@@ -76,15 +80,21 @@
                                     </span>
                                     @endif
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control"  name="name" placeholder="Clinic Name" value="{{old('name')}}"/>
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                    @endif
+
+                                <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Name</span>
+                                        <input type="text" class="form-control" placeholder="" name="name" required value="{{old('name')}}">
+                                        @if ($errors->has('name'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
+
+                                <div class="form-group col-md-12">
+                                    <span class="team_wins d-block w-100">Coach Name</span>
                                     <select class="form-control" id="coach_name" name="coach_name">
                                         <option value="">Coach Name</option>
                                         @foreach($coaches as $coach)
@@ -97,55 +107,85 @@
                                     </span>
                                     @endif
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control date" type="datetime-local"  name="start_datetime" placeholder="Start Date" value="{{old('start_datetime')}}"/>
-                                    @if ($errors->has('start_datetime'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('start_datetime') }}</strong>
-                                    </span>
-                                    @endif
+                                <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Start Datetime</span>
+                                        <input type="datetime-local" class="form-control" placeholder="" name="start_datetime" required value="{{old('start_datetime')}}">
+                                        @if ($errors->has('start_datetime'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('start_datetime') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control date" type="datetime-local"  name="end_datetime" placeholder="End Date" value="{{old('end_datetime')}}"/>
-                                    @if ($errors->has('end_datetime'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('end_datetime') }}</strong>
-                                    </span>
-                                    @endif
+
+                                <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">End Datetime</span>
+                                        <input type="datetime-local" class="form-control" placeholder="" name="end_datetime" required value="{{old('end_datetime')}}">
+                                        @if ($errors->has('end_datetime'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('end_datetime') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control"  type="tel" name="phone" placeholder="Phone" value="{{old('phone')}}"/>
-                                    @if ($errors->has('phone'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                                    @endif
+                                 <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Phone</span>
+                                        <input type="text" class="form-control" placeholder="" name="phone" required value="{{old('phone')}}">
+                                        @if ($errors->has('phone'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('phone') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control"  name="skills_needed" placeholder="Skills Needed" value="{{old('skills_needed')}}"/>
-                                    @if ($errors->has('skills_needed'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('skills_needed') }}</strong>
-                                    </span>
-                                    @endif
+                                 <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Address</span>
+                                        <input type="text" class="form-control" placeholder="" name="address" required value="{{old('address')}}">
+                                        @if ($errors->has('address'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('address') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control"  name="skills_taught" placeholder="Skills Taught" value="{{old('skills_taught')}}"/>
-                                    @if ($errors->has('skills_taught'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('skills_taught') }}</strong>
-                                    </span>
-                                    @endif
+                                <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Skills Needed</span>
+                                        <input type="text" class="form-control" placeholder="" name="skills_needed" required value="{{old('skills_needed')}}">
+                                        @if ($errors->has('skills_needed'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('skills_needed') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="number" name="fee" placeholder="Fee" value="{{old('fee')}}"/>
-                                    @if ($errors->has('fee'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('fee') }}</strong>
-                                    </span>
-                                    @endif
+                                 <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Skills Taught</span>
+                                        <input type="text" class="form-control" placeholder="" name="skills_taught" required value="{{old('skills_taught')}}">
+                                        @if ($errors->has('skills_taught'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('skills_taught') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
+                                  <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Fee</span>
+                                        <input type="text" class="form-control" placeholder="" name="fee" required value="{{old('fee')}}">
+                                        @if ($errors->has('fee'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('fee') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-university" aria-hidden="true"></i> Add Clinic</button>
                                 </div>
                             </fieldset>
@@ -178,6 +218,7 @@
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Phone</th>
+                                    <th>Address</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -189,6 +230,7 @@
                                         <td>{{$tryout->start_datetime}}</td>
                                         <td>{{$tryout->end_datetime}}</td>
                                         <td>{{$tryout->phone}}</td>
+                                        <td>{{$tryout->address}}</td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -223,7 +265,9 @@
                         <form class="form" role="form" action="{{url('/coach/tryouts')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <fieldset>
-                                <div class="form-group">
+
+                                <div class="form-group col-md-12">
+                                    <span class="team_wins d-block w-100">Team Name</span>
                                     <select class="form-control" id="team_id" name="team_id">
                                         <option value="">Select Team</option>
                                         @foreach($teams as $team)
@@ -236,15 +280,21 @@
                                     </span>
                                     @endif
                                 </div>
-                                <div class="form-group">
-                                    <input name="name" class="form-control" value="{{old('name')}}" placeholder="Tryout Name"/>
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                    @endif
+
+                                <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Name</span>
+                                        <input type="text" class="form-control" placeholder="" name="name" required value="{{old('name')}}">
+                                        @if ($errors->has('name'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
+
+                                <div class="form-group col-md-12">
+                                    <span class="team_wins d-block w-100">Coach Name</span>
                                     <select class="form-control" id="coach_name" name="coach_name">
                                         <option value="">Coach Name</option>
                                         @foreach($coaches as $coach)
@@ -257,32 +307,52 @@
                                     </span>
                                     @endif
                                 </div>
-                                <div class="form-group">
-                                    <input name="phone" type="tel" class="form-control" value="{{old('phone')}}" placeholder="Phone"/>
-                                    @if ($errors->has('phone'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                                    @endif
+                                <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Start Datetime</span>
+                                        <input type="datetime-local" class="form-control" placeholder="" name="start_datetime" required value="{{old('start_datetime')}}">
+                                        @if ($errors->has('start_datetime'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('start_datetime') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input name="start_datetime" type="datetime-local" class="form-control" value="{{old('start_datetime')}}" placeholder="Start Date"/>
-                                    @if ($errors->has('start_datetime'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('start_datetime') }}</strong>
-                                    </span>
-                                    @endif
+                                <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">End Datetime</span>
+                                        <input type="datetime-local" class="form-control" placeholder="" name="end_datetime" required value="{{old('end_datetime')}}">
+                                        @if ($errors->has('end_datetime'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('end_datetime') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input name="end_datetime" type="datetime-local" class="form-control" value="{{old('end_datetime')}}" placeholder="End Date"/>
-                                    @if ($errors->has('end_datetime'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('end_datetime') }}</strong>
-                                    </span>
-                                    @endif
+                                <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Phone</span>
+                                        <input type="text" class="form-control" placeholder="" name="phone" required value="{{old('phone')}}">
+                                        @if ($errors->has('phone'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('phone') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary" type="submit">Add tryout</button>
+                                <div class="form-group col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Address</span>
+                                        <input type="text" class="form-control" placeholder="" name="address" required value="{{old('address')}}">
+                                        @if ($errors->has('address'))
+                                            <span class="help-block">
+                                                 <strong>{{ $errors->first('address') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-university" aria-hidden="true"></i> Add Clinic</button>
                                 </div>
                             </fieldset>
                         </form>

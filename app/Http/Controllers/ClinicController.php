@@ -90,6 +90,7 @@ class ClinicController extends Controller
             'start_datetime' => 'required',
             'end_datetime' => 'required',
             'phone' => 'required',
+            'address' => 'required',
             'skills_needed' => 'required',
             'skills_taught' => 'required',
             'fee' => 'required'
@@ -102,6 +103,7 @@ class ClinicController extends Controller
             'start_datetime' => Carbon::parse($request->start_datetime),
             'end_datetime' => Carbon::parse($request->end_datetime),
             'phone' => $request->phone,
+            'address' => $request->phone,
             'skills_needed' => $request->skills_needed,
             'skills_taught' => $request->skills_taught,
             'fee' => $request->fee
@@ -132,8 +134,14 @@ class ClinicController extends Controller
     {
         //
         $clinic = Clinic::findOrFail($id);
+        $user = auth()->user();
+        $teams = Team::where([['coach_name', $user->name],['school_id', $user->school_id]])->get();
+        $coaches = User::where([['type', 'coach'],['school_id', $user->school_id]])->get();
+
         $with = [
-          'clinic' => $clinic
+          'clinic' => $clinic,
+          'teams' => $teams,
+          'coaches' => $coaches
         ];
         return view('clinic.edit')->with($with);
     }
@@ -147,7 +155,36 @@ class ClinicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $clinic = Clinic::findOrFail($id);
+        if($clinic){
+            $this->validate($request, [
+                'team_id' => 'required',
+                'name' => 'required',
+                'coach_name' => 'required',
+                'start_datetime' => 'required',
+                'end_datetime' => 'required',
+                'phone' => 'required',
+                'address' => 'required',
+                'skills_needed' => 'required',
+                'skills_taught' => 'required',
+                'fee' => 'required'
+            ]);
+            $clinic->fill([
+                'school_id' => $request->user()->school->id,
+                'team_id' => $request->team_id,
+                'name' => $request->name,
+                'coach_name' => $request->coach_name,
+                'start_datetime' => Carbon::parse($request->start_datetime),
+                'end_datetime' => Carbon::parse($request->end_datetime),
+                'phone' => $request->phone,
+                'address' => $request->phone,
+                'skills_needed' => $request->skills_needed,
+                'skills_taught' => $request->skills_taught,
+                'fee' => $request->fee
+            ]);
+            $clinic->save();
+            return back();
+        };
     }
 
     /**

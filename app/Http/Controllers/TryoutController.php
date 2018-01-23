@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Clinic;
 use App\Team;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Tryout;
 use Calendar;
@@ -76,6 +77,7 @@ class TryoutController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->skills_needed);
         //
         if(auth()->user()->can('create', Tryout::class)){
           $this->validate($request,[
@@ -84,16 +86,18 @@ class TryoutController extends Controller
               'coach_name' => 'required',
               'start_datetime' => 'required',
               'end_datetime' => 'required',
-              'phone' => 'required'
+              'phone' => 'required',
+              'address' => 'required',
           ]);
           auth()->user()->school->tryouts()->create([
-            'school_id' => $request->user()->school->id,
-            'team_id' => $request->team_id,
-            'name' => $request->name,
-            'coach_name' => $request->coach_name,
-            'start_datetime' => \Carbon\Carbon::parse($request->start_datetime),
-            'end_datetime' => \Carbon\Carbon::parse($request->end_datetime),
-            'phone' => $request->phone
+              'school_id' => $request->user()->school->id,
+              'team_id' => $request->team_id,
+              'name' => $request->name,
+              'coach_name' => $request->coach_name,
+              'start_datetime' => Carbon::parse($request->start_datetime),
+              'end_datetime' => Carbon::parse($request->end_datetime),
+              'phone' => $request->phone,
+              'address' => $request->phone,
           ]);
           return back();
         }
@@ -121,9 +125,15 @@ class TryoutController extends Controller
      */
     public function edit($id)
     {
+        $user = auth()->user();
+        $teams = Team::where([['coach_name', $user->name],['school_id', $user->school_id]])->get();
+        $coaches = User::where([['type', 'coach'],['school_id', $user->school_id]])->get();
+
         $tryout = Tryout::findOrFail($id);
         $with = [
-            'clinic' => $tryout
+            'tryouts' => $tryout,
+            'teams' => $teams,
+            'coaches' => $coaches
         ];
         return view('tryouts.edit')->with($with);
     }
@@ -137,7 +147,31 @@ class TryoutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $tryout = Tryout::findOrFail($id);
+        if($tryout){
+            $this->validate($request, [
+                'team_id' => 'required',
+                'name' => 'required',
+                'coach_name' => 'required',
+                'start_datetime' => 'required',
+                'end_datetime' => 'required',
+                'phone' => 'required',
+                'address' => 'required',
+            ]);
+            $tryout->fill([
+                'school_id' => $request->user()->school->id,
+                'team_id' => $request->team_id,
+                'name' => $request->name,
+                'coach_name' => $request->coach_name,
+                'start_datetime' => Carbon::parse($request->start_datetime),
+                'end_datetime' => Carbon::parse($request->end_datetime),
+                'phone' => $request->phone,
+                'address' => $request->phone,
+            ]);
+            $tryout->save();
+            return back();
+        };
     }
 
     /**
