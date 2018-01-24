@@ -21,8 +21,8 @@
                   <tbody>
                     @foreach($clinics as $clinic)
                     <tr>
-{{--                      <td><a href="{{url('/cheerleader/clinics/'.$clinic->id)}}" target="_blank">{{$clinic->name}}</a></td>--}}
-                        <td>{{$clinic->name}}</td>
+                      <td><a href="{{url('/cheerleader/clinics/'.$clinic->id)}}">{{$clinic->name}}</a></td>
+{{--                        <td>{{$clinic->name}}</td>--}}
                         <td>{{$clinic->coach_name}}</td>
                         <td>{{$clinic->team->team_name}}</td>
                         <td>{{$clinic->phone}}</td>

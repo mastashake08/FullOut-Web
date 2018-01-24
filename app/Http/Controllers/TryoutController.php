@@ -114,7 +114,13 @@ class TryoutController extends Controller
      */
     public function show($id)
     {
-        //
+        $tryout = Tryout::findOrFail($id);
+        if($tryout){
+            return view('tryouts.show',compact('tryout'));
+        }
+        else{
+            return back();
+        }
     }
 
     /**

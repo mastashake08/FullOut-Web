@@ -120,8 +120,14 @@ class ClinicController extends Controller
      */
     public function show($id)
     {
-        //
-        return Clinic::findOrFail($id);
+        $clinic =  Clinic::findOrFail($id);
+        if($clinic){
+            return view('clinic.show',compact('clinic'));
+        }
+        else{
+            return back();
+        }
+
     }
 
     /**
