@@ -47137,6 +47137,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47195,73 +47212,104 @@ var render = function() {
             _c("transition", { attrs: { name: "fade" } }, [
               _vm.newData
                 ? _c("div", { staticClass: "panel-body" }, [
-                    _c("span", [_vm._v("Name: " + _vm._s(_vm.user.name))]),
-                    _c("br"),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-2" }, [
+                        _vm._v("Name:")
+                      ]),
+                      _c("span", { staticClass: "col-xs-10" }, [
+                        _vm._v(" " + _vm._s(_vm.user.name))
+                      ]),
+                      _c("br")
+                    ]),
                     _vm._v(" "),
-                    _c("span", [_vm._v("Email: " + _vm._s(_vm.user.email))]),
-                    _c("br"),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-2" }, [
+                        _vm._v("Email:")
+                      ]),
+                      _c("span", { staticClass: "col-xs-10" }, [
+                        _vm._v("  " + _vm._s(_vm.user.email))
+                      ]),
+                      _c("br")
+                    ]),
                     _vm._v(" "),
-                    _c("span", [
-                      _vm._v("Program Name: "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-2" }, [
+                        _vm._v("Program Name:")
+                      ]),
+                      _vm._v(" "),
                       _vm.information
-                        ? _c("span", [
+                        ? _c("span", { staticClass: "col-xs-10" }, [
                             _vm._v(_vm._s(_vm.information.program_name))
                           ])
-                        : _vm._e()
+                        : _vm._e(),
+                      _c("br")
                     ]),
-                    _c("br"),
                     _vm._v(" "),
-                    _c("span", [
-                      _vm._v("Coaching Title: "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-2" }, [
+                        _vm._v("Coaching Title:")
+                      ]),
+                      _vm._v(" "),
                       _vm.information
-                        ? _c("span", [
+                        ? _c("span", { staticClass: "col-xs-10" }, [
                             _vm._v(_vm._s(_vm.information.coaching_title))
                           ])
-                        : _vm._e()
+                        : _vm._e(),
+                      _c("br")
                     ]),
-                    _c("br"),
                     _vm._v(" "),
-                    _c("span", [
-                      _vm._v("Financial Requirements: "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-3" }, [
+                        _vm._v("Financial Requirements:")
+                      ]),
+                      _vm._v(" "),
                       _vm.information
-                        ? _c("span", [
+                        ? _c("span", { staticClass: "col-xs-9" }, [
                             _vm._v(
                               _vm._s(_vm.information.financial_requirements)
                             )
                           ])
-                        : _vm._e()
+                        : _vm._e(),
+                      _c("br")
                     ]),
-                    _c("br"),
                     _vm._v(" "),
-                    _c("span", [
-                      _vm._v("Are there the same information for all teams: "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-5" }, [
+                        _vm._v("Are there the same information for all teams:")
+                      ]),
+                      _vm._v(" "),
                       _vm.information
-                        ? _c("span", [
+                        ? _c("span", { staticClass: "col-xs-7" }, [
                             _vm._v(_vm._s(_vm.information.same_information))
                           ])
-                        : _vm._e()
+                        : _vm._e(),
+                      _c("br")
                     ]),
-                    _c("br"),
                     _vm._v(" "),
-                    _c("span", [
-                      _vm._v("Tuition cost: "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-2" }, [
+                        _vm._v("Tuition cost: ")
+                      ]),
                       _vm.information
-                        ? _c("span", [
+                        ? _c("span", { staticClass: "col-xs-10" }, [
                             _vm._v(_vm._s(_vm.information.tuition_cost))
                           ])
-                        : _vm._e()
+                        : _vm._e(),
+                      _c("br")
                     ]),
-                    _c("br"),
                     _vm._v(" "),
-                    _c("span", [
-                      _vm._v("Description of cheer program: "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-3" }, [
+                        _vm._v("Description of cheer program:")
+                      ]),
+                      _vm._v(" "),
                       _vm.information
-                        ? _c("span", [
+                        ? _c("span", { staticClass: "col-xs-9" }, [
                             _vm._v(_vm._s(_vm.information.description_program))
                           ])
-                        : _vm._e()
+                        : _vm._e(),
+                      _c("br")
                     ]),
-                    _c("br"),
                     _vm._v(" "),
                     _c("div", { staticClass: "pull-right" }, [
                       _c("span", {

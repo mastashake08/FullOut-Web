@@ -23,17 +23,16 @@
                             <tbody>
                             @foreach($clinics as $clinic)
                                 <tr>
-                                    <td>{{$clinic->name}}</td>
+                                    <td><a href="{{url('/cheerleader/clinics/'.$clinic->id)}}">{{$clinic->name}}</a></td>
                                     <td>{{$clinic->coach_name}}</td>
                                     <td>{{$clinic->team->team_name}}</td>
                                     <td>{{$clinic->phone}}</td>
                                     <td>{{$clinic->address}}</td>
                                     <td>{{$clinic->start_datetime}}</td>
                                     <td>{{$clinic->end_datetime}}</td>
-
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td colspan="7">
                                         <form method="post" action="{{url('/coach/clinics/'.$clinic->id)}}">
                                             <div class="form-group">
                                                 <a href="{{url('/coach/clinics/'.$clinic->id.'/edit')}}" class="btn btn-warning">Edit Clinic</a>
@@ -224,7 +223,7 @@
                                 <tbody>
                                 @foreach(auth()->user()->school->tryouts as $tryout)
                                     <tr>
-                                        <td>{{$tryout->name}}</td>
+                                        <td><a href="{{url('/cheerleader/tryouts/'.$tryout->id)}}">{{$tryout->name}}</a></td>
                                         <td>{{$tryout->coach_name}}</td>
                                         <td>{{$tryout->team->team_name}}</td>
                                         <td>{{$tryout->start_datetime}}</td>
@@ -233,7 +232,7 @@
                                         <td>{{$tryout->address}}</td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td colspan="7">
                                             <form method="post" action="{{url('/coach/tryouts/'.$tryout->id)}}">
                                                 <div class="form-group">
                                                     <a href="{{url('/coach/tryouts/'.$tryout->id.'/edit')}}" class="btn btn-warning">Edit tryout</a>

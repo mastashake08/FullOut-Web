@@ -22,7 +22,6 @@
                     @foreach($tryouts as $tryout)
                     <tr>
                       <td><a href="{{url('/cheerleader/tryouts/'.$tryout->id)}}">{{$tryout->name}}</a></td>
-{{--                        <td>{{$tryout->name}}</td>--}}
                         <td>{{$tryout->coach_name}}</td>
                         <td>{{$tryout->team->team_name}}</td>
                         <td>{{$tryout->start_datetime}}</td>

@@ -8,14 +8,31 @@
                     <transition name="fade">
                         <div class="panel-body" v-if="newData">
                             <!--<div><img :src="'/images/profile-pics/' + user.profile_pic" class="profile_img" alt=""></div>-->
-                            <span>Name: {{user.name}}</span><br>
-                            <span>Email: {{user.email}}</span><br>
-                            <span>Program Name: <span v-if="information">{{information.program_name}}</span></span><br>
-                            <span>Coaching Title: <span v-if="information">{{information.coaching_title}}</span></span><br>
-                            <span>Financial Requirements: <span v-if="information">{{information.financial_requirements}}</span></span><br>
-                            <span>Are there the same information for all teams: <span v-if="information">{{information.same_information}}</span></span><br>
-                            <span>Tuition cost: <span v-if="information">{{information.tuition_cost}}</span></span><br>
-                            <span>Description of cheer program: <span v-if="information">{{information.description_program}}</span></span><br>
+                            <div class="row">
+                                <span class="col-xs-2">Name:</span><span class="col-xs-10"> {{user.name}}</span><br>
+                            </div>
+                             <div class="row">
+                                 <span class="col-xs-2">Email:</span><span class="col-xs-10">  {{user.email}}</span><br>
+                            </div>
+                             <div class="row">
+                                 <span class="col-xs-2">Program Name:</span> <span class="col-xs-10" v-if="information">{{information.program_name}}</span><br>
+                            </div>
+                             <div class="row">
+                                 <span class="col-xs-2">Coaching Title:</span> <span class="col-xs-10" v-if="information">{{information.coaching_title}}</span><br>
+                            </div>
+                             <div class="row">
+                                 <span class="col-xs-3">Financial Requirements:</span> <span class="col-xs-9" v-if="information">{{information.financial_requirements}}</span><br>
+                            </div>
+                             <div class="row">
+                                 <span class="col-xs-5">Are there the same information for all teams:</span> <span class="col-xs-7" v-if="information">{{information.same_information}}</span><br>
+                            </div>
+                             <div class="row">
+                                 <span class="col-xs-2">Tuition cost: </span><span class="col-xs-10" v-if="information">{{information.tuition_cost}}</span><br>
+                            </div>
+                             <div class="row">
+                                 <span class="col-xs-3">Description of cheer program:</span> <span class="col-xs-9" v-if="information">{{information.description_program}}</span><br>
+                            </div>
+
                             <div class="pull-right">
                                 <span class="glyphicon glyphicon-heart" @click="favorite()"></span>
                                 <span class="glyphicon glyphicon-envelope" @click="openMessage()"></span>

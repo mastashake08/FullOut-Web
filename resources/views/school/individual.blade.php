@@ -1,19 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<script>
-var skills = {{$school->user->skillSet}}
-console.log(skills);
-</script>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">{{$school->name}}</div>
-
                 <div class="panel-body">
                   <div class="text-center">
-                  <img src="{{$school->logo}}" class="img-rounded" alt="{{$school->name}}" width="304" height="236">
+                  <img src="{{ asset('images/school-logo/'.$school->logo)}}" class="img-rounded" alt="{{$school->name}}" width="304" height="236">
                 </div>
                 Name: {{$school->name}}
                 <br>
@@ -33,9 +29,9 @@ console.log(skills);
                 <br>
                 SAT Score: {{$school->sat_score}}
                 <br>
-                In State Tuition: ${{money_format('%.2n', $school->in_state_tuition)}}
+                In State Tuition: ${{$school->in_state_tuition}}
                 <br>
-                Out Of State Tuition: ${{money_format('%.2n', $school->out_state_tuition)}}
+                Out Of State Tuition: ${{$school->out_state_tuition}}
                 
                 </div>
             </div>
@@ -51,13 +47,25 @@ console.log(skills);
                   <table class="table">
                    <thead>
                      <tr>
-                       <th>Name</th>
+                         <th>Name</th>
+                         <th>Coach Name</th>
+                         <th>Team Name</th>
+                         <th>Start Date</th>
+                         <th>End Date</th>
+                         <th>Phone</th>
+                         <th>Address</th>
                      </tr>
                    </thead>
                    <tbody>
                      @foreach($tryouts as $tryout)
                      <tr>
-                       <td><a href="{{url('/cheerleader/tryouts/'.$tryout->id)}}" target="_blank">{{$tryout->name}}</a></td>
+                         <td><a href="{{url('/cheerleader/tryouts/'.$tryout->id)}}">{{$tryout->name}}</a></td>
+                         <td>{{$tryout->coach_name}}</td>
+                         <td>{{$tryout->team->team_name}}</td>
+                         <td>{{$tryout->start_datetime}}</td>
+                         <td>{{$tryout->end_datetime}}</td>
+                         <td>{{$tryout->phone}}</td>
+                         <td>{{$tryout->address}}</td>
                      </tr>
                      @endforeach
 
@@ -79,13 +87,25 @@ console.log(skills);
                   <table class="table">
                    <thead>
                      <tr>
-                       <th>Name</th>
+                         <th>Name</th>
+                         <th>Coach Name</th>
+                         <th>Team Name</th>
+                         <th>Phone</th>
+                         <th>Address</th>
+                         <th>Start date</th>
+                         <th>End date</th>
                      </tr>
                    </thead>
                    <tbody>
                      @foreach($clinics as $clinic)
                      <tr>
-                       <td><a href="{{url('/cheerleader/clinics/'.$clinic->id)}}" target="_blank">{{$clinic->name}}</a></td>
+                         <td><a href="{{url('/cheerleader/clinics/'.$clinic->id)}}">{{$clinic->name}}</a></td>
+                         <td>{{$clinic->coach_name}}</td>
+                         <td>{{$clinic->team->team_name}}</td>
+                         <td>{{$clinic->phone}}</td>
+                         <td>{{$clinic->address}}</td>
+                         <td>{{$clinic->start_datetime}}</td>
+                         <td>{{$clinic->end_datetime}}</td>
                      </tr>
                      @endforeach
 
