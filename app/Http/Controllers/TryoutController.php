@@ -182,6 +182,15 @@ class TryoutController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tryout = Tryout::findOrFail($id);
+
+        if($tryout && $tryout->coach_name == auth()->user()->name){
+           $delete =  $tryout->delete();
+            if($delete){
+                return redirect('coach/clinics-tryouts');
+            }
+        }
+        return back();
+
     }
 }

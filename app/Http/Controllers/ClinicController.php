@@ -196,7 +196,16 @@ class ClinicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $clinic = Clinic::findOrFail($id);
+
+        if($clinic && $clinic->coach_name == auth()->user()->name){
+            $delete =  $clinic->delete();
+            if($delete){
+                return redirect('coach/clinics-tryouts');
+            }
+        }
+        return back();
+
     }
 
     public function search(Request $request){

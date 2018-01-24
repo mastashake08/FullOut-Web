@@ -9,15 +9,26 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Team Name</th>
+                        <th>Name</th>
+                        <th>Coach Name</th>
+                        <th>Team Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Phone</th>
+                        <th>Address</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach($tryouts as $tryout)
                     <tr>
-                      <td><a href="{{url('/cheerleader/tryouts/'.$tryout->id)}}" target="_blank">{{$tryout->name}}</a></td>
+{{--                      <td><a href="{{url('/cheerleader/tryouts/'.$tryout->id)}}" target="_blank">{{$tryout->name}}</a></td>--}}
+                        <td>{{$tryout->name}}</td>
+                        <td>{{$tryout->coach_name}}</td>
                         <td>{{$tryout->team->team_name}}</td>
+                        <td>{{$tryout->start_datetime}}</td>
+                        <td>{{$tryout->end_datetime}}</td>
+                        <td>{{$tryout->phone}}</td>
+                        <td>{{$tryout->address}}</td>
                     </tr>
                     @endforeach
                   </tbody>
