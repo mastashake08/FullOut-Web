@@ -183,7 +183,8 @@ class ClinicController extends Controller
                 'fee' => $request->fee
             ]);
             $clinic->save();
-            return back();
+
+            return redirect('coach/clinics-tryouts');
         };
     }
 

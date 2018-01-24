@@ -17,7 +17,7 @@
                               <select class="form-control" id="team_id" name="team_id">
                                   <option value="">Select Team</option>
                                   @foreach($teams as $team)
-                                      <option @if(old('team_id', null) == $team['id']) value="{{ old('team_id') }}" selected @else value="{{ $team['id'] }}" @endif >{{ $team->team_name }}</option>
+                                      <option @if($clinic->team_id == $team['id']) selected @endif value="{{ $team['id'] }}">{{ $team->team_name }}</option>
                                   @endforeach
                               </select>
                               @if ($errors->has('team_id'))
@@ -44,7 +44,7 @@
                               <select class="form-control" id="coach_name" name="coach_name">
                                   <option value="">Coach Name</option>
                                   @foreach($coaches as $coach)
-                                      <option @if(old('coach_name', null) == $coach['name']) value="{{ old('coach_name') }}" selected @else value="{{ $coach['name'] }}" @endif >{{ $coach->name }}</option>
+                                      <option @if($clinic->coach_name == $coach->name) selected @endif value="{{ $coach->name}}">{{ $coach->name }}</option>
                                   @endforeach
                               </select>
                               @if ($errors->has('coach_name'))
@@ -56,7 +56,7 @@
                           <div class="form-group col-md-12">
                               <div class="input-group">
                                   <span class="input-group-addon">Start Datetime</span>
-                                  <input type="datetime-local" class="form-control" placeholder="" name="start_datetime" required value="{{ $clinic->start_datetime }}">
+                                  <input type="datetime-local" class="form-control" placeholder="" name="start_datetime" required value="{{ $clinic->start_datetime->format('Y-m-d\TH:i') }}">
                                   @if ($errors->has('start_datetime'))
                                       <span class="help-block">
                                          <strong>{{ $errors->first('start_datetime') }}</strong>
@@ -67,7 +67,7 @@
                           <div class="form-group col-md-12">
                               <div class="input-group">
                                   <span class="input-group-addon">End Datetime</span>
-                                  <input type="datetime-local" class="form-control" placeholder="" name="end_datetime" required value="{{ $clinic->end_datetime }}">
+                                  <input type="datetime-local" class="form-control" placeholder="" name="end_datetime" required value="{{ $clinic->end_datetime->format('Y-m-d\TH:i') }}">
                                   @if ($errors->has('end_datetime'))
                                       <span class="help-block">
                                          <strong>{{ $errors->first('end_datetime') }}</strong>

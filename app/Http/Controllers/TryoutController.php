@@ -170,7 +170,7 @@ class TryoutController extends Controller
                 'address' => $request->phone,
             ]);
             $tryout->save();
-            return back();
+            return redirect('coach/clinics-tryouts');
         };
     }
 
