@@ -122,49 +122,70 @@ class TeamController extends Controller
      */
     public function show($id)
     {
-        //
-        $canMessage = false;
+
+//        $canMessage = false;
+        $skills = '';
         $user = auth()->user();
         $team = Team::findOrFail($id);
-        $debug = [
-          'team' => collect($team->skillSet),
-          'cheerleader' =>collect((auth()->user()->skillSet))
-        ];
-        $teamSpring = collect($team->skillSet->spring_floor_tumbling_skills);
-        $userSpring = collect($user->skillSet->spring_floor_tumbling_skills);
-        $teamHard = collect($team->skillSet->hard_floor_tumbling_skills);
-        $userHard = collect($user->skillSet->hard_floor_tumbling_skills);
-        $teamGroup = collect($team->skillSet->group_stunting_skills);
-        $userGroup = collect($user->skillSet->group_stunting_skills);
-        $teamCoed = collect($team->skillSet->coed_stunting_skills);
-        $userCoed = collect($team->skillSet->coed_stunting_skills);
-        $teamSpringCount = $teamSpring->count();
-        $userSpringCount = $userSpring->count();
-        $teamHardCount = $teamHard->count();
-        $userHardCount = $userHard->count();
-        $teamGroupCount = $teamGroup->count();
-        $userGroupCount = $userGroup->count();
-        $teamCoedCount = $teamCoed->count();
-        $userCoedCount = $userCoed->count();
-        $skillPercentage = ($userSpringCount + $userHardCount + $userGroupCount + $userCoedCount)/($teamSpringCount + $teamHardCount + $teamGroupCount + $teamCoedCount);
-        if($skillPercentage > 0.7){
-          $canMessage = true;
+
+        if(count($team->skillSet)){
+
+            $skills = $team->skillSet;
+            $spring_tumbling_percent = ceil($skills['spring_tumbling_score'] * 100 / 43);
+            $hard_tumbling_percent = ceil($skills['hard_tumbling_score'] * 100 / 43);
+            $group_stunting_percent = ceil($skills['group_stunting_score'] * 100 / 61);
+            $coed_stunting_percent = ceil($skills['coed_stunting_score'] * 100 / 67);
+
         }
+
+//        $debug = [
+//          'team' => collect($team->skillSet),
+//          'cheerleader' =>collect((auth()->user()->skillSet))
+//        ];
+
+//        $teamSpring = collect($team->skillSet->spring_floor_tumbling_skills);
+//        $userSpring = collect($user->skillSet->spring_floor_tumbling_skills);
+//        $teamHard = collect($team->skillSet->hard_floor_tumbling_skills);
+//        $userHard = collect($user->skillSet->hard_floor_tumbling_skills);
+//        $teamGroup = collect($team->skillSet->group_stunting_skills);
+//        $userGroup = collect($user->skillSet->group_stunting_skills);
+//        $teamCoed = collect($team->skillSet->coed_stunting_skills);
+//        $userCoed = collect($team->skillSet->coed_stunting_skills);
+//        $teamSpringCount = $teamSpring->count();
+//        $userSpringCount = $userSpring->count();
+//        $teamHardCount = $teamHard->count();
+//        $userHardCount = $userHard->count();
+//        $teamGroupCount = $teamGroup->count();
+//        $userGroupCount = $userGroup->count();
+//        $teamCoedCount = $teamCoed->count();
+//        $userCoedCount = $userCoed->count();
+
+//        $skillPercentage = ($userSpringCount + $userHardCount + $userGroupCount + $userCoedCount)/($teamSpringCount + $teamHardCount + $teamGroupCount + $teamCoedCount);
+
+//        if($skillPercentage > 0.7){
+//          $canMessage = true;
+//        }
 
         $with = [
           'team' => $team,
-          'teamSpring' => $teamSpring,
-          'teamHard' => $teamHard,
-          'teamCoed' => $teamCoed,
-          'teamGroup' => $teamGroup,
-          'userSpring' => $userSpring,
-          'userHard' => $userHard,
-          'userGroup' => $userGroup,
-          'userCoed' => $userCoed,
-          'canMessage' => $canMessage,
-          'skillPercentage' => $skillPercentage
+          'skills' => $skills,
+          'spring_tumbling_percent' => $spring_tumbling_percent,
+          'hard_tumbling_percent' => $hard_tumbling_percent,
+          'group_stunting_percent' => $group_stunting_percent,
+          'coed_stunting_percent' => $coed_stunting_percent,
+//          'teamSpring' => $teamSpring,
+//          'teamHard' => $teamHard,
+//          'teamCoed' => $teamCoed,
+//          'teamGroup' => $teamGroup,
+//          'userSpring' => $userSpring,
+//          'userHard' => $userHard,
+//          'userGroup' => $userGroup,
+//          'userCoed' => $userCoed,
+//          'canMessage' => $canMessage,
+//          'skillPercentage' => $skillPercentage
 
         ];
+
         return view('team.individual')->with($with);
     }
 
