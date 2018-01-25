@@ -23,25 +23,6 @@ class SchoolController extends Controller
     public function index(Request $request)
     {
         //
-
-        if($request->expectsJson()){
-          
-          $with = [
-            'schools' => School::paginate(10)
-          ];
-          return response()->json($with);
-        }
-        if(auth()->user()->cant('create',School::class)){
-          $with = [
-            'schools' => School::paginate(10)
-          ];
-          return view('school.all')->with($with);
-        }
-        else{
-          return view('school.all');
-        }
-
-
     }
 
     /**
@@ -51,10 +32,10 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        //
-        if($request->user()->can('create', \App\School::class)){
-          return view('school.create');
-        }
+//        //
+//        if($request->user()->can('create', \App\School::class)){
+//          return view('school.create');
+//        }
     }
 
     /**

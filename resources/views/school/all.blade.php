@@ -2,7 +2,7 @@
 
 @section('content')
 @can('create', \App\School::class)
-@include('coach.schools')
+@include('coach.home')
 @endcan
 @if(isset($schools))
 @cannot('create',\App\School::class)
