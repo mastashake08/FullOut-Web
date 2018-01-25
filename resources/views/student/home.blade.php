@@ -34,12 +34,22 @@
                   <div class="input-group">
                     <span class="input-group-addon">Email</span>
                     <input type="text" class="form-control" placeholder="Email Address" name="email" required value="{{auth()->user()->email}}">
+                    @if ($errors->has('email'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('email') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon">Full Name</span>
                     <input type="text" class="form-control" placeholder="Full Name" name="name" required value="{{auth()->user()->name}}">
+                    @if ($errors->has('name'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('name') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -55,6 +65,11 @@
                           <label for="gender-female">Female</label>
                           <input id="gender-female" type="radio" class="" name="gender" required value="female" {{ (isset(auth()->user()->mainInformationStudent->gender) && auth()->user()->mainInformationStudent->gender == 'female' ? 'checked' : '') }}>
                         </div>
+                        @if ($errors->has('gender'))
+                          <span class="help-block">
+                             <strong>{{ $errors->first('gender') }}</strong>
+                          </span>
+                        @endif
                       </div>
                     </div>
                   </div>
@@ -63,108 +78,198 @@
                   <div class="input-group">
                     <span class="input-group-addon">Phone</span>
                     <input type="text" class="form-control" placeholder="Phone Number" name="phone" required value="{{ (isset(auth()->user()->mainInformationStudent->phone) ? auth()->user()->mainInformationStudent->phone : '') }}">
+                    @if ($errors->has('phone'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('phone') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Address</span>
                     <input type="text" class="form-control" placeholder="Address" name="address" required value="{{ (isset(auth()->user()->mainInformationStudent->address) ? auth()->user()->mainInformationStudent->address : '') }}" aria-describedby="basic-addon1">
+                    @if ($errors->has('address'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('address') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <div class="input-group">
                     <span class="input-group-addon">City</span>
                     <input type="text" class="form-control" placeholder="City" name="city" required value="{{ (isset(auth()->user()->mainInformationStudent->city) ? auth()->user()->mainInformationStudent->city : '') }}">
+                    @if ($errors->has('city'))
+                       <span class="help-block">
+                          <strong>{{ $errors->first('city') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">State</span>
                     <input type="text" class="form-control" placeholder="state" name="state" required value="{{ (isset(auth()->user()->mainInformationStudent->state) ? auth()->user()->mainInformationStudent->state : '') }}">
+                    @if ($errors->has('state'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('state') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">D.O.B.</span>
                     <input type="text" class="form-control" placeholder="D.O.B." name="dob" required value="{{ (isset(auth()->user()->mainInformationStudent->dob) ? auth()->user()->mainInformationStudent->dob : '') }}">
+                    @if ($errors->has('dob'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('dob') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">ZIP</span>
                     <input type="text" class="form-control" placeholder="Zip" name="zip" required value="{{ (isset(auth()->user()->mainInformationStudent->zip) ? auth()->user()->mainInformationStudent->zip : '') }}">
+                    @if ($errors->has('zip'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('zip') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">School Type</span>
                     <input type="text" class="form-control" placeholder="School Type" name="school_type" required value="{{ (isset(auth()->user()->mainInformationStudent->school_type) ? auth()->user()->mainInformationStudent->school_type : '') }}">
+                    @if ($errors->has('school_type'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('school_type') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Current School</span>
                     <input type="text" class="form-control" placeholder="Current School" name="current_school" required value="{{ (isset(auth()->user()->mainInformationStudent->current_school) ? auth()->user()->mainInformationStudent->current_school : '') }}">
+                    @if ($errors->has('current_school'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('current_school') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Current Year</span>
                     <input type="text" class="form-control" placeholder="Current Year" name="current_year" required value="{{ (isset(auth()->user()->mainInformationStudent->current_year) ? auth()->user()->mainInformationStudent->current_year : '') }}">
+                    @if ($errors->has('current_year'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('current_year') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Current GPA</span>
                     <input type="text" class="form-control" placeholder="GPA" name="current_gpa" required value="{{ (isset(auth()->user()->mainInformationStudent->current_gpa) ? auth()->user()->mainInformationStudent->current_gpa : '') }}">
+                    @if ($errors->has('current_gpa'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('current_gpa') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">ACT Score</span>
                     <input type="text" class="form-control" placeholder="ACT Score" name="act_score" required value="{{ (isset(auth()->user()->mainInformationStudent->act_score) ? auth()->user()->mainInformationStudent->act_score : '') }}">
+                    @if ($errors->has('act_score'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('act_score') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Highest SAT</span>
                     <input type="text" class="form-control" placeholder="Highest SAT" name="highest_sat" required value="{{ (isset(auth()->user()->mainInformationStudent->highest_sat) ? auth()->user()->mainInformationStudent->highest_sat : '') }}">
+                    @if ($errors->has('highest_sat'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('highest_sat') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Bio</span>
                     <textarea class="form-control" name="bio">{{ (isset(auth()->user()->mainInformationStudent->bio) ? auth()->user()->mainInformationStudent->bio : '') }}</textarea>
+                    @if ($errors->has('bio'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('bio') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Weight</span>
                     <textarea class="form-control" name="weight">{{ (isset(auth()->user()->mainInformationStudent->weight) ? auth()->user()->mainInformationStudent->weight : '') }}</textarea>
+                    @if ($errors->has('weight'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('weight') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-4">
                   <div class="input-group">
                     <span class="input-group-addon">Height</span>
                     <textarea class="form-control" name="height">{{ (isset(auth()->user()->mainInformationStudent->height) ? auth()->user()->mainInformationStudent->height : '') }}</textarea>
+                    @if ($errors->has('height'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('height') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-12">
                   <div class="input-group">
                     <span class="input-group-addon">Current Cheer Program and Timeline</span>
                     <input class="form-control" name="current_program_timeline" value="{{ (isset(auth()->user()->mainInformationStudent->current_program_timeline) ? auth()->user()->mainInformationStudent->current_program_timeline : '') }}">
+                    @if ($errors->has('current_program_timeline'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('current_program_timeline') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-12">
                   <div class="input-group">
                     <span class="input-group-addon">Past Cheer Program and Timeline</span>
                     <input class="form-control" name="past_program_timeline" value="{{ (isset(auth()->user()->mainInformationStudent->past_program_timeline) ? auth()->user()->mainInformationStudent->past_program_timeline : '') }}">
+                    @if ($errors->has('past_program_timeline'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('past_program_timeline') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-12">
                   <div class="input-group">
                     <span class="input-group-addon">Accolades</span>
                     <input class="form-control" name="accolades" value="{{ (isset(auth()->user()->mainInformationStudent->accolades) ? auth()->user()->mainInformationStudent->accolades : '') }}">
+                    @if ($errors->has('accolades'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('accolades') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-12">
@@ -179,6 +284,11 @@
                       <option value="coed-flyer" @if(isset(auth()->user()->mainInformationStudent->cheertype) && !empty(auth()->user()->mainInformationStudent->cheertype) && in_array('coed-flyer', auth()->user()->mainInformationStudent->cheertype)) selected @endif>CoedFlyer</option>
                       <option value="All">Mark All</option>
                     </select>
+                    @if ($errors->has('cheertype'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('cheertype') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -188,6 +298,11 @@
                       <option value="all" {{  (isset(auth()->user()->mainInformationStudent->visibility) && auth()->user()->mainInformationStudent->visibility == 'all' ? 'selected' : '')  }}>All</option>
                       <option value="coach" {{  (isset(auth()->user()->mainInformationStudent->visibility) && auth()->user()->mainInformationStudent->visibility == 'coach' ? 'selected' : '')  }}>Coaches/Gyms</option>
                     </select>
+                    @if ($errors->has('visibility'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('visibility') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -201,12 +316,22 @@
                       <option value="instate" {{ (isset(auth()->user()->mainInformationStudent->looking_for) && auth()->user()->mainInformationStudent->looking_for == 'instate' ? 'selected' : '') }}>Instate</option>
                       <option value="out-of-state" {{ (isset(auth()->user()->mainInformationStudent->looking_for) && auth()->user()->mainInformationStudent->looking_for == 'out-of-state' ? 'selected' : '') }}>Out of State </option>
                     </select>
+                    @if ($errors->has('looking_for'))
+                      <span class="help-block">
+                        <strong>{{ $errors->first('looking_for') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-12">
                   <div class="input-group">
                     <span class="input-group-addon">Brief description about you</span>
                     <textarea class="form-control" name="description">{{ (isset(auth()->user()->mainInformationStudent->description) ? auth()->user()->mainInformationStudent->description : '') }}</textarea>
+                    @if ($errors->has('description'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('description') }}</strong>
+                      </span>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group col-md-12">

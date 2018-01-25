@@ -137,7 +137,7 @@
                      <tbody>
                        @foreach($teams as $team)
                        <tr>
-                         <td><a href="{{url('/cheerleader/teams/'.$team->id)}}" target="_blank">{{$team->team_name}}</a></td>
+                         <td><a href="{{url('/cheerleader/teams/'.$team->id)}}">{{$team->team_name}}</a></td>
                          <td>{{$team->coach_name}}</td>
                          <td>{{$team->mascot}}</td>
                          <td>{{$team->description}}</td>

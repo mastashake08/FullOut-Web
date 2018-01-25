@@ -131,7 +131,7 @@ class TeamController extends Controller
         $hard_tumbling_percent = 0;
         $group_stunting_percent  = 0;
         $coed_stunting_percent = 0;
-        
+
         if(count($team->skillSet)){
 
             $skills = $team->skillSet;
