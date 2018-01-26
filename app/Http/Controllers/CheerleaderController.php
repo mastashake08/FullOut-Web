@@ -188,7 +188,8 @@ class CheerleaderController extends Controller
             'coaching_title' => $request->coaching_title,
             'financial_requirements' => $request->financial_requirements,
             'same_information' => $request->same_information,
-            'tuition_cost' => $request->tuition_cost,
+            'tuition_cost_in' => $request->tuition_cost_in,
+            'tuition_cost_out' => $request->tuition_cost_out,
             'description_program' => $request->description_program,
         ];
         if(count(MainInformationCoach::where("user_id", $user->id)->get())){

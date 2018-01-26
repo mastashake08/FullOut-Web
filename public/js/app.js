@@ -47154,6 +47154,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47287,12 +47290,12 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-2" }, [
-                        _vm._v("Tuition cost: ")
+                      _c("span", { staticClass: "col-xs-3" }, [
+                        _vm._v("Tuition cost in state: ")
                       ]),
                       _vm.information
-                        ? _c("span", { staticClass: "col-xs-10" }, [
-                            _vm._v(_vm._s(_vm.information.tuition_cost))
+                        ? _c("span", { staticClass: "col-xs-9" }, [
+                            _vm._v(_vm._s(_vm.information.tuition_cost_in))
                           ])
                         : _vm._e(),
                       _c("br")
@@ -47300,11 +47303,23 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
                       _c("span", { staticClass: "col-xs-3" }, [
+                        _vm._v("Tuition cost out of state: ")
+                      ]),
+                      _vm.information
+                        ? _c("span", { staticClass: "col-xs-9" }, [
+                            _vm._v(_vm._s(_vm.information.tuition_cost_out))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
                         _vm._v("Description of cheer program:")
                       ]),
                       _vm._v(" "),
                       _vm.information
-                        ? _c("span", { staticClass: "col-xs-9" }, [
+                        ? _c("span", { staticClass: "col-xs-8" }, [
                             _vm._v(_vm._s(_vm.information.description_program))
                           ])
                         : _vm._e(),

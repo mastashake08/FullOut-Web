@@ -38,7 +38,8 @@ class SchoolController extends Controller
           return view('school.all')->with($with);
         }
         else{
-          return view('school.all');
+
+          return back();
         }
 
 
