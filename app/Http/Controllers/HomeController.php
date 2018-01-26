@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\School;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -35,12 +36,19 @@ class HomeController extends Controller
 
         }
 
+        if(auth()->user()->type == 'coach'){
+
+            $schools = School::paginate(10);
+
+        }
+
+
         switch(auth()->user()->type){
           case 'student':
             return view('student.home',compact('spring_tumbling_percent','hard_tumbling_percent','group_stunting_percent','coed_stunting_percent','skills'));
           break;
           case 'coach':
-            return view('coach.home');
+            return view('coach.home',compact('schools'));
           break;
           case 'instructor':
             return view('instructor.home');

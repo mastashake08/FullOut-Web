@@ -52,10 +52,10 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        //
-        if($request->user()->can('create', \App\School::class)){
-          return view('school.create');
-        }
+//        //
+//        if($request->user()->can('create', \App\School::class)){
+//          return view('school.create');
+//        }
     }
 
     /**
