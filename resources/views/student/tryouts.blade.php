@@ -5,6 +5,48 @@
 
             <div class="panel-body">
               <div class="table-responsive">
+                  <legend>Adding Event Section</legend>
+                  <form class="mt-2 overflow-hidden" action="/cheerleader/events" method="post">
+                      {{ csrf_field() }}
+                      <div class="form-group col-md-6">
+                          <div class="input-group">
+                              <span class="input-group-addon">Event Name</span>
+                              <input type="text" class="form-control" placeholder="" name="event_name" required value="{{ old('event_name') }}">
+                              @if ($errors->has('event_name'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('event_name') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                          <div class="input-group">
+                              <span class="input-group-addon">Event Date</span>
+                              <input type="datetime-local" class="form-control" placeholder="" name="event_date" required value="{{ old('event_date') }}">
+                              @if ($errors->has('event_date'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('event_date') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
+                      <div class="form-group col-md-9">
+                          <div class="input-group">
+                              <span class="input-group-addon">Event Address</span>
+                              <input type="text" class="form-control" placeholder="" name="event_address" required value="{{ old('event_address') }}">
+                              @if ($errors->has('event_address'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('event_address') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
+                      <input type="hidden"  name="route" value="tryout">
+                      <div class="form-group col-md-4">
+                          <button class="btn btn-primary">Add Event</button>
+                      </div>
+
+                  </form>
                 @include('search.tryouts')
                 <table class="table">
                   <thead>

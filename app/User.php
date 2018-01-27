@@ -56,6 +56,9 @@ class User extends Authenticatable
     public function videos(){
       return $this->hasMany('App\Video');
     }
+    public function events(){
+        return $this->hasMany('App\Event');
+    }
     public function awards(){
       return $this->hasMany('App\Award');
     }

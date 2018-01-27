@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use App\Team;
 use App\User;
 use Carbon\Carbon;
@@ -39,11 +40,12 @@ class ClinicController extends Controller
         } else {
             $data = auth()->user()->favorites()->pluck('team_id')->toArray();
             $clinics = Clinic::whereIn('team_id', $data)->with('team')->paginate(10);
+            $events = Event::all();
 
-            $events = [];
+            $calendars_data = [];
             if ($clinics->count()) {
                 foreach ($clinics as $key => $value) {
-                    $events[] = Calendar::event(
+                    $calendars_data[] = Calendar::event(
                         $value->team->team_name . ",\n" . $value->name,
                         true,
                         new \DateTime($value->start_datetime),
@@ -51,7 +53,19 @@ class ClinicController extends Controller
                     );
                 }
             }
-            $calendar = Calendar::addEvents($events);
+
+            if ($events->count()) {
+                foreach ($events as $key => $value) {
+                    $calendars_data[] = Calendar::event(
+                        'EVENT'. "\n" . $value->user->name . ",\n" .$value->name . ", " . $value->address,
+                        true,
+                        new \DateTime($value->datetime),
+                        new \DateTime($value->datetime . ' +1 day')
+                    );
+                }
+            }
+
+            $calendar = Calendar::addEvents($calendars_data);
             $with['clinics'] = $clinics;
             $with['calendar'] = $calendar;
         }
@@ -103,7 +117,7 @@ class ClinicController extends Controller
             'start_datetime' => Carbon::parse($request->start_datetime),
             'end_datetime' => Carbon::parse($request->end_datetime),
             'phone' => $request->phone,
-            'address' => $request->phone,
+            'address' => $request->address,
             'skills_needed' => $request->skills_needed,
             'skills_taught' => $request->skills_taught,
             'fee' => $request->fee

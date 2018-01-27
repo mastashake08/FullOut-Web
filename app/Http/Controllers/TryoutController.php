@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clinic;
+use App\Event;
 use App\Team;
 use App\User;
 use Carbon\Carbon;
@@ -35,10 +36,12 @@ class TryoutController extends Controller
         } else {
             $data = $user->favorites()->pluck('team_id')->toArray();
             $tryouts = Tryout::whereIn('team_id', $data)->with('team')->paginate(10);
-            $events = [];
+            $events = Event::all();
+
+            $calendars_data = [];
             if ($tryouts->count()) {
                 foreach ($tryouts as $key => $value) {
-                    $events[] = Calendar::event(
+                    $calendars_data[] = Calendar::event(
                         $value->team->team_name . ",\n" . $value->name,
                         true,
                         new \DateTime($value->start_datetime),
@@ -46,7 +49,19 @@ class TryoutController extends Controller
                     );
                 }
             }
-            $calendar = Calendar::addEvents($events);
+
+            if ($events->count()) {
+                foreach ($events as $key => $value) {
+                    $calendars_data[] = Calendar::event(
+                        'EVENT'. "\n" . $value->user->name . ",\n" .$value->name . ", " . $value->address,
+                        true,
+                        new \DateTime($value->datetime),
+                        new \DateTime($value->datetime . ' +1 day')
+                    );
+                }
+            }
+
+            $calendar = Calendar::addEvents($calendars_data);
 
             $with['tryouts'] = $tryouts;
             $with['calendar'] = $calendar;
@@ -97,7 +112,7 @@ class TryoutController extends Controller
               'start_datetime' => Carbon::parse($request->start_datetime),
               'end_datetime' => Carbon::parse($request->end_datetime),
               'phone' => $request->phone,
-              'address' => $request->phone,
+              'address' => $request->address,
           ]);
           return back();
         }
