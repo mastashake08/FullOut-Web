@@ -56,6 +56,7 @@ class CheerleaderController extends Controller
         if($request->expectsJson()){
           return $cheerleader;
         }
+//        dd($cheerleader->skillSet);
 
         if($cheerleader->skillSet){
             $skills = $cheerleader->skillSet;
@@ -71,8 +72,21 @@ class CheerleaderController extends Controller
             return view('coach.individual')->with($with);
         }
         else{
+            if(count(auth()->user()->skillSet)){
+
+                $skills = $skills->first()->toArray();
+                $spring_tumbling_percent = ceil($skills['spring_tumbling_score'] * 100 / 43);
+                $hard_tumbling_percent = ceil($skills['hard_tumbling_score'] * 100 / 43);
+                $group_stunting_percent = ceil($skills['group_stunting_score'] * 100 / 61);
+                $coed_stunting_percent = ceil($skills['coed_stunting_score'] * 100 / 67);
+
+            }
         $with = [
             'skills' => $skills,
+            'spring_tumbling_percent' => $spring_tumbling_percent,
+            'hard_tumbling_percent' => $hard_tumbling_percent,
+            'group_stunting_percent' => $group_stunting_percent,
+            'coed_stunting_percent' => $coed_stunting_percent,
             'cheerleader' => $cheerleader
         ];
             return view('student.individual')->with($with);

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-{{--{{ dd($cheerleader) }}--}}
+{{--{{ dd($skills) }}--}}
 <cheerleader :user-id="{{$cheerleader}}"></cheerleader>
 <div class="container">
   <div class="row">
       <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
-              <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling - @if(isset($teams)) @foreach($teams as $team) @if($team->skillSet != null) {{$team->team_name}}: @if($team->skillSet->spring_tumbling_score > 0) @if($cheerleader->skillSet->spring_tumbling_score/$team->skillSet->spring_tumbling_score  < 1){{$cheerleader->skillSet->spring_tumbling_score/$team->skillSet->spring_tumbling_score *100}} % @else 100% @endif @endif @endif @endforeach @endif</a></div>
+              <div class="panel-heading"><a data-toggle="collapse" href="#spring">Spring Floor Tumbling </a><h4 class="d-inline-block ml-2">@if (isset($spring_tumbling_percent)) {{ $spring_tumbling_percent }}@else 0 @endif %</h4></div>
               <div id="spring" class="panel-collapse collapse">
                  <div class="panel-body">
                     <fieldset>
@@ -179,7 +179,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling - @if(isset($teams)) @foreach($teams as $team) @if($team->skillSet != null) {{$team->team_name}}: @if($team->skillSet->hard_tumbling_score > 0) @if($cheerleader->skillSet->hard_tumbling_score/$team->skillSet->hard_tumbling_score < 1){{$cheerleader->skillSet->hard_tumbling_score/$team->skillSet->hard_tumbling_score *100}} % @else 100% @endif  @endif @endif @endforeach @endif</a></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#hard">Hard Floor Tumbling </a><h4 class="d-inline-block ml-2">@if (isset($hard_tumbling_percent)) {{ $hard_tumbling_percent }}@else 0 @endif % </h4></div>
             <div id="hard" class="panel-collapse collapse">
             <div class="panel-body">
 
@@ -352,7 +352,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting - @if(isset($teams)) @foreach($teams as $team) @if($team->skillSet != null) {{$team->team_name}}: @if($team->skillSet->group_stunting_score > 0) @if($cheerleader->skillSet->group_stunting_score/$team->skillSet->group_stunting_score < 1){{$cheerleader->skillSet->group_stunting_score/$team->skillSet->group_stunting_score *100}} % @else 100% @endif @endif @endif @endforeach @endif</a></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#group">Group Stunting </a><h4 class="d-inline-block ml-2"> @if (isset($group_stunting_percent)) {{ $group_stunting_percent }}@else 0 @endif %</h4></div>
             <div id="group" class="panel-collapse collapse">
             <div class="panel-body ">
                 <fieldset>
@@ -585,7 +585,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
-            <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting - @if(isset($teams)) @foreach($teams as $team) @if($team->skillSet != null) {{$team->team_name}}:@if($team->skillSet->coed_stunting_score > 0) @if($cheerleader->skillSet->coed_stunting_score/$team->skillSet->coed_stunting_score < 1){{$cheerleader->skillSet->coed_stunting_score/$team->skillSet->coed_stunting_score *100}} % @else 100% @endif @endif @endif @endforeach @endif</a></div>
+            <div class="panel-heading"><a data-toggle="collapse" href="#coed">Coed Stunting </a><h4 class="d-inline-block ml-2">@if (isset($coed_stunting_percent)) {{ $coed_stunting_percent }}@else 0 @endif %</h4></div>
             <div id="coed" class="panel-collapse collapse">
             <div class="panel-body ">
 
