@@ -22,9 +22,9 @@
                 <br>
 {{--                Your skillset percentage : {{$skillPercentage * 100}}%--}}
                 {{--@if($canMessage)--}}
-                {{--<div class="text-right">--}}
-                  {{--<a href="{{url('/send-message/'.$team->id)}}" class="btn btn-info">Contact Head Coach</a>--}}
-                {{--</div>--}}
+                <div class="text-right">
+                  <a href="{{url('/send-message/'.$team->id)}}" class="btn btn-info">Contact Head Coach</a>
+                </div>
                 {{--@else--}}
                 {{--<div class="text-right">--}}
                   {{--<a href="#" data-toggle="tooltip" title="You don't have enough skillset percentage to contact the head coach of this team." class="btn btn-info">Contact Head Coach</a>--}}

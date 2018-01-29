@@ -62,12 +62,14 @@ class MessageController extends Controller
           'receiver_id' => 'required',
           'message' => 'required'
         ]);
-        $user = $request->user();
+
+        $user = auth()->user();
         $message = $user->sentMessages()->create([
           'receiver_id' => $request->receiver_id,
           'message' => $request->message
         ]);
-        $message->receiver->notify(new \App\Notifications\MessageReceived($message));
+
+//        $message->receiver->notify(new \App\Notifications\MessageReceived($message));
         if($request->expectsJson()){
           return response()->json([
             'success' => true,
