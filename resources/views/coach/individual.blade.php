@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    {{--{{ dd($coach->mainInformationCoach) }}--}}
-    <coach :user-id="{{$coach}}" :main-information="{{$coach->mainInformationCoach}}"></coach>
+{{--    {{ dd($coach->school) }}--}}
+    <coach :user-id="{{$coach}}" :user-school="{{ $coach->school }}" :main-information="{{$coach->mainInformationCoach}}"></coach>
 @endsection

@@ -56,7 +56,6 @@ class CheerleaderController extends Controller
         if($request->expectsJson()){
           return $cheerleader;
         }
-//        dd($cheerleader->skillSet);
 
         if($cheerleader->skillSet){
             $skills = $cheerleader->skillSet;

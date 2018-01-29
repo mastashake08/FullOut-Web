@@ -47157,6 +47157,66 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47167,26 +47227,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
-    props: ['user-id', 'main-information'],
+    props: ['user-id', 'main-information', 'user-school'],
     methods: {
         openMessage: function openMessage() {
             $("#sendMessage").modal();
         },
         sendMessage: function sendMessage(user) {
             this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: this.user.id, message: this.message }).then(function (data) {
-                //            alert('Message Sent!');
+                alert('Message Sent!');
                 $('#sendMessage').modal('hide');
                 this.message = '';
             }).bind(this);
         },
         favorite: function favorite() {
             this.$http.post('/favorite', { _token: Laravel.csrfToken, cheerleader_id: this.user.id }).then(function (data) {
-                //            alert('Favorited!');
+                alert('Favorited!');
             });
         }
     },
     created: function created() {
         this.user = this.userId;
+        this.school = this.userSchool;
         this.information = this.mainInformation;
 
         this.newData = true;
@@ -47216,32 +47277,32 @@ var render = function() {
               _vm.newData
                 ? _c("div", { staticClass: "panel-body" }, [
                     _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-2" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
                         _vm._v("Name:")
                       ]),
-                      _c("span", { staticClass: "col-xs-10" }, [
+                      _c("span", { staticClass: "col-xs-8" }, [
                         _vm._v(" " + _vm._s(_vm.user.name))
                       ]),
                       _c("br")
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-2" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
                         _vm._v("Email:")
                       ]),
-                      _c("span", { staticClass: "col-xs-10" }, [
+                      _c("span", { staticClass: "col-xs-8" }, [
                         _vm._v("  " + _vm._s(_vm.user.email))
                       ]),
                       _c("br")
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-2" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
                         _vm._v("Program Name:")
                       ]),
                       _vm._v(" "),
                       _vm.information
-                        ? _c("span", { staticClass: "col-xs-10" }, [
+                        ? _c("span", { staticClass: "col-xs-8" }, [
                             _vm._v(_vm._s(_vm.information.program_name))
                           ])
                         : _vm._e(),
@@ -47249,12 +47310,12 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-2" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
                         _vm._v("Coaching Title:")
                       ]),
                       _vm._v(" "),
                       _vm.information
-                        ? _c("span", { staticClass: "col-xs-10" }, [
+                        ? _c("span", { staticClass: "col-xs-8" }, [
                             _vm._v(_vm._s(_vm.information.coaching_title))
                           ])
                         : _vm._e(),
@@ -47262,12 +47323,12 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-3" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
                         _vm._v("Financial Requirements:")
                       ]),
                       _vm._v(" "),
                       _vm.information
-                        ? _c("span", { staticClass: "col-xs-9" }, [
+                        ? _c("span", { staticClass: "col-xs-8" }, [
                             _vm._v(
                               _vm._s(_vm.information.financial_requirements)
                             )
@@ -47290,11 +47351,11 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-3" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
                         _vm._v("Tuition cost in state: ")
                       ]),
                       _vm.information
-                        ? _c("span", { staticClass: "col-xs-9" }, [
+                        ? _c("span", { staticClass: "col-xs-8" }, [
                             _vm._v(_vm._s(_vm.information.tuition_cost_in))
                           ])
                         : _vm._e(),
@@ -47302,11 +47363,11 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-3" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
                         _vm._v("Tuition cost out of state: ")
                       ]),
                       _vm.information
-                        ? _c("span", { staticClass: "col-xs-9" }, [
+                        ? _c("span", { staticClass: "col-xs-8" }, [
                             _vm._v(_vm._s(_vm.information.tuition_cost_out))
                           ])
                         : _vm._e(),
@@ -47321,6 +47382,257 @@ var render = function() {
                       _vm.information
                         ? _c("span", { staticClass: "col-xs-8" }, [
                             _vm._v(_vm._s(_vm.information.description_program))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("School Name")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.name))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("School Description :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.description))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Office Phone :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.office_phone))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Cell Phone :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.cell_phone))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Office Address :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.office_address))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Tuition In State :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.in_state_tuition))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Tuition Out Of State :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.out_state_tuition))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("School Website :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.website))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("School Min GPA :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.min_gpa))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("School Min GPA Transfer :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.min_gpa_transfer))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("GPA Needed For Team :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.gpa_needed_for_team))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("D.O.B. :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.dob))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("School Number Hours :")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.number_hours))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Other Testing")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.other_testing))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Popular Scholarship Outside Program")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(
+                              _vm._s(
+                                _vm.school.popular_scholarship_outside_program
+                              )
+                            )
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Act Score")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.act_score))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Sat Score")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.sat_score))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Do you offer Scholarship")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.offer_scholarship))
+                          ])
+                        : _vm._e(),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("span", { staticClass: "col-xs-4" }, [
+                        _vm._v("Explain Scholarship")
+                      ]),
+                      _vm._v(" "),
+                      _vm.school
+                        ? _c("span", { staticClass: "col-xs-8" }, [
+                            _vm._v(_vm._s(_vm.school.scholarship_text))
                           ])
                         : _vm._e(),
                       _c("br")
