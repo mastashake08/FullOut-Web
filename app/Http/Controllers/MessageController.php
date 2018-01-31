@@ -15,14 +15,15 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
         //
         if($request->expectsJson()){
           $with = [
             'messages' =>[
-              'sent' => $request->user()->sentMessages()->with(['sender','receiver'])->paginate(5),
-              'received' => $request->user()->messages()->with(['sender','receiver'])->paginate(5)
+              'sent' => $request->user()->sentMessages()->with(['sender','receiver'])->get(),
+              'received' => $request->user()->messages()->with(['sender','receiver'])->get()
             ]
           ];
           return response()->json($with);
@@ -30,8 +31,8 @@ class MessageController extends Controller
         else{
           $with = [
             'messages' =>[
-              'sent' => $request->user()->sentMessages()->paginate(5),
-              'received' => $request->user()->messages()->paginate(5)
+              'sent' => $request->user()->sentMessages()->get(),
+              'received' => $request->user()->messages()->get()
             ]
           ];
           return view('messages.all')->with($with);

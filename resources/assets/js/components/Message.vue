@@ -18,11 +18,11 @@
                           </thead>
                           <tbody>
 
-                            <tr v-for="message in messages.messages.sent.data">
+                            <tr v-for="message in messages.messages.sent">
                               <td>{{message.sender.name}}</td>
                               <td>{{message.receiver.name}}</td>
-
-                              <td><p>{{message.message}} <button class="btn btn-info pull-right" v-on:click="openMessage(message.receiver)"><span class="glyphicon glyphicon-envelope" ></span> Reply</button></p> </td>
+                              <td><p>{{message.message}} </p> </td>
+                              <td><button class="btn btn-info pull-right" @click="openMessage(message.receiver)" data-toggle="modal" data-target="#sendMessage"><span class="glyphicon glyphicon-envelope" ></span> Reply</button></td>
                             </tr>
 
                           </tbody>
@@ -46,15 +46,16 @@
                               <th>Sender</th>
                               <th>Received</th>
                               <th>Message</th>
+                              <th></th>
                             </tr>
                           </thead>
                           <tbody>
 
-                            <tr v-for="message in messages.messages.received.data">
+                            <tr v-for="message in messages.messages.received">
                               <td>{{message.sender.name}}</td>
                               <td>{{message.receiver.name}}</td>
-
-                              <td><p>{{message.message}} <button class="btn btn-info pull-right" v-on:click="openMessage(message.sender)"><span class="glyphicon glyphicon-envelope" ></span> Reply</button></p> </td>
+                              <td><p>{{message.message}}</p> </td>
+                              <td> <button class="btn btn-info pull-right" @click="openMessage(message.sender)" data-toggle="modal" data-target="#sendMessage"><span class="glyphicon glyphicon-envelope" ></span> Reply</button></td>
                             </tr>
 
                           </tbody>
@@ -66,8 +67,8 @@
         </div>
 
         <!-- Modal -->
-        <div id="sendMessage" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+  <div id="sendMessage" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
@@ -81,7 +82,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" v-on:click="sendMessage(user)">Send Message</button>
+            <button type="button" class="btn btn-default" @click="sendMessage(user)" data-dismiss="modal">Send Message</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -94,7 +95,7 @@
 <script>
     export default {
        mounted() {
-            console.log('Component mounted.')
+
         },
         data() {
           return{
@@ -106,15 +107,14 @@
         },methods: {
           openMessage: function(user){
             this.user = user;
-            console.log(user);
-            $("#sendMessage").modal();
+
           },
           sendMessage: function(user){
             this.$http.post('/message',{_token:Laravel.csrfToken,receiver_id: user.id,message: this.message}).then(function(data){
-              alert('Message Sent!');
-              $('#sendMessage').modal('hide');
               this.$http.get('/message').then(function(data){
                 this.messages = data.data;
+                  this.messages.messages.received.reverse();
+                  this.messages.messages.sent.reverse();
                 this.show = true;
               });
 
@@ -126,7 +126,9 @@
         created(){
           this.$http.get('/message').then(function(data){
             this.messages = data.data;
-            this.show = true;
+              this.messages.messages.received.reverse();
+              this.messages.messages.sent.reverse();
+              this.show = true;
           });
         }
     }

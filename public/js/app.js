@@ -44920,11 +44920,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
+  mounted: function mounted() {},
   data: function data() {
     return {
       messages: [],
@@ -44936,15 +44935,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     openMessage: function openMessage(user) {
       this.user = user;
-      console.log(user);
-      $("#sendMessage").modal();
     },
     sendMessage: function sendMessage(user) {
       this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: user.id, message: this.message }).then(function (data) {
-        alert('Message Sent!');
-        $('#sendMessage').modal('hide');
         this.$http.get('/message').then(function (data) {
           this.messages = data.data;
+          this.messages.messages.received.reverse();
+          this.messages.messages.sent.reverse();
           this.show = true;
         });
 
@@ -44955,6 +44952,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   created: function created() {
     this.$http.get('/message').then(function (data) {
       this.messages = data.data;
+      this.messages.messages.received.reverse();
+      this.messages.messages.sent.reverse();
       this.show = true;
     });
   }
@@ -45005,35 +45004,38 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tbody",
-                      _vm._l(_vm.messages.messages.sent.data, function(
-                        message
-                      ) {
+                      _vm._l(_vm.messages.messages.sent, function(message) {
                         return _c("tr", [
                           _c("td", [_vm._v(_vm._s(message.sender.name))]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(message.receiver.name))]),
                           _vm._v(" "),
                           _c("td", [
-                            _c("p", [
-                              _vm._v(_vm._s(message.message) + " "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-info pull-right",
-                                  on: {
-                                    click: function($event) {
-                                      _vm.openMessage(message.receiver)
-                                    }
-                                  }
+                            _c("p", [_vm._v(_vm._s(message.message) + " ")])
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-info pull-right",
+                                attrs: {
+                                  "data-toggle": "modal",
+                                  "data-target": "#sendMessage"
                                 },
-                                [
-                                  _c("span", {
-                                    staticClass: "glyphicon glyphicon-envelope"
-                                  }),
-                                  _vm._v(" Reply")
-                                ]
-                              )
-                            ])
+                                on: {
+                                  click: function($event) {
+                                    _vm.openMessage(message.receiver)
+                                  }
+                                }
+                              },
+                              [
+                                _c("span", {
+                                  staticClass: "glyphicon glyphicon-envelope"
+                                }),
+                                _vm._v(" Reply")
+                              ]
+                            )
                           ])
                         ])
                       })
@@ -45061,41 +45063,46 @@ var render = function() {
                         _vm._v(" "),
                         _c("th", [_vm._v("Received")]),
                         _vm._v(" "),
-                        _c("th", [_vm._v("Message")])
+                        _c("th", [_vm._v("Message")]),
+                        _vm._v(" "),
+                        _c("th")
                       ])
                     ]),
                     _vm._v(" "),
                     _c(
                       "tbody",
-                      _vm._l(_vm.messages.messages.received.data, function(
-                        message
-                      ) {
+                      _vm._l(_vm.messages.messages.received, function(message) {
                         return _c("tr", [
                           _c("td", [_vm._v(_vm._s(message.sender.name))]),
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(message.receiver.name))]),
                           _vm._v(" "),
                           _c("td", [
-                            _c("p", [
-                              _vm._v(_vm._s(message.message) + " "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-info pull-right",
-                                  on: {
-                                    click: function($event) {
-                                      _vm.openMessage(message.sender)
-                                    }
-                                  }
+                            _c("p", [_vm._v(_vm._s(message.message))])
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-info pull-right",
+                                attrs: {
+                                  "data-toggle": "modal",
+                                  "data-target": "#sendMessage"
                                 },
-                                [
-                                  _c("span", {
-                                    staticClass: "glyphicon glyphicon-envelope"
-                                  }),
-                                  _vm._v(" Reply")
-                                ]
-                              )
-                            ])
+                                on: {
+                                  click: function($event) {
+                                    _vm.openMessage(message.sender)
+                                  }
+                                }
+                              },
+                              [
+                                _c("span", {
+                                  staticClass: "glyphicon glyphicon-envelope"
+                                }),
+                                _vm._v(" Reply")
+                              ]
+                            )
                           ])
                         ])
                       })
@@ -45161,7 +45168,7 @@ var render = function() {
                     "button",
                     {
                       staticClass: "btn btn-default",
-                      attrs: { type: "button" },
+                      attrs: { type: "button", "data-dismiss": "modal" },
                       on: {
                         click: function($event) {
                           _vm.sendMessage(_vm.user)
