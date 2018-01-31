@@ -14,7 +14,9 @@
                          <th>Name</th>
                          <th>Website</th>
                          <th>Min. GPA</th>
-                         <th>Min GPA Transfer</th>
+                         <th>ACT Score</th>
+                         <th>SAT Score</th>
+                         <th>Scholarship</th>
                          <th>In State Tuition</th>
                          <th>Out State Tuition</th>
                        </tr>
@@ -26,9 +28,10 @@
                          <td><a href="{{url('/cheerleader/schools/'.$school['id'])}}">{{$school['name']}}</a></td>
                          <td><a href="{{$school['website']}}" target="_blank">{{$school['website']}}</a></td>
                          <td>{{$school['min_gpa']}}</td>
-                         <td>{{$school['min_gpa_transfer']}}</td>
-{{--                         <td>${{money_format('%.2n', $school->in_state_tuition)}}</td>--}}
-{{--                         <td>${{money_format('%.2n', $school->out_state_tuition)}}</td>--}}
+                         <td>{{$school['act_score']}}</td>
+                         <td>{{$school['sat_score']}}</td>
+                         <td>{{$school['scholarship_text']}}</td>
+
                            <td>${{number_format($school['in_state_tuition'])}}</td>
                            <td>${{number_format($school['out_state_tuition'])}}</td>
                        </tr>

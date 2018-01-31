@@ -247,8 +247,14 @@ class SchoolController extends Controller
         if($data['sat'] != '') {
             $schools->orWhere('sat_score','>=', $data['sat']);
         }
+
+
+
         if(isset($data['tuition_cost'])  && !empty($data['tuition_cost'])) {
-            $schools->orderBy('in_state_tuition','ASC');
+            $schools->orderBy('in_state_tuition','DESC');
+        }
+        if(isset($data['most_scholarship'])  && !empty($data['most_scholarship'])) {
+            $schools->orderBy('scholarship_text','DESC');
         }
 
         if(isset($data['perfect_fit'])  && !empty($data['perfect_fit'])) {
@@ -259,7 +265,7 @@ class SchoolController extends Controller
                 $schools->orderBy('sat_score','DESC');
             }
             else {
-                $schools->orderBy('gpa_needed_for_team','DESC');
+                $schools->orderBy('min_gpa','DESC');
             }
 
         }
@@ -273,7 +279,7 @@ class SchoolController extends Controller
                 $team_total_skills = [];
                 foreach ($teams as $team) {
                     $skill = $team->skillSet;
-                    $team_total_skills[] = $skill['spring_floor_tumbling_skills'] + $skill['hard_floor_tumbling_skills'] + $skill['group_stunting_skills'] + $skill['coed_stunting_skills'];
+                    $team_total_skills[] = $skill['spring_tumbling_score'] + $skill['hard_tumbling_score'] + $skill['group_stunting_score'] + $skill['coed_stunting_score'];
                 }
 
                 $school['total_skills'] = array_sum($team_total_skills);
@@ -288,19 +294,27 @@ class SchoolController extends Controller
             }
         }
 
-//        if(isset($data['most_scholarship']) && !empty($data['most_scholarship'])) {
-//
-//            $schools_collection =  collect([]);
-//
-//            foreach ($schools->get() as $school) {
-//                $school['total_amount'] = $school->scholarships->sum('amount');
-//                $schools_collection[] = $school;
-//            }
-//
-//            $schools = $schools_collection->sortByDesc('total_amount');
-//        }
+        if(isset($data['most_winning']) && !empty($data['most_winning'])) {
 
-        if (isset($data['skills']) && !empty($data['skills'])) {
+            $schools_collection =  collect([]);
+
+            foreach ($schools->get() as $school) {
+                $teams = $school->teams;
+
+                $team_total_wins = [];
+                foreach ($teams as $team) {
+                    $sort = $data['most_winning'];
+                    $team_total_wins[] = $team->$sort;
+                }
+
+                $school['total_wins'] = array_sum($team_total_wins);
+                $schools_collection[] = $school;
+            }
+
+            $schools = $schools_collection->sortByDesc('total_wins');
+        }
+
+        if ((isset($data['most_winning']) && !empty($data['most_winning'])) || (isset($data['skills']) && !empty($data['skills']))) {
             $schools = $schools->toArray();
         }
         else {

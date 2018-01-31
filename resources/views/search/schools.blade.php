@@ -1,5 +1,6 @@
 <form class="form-inline" action="{{url('/cheerleader/search/schools')}}" id="search-school">
 <div class="clearfix">
+  <legend>Section of Search (please choose only one)</legend>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
     <input type="text" name="name" @if (isset($data['name']) && !empty($data['name'])) value="{{ $data['name'] }}" @endif class="form-control" id="name" placeholder="Name">
   </div>
@@ -12,12 +13,13 @@
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
     <input type="number" name="sat" @if (isset($data['sat']) && !empty($data['sat'])) value="{{ $data['sat'] }}" @endif class="form-control" id="sat" placeholder="SAT">
   </div>
+  <legend>Section of Order (please choose only one)</legend>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
     <select class="selectpicker" name="most_winning" id="most_winning" title="Most Winning">
-      <option value="UCA" @if (isset($data['most_winning']) && !empty($data['most_winning']) && in_array('UCA', $data['most_winning'])) selected="selected" @endif>UCA</option>
-      <option value="NCA"  @if (isset($data['most_winning']) && !empty($data['most_winning']) && in_array('NCA', $data['most_winning'])) selected="selected" @endif>NCA</option>
-      <option value="World"  @if (isset($data['most_winning']) && !empty($data['most_winning']) && in_array('World', $data['most_winning'])) selected="selected" @endif>World</option>
-      <option value="Other"  @if (isset($data['most_winning']) && !empty($data['most_winning']) && in_array('Other', $data['most_winning'])) selected="selected" @endif>Other</option>
+      <option value="wins_uca" @if (isset($data['most_winning']) && !empty($data['most_winning']) && ( $data['most_winning'] == 'wins_uca')) selected="selected" @endif>UCA</option>
+      <option value="wins_nca"  @if (isset($data['most_winning']) && !empty($data['most_winning']) && ( $data['most_winning'] == 'wins_nca')) selected="selected" @endif>NCA</option>
+      <option value="wins_worlds"  @if (isset($data['most_winning']) && !empty($data['most_winning']) && ( $data['most_winning'] == 'wins_worlds')) selected="selected" @endif>World</option>
+      <option value="wins_other"  @if (isset($data['most_winning']) && !empty($data['most_winning']) && ( $data['most_winning'] == 'wins_other')) selected="selected" @endif>Other</option>
     </select>
   </div>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
