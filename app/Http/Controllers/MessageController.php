@@ -126,7 +126,13 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $message = Message::find($id);
+        if($message){
+          $delete = $message->delete();
+          if($delete){
+            return $message;
+          }
+        }
     }
 
     public function getSendMessageView($id){

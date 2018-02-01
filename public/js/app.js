@@ -44921,6 +44921,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
@@ -44928,6 +44950,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       messages: [],
       user: {},
+      messageId: '',
+      status: '',
+      messageIndex: '',
       message: '',
       show: false
     };
@@ -44935,6 +44960,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     openMessage: function openMessage(user) {
       this.user = user;
+    },
+    deleteMessageModal: function deleteMessageModal(messageId, messageIndex, status) {
+      this.messageId = messageId;
+      this.messageIndex = messageIndex;
+      this.status = status;
+    },
+    deleteMessage: function deleteMessage(messageId, messageIndex) {
+
+      this.$http.post('/message/' + messageId, { _token: Laravel.csrfToken, _method: 'DELETE' }).then(function (data) {
+        if (this.status == 'sent') {
+          this.messages.messages.sent.splice(messageIndex, 1);
+        } else if (this.status == 'received') {
+          this.messages.messages.received.splice(messageIndex, 1);
+        }
+      }).bind(this);
     },
     sendMessage: function sendMessage(user) {
       this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: user.id, message: this.message }).then(function (data) {
@@ -45004,7 +45044,10 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tbody",
-                      _vm._l(_vm.messages.messages.sent, function(message) {
+                      _vm._l(_vm.messages.messages.sent, function(
+                        message,
+                        index
+                      ) {
                         return _c("tr", [
                           _c("td", [_vm._v(_vm._s(message.sender.name))]),
                           _vm._v(" "),
@@ -45036,6 +45079,29 @@ var render = function() {
                                 _vm._v(" Reply")
                               ]
                             )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger pull-right",
+                                attrs: {
+                                  "data-toggle": "modal",
+                                  "data-target": ".bs-delete-modal-sm"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    _vm.deleteMessageModal(
+                                      message.id,
+                                      index,
+                                      "sent"
+                                    )
+                                  }
+                                }
+                              },
+                              [_vm._v("Delete")]
+                            )
                           ])
                         ])
                       })
@@ -45065,13 +45131,18 @@ var render = function() {
                         _vm._v(" "),
                         _c("th", [_vm._v("Message")]),
                         _vm._v(" "),
+                        _c("th"),
+                        _vm._v(" "),
                         _c("th")
                       ])
                     ]),
                     _vm._v(" "),
                     _c(
                       "tbody",
-                      _vm._l(_vm.messages.messages.received, function(message) {
+                      _vm._l(_vm.messages.messages.received, function(
+                        message,
+                        index
+                      ) {
                         return _c("tr", [
                           _c("td", [_vm._v(_vm._s(message.sender.name))]),
                           _vm._v(" "),
@@ -45102,6 +45173,29 @@ var render = function() {
                                 }),
                                 _vm._v(" Reply")
                               ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger pull-right",
+                                attrs: {
+                                  "data-toggle": "modal",
+                                  "data-target": ".bs-delete-modal-sm"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    _vm.deleteMessageModal(
+                                      message.id,
+                                      index,
+                                      "received"
+                                    )
+                                  }
+                                }
+                              },
+                              [_vm._v("Delete")]
                             )
                           ])
                         ])
@@ -45189,6 +45283,88 @@ var render = function() {
                 ])
               ])
             ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade bs-delete-modal-sm",
+            attrs: {
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "mySmallModalLabel"
+            }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "modal-dialog modal-sm",
+                attrs: { role: "document" }
+              },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _c("div", { staticClass: "modal-header" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "close",
+                        attrs: {
+                          type: "button",
+                          "data-dismiss": "modal",
+                          "aria-label": "Close"
+                        }
+                      },
+                      [
+                        _c("span", { attrs: { "aria-hidden": "true" } }, [
+                          _vm._v("×")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("h4", { staticClass: "modal-title" }, [_vm._v("Delete")])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("p", [
+                      _vm._v("Are you sure to delete message ?"),
+                      _c("span", { staticClass: "delete-modal-content" })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-default",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("Close")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "delete-modal-form-input-hidden",
+                      attrs: { type: "hidden", name: "product_id", value: "" }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger ml-10 delete-sure",
+                        attrs: { type: "submit", "data-dismiss": "modal" },
+                        on: {
+                          click: function($event) {
+                            _vm.deleteMessage(_vm.messageId, _vm.messageIndex)
+                          }
+                        }
+                      },
+                      [_vm._v("Delete")]
+                    )
+                  ])
+                ])
+              ]
+            )
           ]
         )
       ]
