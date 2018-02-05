@@ -45901,7 +45901,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
@@ -45955,10 +45954,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   created: function created() {
-    //        this.$http.get('/coach/cheerleaders').then(function(data){
-    //          this.users = data.data;
-    //          this.newData = true;
-    //          });
+    this.$http.post('/coach/find-cheerleaders', { _token: Laravel.csrfToken }).then(function (data) {
+
+      this.users = data.data.data;
+      this.newData = true;
+    });
   }
 });
 
@@ -46210,64 +46210,63 @@ var render = function() {
               _c(
                 "transition-group",
                 { tag: "tbody", attrs: { name: "fade" } },
-                _vm._l(_vm.users.data, function(user, index) {
-                  return _vm.newData
-                    ? _c("tr", { key: index }, [
-                        _c("td", [
-                          _c("img", {
-                            staticClass: "img img-circle",
-                            attrs: {
-                              width: "50",
-                              height: "50",
-                              src: user.profile_pic
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "a",
-                            {
-                              attrs: {
-                                href: "/cheerleader/" + user.id + "",
-                                target: "_blank"
-                              }
-                            },
-                            [_vm._v(_vm._s(user.name))]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(user.email))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(user.gpa))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(user.city))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(user.state))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(user.zip))]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", {
-                            staticClass: "glyphicon glyphicon-heart",
-                            on: {
-                              click: function($event) {
-                                _vm.favorite(user)
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("span", {
-                            staticClass: "glyphicon glyphicon-envelope",
-                            on: {
-                              click: function($event) {
-                                _vm.openMessage(user)
-                              }
-                            }
-                          })
-                        ])
+                _vm._l(_vm.users, function(user, index) {
+                  return _c("tr", { key: index }, [
+                    _c("td", [
+                      _c("img", {
+                        staticClass: "img img-circle",
+                        attrs: {
+                          width: "50",
+                          height: "50",
+                          src: "/images/profile-pics/" + user.profile_pic
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("a", { attrs: { href: "/cheerleader/" + user.id } }, [
+                        _vm._v(_vm._s(user.name))
                       ])
-                    : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(user.email))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(user.main_information_student.current_gpa))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(user.main_information_student.city))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(user.main_information_student.state))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(user.main_information_student.zip))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("span", {
+                        staticClass: "glyphicon glyphicon-heart",
+                        on: {
+                          click: function($event) {
+                            _vm.favorite(user)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", {
+                        staticClass: "glyphicon glyphicon-envelope",
+                        on: {
+                          click: function($event) {
+                            _vm.openMessage(user)
+                          }
+                        }
+                      })
+                    ])
+                  ])
                 })
               )
             ]),

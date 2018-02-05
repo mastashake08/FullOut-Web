@@ -351,30 +351,37 @@ class CheerleaderController extends Controller
         }
 
         if(!empty($filtered_ids)){
-            $cheerleaders = User::whereIn('id',$filtered_ids)->with(['skillSet' => function($query) use ($request,$data) {
+            $cheerleaders = User::whereIn('id', $filtered_ids)->whereHas('skillSet', function($query) use ($data) {
 
                 if(isset($data['spring_tumbling_score'])){
-                    var_dump($data['spring_tumbling_score']);
-                    $query->orWhere('spring_tumbling_score', '>=', $data['spring_tumbling_score']);
-                }
-                if(isset($data['hard_tumbling_score'])){
 
-                    $query->orWhere('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
-                }
+                    $query->where('spring_tumbling_score', '>=', $data['spring_tumbling_score']);
 
-            }])
-                ->orWhere('type' , 'student')
-                ->orWhere(function($query) use($request,$data){
+                    if(isset($data['hard_tumbling_score'])){
+
+                        $query->orWhere('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
+                    }
+                }
+                else if(isset($data['hard_tumbling_score'])){
+                    $query->where('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
+                }
+            })
+                ->with('skillSet','mainInformationStudent')
+                ->where('type', 'student')
+                ->where(function($query) use($data){
                     if(isset($data['name'])){
 
                         $query->where('name', 'LIKE', '%'.$data['name'].'%');
                     }
-                })->get();
+                })
+                ->get();
         }
         else{
-            $cheerleaders = false;
+            $cheerleaders = '';
         }
 
+        return $cheerleaders;
     }
+
 
 }

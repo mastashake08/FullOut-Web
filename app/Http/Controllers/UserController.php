@@ -169,4 +169,20 @@ class UserController extends Controller
         'success' => true
       ]);
     }
+    public function findCheerleaders(){
+
+        if(auth()->user()->type == 'coach'){
+            $cheerleaders = \App\User::whereHas('mainInformationStudent',function($query){
+                $query->where('visibility','all')->orWhere('visibility','coach');
+
+            })
+                ->with('skillSet','mainInformationStudent','favorited')
+                ->where('type','student')->paginate(10);
+        }
+        else{
+            $cheerleaders = '';
+        }
+
+        return $cheerleaders;
+    }
 }

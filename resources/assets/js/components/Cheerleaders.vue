@@ -44,16 +44,15 @@
                       </thead>
                       <tbody is="transition-group" name="fade">
 
-                        <tr v-if="newData" v-for="(user,index) in users.data" :key="index">
-                          <td><img width="50" height="50" class="img img-circle":src="user.profile_pic"/></td>
-                          <td><a :href="'/cheerleader/'+user.id+''" target="_blank">{{user.name}}</a></td>
+                        <tr v-for="(user,index) in users" :key="index">
+                          <td><img width="50" height="50" class="img img-circle":src="'/images/profile-pics/'+user.profile_pic"/></td>
+                          <td><a :href="'/cheerleader/'+user.id">{{user.name}}</a></td>
                           <td>{{user.email}}</td>
-                          <td>{{user.gpa}}</td>
-                          <td>{{user.city}}</td>
-                          <td>{{user.state}}</td>
-                          <td>{{user.zip}}</td>
+                          <td>{{user.main_information_student.current_gpa}}</td>
+                          <td>{{user.main_information_student.city}}</td>
+                          <td>{{user.main_information_student.state}}</td>
+                          <td>{{user.main_information_student.zip}}</td>
                           <td>
-
                             <span class="glyphicon glyphicon-heart" @click="favorite(user)"></span>
                             <span class="glyphicon glyphicon-envelope" @click="openMessage(user)"></span>
                           </td>
@@ -149,7 +148,6 @@
         },
         searchUsers: function(){
           this.newData = false;
-          
 
           this.$http.post('/cheerleader/search',{_token:Laravel.csrfToken,'params':this.search}).then(function(data){
 
@@ -159,10 +157,11 @@
         }
       },
       created(){
-//        this.$http.get('/coach/cheerleaders').then(function(data){
-//          this.users = data.data;
-//          this.newData = true;
-//          });
+        this.$http.post('/coach/find-cheerleaders',{_token:Laravel.csrfToken}).then(function(data){
+
+          this.users = data.data.data;
+          this.newData = true;
+          });
       }
     }
 </script>
