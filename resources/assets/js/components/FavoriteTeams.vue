@@ -19,7 +19,7 @@
                             <tbody is="transition-group" name="fade">
 
                             <tr id="demo" v-if="newData" v-for="(team,index) in teams.data" :key="index">
-                                <td>{{team.team.team_name}}</td>
+                                <td><a :href="'/cheerleader/teams/'+team.team.id">{{team.team.team_name}}</a></td>
                                 <td>{{team.team.coach_name}}</td>
                                 <td>{{team.team.team_type}}</td>
                                 <td><span class="glyphicon glyphicon-minus curs-pointer" @click="openModal(index,team.team.team_name)" data-toggle="modal" data-target=".bs-delete-modal-sm"></span></td>

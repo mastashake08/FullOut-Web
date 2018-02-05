@@ -31,6 +31,11 @@ class CreateTeamsTable extends Migration
             $table->string('team_responsibilities');
             $table->string('number_members');
             $table->string('average_room');
+            $table->string('same_information')->nullable();
+            $table->string('tuition_cost_in');
+            $table->string('tuition_cost_out');
+            $table->longText('description_program');
+            $table->longText('financial_requirements');
             $table->timestamps();
         });
     }

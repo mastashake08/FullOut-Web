@@ -20,23 +20,6 @@
                              <div class="row">
                                  <span class="col-xs-4">Coaching Title:</span> <span class="col-xs-8" v-if="information">{{information.coaching_title}}</span><br>
                             </div>
-                             <div class="row">
-                                 <span class="col-xs-4">Financial Requirements:</span> <span class="col-xs-8" v-if="information">{{information.financial_requirements}}</span><br>
-                            </div>
-                             <div class="row">
-                                 <span class="col-xs-5">Are there the same information for all teams:</span> <span class="col-xs-7" v-if="information">{{information.same_information}}</span><br>
-                            </div>
-                             <div class="row">
-                                 <span class="col-xs-4">Tuition cost in state: </span><span class="col-xs-8" v-if="information">{{information.tuition_cost_in}}</span><br>
-                            </div>
-                            <div class="row">
-                                <span class="col-xs-4">Tuition cost out of state: </span><span class="col-xs-8" v-if="information">{{information.tuition_cost_out}}</span><br>
-                            </div>
-                             <div class="row">
-                                 <span class="col-xs-4">Description of cheer program:</span> <span class="col-xs-8" v-if="information">{{information.description_program}}</span><br>
-                            </div>
-
-
 
 
                             <div class="row">
@@ -167,6 +150,6 @@
 
         this.newData = true;
     }
-    }
+}
 
 </script>

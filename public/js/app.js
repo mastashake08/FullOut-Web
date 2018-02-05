@@ -45902,14 +45902,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
+  mounted: function mounted() {},
   data: function data() {
     return {
       users: {},
@@ -45951,17 +45946,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     searchUsers: function searchUsers() {
       this.newData = false;
-      this.$http.get('/api/search', { 'params': this.search }).then(function (data) {
+
+      this.$http.post('/cheerleader/search', { _token: Laravel.csrfToken, 'params': this.search }).then(function (data) {
+
         this.users = data.data;
         this.newData = true;
       }).bind(this);
     }
   },
   created: function created() {
-    this.$http.get('/coach/cheerleaders').then(function (data) {
-      this.users = data.data;
-      this.newData = true;
-    });
+    //        this.$http.get('/coach/cheerleaders').then(function(data){
+    //          this.users = data.data;
+    //          this.newData = true;
+    //          });
   }
 });
 
@@ -45991,11 +45988,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                attrs: {
-                  type: "text",
-                  id: "inlineFormInput",
-                  placeholder: "Jane Doe"
-                },
+                attrs: { type: "text", placeholder: "Jane Doe" },
                 domProps: { value: _vm.search.name },
                 on: {
                   input: function($event) {
@@ -46012,23 +46005,19 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.search.highest_gpa,
-                    expression: "search.highest_gpa"
+                    value: _vm.search.current_gpa,
+                    expression: "search.current_gpa"
                   }
                 ],
                 staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                attrs: {
-                  type: "text",
-                  id: "inlineFormInput",
-                  placeholder: "Highest GPA"
-                },
-                domProps: { value: _vm.search.highest_gpa },
+                attrs: { type: "text", placeholder: "GPA" },
+                domProps: { value: _vm.search.current_gpa },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.search, "highest_gpa", $event.target.value)
+                    _vm.$set(_vm.search, "current_gpa", $event.target.value)
                   }
                 }
               }),
@@ -46043,11 +46032,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                attrs: {
-                  type: "text",
-                  id: "inlineFormInput",
-                  placeholder: "City"
-                },
+                attrs: { type: "text", placeholder: "City" },
                 domProps: { value: _vm.search.city },
                 on: {
                   input: function($event) {
@@ -46069,11 +46054,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                attrs: {
-                  type: "text",
-                  id: "inlineFormInput",
-                  placeholder: "State"
-                },
+                attrs: { type: "text", placeholder: "State" },
                 domProps: { value: _vm.search.state },
                 on: {
                   input: function($event) {
@@ -46095,11 +46076,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                attrs: {
-                  type: "text",
-                  id: "inlineFormInput",
-                  placeholder: "ZIP"
-                },
+                attrs: { type: "text", placeholder: "ZIP" },
                 domProps: { value: _vm.search.zip },
                 on: {
                   input: function($event) {
@@ -46116,17 +46093,16 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.search.highest_skill_score,
-                    expression: "search.highest_skill_score"
+                    value: _vm.search.spring_tumbling_score,
+                    expression: "search.spring_tumbling_score"
                   }
                 ],
                 staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
                 attrs: {
                   type: "text",
-                  id: "inlineFormInput",
-                  placeholder: "Highest Skill"
+                  placeholder: "Min Spring Tumbling Score"
                 },
-                domProps: { value: _vm.search.highest_skill_score },
+                domProps: { value: _vm.search.spring_tumbling_score },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
@@ -46134,7 +46110,7 @@ var render = function() {
                     }
                     _vm.$set(
                       _vm.search,
-                      "highest_skill_score",
+                      "spring_tumbling_score",
                       $event.target.value
                     )
                   }
@@ -46146,17 +46122,13 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.search.highest_stunting_score,
-                    expression: "search.highest_stunting_score"
+                    value: _vm.search.hard_tumbling_score,
+                    expression: "search.hard_tumbling_score"
                   }
                 ],
                 staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                attrs: {
-                  type: "text",
-                  id: "inlineFormInput",
-                  placeholder: "Highest Stunting Score"
-                },
-                domProps: { value: _vm.search.highest_stunting_score },
+                attrs: { type: "text", placeholder: "Min Hard Tumbling Score" },
+                domProps: { value: _vm.search.hard_tumbling_score },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
@@ -46164,37 +46136,7 @@ var render = function() {
                     }
                     _vm.$set(
                       _vm.search,
-                      "highest_stunting_score",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.search.highest_tumbling_score,
-                    expression: "search.highest_tumbling_score"
-                  }
-                ],
-                staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                attrs: {
-                  type: "text",
-                  id: "inlineFormInput",
-                  placeholder: "Highest Tumbling Score"
-                },
-                domProps: { value: _vm.search.highest_tumbling_score },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.search,
-                      "highest_tumbling_score",
+                      "hard_tumbling_score",
                       $event.target.value
                     )
                   }
@@ -46221,7 +46163,7 @@ var render = function() {
                       }
                     }
                   }),
-                  _vm._v(" Female\n                      ")
+                  _vm._v(" Female\n                        ")
                 ]),
                 _vm._v(" "),
                 _c("label", { staticClass: "form-radio-label" }, [
@@ -46243,29 +46185,7 @@ var render = function() {
                       }
                     }
                   }),
-                  _vm._v(" Male\n                      ")
-                ]),
-                _vm._v(" "),
-                _c("label", { staticClass: "form-radio-label" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.search.gender,
-                        expression: "search.gender"
-                      }
-                    ],
-                    staticClass: "form-radio-input",
-                    attrs: { value: "*", type: "radio", checked: "" },
-                    domProps: { checked: _vm._q(_vm.search.gender, "*") },
-                    on: {
-                      change: function($event) {
-                        _vm.$set(_vm.search, "gender", "*")
-                      }
-                    }
-                  }),
-                  _vm._v(" Both\n                      ")
+                  _vm._v(" Male\n                        ")
                 ])
               ]),
               _vm._v(" "),
@@ -46366,7 +46286,7 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                        Previous\n                    "
+                    "\n                          Previous\n                      "
                   )
                 ]
               ),
@@ -46391,7 +46311,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Next\n                    ")]
+                [_vm._v("Next\n                      ")]
               )
             ])
           ])
@@ -47383,23 +47303,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47500,71 +47403,6 @@ var render = function() {
                       _vm.information
                         ? _c("span", { staticClass: "col-xs-8" }, [
                             _vm._v(_vm._s(_vm.information.coaching_title))
-                          ])
-                        : _vm._e(),
-                      _c("br")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-4" }, [
-                        _vm._v("Financial Requirements:")
-                      ]),
-                      _vm._v(" "),
-                      _vm.information
-                        ? _c("span", { staticClass: "col-xs-8" }, [
-                            _vm._v(
-                              _vm._s(_vm.information.financial_requirements)
-                            )
-                          ])
-                        : _vm._e(),
-                      _c("br")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-5" }, [
-                        _vm._v("Are there the same information for all teams:")
-                      ]),
-                      _vm._v(" "),
-                      _vm.information
-                        ? _c("span", { staticClass: "col-xs-7" }, [
-                            _vm._v(_vm._s(_vm.information.same_information))
-                          ])
-                        : _vm._e(),
-                      _c("br")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-4" }, [
-                        _vm._v("Tuition cost in state: ")
-                      ]),
-                      _vm.information
-                        ? _c("span", { staticClass: "col-xs-8" }, [
-                            _vm._v(_vm._s(_vm.information.tuition_cost_in))
-                          ])
-                        : _vm._e(),
-                      _c("br")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-4" }, [
-                        _vm._v("Tuition cost out of state: ")
-                      ]),
-                      _vm.information
-                        ? _c("span", { staticClass: "col-xs-8" }, [
-                            _vm._v(_vm._s(_vm.information.tuition_cost_out))
-                          ])
-                        : _vm._e(),
-                      _c("br")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _c("span", { staticClass: "col-xs-4" }, [
-                        _vm._v("Description of cheer program:")
-                      ]),
-                      _vm._v(" "),
-                      _vm.information
-                        ? _c("span", { staticClass: "col-xs-8" }, [
-                            _vm._v(_vm._s(_vm.information.description_program))
                           ])
                         : _vm._e(),
                       _c("br")
@@ -48147,7 +47985,15 @@ var render = function() {
                 _vm._l(_vm.teams.data, function(team, index) {
                   return _vm.newData
                     ? _c("tr", { key: index }, [
-                        _c("td", [_vm._v(_vm._s(team.team_name))]),
+                        _c("td", [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "/cheerleader/teams/" + team.id }
+                            },
+                            [_vm._v(_vm._s(team.team_name))]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(team.coach_name))]),
                         _vm._v(" "),
@@ -49640,7 +49486,17 @@ var render = function() {
                 _vm._l(_vm.teams.data, function(team, index) {
                   return _vm.newData
                     ? _c("tr", { key: index, attrs: { id: "demo" } }, [
-                        _c("td", [_vm._v(_vm._s(team.team.team_name))]),
+                        _c("td", [
+                          _c(
+                            "a",
+                            {
+                              attrs: {
+                                href: "/cheerleader/teams/" + team.team.id
+                              }
+                            },
+                            [_vm._v(_vm._s(team.team.team_name))]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(team.team.coach_name))]),
                         _vm._v(" "),

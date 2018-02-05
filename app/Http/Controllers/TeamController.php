@@ -69,19 +69,15 @@ class TeamController extends Controller
             'team_responsibilities' => 'required',
             'number_members' => 'required',
             'average_room' => 'required',
+            'financial_requirements' => 'required',
+            'tuition_cost_in' => 'required',
+            'tuition_cost_out' => 'required',
+            'description_program' => 'required',
             'logo' => 'image|mimes:jpg,png,jpeg,JPG,JPEG,PNG',
         ]);
         $picture_name = '';
         if($request->hasFile('logo')) {
-//            dd(1);
 
-//            if($user->school){
-//                $old_pic_name = $user->school->logo;
-//                $path = public_path('images\school-logo\\' . $old_pic_name);
-//                if($old_pic_name) {
-//                    unlink($path);
-//                };
-//            }
             $file = $request->logo->getClientOriginalName();
 
             $filename = pathinfo($file, PATHINFO_FILENAME);
@@ -106,6 +102,11 @@ class TeamController extends Controller
             'wins_nca' => $request->wins_nca,
             'wins_worlds' => $request->wins_worlds,
             'wins_other' => $request->wins_other,
+            'financial_requirements' => $request->financial_requirements,
+            'same_information' => $request->same_information,
+            'tuition_cost_in' => $request->tuition_cost_in,
+            'tuition_cost_out' => $request->tuition_cost_out,
+            'description_program' => $request->description_program,
         ];
 
         $team = auth()->user()->school->teams()->create($data);
@@ -233,6 +234,10 @@ class TeamController extends Controller
             'team_responsibilities' => 'required',
             'number_members' => 'required',
             'average_room' => 'required',
+            'financial_requirements' => 'required',
+            'tuition_cost_in' => 'required',
+            'tuition_cost_out' => 'required',
+            'description_program' => 'required',
             'logo' => 'image|mimes:jpg,png,jpeg,JPG,JPEG,PNG',
         ]);
         $picture_name = "";
@@ -274,6 +279,11 @@ class TeamController extends Controller
             'wins_nca' => $request->wins_nca,
             'wins_worlds' => $request->wins_worlds,
             'wins_other' => $request->wins_other,
+            'financial_requirements' => $request->financial_requirements,
+            'same_information' => $request->same_information,
+            'tuition_cost_in' => $request->tuition_cost_in,
+            'tuition_cost_out' => $request->tuition_cost_out,
+            'description_program' => $request->description_program,
         ];
 
         $team->fill($data)->save();

@@ -28,7 +28,7 @@
                       @foreach(auth()->user()->school->teams as $team)
                       <tr>
                         <td> <img id="school_logo_img" src="{{ asset('images/team-logo/'.($team->logo ? $team->logo : "")) }}" alt=""/></td>
-                        <td>{{$team->team_name}}</td>
+                        <td><a href="{{url('/cheerleader/teams/'.$team->id)}}">{{$team->team_name}}</a></td>
                         <td>{{$team->coach_name}}</td>
                         <td>{{$team->mascot}}</td>
                         <td>{{$team->team_type}}</td>
@@ -36,7 +36,6 @@
                         <td>{{$team->number_members}}</td>
                         <td>{{$team->average_room}}</td>
                         <td><p>{{$team->description}}</p></td>
-
                       </tr>
                       <tr>
                           <td colspan="9">
@@ -217,6 +216,38 @@
                                          <strong>{{ $errors->first('average_room') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                        </div>
+                        <div class="col-xs-12"><h2>Team 1</h2></div>
+
+                        <div class="form-group col-md-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">Are There Any Financial Requirements? If so, explain</span>
+                                <textarea class="form-control" name="financial_requirements"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <div class="input-group">
+                                <span class="input-group-addon">Click if information is the same for all teams</span>
+                                <span class="form-control"> <input type="checkbox" class="" name="same_information" value="yes"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">Tuition Cost In State</span>
+                                <input type="text" class="form-control" placeholder="" name="tuition_cost_in" required value="">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon">Tuition Cost Out Of State</span>
+                                <input type="text" class="form-control" placeholder="" name="tuition_cost_out" required value="">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">Brief description of cheer program</span>
+                                <textarea class="form-control" name="description_program"></textarea>
                             </div>
                         </div>
                         <div class="form-group col-xs-12">
@@ -733,6 +764,7 @@
                                 </div>
                             </div>
                         </div>
+
                       <div class="form-group col-xs-12">
                         <button class="btn btn-primary" type="submit">Add Team</button>
                       </div>

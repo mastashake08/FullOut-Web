@@ -43,6 +43,7 @@ Route::group(['prefix' => 'coach'],function(){
 Route::group(['prefix' => 'cheerleader','middleware' => 'subscribed'],function(){
   Route::resource('events', 'EventController');
   Route::post('add-video','CheerleaderController@addVideo');
+  Route::post('search','CheerleaderController@searchCheerleader');
   Route::post('update-video','CheerleaderController@updateVideo');
   Route::post('delete-video','CheerleaderController@deleteVideo');
   Route::post('add-award','CheerleaderController@addAward');

@@ -163,7 +163,40 @@
                           @endif
                         </div>
                       </div>
-                      <div class="form-group">
+                      <div class="col-xs-12"><h2>Team 1</h2></div>
+
+                      <div class="form-group col-md-12">
+                        <div class="input-group">
+                          <span class="input-group-addon">Are There Any Financial Requirements? If so, explain</span>
+                          <textarea class="form-control" name="financial_requirements">{{ $team->financial_requirements }}</textarea>
+                        </div>
+                      </div>
+                      <div class="form-group col-md-8">
+                        <div class="input-group">
+                          <span class="input-group-addon">Click if information is the same for all teams</span>
+                          <span class="form-control"> <input type="checkbox" class="" name="same_information" value="yes" {{ ($team->same_information == 'yes' ? 'checked' : '') }}></span>
+                        </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <div class="input-group">
+                          <span class="input-group-addon">Tuition Cost In State</span>
+                          <input type="text" class="form-control" placeholder="" name="tuition_cost_in" required value="{{ $team->tuition_cost_in }}">
+                        </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <div class="input-group">
+                          <span class="input-group-addon">Tuition Cost Out Of State</span>
+                          <input type="text" class="form-control" placeholder="" name="tuition_cost_out" required value="{{ $team->tuition_cost_out }}">
+                        </div>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <div class="input-group">
+                          <span class="input-group-addon">Brief description of cheer program</span>
+                          <textarea class="form-control" name="description_program">{{ $team->description_program }}</textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group col-md-12">
                         <button class="btn btn-primary" type="submit">Edit Team</button>
                       </div>
                     </fieldset>

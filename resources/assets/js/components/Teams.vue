@@ -37,7 +37,7 @@
                             <tbody is="transition-group" name="fade">
 
                             <tr v-if="newData" v-for="(team,index) in teams.data" :key="index">
-                                <td>{{team.team_name}}</td>
+                                <td><a :href="'/cheerleader/teams/'+team.id">{{team.team_name}}</a></td>
                                 <td>{{team.coach_name}}</td>
                                 <td>{{team.team_type}}</td>
                                 <td><span class="glyphicon glyphicon-heart curs-pointer" @click="favorite(team,team.team_name)" data-toggle="modal" data-target=".bs-success-modal-sm"></span></td>

@@ -20,6 +20,30 @@
                 <br>
                 Team Type: {{$team->team_type}}
                 <br>
+                Team Responsibilities: {{$team->team_responsibilities}}
+                <br>
+                Number Members: {{$team->number_members}}
+                <br>
+                Average Room: {{$team->average_room}}
+                <br>
+                Wins UCA: {{$team->wins_uca}}
+                <br>
+                Wins NCA: {{$team->wins_nca}}
+                <br>
+                Wins Worlds: {{$team->wins_worlds}}
+                <br>
+                Other Wins: {{$team->wins_other}}
+                <br>
+                Financial Requirements: {{$team->financial_requirements}}
+                <br>
+                Information is the same for all teams: {{($team->same_information ? $team->same_information : 'No')}}
+                <br>
+                Tuition Cost In State: {{$team->tuition_cost_in}}
+                <br>
+                Tuition Cost Out Of State: {{$team->tuition_cost_out}}
+                <br>
+                Brief description of cheer program: {{$team->description_program}}
+                <br>
 {{--                Your skillset percentage : {{$skillPercentage * 100}}%--}}
                 {{--@if($canMessage)--}}
                 <div class="text-right">

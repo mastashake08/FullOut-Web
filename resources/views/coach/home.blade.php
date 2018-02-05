@@ -38,39 +38,6 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-12"><h2>Team 1</h2></div>
-
-                            <div class="form-group col-md-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Are There Any Financial Requirements? If so, explain</span>
-                                    <textarea class="form-control" name="financial_requirements">{{ (auth()->user()->mainInformationCoach ? auth()->user()->mainInformationCoach->financial_requirements : "" ) }}</textarea>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-8">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Click if information is the same for all teams</span>
-                                    <span class="form-control"> <input type="checkbox" class="" name="same_information" value="yes" @if(auth()->user()->mainInformationCoach && auth()->user()->mainInformationCoach->same_information == 'yes') checked @endif></span>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Tuition Cost In State</span>
-                                    <input type="text" class="form-control" placeholder="" name="tuition_cost_in" required value="{{(auth()->user()->mainInformationCoach ? auth()->user()->mainInformationCoach->tuition_cost_in : "" )}}">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Tuition Cost Out Of State</span>
-                                    <input type="text" class="form-control" placeholder="" name="tuition_cost_out" required value="{{(auth()->user()->mainInformationCoach ? auth()->user()->mainInformationCoach->tuition_cost_out : "" )}}">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Brief description of cheer program</span>
-                                    <textarea class="form-control" name="description_program">{{ (auth()->user()->mainInformationCoach ? auth()->user()->mainInformationCoach->description_program : "" ) }}</textarea>
-                                </div>
-                            </div>
-
                             {{--<div class="form-group col-md-12">--}}
                                 {{--<div class="input-group">--}}
                                     {{--<span class="input-group-addon">Clinic dates</span>--}}

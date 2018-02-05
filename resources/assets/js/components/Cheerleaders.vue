@@ -8,14 +8,14 @@
 
                   <div class="panel-body">
                     <form class="form-inline">
-                      <input type="text" v-model="search.name" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Jane Doe">
-                      <input type="text" v-model="search.highest_gpa" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest GPA">
-                      <input type="text" v-model="search.city" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="City">
-                      <input type="text" v-model="search.state" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="State">
-                      <input type="text" v-model="search.zip" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="ZIP">
-                      <input type="text" v-model="search.highest_skill_score" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest Skill">
-                      <input type="text" v-model="search.highest_stunting_score" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest Stunting Score">
-                      <input type="text" v-model="search.highest_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Highest Tumbling Score">
+                      <input type="text" v-model="search.name" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="Jane Doe">
+                      <input type="text" v-model="search.current_gpa" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="GPA">
+                      <input type="text" v-model="search.city" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="City">
+                      <input type="text" v-model="search.state" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="State">
+                      <input type="text" v-model="search.zip" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="ZIP">
+                      <input type="text" v-model="search.spring_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Min Spring Tumbling Score">
+                      <input type="text" v-model="search.hard_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Min Hard Tumbling Score">
+                      <!--<input type="text" v-model="search.highest_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Highest Tumbling Score">-->
 
                       <div class="form-radio mb-2 mr-sm-2 mb-sm-0">
                         <label class="form-radio-label">
@@ -24,13 +24,10 @@
                         <label class="form-radio-label">
                           <input class="form-radio-input" value="male" type="radio" v-model="search.gender"> Male
                         </label>
-                        <label class="form-radio-label">
-                          <input class="form-radio-input" value="*" type="radio" checked v-model="search.gender"> Both
-                        </label>
                       </div>
 
 
-                      <button type="button" class="btn btn-primary" v-on:click="searchUsers()">Submit</button>
+                      <button type="button" class="btn btn-primary" @click="searchUsers()">Submit</button>
                     </form>
                     <table class="table">
                       <thead>
@@ -49,7 +46,7 @@
 
                         <tr v-if="newData" v-for="(user,index) in users.data" :key="index">
                           <td><img width="50" height="50" class="img img-circle":src="user.profile_pic"/></td>
-                          <td><a v-bind:href="'/cheerleader/'+user.id+''" target="_blank">{{user.name}}</a></td>
+                          <td><a :href="'/cheerleader/'+user.id+''" target="_blank">{{user.name}}</a></td>
                           <td>{{user.email}}</td>
                           <td>{{user.gpa}}</td>
                           <td>{{user.city}}</td>
@@ -57,8 +54,8 @@
                           <td>{{user.zip}}</td>
                           <td>
 
-                            <span class="glyphicon glyphicon-heart" v-on:click="favorite(user)"></span>
-                            <span class="glyphicon glyphicon-envelope" v-on:click="openMessage(user)"></span>
+                            <span class="glyphicon glyphicon-heart" @click="favorite(user)"></span>
+                            <span class="glyphicon glyphicon-envelope" @click="openMessage(user)"></span>
                           </td>
                         </tr>
                       </tbody>
@@ -101,14 +98,14 @@
 
     </div>
   </div>
-    </div>
+</div>
 
 </template>
 
 <script>
     export default {
        mounted() {
-            console.log('Component mounted.')
+
         },
         data() {
           return{
@@ -152,17 +149,20 @@
         },
         searchUsers: function(){
           this.newData = false;
-            this.$http.get('/api/search',{'params':this.search}).then(function(data){
+          
+
+          this.$http.post('/cheerleader/search',{_token:Laravel.csrfToken,'params':this.search}).then(function(data){
+
             this.users = data.data;
             this.newData = true;
           }).bind(this);
         }
       },
       created(){
-        this.$http.get('/coach/cheerleaders').then(function(data){
-          this.users = data.data;
-          this.newData = true;
-          });
+//        this.$http.get('/coach/cheerleaders').then(function(data){
+//          this.users = data.data;
+//          this.newData = true;
+//          });
       }
     }
 </script>

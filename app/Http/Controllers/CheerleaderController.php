@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Award;
 use App\MainInformationCoach;
 use App\MainInformationStudent;
+use App\User;
 use App\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class CheerleaderController extends Controller
 {
+    protected $search_fields = ['city' => 'LIKE','state'=> 'LIKE','current_gpa' => '>=','zip' => '>=','gender' => '='];
+
     /**
      * Display a listing of the resource.
      *
@@ -199,11 +202,6 @@ class CheerleaderController extends Controller
             'user_id' => $user->id,
             'program_name' => $request->program_name,
             'coaching_title' => $request->coaching_title,
-            'financial_requirements' => $request->financial_requirements,
-            'same_information' => $request->same_information,
-            'tuition_cost_in' => $request->tuition_cost_in,
-            'tuition_cost_out' => $request->tuition_cost_out,
-            'description_program' => $request->description_program,
         ];
         if(count(MainInformationCoach::where("user_id", $user->id)->get())){
             $create = $user->mainInformationCoach()->update($data);
@@ -331,5 +329,52 @@ class CheerleaderController extends Controller
         return back();
     }
 
+    public function searchCheerleader(Request $request){
+
+        $data = $request->params;
+
+        $data = collect($data);
+
+        $informations = MainInformationStudent::where(function($query) use($data){
+            $data->each(function($req_value,$key) use($query){
+                foreach ($this->search_fields as $value => $operator) {
+                    if($key == $value){
+                        $query->where($value, $operator, ($value == 'state' || $value == 'city') ? '%' . $req_value . '%' : $req_value );
+                    }
+                }
+            });
+        })->get();
+
+        $filtered_ids = [];
+        foreach ($informations as $information) {
+            $filtered_ids[] = $information->user_id;
+        }
+
+        if(!empty($filtered_ids)){
+            $cheerleaders = User::whereIn('id',$filtered_ids)->with(['skillSet' => function($query) use ($request,$data) {
+
+                if(isset($data['spring_tumbling_score'])){
+                    var_dump($data['spring_tumbling_score']);
+                    $query->orWhere('spring_tumbling_score', '>=', $data['spring_tumbling_score']);
+                }
+                if(isset($data['hard_tumbling_score'])){
+
+                    $query->orWhere('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
+                }
+
+            }])
+                ->orWhere('type' , 'student')
+                ->orWhere(function($query) use($request,$data){
+                    if(isset($data['name'])){
+
+                        $query->where('name', 'LIKE', '%'.$data['name'].'%');
+                    }
+                })->get();
+        }
+        else{
+            $cheerleaders = false;
+        }
+
+    }
 
 }

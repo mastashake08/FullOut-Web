@@ -75,6 +75,11 @@ class SchoolTableSeeder extends Seeder
           'team_responsibilities' => '111!',
           'number_members' => '111',
           'average_room' => '111!',
+            'financial_requirements' => '1000',
+            'same_information' => 'yes',
+            'tuition_cost_in' => '3000',
+            'tuition_cost_out' => '7000',
+            'description_program' => 'good',
         ]);
 
         DB::table('users')->update([
