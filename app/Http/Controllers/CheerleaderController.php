@@ -54,22 +54,37 @@ class CheerleaderController extends Controller
     {
 
         $skills = '';
-        $cheerleader = \App\User::with(['skillSet','videos','awards','mainInformationStudent'])->findOrFail($id);
+        $cheerleader = \App\User::with(['skillSet','videos','awards','mainInformationStudent','mainInformationCoach','school'])->findOrFail($id);
 
         if($cheerleader->skillSet){
             $skills = $cheerleader->skillSet;
         }
 
         if($cheerleader->type === 'coach'){
-          $with = [
-              'skills' => $skills,
+
+            $information = $cheerleader->mainInformationCoach;
+            $school = $cheerleader->school;
+
+            if(!$information){
+                $information = json_encode([]);
+            }
+            if(!$school){
+                $school = json_encode([]);
+            }
+            $with = [
+              'school' => $school,
+              'information' => $information,
               'coach' => $cheerleader,
-              'teams' => auth()->user()->school->teams
-          ];
+            ];
 
             return view('coach.individual')->with($with);
         }
         else{
+            $spring_tumbling_percent = 0;
+            $hard_tumbling_percent = 0;
+            $group_stunting_percent = 0;
+            $coed_stunting_percent = 0;
+
             if(count(auth()->user()->skillSet)){
 
                 $skills = $skills->first()->toArray();
@@ -160,7 +175,7 @@ class CheerleaderController extends Controller
         }else{
             $create = MainInformationStudent::create($data);
         }
-//        dd($user->mainInformationStudent()->get());
+
         $user->email = $request->email;
         $user->name = $request->name;
 
@@ -183,7 +198,6 @@ class CheerleaderController extends Controller
         }
       $user->save();
 
-//        dd($user->load('mainInformationStudent'));
       return back();
     }
 
@@ -346,31 +360,34 @@ class CheerleaderController extends Controller
             $filtered_ids[] = $information->user_id;
         }
 
-        if(!empty($filtered_ids)){
-            $cheerleaders = User::whereIn('id', $filtered_ids)->whereHas('skillSet', function($query) use ($data) {
-
-                if(isset($data['spring_tumbling_score'])){
-
-                    $query->where('spring_tumbling_score', '>=', $data['spring_tumbling_score']);
-
-                    if(isset($data['hard_tumbling_score'])){
-
-                        $query->orWhere('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
-                    }
-                }
-                else if(isset($data['hard_tumbling_score'])){
-                    $query->where('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
-                }
-            })
-                ->with('skillSet','mainInformationStudent')
+        if(!empty($filtered_ids)) {
+            $cheerleaders = User::whereIn('id', $filtered_ids)->with('skillSet','mainInformationStudent')
                 ->where('type', 'student')
                 ->where(function($query) use($data){
-                    if(isset($data['name'])){
+                    if(isset($data['name']) && !empty($data['name'])){
 
                         $query->where('name', 'LIKE', '%'.$data['name'].'%');
                     }
-                })
-                ->get();
+                });
+
+            if ((isset($data['spring_tumbling_score']) && !empty($data['spring_tumbling_score'])) || (isset($data['hard_tumbling_score']) && !empty($data['hard_tumbling_score']))) {
+                $cheerleaders = $cheerleaders->whereHas('skillSet', function ($query) use ($data) {
+
+                    if (isset($data['spring_tumbling_score'])) {
+
+                        $query->where('spring_tumbling_score', '>=', $data['spring_tumbling_score']);
+
+                        if (isset($data['hard_tumbling_score'])) {
+
+                            $query->orWhere('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
+                        }
+                    } else if (isset($data['hard_tumbling_score'])) {
+                        $query->where('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
+                    }
+                });
+            }
+
+            $cheerleaders = $cheerleaders->get();
         }
         else{
             $cheerleaders = '';

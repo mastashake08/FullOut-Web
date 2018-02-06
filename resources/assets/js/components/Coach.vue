@@ -7,7 +7,6 @@
                     <div class="panel-heading">{{user.name}}</div>
                     <transition name="fade">
                         <div class="panel-body" v-if="newData">
-                            <!--<div><img :src="'/images/profile-pics/' + user.profile_pic" class="profile_img" alt=""></div>-->
                             <div class="row">
                                 <span class="col-xs-4">Name:</span><span class="col-xs-8"> {{user.name}}</span><br>
                             </div>
@@ -121,6 +120,8 @@
         return{
             user: {},
             message: '',
+            information: '',
+            school: '',
             newData: false
         }
     },
