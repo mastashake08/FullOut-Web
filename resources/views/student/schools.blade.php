@@ -26,14 +26,13 @@
                        @foreach($schools as $school)
                        <tr>
                          <td><a href="{{url('/cheerleader/schools/'.$school['id'])}}">{{$school['name']}}</a></td>
-                         <td><a href="{{$school['website']}}" target="_blank">{{$school['website']}}</a></td>
+                         <td><a href="{{$school['website']}}">{{$school['website']}}</a></td>
                          <td>{{$school['min_gpa']}}</td>
                          <td>{{$school['act_score']}}</td>
                          <td>{{$school['sat_score']}}</td>
                          <td>{{$school['scholarship_text']}}</td>
-
-                           <td>${{number_format($school['in_state_tuition'])}}</td>
-                           <td>${{number_format($school['out_state_tuition'])}}</td>
+                         <td>${{$school['in_state_tuition']}}</td>
+                         <td>${{$school['out_state_tuition']}}</td>
                        </tr>
                        @endforeach
 
