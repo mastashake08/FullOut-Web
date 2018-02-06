@@ -56,15 +56,11 @@ class CheerleaderController extends Controller
         $skills = '';
         $cheerleader = \App\User::with(['skillSet','videos','awards','mainInformationStudent'])->findOrFail($id);
 
-        if($request->expectsJson()){
-          return $cheerleader;
-        }
-
         if($cheerleader->skillSet){
             $skills = $cheerleader->skillSet;
         }
 
-        if(auth()->user()->type === 'coach'){
+        if($cheerleader->type === 'coach'){
           $with = [
               'skills' => $skills,
               'coach' => $cheerleader,
