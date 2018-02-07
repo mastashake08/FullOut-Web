@@ -4,65 +4,18 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Sent Messages</div>
+                    <div class="panel-heading">Sent Messages with {{ messageWith.name }}</div>
 
-                    <div class="panel-body">
+                    <div class="panel-body messages-body">
                       <div class="table-responsive">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>Sender</th>
-                              <th>Receiver</th>
-                              <th>Message</th>
-                            </tr>
-                          </thead>
-                          <tbody>
 
-                            <tr v-for="(message,index) in messages.messages.sent">
-                              <td>{{message.sender.name}}</td>
-                              <td>{{message.receiver.name}}</td>
-                              <td><p>{{message.message}} </p> </td>
-                              <td><button class="btn btn-info pull-right" @click="openMessage(message.receiver)" data-toggle="modal" data-target="#sendMessage"><span class="glyphicon glyphicon-envelope" ></span> Reply</button></td>
-                              <td> <button class="btn btn-danger pull-right" @click="deleteMessageModal(message.id, index, 'sent')" data-toggle="modal" data-target=".bs-delete-modal-sm">Delete</button></td>
-                            </tr>
+                        <div class="overflow-hidden mb-2" v-for="(message,index) in messages">
 
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            <div :class="messageWith.id == message.sender.id ? 'other-sms' : 'my-sms'">{{ message.message }}</div>
+                            <div :class="messageWith.id == message.sender.id ? 'pull-left ml-2' : 'pull-right mr-2'"><button class="btn btn-danger pull-right" @click="deleteMessageModal(message.id, index, 'sent')" data-toggle="modal" data-target=".bs-delete-modal-sm">Delete</button></div>
+                        </div>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Received Messages</div>
-
-                    <div class="panel-body">
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>Sender</th>
-                              <th>Received</th>
-                              <th>Message</th>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
-
-                            <tr v-for="(message,index) in messages.messages.received">
-                              <td>{{message.sender.name}}</td>
-                              <td>{{message.receiver.name}}</td>
-                              <td><p>{{message.message}}</p> </td>
-                              <td> <button class="btn btn-info pull-right" @click="openMessage(message.sender)" data-toggle="modal" data-target="#sendMessage"><span class="glyphicon glyphicon-envelope" ></span> Reply</button></td>
-                              <td> <button class="btn btn-danger pull-right" @click="deleteMessageModal(message.id, index, 'received')" data-toggle="modal" data-target=".bs-delete-modal-sm">Delete</button></td>
-                            </tr>
-
-                          </tbody>
-                        </table>
+                        <div><button class="btn btn-info pull-right" @click="openMessage(messageWith)" data-toggle="modal" data-target="#sendMessage"><span class="glyphicon glyphicon-envelope" ></span> Reply</button></div>
                       </div>
                     </div>
                 </div>
@@ -119,59 +72,50 @@
        mounted() {
 
         },
-        data() {
+        data(){
           return{
           messages: [],
           user: {},
+          messageWith:'',
           messageId: '',
           status: '',
           messageIndex: '',
           message: '',
           show: false
-        }
-        },methods: {
-          openMessage: function(user){
-            this.user = user;
-
-          },
-        deleteMessageModal: function(messageId, messageIndex,status){
-            this.messageId = messageId;
-            this.messageIndex = messageIndex;
-            this.status = status;
-          },
-        deleteMessage: function(messageId,messageIndex){
-
-            this.$http.post('/message/'+ messageId,{_token:Laravel.csrfToken,_method:'DELETE'}).then(function(data){
-                if(this.status == 'sent'){
-                    this.messages.messages.sent.splice(messageIndex,1);
-                }
-                else if(this.status == 'received'){
-                    this.messages.messages.received.splice(messageIndex,1);
-                }
-            }).bind(this);
-
+            }
         },
-          sendMessage: function(user){
-            this.$http.post('/message',{_token:Laravel.csrfToken,receiver_id: user.id,message: this.message}).then(function(data){
-              this.$http.get('/message').then(function(data){
-                this.messages = data.data;
-                  this.messages.messages.received.reverse();
-                  this.messages.messages.sent.reverse();
-                this.show = true;
-              });
+        props:['all-messages','with'],
 
-              this.message = '';
-            }).bind(this);
+        methods: {
+              openMessage: function(user){
+                this.user = user;
 
-          },
+              },
+            deleteMessageModal: function(messageId, messageIndex,status){
+                this.messageId = messageId;
+                this.messageIndex = messageIndex;
+                this.status = status;
+              },
+            deleteMessage: function(messageId,messageIndex){
+
+                this.$http.post('/message/'+ messageId,{_token:Laravel.csrfToken,_method:'DELETE'}).then(function(data){
+                    this.messages.splice(messageIndex,1);
+                }).bind(this);
+
+            },
+              sendMessage: function(user){
+                this.$http.post('/message',{_token:Laravel.csrfToken,receiver_id: user.id,message: this.message}).then(function(data){
+                    this.messages = data.body.message;
+                    this.messages;
+
+                    this.message = '';
+                }).bind(this);
+              },
         },
         created(){
-          this.$http.get('/message').then(function(data){
-            this.messages = data.data;
-              this.messages.messages.received.reverse();
-              this.messages.messages.sent.reverse();
-              this.show = true;
-          });
+            this.messages = this.allMessages;
+            this.messageWith = this.with;
+            this.show = true;
         }
     }
 </script>

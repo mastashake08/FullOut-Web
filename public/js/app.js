@@ -44896,53 +44896,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
@@ -44950,6 +44903,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       messages: [],
       user: {},
+      messageWith: '',
       messageId: '',
       status: '',
       messageIndex: '',
@@ -44957,6 +44911,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       show: false
     };
   },
+
+  props: ['all-messages', 'with'],
+
   methods: {
     openMessage: function openMessage(user) {
       this.user = user;
@@ -44969,33 +44926,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     deleteMessage: function deleteMessage(messageId, messageIndex) {
 
       this.$http.post('/message/' + messageId, { _token: Laravel.csrfToken, _method: 'DELETE' }).then(function (data) {
-        if (this.status == 'sent') {
-          this.messages.messages.sent.splice(messageIndex, 1);
-        } else if (this.status == 'received') {
-          this.messages.messages.received.splice(messageIndex, 1);
-        }
+        this.messages.splice(messageIndex, 1);
       }).bind(this);
     },
     sendMessage: function sendMessage(user) {
       this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: user.id, message: this.message }).then(function (data) {
-        this.$http.get('/message').then(function (data) {
-          this.messages = data.data;
-          this.messages.messages.received.reverse();
-          this.messages.messages.sent.reverse();
-          this.show = true;
-        });
+        this.messages = data.body.message;
+        this.messages;
 
         this.message = '';
       }).bind(this);
     }
   },
   created: function created() {
-    this.$http.get('/message').then(function (data) {
-      this.messages = data.data;
-      this.messages.messages.received.reverse();
-      this.messages.messages.sent.reverse();
-      this.show = true;
-    });
+    this.messages = this.allMessages;
+    this.messageWith = this.with;
+    this.show = true;
   }
 });
 
@@ -45026,183 +44972,91 @@ var render = function() {
           _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
             _c("div", { staticClass: "panel panel-default" }, [
               _c("div", { staticClass: "panel-heading" }, [
-                _vm._v("Sent Messages")
+                _vm._v("Sent Messages with " + _vm._s(_vm.messageWith.name))
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "panel-body" }, [
-                _c("div", { staticClass: "table-responsive" }, [
-                  _c("table", { staticClass: "table" }, [
-                    _c("thead", [
-                      _c("tr", [
-                        _c("th", [_vm._v("Sender")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("Receiver")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("Message")])
-                      ])
-                    ]),
+              _c("div", { staticClass: "panel-body messages-body" }, [
+                _c(
+                  "div",
+                  { staticClass: "table-responsive" },
+                  [
+                    _vm._l(_vm.messages, function(message, index) {
+                      return _c(
+                        "div",
+                        { staticClass: "overflow-hidden mb-2" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              class:
+                                _vm.messageWith.id == message.sender.id
+                                  ? "other-sms"
+                                  : "my-sms"
+                            },
+                            [_vm._v(_vm._s(message.message))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              class:
+                                _vm.messageWith.id == message.sender.id
+                                  ? "pull-left ml-2"
+                                  : "pull-right mr-2"
+                            },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-danger pull-right",
+                                  attrs: {
+                                    "data-toggle": "modal",
+                                    "data-target": ".bs-delete-modal-sm"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.deleteMessageModal(
+                                        message.id,
+                                        index,
+                                        "sent"
+                                      )
+                                    }
+                                  }
+                                },
+                                [_vm._v("Delete")]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    }),
                     _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.messages.messages.sent, function(
-                        message,
-                        index
-                      ) {
-                        return _c("tr", [
-                          _c("td", [_vm._v(_vm._s(message.sender.name))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(message.receiver.name))]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("p", [_vm._v(_vm._s(message.message) + " ")])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-info pull-right",
-                                attrs: {
-                                  "data-toggle": "modal",
-                                  "data-target": "#sendMessage"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    _vm.openMessage(message.receiver)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", {
-                                  staticClass: "glyphicon glyphicon-envelope"
-                                }),
-                                _vm._v(" Reply")
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-danger pull-right",
-                                attrs: {
-                                  "data-toggle": "modal",
-                                  "data-target": ".bs-delete-modal-sm"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    _vm.deleteMessageModal(
-                                      message.id,
-                                      index,
-                                      "sent"
-                                    )
-                                  }
-                                }
-                              },
-                              [_vm._v("Delete")]
-                            )
-                          ])
-                        ])
-                      })
-                    )
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-            _c("div", { staticClass: "panel panel-default" }, [
-              _c("div", { staticClass: "panel-heading" }, [
-                _vm._v("Received Messages")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "panel-body" }, [
-                _c("div", { staticClass: "table-responsive" }, [
-                  _c("table", { staticClass: "table" }, [
-                    _c("thead", [
-                      _c("tr", [
-                        _c("th", [_vm._v("Sender")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("Received")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("Message")]),
-                        _vm._v(" "),
-                        _c("th"),
-                        _vm._v(" "),
-                        _c("th")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.messages.messages.received, function(
-                        message,
-                        index
-                      ) {
-                        return _c("tr", [
-                          _c("td", [_vm._v(_vm._s(message.sender.name))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(message.receiver.name))]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("p", [_vm._v(_vm._s(message.message))])
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-info pull-right",
-                                attrs: {
-                                  "data-toggle": "modal",
-                                  "data-target": "#sendMessage"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    _vm.openMessage(message.sender)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", {
-                                  staticClass: "glyphicon glyphicon-envelope"
-                                }),
-                                _vm._v(" Reply")
-                              ]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-danger pull-right",
-                                attrs: {
-                                  "data-toggle": "modal",
-                                  "data-target": ".bs-delete-modal-sm"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    _vm.deleteMessageModal(
-                                      message.id,
-                                      index,
-                                      "received"
-                                    )
-                                  }
-                                }
-                              },
-                              [_vm._v("Delete")]
-                            )
-                          ])
-                        ])
-                      })
-                    )
-                  ])
-                ])
+                    _c("div", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-info pull-right",
+                          attrs: {
+                            "data-toggle": "modal",
+                            "data-target": "#sendMessage"
+                          },
+                          on: {
+                            click: function($event) {
+                              _vm.openMessage(_vm.messageWith)
+                            }
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "glyphicon glyphicon-envelope"
+                          }),
+                          _vm._v(" Reply")
+                        ]
+                      )
+                    ])
+                  ],
+                  2
+                )
               ])
             ])
           ])

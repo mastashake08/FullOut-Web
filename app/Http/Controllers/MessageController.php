@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Message;
 class MessageController extends Controller
@@ -18,7 +19,7 @@ class MessageController extends Controller
 
     public function index(Request $request)
     {
-        //
+        $user_id = auth()->user()->id;
         if($request->expectsJson()){
           $with = [
             'messages' =>[
@@ -29,11 +30,21 @@ class MessageController extends Controller
           return response()->json($with);
         }
         else{
+            $users = User::whereHas('messages',function($query) use ($user_id){
+
+                $query->where('sender_id',$user_id);
+
+            })->whereHas('sentMessages',function($query) use ($user_id){
+
+                $query->where('receiver_id',$user_id);
+
+            })->get();
+
+            if(!$users){
+                $users = json_encode([]);
+            }
           $with = [
-            'messages' =>[
-              'sent' => $request->user()->sentMessages()->get(),
-              'received' => $request->user()->messages()->get()
-            ]
+            'users' => $users
           ];
           return view('messages.all')->with($with);
         }
@@ -71,10 +82,24 @@ class MessageController extends Controller
         ]);
 
 //        $message->receiver->notify(new \App\Notifications\MessageReceived($message));
+        $user_id = $user->id;
+        $with_id = $request->receiver_id;
+
+        $messages = Message::where(function($query)use($user_id,$with_id){
+
+            $query->where('sender_id',$user_id)->where('receiver_id',$with_id);
+
+        })->orWhere(function($query)use($user_id,$with_id){
+
+            $query->where('sender_id',$with_id)->where('receiver_id',$user_id);
+
+        })->with(['sender','receiver'])->get();
+
+
         if($request->expectsJson()){
           return response()->json([
             'success' => true,
-            'message' => $message
+            'message' => $messages
           ]);
         }
         else{
@@ -88,10 +113,32 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($with_id)
     {
-        //
-        return Message::findOrFail($id);
+        $user_id = auth()->user()->id;
+
+        $messages = Message::where(function($query)use($user_id,$with_id){
+
+            $query->where('sender_id',$user_id)->where('receiver_id',$with_id);
+
+        })->orWhere(function($query)use($user_id,$with_id){
+
+            $query->where('sender_id',$with_id)->where('receiver_id',$user_id);
+
+        })->with(['sender','receiver'])->get();
+
+        $with_user = User::find($with_id);
+
+        if(!$messages){
+            $messages = json_encode([]);
+        }
+        $with = [
+            'messages' => $messages,
+            'with_user' => $with_user
+        ];
+
+        return view('messages.show')->with($with);
+
 
     }
 

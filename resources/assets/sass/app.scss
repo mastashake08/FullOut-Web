@@ -164,3 +164,28 @@ body{
 .curs-pointer {
   cursor: pointer;
 }
+
+.my-sms {
+  background: #5ca8ff;
+  float: right;
+  color: #000;
+  margin-right: 2%;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 500px;
+}
+
+.other-sms {
+  background: #dddddd;
+  float: left;
+  color: #000;
+  margin-left: 2%;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 500px;
+}
+
+.messages-body {
+  max-height: 600px;
+  overflow: auto;
+}
