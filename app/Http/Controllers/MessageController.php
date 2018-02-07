@@ -21,12 +21,11 @@ class MessageController extends Controller
     {
         $user_id = auth()->user()->id;
 
-
         $users = User::whereHas('messages',function($query) use ($user_id){
 
             $query->where('sender_id',$user_id);
 
-        })->whereHas('sentMessages',function($query) use ($user_id){
+        })->orWhereHas('sentMessages',function($query) use ($user_id){
 
             $query->where('receiver_id',$user_id);
 
@@ -39,7 +38,6 @@ class MessageController extends Controller
         'users' => $users
       ];
       return view('messages.all')->with($with);
-
 
     }
 
