@@ -17,37 +17,29 @@ class MessageController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(Request $request)
+    public function index()
     {
         $user_id = auth()->user()->id;
-        if($request->expectsJson()){
-          $with = [
-            'messages' =>[
-              'sent' => $request->user()->sentMessages()->with(['sender','receiver'])->get(),
-              'received' => $request->user()->messages()->with(['sender','receiver'])->get()
-            ]
-          ];
-          return response()->json($with);
+
+
+        $users = User::whereHas('messages',function($query) use ($user_id){
+
+            $query->where('sender_id',$user_id);
+
+        })->whereHas('sentMessages',function($query) use ($user_id){
+
+            $query->where('receiver_id',$user_id);
+
+        })->get();
+
+        if(!$users){
+            $users = json_encode([]);
         }
-        else{
-            $users = User::whereHas('messages',function($query) use ($user_id){
+      $with = [
+        'users' => $users
+      ];
+      return view('messages.all')->with($with);
 
-                $query->where('sender_id',$user_id);
-
-            })->whereHas('sentMessages',function($query) use ($user_id){
-
-                $query->where('receiver_id',$user_id);
-
-            })->get();
-
-            if(!$users){
-                $users = json_encode([]);
-            }
-          $with = [
-            'users' => $users
-          ];
-          return view('messages.all')->with($with);
-        }
 
     }
 

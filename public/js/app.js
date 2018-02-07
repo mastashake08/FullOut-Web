@@ -45777,7 +45777,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     sendMessage: function sendMessage(user) {
       this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: user.id, message: this.message }).then(function (data) {
         alert('Message Sent!');
-        $('#sendMessage').modal('hide');
+        //            $('#sendMessage').modal('hide');
         this.message = '';
       }).bind(this);
     },
