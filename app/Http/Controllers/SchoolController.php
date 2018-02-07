@@ -11,6 +11,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class SchoolController extends Controller
 {
+    protected $search_fields = ['name' => 'LIKE','min_gpa' => '>=','act_score' => '>=','sat_score' => '='];
 
     public function __construct(){
       $this->middleware('auth');
@@ -225,28 +226,35 @@ class SchoolController extends Controller
     public function search(Request $request)
     {
         $data = $request->all();
-        $schools = School::select();
 
-//      ->orWhere('min_gpa', '>=', $request->min_gpa)
-//      ->orWhere('act_score','>=', $request->act)
-//      ->orWhere('sat_score', '>=', $request->sat)
-      //->orWhere('gpa_needed_for_team', '>=', $request->gpa_needed_for_team)
-      //->orWhere('min_gpa_transfer', '>=', $request->min_gpa_transfer)
-//      ->paginate(10);
+        $data = collect($data);
 
+        $schools = School::where(function($query) use($data){
+            $data->each(function($req_value,$key) use($query){
+                foreach ($this->search_fields as $value => $operator) {
 
-        if($data['name'] != '' ) {
-            $schools->where('name', 'LIKE', '%'.$data['name'].'%');
-        }
-        if($data['min_gpa'] != '') {
-            $schools->orWhere('min_gpa','>=', $data['min_gpa']);
-        }
-        if($data['act'] != '') {
-            $schools->orWhere('act_score','>=', $data['act']);
-        }
-        if($data['sat'] != '') {
-            $schools->orWhere('sat_score','>=', $data['sat']);
-        }
+                    if($key == $value && $req_value != ""){
+
+                        $query->where($value, $operator, ($value == 'name') ? '%' . $req_value . '%' : $req_value );
+                    }
+                }
+            });
+        });
+
+//        var_dump($schools);die;
+//
+//        if($data['name'] != '' ) {
+//            $schools->where('name', 'LIKE', '%'.$data['name'].'%');
+//        }
+//        if($data['min_gpa'] != '') {
+//            $schools->orWhere('min_gpa','>=', $data['min_gpa']);
+//        }
+//        if($data['act'] != '') {
+//            $schools->orWhere('act_score','>=', $data['act']);
+//        }
+//        if($data['sat'] != '') {
+//            $schools->orWhere('sat_score','>=', $data['sat']);
+//        }
 
 
 

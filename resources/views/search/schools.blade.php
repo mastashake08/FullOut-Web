@@ -1,6 +1,6 @@
 <form class="form-inline" action="{{url('/cheerleader/search/schools')}}" id="search-school">
 <div class="clearfix">
-  <legend>Section of Search (please choose only one)</legend>
+  <legend>Section of Search</legend>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
     <input type="text" name="name" @if (isset($data['name']) && !empty($data['name'])) value="{{ $data['name'] }}" @endif class="form-control" id="name" placeholder="Name">
   </div>
@@ -8,10 +8,10 @@
     <input type="number" name="min_gpa" @if (isset($data['min_gpa']) && !empty($data['min_gpa'])) value="{{ $data['min_gpa'] }}" @endif class="form-control" id="min_gpa" placeholder="GPA">
   </div>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
-    <input type="number" name="act" @if (isset($data['act']) && !empty($data['act'])) value="{{ $data['act'] }}" @endif class="form-control" id="act" placeholder="ACT">
+    <input type="number" name="act_score" @if (isset($data['act_score']) && !empty($data['act_score'])) value="{{ $data['act_score'] }}" @endif class="form-control" id="act_score" placeholder="ACT">
   </div>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">
-    <input type="number" name="sat" @if (isset($data['sat']) && !empty($data['sat'])) value="{{ $data['sat'] }}" @endif class="form-control" id="sat" placeholder="SAT">
+    <input type="number" name="sat_score" @if (isset($data['sat_score']) && !empty($data['sat_score'])) value="{{ $data['sat_score'] }}" @endif class="form-control" id="sat_score" placeholder="SAT">
   </div>
   <legend>Section of Order (please choose only one)</legend>
   <div class="form-group col-xs-6 col-sm-4 col-md-3">

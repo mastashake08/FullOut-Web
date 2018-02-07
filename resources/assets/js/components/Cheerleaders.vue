@@ -9,6 +9,7 @@
                   <div class="panel-body">
                     <form class="form-inline">
                       <input type="text" v-model="search.name" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="Jane Doe">
+                      <!--<input type="text" v-model="search.age" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="Age">-->
                       <input type="text" v-model="search.current_gpa" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="GPA">
                       <input type="text" v-model="search.city" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="City">
                       <input type="text" v-model="search.state" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="State">
@@ -54,7 +55,7 @@
                           <td>{{user.main_information_student.zip}}</td>
                           <td>
                             <span class="glyphicon glyphicon-heart" @click="favorite(user)"></span>
-                            <span class="glyphicon glyphicon-envelope" @click="openMessage(user)"></span>
+                            <span class="glyphicon glyphicon-envelope" @click="openMessage(user)" data-toggle="modal" data-target="#sendMessage"></span>
                           </td>
                         </tr>
                       </tbody>
@@ -90,7 +91,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" @click="sendMessage(selectedUser)">Send Message</button>
+          <button type="button" class="btn btn-default" @click="sendMessage(selectedUser)" data-dismiss="modal">Send Message</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -118,7 +119,7 @@
       methods: {
         openMessage: function(user){
           this.selectedUser = user;
-          $("#sendMessage").modal();
+//          $("#sendMessage").modal();
         },
         sendMessage: function(user){
           this.$http.post('/message',{_token:Laravel.csrfToken,receiver_id: user.id,message: this.message}).then(function(data){

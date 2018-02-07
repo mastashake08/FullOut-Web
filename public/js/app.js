@@ -45901,6 +45901,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
@@ -45917,7 +45918,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     openMessage: function openMessage(user) {
       this.selectedUser = user;
-      $("#sendMessage").modal();
+      //          $("#sendMessage").modal();
     },
     sendMessage: function sendMessage(user) {
       this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: user.id, message: this.message }).then(function (data) {
@@ -46259,6 +46260,10 @@ var render = function() {
                       _vm._v(" "),
                       _c("span", {
                         staticClass: "glyphicon glyphicon-envelope",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#sendMessage"
+                        },
                         on: {
                           click: function($event) {
                             _vm.openMessage(user)
@@ -46372,7 +46377,7 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-default",
-                  attrs: { type: "button" },
+                  attrs: { type: "button", "data-dismiss": "modal" },
                   on: {
                     click: function($event) {
                       _vm.sendMessage(_vm.selectedUser)

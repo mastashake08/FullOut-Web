@@ -34,8 +34,8 @@ class CreateSchoolsTable extends Migration
             $table->string('number_hours');
             $table->string('other_testing');
             $table->string('popular_scholarship_outside_program');
-            $table->decimal('act_score');
-            $table->decimal('sat_score');
+            $table->string('act_score');
+            $table->string('sat_score');
             $table->string('offer_scholarship')->nullable();
             $table->longText('scholarship_text');
             $table->timestamps();
