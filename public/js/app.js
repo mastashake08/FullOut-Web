@@ -49036,7 +49036,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   created: function created() {
     this.$http.get('/favorite').then(function (data) {
-      this.users = data.data;
+      this.users = data.data.data;
+      console.log(this.users);
       this.newData = true;
     });
   }
@@ -49074,7 +49075,9 @@ var render = function() {
                             attrs: {
                               width: "50",
                               height: "50",
-                              src: user.cheerleader.profile_pic
+                              src:
+                                "/images/profile-pics/" +
+                                user.cheerleader.profile_pic
                             }
                           })
                         ]),
@@ -49084,9 +49087,7 @@ var render = function() {
                             "a",
                             {
                               attrs: {
-                                href:
-                                  "/cheerleader/" + user.cheerleader.id + "",
-                                target: "_blank"
+                                href: "/cheerleader/" + user.cheerleader.id
                               }
                             },
                             [_vm._v(_vm._s(user.cheerleader.name))]

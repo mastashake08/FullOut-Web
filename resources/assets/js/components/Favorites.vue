@@ -23,8 +23,8 @@
                       <tbody is="transition-group" name="fade">
 
                         <tr v-if="newData" v-for="(user,index) in users.data" :key="index">
-                          <td><img width="50" height="50" class="img img-circle":src="user.cheerleader.profile_pic"/></td>
-                          <td><a v-bind:href="'/cheerleader/'+user.cheerleader.id+''" target="_blank">{{user.cheerleader.name}}</a></td>
+                          <td><img width="50" height="50" class="img img-circle":src="'/images/profile-pics/'+user.cheerleader.profile_pic"/></td>
+                          <td><a :href="'/cheerleader/'+user.cheerleader.id">{{user.cheerleader.name}}</a></td>
                           <td>{{user.cheerleader.email}}</td>
                           <td>{{user.cheerleader.gpa}}</td>
                           <td>{{user.cheerleader.city}}</td>
@@ -135,7 +135,8 @@
       },
       created(){
         this.$http.get('/favorite').then(function(data){
-          this.users = data.data;
+          this.users = data.data.data;
+          console.log(this.users);
           this.newData = true;
           });
       }
