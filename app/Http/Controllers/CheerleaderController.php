@@ -371,19 +371,26 @@ class CheerleaderController extends Controller
                     }
                 });
 
-            if ((isset($data['spring_tumbling_score']) && !empty($data['spring_tumbling_score'])) || (isset($data['hard_tumbling_score']) && !empty($data['hard_tumbling_score']))) {
+            if ((isset($data['spring_tumbling_score']) && !empty($data['spring_tumbling_score'])) || (isset($data['hard_tumbling_score']) && !empty($data['hard_tumbling_score'])) || $data['group_stunting_score'] || $data['coed_stunting_score']) {
                 $cheerleaders = $cheerleaders->whereHas('skillSet', function ($query) use ($data) {
 
-                    if (isset($data['spring_tumbling_score'])) {
+                    if (isset($data['spring_tumbling_score']) && $data['spring_tumbling_score'] != '') {
 
                         $query->where('spring_tumbling_score', '>=', $data['spring_tumbling_score']);
+                    }
 
-                        if (isset($data['hard_tumbling_score'])) {
+                    if (isset($data['hard_tumbling_score']) && $data['spring_tumbling_score'] != '') {
 
-                            $query->orWhere('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
-                        }
-                    } else if (isset($data['hard_tumbling_score'])) {
                         $query->where('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
+                    }
+
+                    if ($data['group_stunting_score']) {
+
+                        $query->where('group_stunting_score', '>', 0);
+                    }
+                    if ($data['coed_stunting_score']) {
+
+                        $query->where('coed_stunting_score', '>', 0);
                     }
                 });
             }

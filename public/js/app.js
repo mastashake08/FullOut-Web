@@ -45756,6 +45756,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
@@ -46020,6 +46031,108 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+                  attrs: { for: "group-stunting" }
+                },
+                [
+                  _vm._v("Group Stunting\n                            "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search.group_stunting_score,
+                        expression: "search.group_stunting_score"
+                      }
+                    ],
+                    attrs: { id: "group-stunting", type: "checkbox" },
+                    domProps: {
+                      checked: Array.isArray(_vm.search.group_stunting_score)
+                        ? _vm._i(_vm.search.group_stunting_score, null) > -1
+                        : _vm.search.group_stunting_score
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.search.group_stunting_score,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              (_vm.search.group_stunting_score = $$a.concat([
+                                $$v
+                              ]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.search.group_stunting_score = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.$set(_vm.search, "group_stunting_score", $$c)
+                        }
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+                  attrs: { for: "coed-stunting" }
+                },
+                [
+                  _vm._v("Coed Stunting\n                            "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search.coed_stunting_score,
+                        expression: "search.coed_stunting_score"
+                      }
+                    ],
+                    attrs: { id: "coed-stunting", type: "checkbox" },
+                    domProps: {
+                      checked: Array.isArray(_vm.search.coed_stunting_score)
+                        ? _vm._i(_vm.search.coed_stunting_score, null) > -1
+                        : _vm.search.coed_stunting_score
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.search.coed_stunting_score,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              (_vm.search.coed_stunting_score = $$a.concat([
+                                $$v
+                              ]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.search.coed_stunting_score = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.$set(_vm.search, "coed_stunting_score", $$c)
+                        }
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
               _c("div", { staticClass: "form-radio mb-2 mr-sm-2 mb-sm-0" }, [
                 _c("label", { staticClass: "form-radio-label" }, [
                   _c("input", {
@@ -46107,6 +46220,10 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(user.email))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(user.main_information_student.age))
+                    ]),
                     _vm._v(" "),
                     _c("td", [
                       _vm._v(_vm._s(user.main_information_student.current_gpa))
@@ -46290,6 +46407,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Email")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Age")]),
         _vm._v(" "),
         _c("th", [_vm._v("GPA")]),
         _vm._v(" "),

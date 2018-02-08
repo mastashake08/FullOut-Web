@@ -16,6 +16,15 @@
                       <input type="text" v-model="search.zip" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="ZIP">
                       <input type="text" v-model="search.spring_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Min Spring Tumbling Score">
                       <input type="text" v-model="search.hard_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Min Hard Tumbling Score">
+                        <label for="group-stunting" class="form-control mb-2 mr-sm-2 mb-sm-0">Group Stunting
+                            <input id="group-stunting" type="checkbox" v-model="search.group_stunting_score">
+                        </label>
+
+                        <label for="coed-stunting" class="form-control mb-2 mr-sm-2 mb-sm-0">Coed Stunting
+                            <input id="coed-stunting" type="checkbox" v-model="search.coed_stunting_score">
+                        </label>
+
+
                       <!--<input type="text" v-model="search.highest_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Highest Tumbling Score">-->
 
                       <div class="form-radio mb-2 mr-sm-2 mb-sm-0">
@@ -36,6 +45,7 @@
                           <th>Photo</th>
                           <th>Name</th>
                           <th>Email</th>
+                          <th>Age</th>
                           <th>GPA</th>
                           <th>City</th>
                           <th>State</th>
@@ -49,6 +59,7 @@
                           <td><img width="50" height="50" class="img img-circle":src="'/images/profile-pics/'+user.profile_pic"/></td>
                           <td><a :href="'/cheerleader/'+user.id">{{user.name}}</a></td>
                           <td>{{user.email}}</td>
+                          <td>{{user.main_information_student.age}}</td>
                           <td>{{user.main_information_student.current_gpa}}</td>
                           <td>{{user.main_information_student.city}}</td>
                           <td>{{user.main_information_student.state}}</td>
