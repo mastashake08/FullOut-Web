@@ -206,10 +206,10 @@
                     @endif
                   </div>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <div class="input-group">
                     <span class="input-group-addon">Bio</span>
-                    <textarea class="form-control" name="bio">{{ (isset(auth()->user()->mainInformationStudent->bio) ? auth()->user()->mainInformationStudent->bio : '') }}</textarea>
+                    <input class="form-control" type="number" name="bio" value="{{ (isset(auth()->user()->mainInformationStudent->bio) ? auth()->user()->mainInformationStudent->bio : '') }}">
                     @if ($errors->has('bio'))
                       <span class="help-block">
                           <strong>{{ $errors->first('bio') }}</strong>
@@ -217,10 +217,10 @@
                     @endif
                   </div>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <div class="input-group">
                     <span class="input-group-addon">Weight</span>
-                    <textarea class="form-control" name="weight">{{ (isset(auth()->user()->mainInformationStudent->weight) ? auth()->user()->mainInformationStudent->weight : '') }}</textarea>
+                    <input class="form-control" type="number" name="weight" value="{{ (isset(auth()->user()->mainInformationStudent->weight) ? auth()->user()->mainInformationStudent->weight : '') }}">
                     @if ($errors->has('weight'))
                       <span class="help-block">
                           <strong>{{ $errors->first('weight') }}</strong>
@@ -228,13 +228,24 @@
                     @endif
                   </div>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                   <div class="input-group">
                     <span class="input-group-addon">Height</span>
-                    <textarea class="form-control" name="height">{{ (isset(auth()->user()->mainInformationStudent->height) ? auth()->user()->mainInformationStudent->height : '') }}</textarea>
+                    <input class="form-control" type="number" name="height" value="{{ (isset(auth()->user()->mainInformationStudent->height) ? auth()->user()->mainInformationStudent->height : '') }}">
                     @if ($errors->has('height'))
                       <span class="help-block">
                           <strong>{{ $errors->first('height') }}</strong>
+                      </span>
+                    @endif
+                  </div>
+                </div>
+                <div class="form-group col-md-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">Age</span>
+                    <input class="form-control" type="number" name="age" value="{{ (isset(auth()->user()->mainInformationStudent->age) ? auth()->user()->mainInformationStudent->age : '') }}">
+                    @if ($errors->has('age'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('age') }}</strong>
                       </span>
                     @endif
                   </div>

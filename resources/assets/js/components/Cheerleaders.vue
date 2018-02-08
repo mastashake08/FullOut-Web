@@ -9,7 +9,7 @@
                   <div class="panel-body">
                     <form class="form-inline">
                       <input type="text" v-model="search.name" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="Jane Doe">
-                      <!--<input type="text" v-model="search.age" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="Age">-->
+                      <input type="text" v-model="search.age" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="Age">
                       <input type="text" v-model="search.current_gpa" class="form-control mb-2 mr-sm-2 mb-sm-0"  placeholder="GPA">
                       <input type="text" v-model="search.city" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="City">
                       <input type="text" v-model="search.state" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="State">

@@ -33,6 +33,7 @@ class CreateMainInformationStudentsTable extends Migration
             $table->string('bio');
             $table->string('weight');
             $table->string('height');
+            $table->string('age');
             $table->string('current_program_timeline');
             $table->string('past_program_timeline');
             $table->string('accolades');

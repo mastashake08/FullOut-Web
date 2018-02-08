@@ -34,7 +34,7 @@
                       <br>
                     <div class="pull-right">
                       <span class="glyphicon glyphicon-heart" @click="favorite()"></span>
-                      <span class="glyphicon glyphicon-envelope" @click="openMessage()"></span>
+                      <span class="glyphicon glyphicon-envelope" @click="openMessage()" data-toggle="modal" data-target="#sendMessage"></span>
                     </div>
                   </div>
                 </transition>
@@ -90,7 +90,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" @click="sendMessage(user)">Send Message</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" @click="sendMessage(user)">Send Message</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -115,19 +115,19 @@
       props: ['user-id'],
       methods: {
         openMessage: function(){
-          $("#sendMessage").modal();
+//          $("#sendMessage").modal();
         },
         sendMessage: function(user){
           this.$http.post('/message',{_token:Laravel.csrfToken,receiver_id: this.user.id,message: this.message}).then(function(data){
-//            alert('Message Sent!');
-            $('#sendMessage').modal('hide');
+            alert('Message Sent!');
+//            $('#sendMessage').modal('hide');
             this.message = '';
           }).bind(this);
 
         },
         favorite: function(){
           this.$http.post('/favorite',{_token:Laravel.csrfToken,cheerleader_id:this.user.id}).then(function(data){
-//            alert('Favorited!');
+            alert('Favorited!');
           });
         },
       },

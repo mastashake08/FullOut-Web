@@ -45860,6 +45860,28 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
+                    value: _vm.search.age,
+                    expression: "search.age"
+                  }
+                ],
+                staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+                attrs: { type: "text", placeholder: "Age" },
+                domProps: { value: _vm.search.age },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.search, "age", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
                     value: _vm.search.current_gpa,
                     expression: "search.current_gpa"
                   }
@@ -46462,18 +46484,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ['user-id'],
   methods: {
     openMessage: function openMessage() {
-      $("#sendMessage").modal();
+      //          $("#sendMessage").modal();
     },
     sendMessage: function sendMessage(user) {
       this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: this.user.id, message: this.message }).then(function (data) {
-        //            alert('Message Sent!');
-        $('#sendMessage').modal('hide');
+        alert('Message Sent!');
+        //            $('#sendMessage').modal('hide');
         this.message = '';
       }).bind(this);
     },
     favorite: function favorite() {
       this.$http.post('/favorite', { _token: Laravel.csrfToken, cheerleader_id: this.user.id }).then(function (data) {
-        //            alert('Favorited!');
+        alert('Favorited!');
       });
     }
   },
@@ -46816,6 +46838,10 @@ var render = function() {
                       _vm._v(" "),
                       _c("span", {
                         staticClass: "glyphicon glyphicon-envelope",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#sendMessage"
+                        },
                         on: {
                           click: function($event) {
                             _vm.openMessage()
@@ -46956,7 +46982,7 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-default",
-                  attrs: { type: "button" },
+                  attrs: { type: "button", "data-dismiss": "modal" },
                   on: {
                     click: function($event) {
                       _vm.sendMessage(_vm.user)
@@ -47175,12 +47201,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['user-id', 'main-information', 'user-school'],
     methods: {
         openMessage: function openMessage() {
-            $("#sendMessage").modal();
+            //            $("#sendMessage").modal();
         },
         sendMessage: function sendMessage(user) {
             this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: this.user.id, message: this.message }).then(function (data) {
                 alert('Message Sent!');
-                $('#sendMessage').modal('hide');
+                //                $('#sendMessage').modal('hide');
                 this.message = '';
             }).bind(this);
         },
@@ -47530,6 +47556,10 @@ var render = function() {
                       _vm._v(" "),
                       _c("span", {
                         staticClass: "glyphicon glyphicon-envelope",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#sendMessage"
+                        },
                         on: {
                           click: function($event) {
                             _vm.openMessage()
@@ -47600,7 +47630,7 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-default",
-                  attrs: { type: "button" },
+                  attrs: { type: "button", "data-dismiss": "modal" },
                   on: {
                     click: function($event) {
                       _vm.sendMessage(_vm.user)

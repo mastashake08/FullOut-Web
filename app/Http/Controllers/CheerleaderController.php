@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class CheerleaderController extends Controller
 {
-    protected $search_fields = ['city' => 'LIKE','state'=> 'LIKE','current_gpa' => '>=','zip' => '>=','gender' => '='];
+    protected $search_fields = ['city' => 'LIKE','state'=> 'LIKE','current_gpa' => '>=','zip' => '>=','gender' => '=','age' => '>='];
 
     /**
      * Display a listing of the resource.
@@ -162,6 +162,7 @@ class CheerleaderController extends Controller
             'bio' => $request->bio,
             'weight' => $request->weight,
             'height' => $request->height,
+            'age' => $request->age,
             'current_program_timeline' => $request->current_program_timeline,
             'past_program_timeline' => $request->past_program_timeline,
             'accolades' => $request->accolades,
