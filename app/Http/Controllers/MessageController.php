@@ -59,50 +59,58 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $this->validate($request,[
-          'receiver_id' => 'required',
-          'message' => 'required'
-        ]);
-
         $user = auth()->user();
-        $message = $user->sentMessages()->create([
-          'receiver_id' => $request->receiver_id,
-          'message' => $request->message
-        ]);
-
-//        $message->receiver->notify(new \App\Notifications\MessageReceived($message));
-        $user_id = $user->id;
-        $with_id = $request->receiver_id;
-
-        $messages = Message::where(function($query)use($user_id,$with_id){
-
-            $query->where('sender_id',$user_id)->where('receiver_id',$with_id);
-
-        })->orWhere(function($query)use($user_id,$with_id){
-
-            $query->where('sender_id',$with_id)->where('receiver_id',$user_id);
-
-        })->with(['sender','receiver'])->get();
-
-
-        if($request->expectsJson()){
-          return response()->json([
-            'success' => true,
-            'message' => $messages
-          ]);
+//        var_dump($request->receiver_id);die;
+        if($user->id == $request->receiver_id){
+            return response()->json([
+                'success' => false,
+            ]);
         }
         else{
-          return view('messages.success');
+            $this->validate($request,[
+                'receiver_id' => 'required',
+                'message' => 'required'
+            ]);
+
+
+            $message = $user->sentMessages()->create([
+                'receiver_id' => $request->receiver_id,
+                'message' => $request->message
+            ]);
+
+//        $message->receiver->notify(new \App\Notifications\MessageReceived($message));
+            $user_id = $user->id;
+            $with_id = $request->receiver_id;
+
+            $messages = Message::where(function($query)use($user_id,$with_id){
+
+                $query->where('sender_id',$user_id)->where('receiver_id',$with_id);
+
+            })->orWhere(function($query)use($user_id,$with_id){
+
+                $query->where('sender_id',$with_id)->where('receiver_id',$user_id);
+
+            })->with(['sender','receiver'])->get();
+
+
+            if($request->expectsJson()){
+                return response()->json([
+                    'success' => true,
+                    'message' => $messages
+                ]);
+            }
+            else{
+                return view('messages.success');
+            }
         }
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+         * Display the specified resource.
+         *
+         * @param  int  $id
+         * @return \Illuminate\Http\Response
+         */
     public function show($with_id)
     {
         $user_id = auth()->user()->id;
@@ -128,9 +136,8 @@ class MessageController extends Controller
         ];
 
         return view('messages.show')->with($with);
+        }
 
-
-    }
 
     /**
      * Show the form for editing the specified resource.

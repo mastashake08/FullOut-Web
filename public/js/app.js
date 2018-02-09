@@ -46602,13 +46602,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   props: ['user-id'],
   methods: {
-    openMessage: function openMessage() {
-      //          $("#sendMessage").modal();
-    },
+    openMessage: function openMessage() {},
     sendMessage: function sendMessage(user) {
       this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: this.user.id, message: this.message }).then(function (data) {
-        alert('Message Sent!');
-        //            $('#sendMessage').modal('hide');
+        if (data.data.success == false) {
+          alert("Error! Can't Send Message!");
+        } else {
+          alert('Message Sent!');
+        }
+
         this.message = '';
       }).bind(this);
     },
@@ -47324,8 +47326,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         sendMessage: function sendMessage(user) {
             this.$http.post('/message', { _token: Laravel.csrfToken, receiver_id: this.user.id, message: this.message }).then(function (data) {
-                alert('Message Sent!');
-                //                $('#sendMessage').modal('hide');
+
+                if (data.data.success == false) {
+                    alert("Error! Can't Send Message!");
+                } else {
+                    alert('Message Sent!');
+                }
+
                 this.message = '';
             }).bind(this);
         },
