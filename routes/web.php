@@ -10,10 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//dd(2);
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('/register-users', 'ApiController@register');
+
 Route::get('/video','VideoController@index');
 Auth::routes();
 Route::resource('favorite','FavoriteController');

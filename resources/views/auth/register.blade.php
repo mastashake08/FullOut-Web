@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register-users') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -51,21 +51,6 @@
                                 @endif
                             </div>
                         </div>
-
-
-                        <div class="form-group{{ $errors->has('bio') ? ' has-error' : '' }}">
-                            <label for="bio" class="col-md-4 control-label">Bio</label>
-
-                            <div class="col-md-6">
-                                <textarea class="form-control" name="bio">{{old('bio')}}</textarea>
-                                @if ($errors->has('bio'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('bio') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                             <label for="address" class="col-md-4 control-label">Address</label>
 
@@ -79,90 +64,66 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('city') ? 'has-error' : ''}}">
-                          <label for="city" class="col-md-4 control-label">City</label>
-                          <div class="col-md-6">
-                              <input id="city" placeholder="City" type="text" class="form-control" name="city" value="{{ old('city') }}" required >
-
-                              @if ($errors->has('city'))
-                                  <span class="help-block">
-                                      <strong>{{ $errors->first('city') }}</strong>
-                                  </span>
-                              @endif
-                          </div>
-                        </div>
-                        <div class="form-group">
-                      	<label for="state" class="col-md-4 control-label">State</label>
-                      	<div class="col-md-6">
-                      		<select class="form-control" id="state" name="state" required>
-                      			<option value="">N/A</option>
-                      			<option value="AK">Alaska</option>
-                      			<option value="AL">Alabama</option>
-                      			<option value="AR">Arkansas</option>
-                      			<option value="AZ">Arizona</option>
-                      			<option value="CA">California</option>
-                      			<option value="CO">Colorado</option>
-                      			<option value="CT">Connecticut</option>
-                      			<option value="DC">District of Columbia</option>
-                      			<option value="DE">Delaware</option>
-                      			<option value="FL">Florida</option>
-                      			<option value="GA">Georgia</option>
-                      			<option value="HI">Hawaii</option>
-                      			<option value="IA">Iowa</option>
-                      			<option value="ID">Idaho</option>
-                      			<option value="IL">Illinois</option>
-                      			<option value="IN">Indiana</option>
-                      			<option value="KS">Kansas</option>
-                      			<option value="KY">Kentucky</option>
-                      			<option value="LA">Louisiana</option>
-                      			<option value="MA">Massachusetts</option>
-                      			<option value="MD">Maryland</option>
-                      			<option value="ME">Maine</option>
-                      			<option value="MI">Michigan</option>
-                      			<option value="MN">Minnesota</option>
-                      			<option value="MO">Missouri</option>
-                      			<option value="MS">Mississippi</option>
-                      			<option value="MT">Montana</option>
-                      			<option value="NC">North Carolina</option>
-                      			<option value="ND">North Dakota</option>
-                      			<option value="NE">Nebraska</option>
-                      			<option value="NH">New Hampshire</option>
-                      			<option value="NJ">New Jersey</option>
-                      			<option value="NM">New Mexico</option>
-                      			<option value="NV">Nevada</option>
-                      			<option value="NY">New York</option>
-                      			<option value="OH">Ohio</option>
-                      			<option value="OK">Oklahoma</option>
-                      			<option value="OR">Oregon</option>
-                      			<option value="PA">Pennsylvania</option>
-                      			<option value="PR">Puerto Rico</option>
-                      			<option value="RI">Rhode Island</option>
-                      			<option value="SC">South Carolina</option>
-                      			<option value="SD">South Dakota</option>
-                      			<option value="TN">Tennessee</option>
-                      			<option value="TX">Texas</option>
-                      			<option value="UT">Utah</option>
-                      			<option value="VA">Virginia</option>
-                      			<option value="VT">Vermont</option>
-                      			<option value="WA">Washington</option>
-                      			<option value="WI">Wisconsin</option>
-                      			<option value="WV">West Virginia</option>
-                      			<option value="WY">Wyoming</option>
-                      		</select>
-                      	</div>
-                      </div>
-                    <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
-                        <label for="zip" class="col-md-4 control-label">ZIP</label>
-                        <div class="col-md-6">
-                            <input id="zip" placeholder="ZIP" type="text" class="form-control" name="zip" value="{{ old('zip') }}" required >
-
-                            @if ($errors->has('zip'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('zip') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                      </div>
+                        {{--<div class="form-group">--}}
+                      	{{--<label for="state" class="col-md-4 control-label">State</label>--}}
+                      	{{--<div class="col-md-6">--}}
+                      		{{--<select class="form-control" id="state" name="state" required>--}}
+                      			{{--<option value="">N/A</option>--}}
+                      			{{--<option value="AK">Alaska</option>--}}
+                      			{{--<option value="AL">Alabama</option>--}}
+                      			{{--<option value="AR">Arkansas</option>--}}
+                      			{{--<option value="AZ">Arizona</option>--}}
+                      			{{--<option value="CA">California</option>--}}
+                      			{{--<option value="CO">Colorado</option>--}}
+                      			{{--<option value="CT">Connecticut</option>--}}
+                      			{{--<option value="DC">District of Columbia</option>--}}
+                      			{{--<option value="DE">Delaware</option>--}}
+                      			{{--<option value="FL">Florida</option>--}}
+                      			{{--<option value="GA">Georgia</option>--}}
+                      			{{--<option value="HI">Hawaii</option>--}}
+                      			{{--<option value="IA">Iowa</option>--}}
+                      			{{--<option value="ID">Idaho</option>--}}
+                      			{{--<option value="IL">Illinois</option>--}}
+                      			{{--<option value="IN">Indiana</option>--}}
+                      			{{--<option value="KS">Kansas</option>--}}
+                      			{{--<option value="KY">Kentucky</option>--}}
+                      			{{--<option value="LA">Louisiana</option>--}}
+                      			{{--<option value="MA">Massachusetts</option>--}}
+                      			{{--<option value="MD">Maryland</option>--}}
+                      			{{--<option value="ME">Maine</option>--}}
+                      			{{--<option value="MI">Michigan</option>--}}
+                      			{{--<option value="MN">Minnesota</option>--}}
+                      			{{--<option value="MO">Missouri</option>--}}
+                      			{{--<option value="MS">Mississippi</option>--}}
+                      			{{--<option value="MT">Montana</option>--}}
+                      			{{--<option value="NC">North Carolina</option>--}}
+                      			{{--<option value="ND">North Dakota</option>--}}
+                      			{{--<option value="NE">Nebraska</option>--}}
+                      			{{--<option value="NH">New Hampshire</option>--}}
+                      			{{--<option value="NJ">New Jersey</option>--}}
+                      			{{--<option value="NM">New Mexico</option>--}}
+                      			{{--<option value="NV">Nevada</option>--}}
+                      			{{--<option value="NY">New York</option>--}}
+                      			{{--<option value="OH">Ohio</option>--}}
+                      			{{--<option value="OK">Oklahoma</option>--}}
+                      			{{--<option value="OR">Oregon</option>--}}
+                      			{{--<option value="PA">Pennsylvania</option>--}}
+                      			{{--<option value="PR">Puerto Rico</option>--}}
+                      			{{--<option value="RI">Rhode Island</option>--}}
+                      			{{--<option value="SC">South Carolina</option>--}}
+                      			{{--<option value="SD">South Dakota</option>--}}
+                      			{{--<option value="TN">Tennessee</option>--}}
+                      			{{--<option value="TX">Texas</option>--}}
+                      			{{--<option value="UT">Utah</option>--}}
+                      			{{--<option value="VA">Virginia</option>--}}
+                      			{{--<option value="VT">Vermont</option>--}}
+                      			{{--<option value="WA">Washington</option>--}}
+                      			{{--<option value="WI">Wisconsin</option>--}}
+                      			{{--<option value="WV">West Virginia</option>--}}
+                      			{{--<option value="WY">Wyoming</option>--}}
+                      		{{--</select>--}}
+                      	{{--</div>--}}
+                      {{--</div>--}}
                       <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
                           <label for="address" class="col-md-4 control-label">Gender</label>
                         <div class="col-md-6">
@@ -188,7 +149,7 @@
                               <select class="form-control" name="type">
                                 <option value="student">Student</option>
                                 <option value="coach">Coach</option>
-                                <option value="instructor">Private Instructor</option>
+                                {{--<option value="instructor">Private Instructor</option>--}}
                               </select>
 
                                 @if ($errors->has('type'))
@@ -198,8 +159,6 @@
                                 @endif
                             </div>
                         </div>
-
-
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>

@@ -2,27 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\MainInformationCoach;
 use Illuminate\Http\Request;
 use App\User;
 class ApiController extends Controller
 {
     //
     public function __construct(){
+//        dd(phpinfo());
       $this->client_id = 1;
       $this->client_secret = 'ccmmIwEP3ZzLhtZ2xw4XwaQ5IIQrlyUldrzhYDmG';
     }
+
     public function register(Request $request){
-      $user = User::Create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'address' => $request->address,
-        'phone' => $request->phone,
-        'password' => bcrypt($request->password)
-      ]);
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required',
+            'type' => 'required',
+            'password' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'gender' => 'required',
+        ]);
+        $user = User::Create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'type' => $request->type,
+            'password' => bcrypt($request->password)
+        ]);
+        if($request->type == 'student'){
+            $user->mainInformationStudent()->Create([
+                'address' => $request->address,
+                'phone' => $request->phone,
+                'gender' => $request->gender,
+            ]);
+        }
 
       $http = new \GuzzleHttp\Client;
 
-      $response = $http->post('https://fullout.jyroneparker.com/oauth/token', [
+      $response = $http->post('http://fullout.jyroneparker.com/oauth/token', [
           'form_params' => [
               'grant_type' => 'password',
               'client_id' => $this->client_id,
