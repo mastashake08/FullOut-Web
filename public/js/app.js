@@ -45767,6 +45767,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
@@ -45976,163 +45981,6 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.search.spring_tumbling_score,
-                    expression: "search.spring_tumbling_score"
-                  }
-                ],
-                staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                attrs: {
-                  type: "text",
-                  placeholder: "Min Spring Tumbling Score"
-                },
-                domProps: { value: _vm.search.spring_tumbling_score },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.search,
-                      "spring_tumbling_score",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.search.hard_tumbling_score,
-                    expression: "search.hard_tumbling_score"
-                  }
-                ],
-                staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                attrs: { type: "text", placeholder: "Min Hard Tumbling Score" },
-                domProps: { value: _vm.search.hard_tumbling_score },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.search,
-                      "hard_tumbling_score",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                  attrs: { for: "group-stunting" }
-                },
-                [
-                  _vm._v("Group Stunting\n                            "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.search.group_stunting_score,
-                        expression: "search.group_stunting_score"
-                      }
-                    ],
-                    attrs: { id: "group-stunting", type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.search.group_stunting_score)
-                        ? _vm._i(_vm.search.group_stunting_score, null) > -1
-                        : _vm.search.group_stunting_score
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.search.group_stunting_score,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 &&
-                              (_vm.search.group_stunting_score = $$a.concat([
-                                $$v
-                              ]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.search.group_stunting_score = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.$set(_vm.search, "group_stunting_score", $$c)
-                        }
-                      }
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
-                  attrs: { for: "coed-stunting" }
-                },
-                [
-                  _vm._v("Coed Stunting\n                            "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.search.coed_stunting_score,
-                        expression: "search.coed_stunting_score"
-                      }
-                    ],
-                    attrs: { id: "coed-stunting", type: "checkbox" },
-                    domProps: {
-                      checked: Array.isArray(_vm.search.coed_stunting_score)
-                        ? _vm._i(_vm.search.coed_stunting_score, null) > -1
-                        : _vm.search.coed_stunting_score
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.search.coed_stunting_score,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = null,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 &&
-                              (_vm.search.coed_stunting_score = $$a.concat([
-                                $$v
-                              ]))
-                          } else {
-                            $$i > -1 &&
-                              (_vm.search.coed_stunting_score = $$a
-                                .slice(0, $$i)
-                                .concat($$a.slice($$i + 1)))
-                          }
-                        } else {
-                          _vm.$set(_vm.search, "coed_stunting_score", $$c)
-                        }
-                      }
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
               _c("div", { staticClass: "form-radio mb-2 mr-sm-2 mb-sm-0" }, [
                 _c("label", { staticClass: "form-radio-label" }, [
                   _c("input", {
@@ -46153,7 +46001,7 @@ var render = function() {
                       }
                     }
                   }),
-                  _vm._v(" Female\n                        ")
+                  _vm._v(" Female\n                            ")
                 ]),
                 _vm._v(" "),
                 _c("label", { staticClass: "form-radio-label" }, [
@@ -46175,23 +46023,179 @@ var render = function() {
                       }
                     }
                   }),
-                  _vm._v(" Male\n                        ")
+                  _vm._v(" Male\n                            ")
                 ])
               ]),
               _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
               _c(
-                "button",
+                "label",
                 {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      _vm.searchUsers()
-                    }
-                  }
+                  staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+                  attrs: { for: "spring-tumbling" }
                 },
-                [_vm._v("Submit")]
-              )
+                [
+                  _vm._v("Spring Tumbling\n                            "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search.skillset,
+                        expression: "search.skillset"
+                      }
+                    ],
+                    attrs: {
+                      id: "spring-tumbling",
+                      type: "radio",
+                      value: "spring_tumbling_score"
+                    },
+                    domProps: {
+                      checked: _vm._q(
+                        _vm.search.skillset,
+                        "spring_tumbling_score"
+                      )
+                    },
+                    on: {
+                      change: function($event) {
+                        _vm.$set(
+                          _vm.search,
+                          "skillset",
+                          "spring_tumbling_score"
+                        )
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+                  attrs: { for: "hard-tumbling" }
+                },
+                [
+                  _vm._v("Hard Tumbling\n                            "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search.skillset,
+                        expression: "search.skillset"
+                      }
+                    ],
+                    attrs: {
+                      id: "hard-tumbling",
+                      type: "radio",
+                      value: "hard_tumbling_score"
+                    },
+                    domProps: {
+                      checked: _vm._q(
+                        _vm.search.skillset,
+                        "hard_tumbling_score"
+                      )
+                    },
+                    on: {
+                      change: function($event) {
+                        _vm.$set(_vm.search, "skillset", "hard_tumbling_score")
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+                  attrs: { for: "group-stunting" }
+                },
+                [
+                  _vm._v("Group Stunting\n                            "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search.skillset,
+                        expression: "search.skillset"
+                      }
+                    ],
+                    attrs: {
+                      id: "group-stunting",
+                      type: "radio",
+                      value: "group_stunting_score"
+                    },
+                    domProps: {
+                      checked: _vm._q(
+                        _vm.search.skillset,
+                        "group_stunting_score"
+                      )
+                    },
+                    on: {
+                      change: function($event) {
+                        _vm.$set(_vm.search, "skillset", "group_stunting_score")
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "form-control mb-2 mr-sm-2 mb-sm-0",
+                  attrs: { for: "coed-stunting" }
+                },
+                [
+                  _vm._v("Coed Stunting\n                            "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search.skillset,
+                        expression: "search.skillset"
+                      }
+                    ],
+                    attrs: {
+                      id: "coed-stunting",
+                      type: "radio",
+                      value: "coed_stunting_score"
+                    },
+                    domProps: {
+                      checked: _vm._q(
+                        _vm.search.skillset,
+                        "coed_stunting_score"
+                      )
+                    },
+                    on: {
+                      change: function($event) {
+                        _vm.$set(_vm.search, "skillset", "coed_stunting_score")
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.searchUsers()
+                      }
+                    }
+                  },
+                  [_vm._v("Submit")]
+                )
+              ])
             ]),
             _vm._v(" "),
             _c("table", { staticClass: "table" }, [

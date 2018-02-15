@@ -14,30 +14,35 @@
                       <input type="text" v-model="search.city" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="City">
                       <input type="text" v-model="search.state" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="State">
                       <input type="text" v-model="search.zip" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="ZIP">
-                      <input type="text" v-model="search.spring_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Min Spring Tumbling Score">
-                      <input type="text" v-model="search.hard_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Min Hard Tumbling Score">
-                        <label for="group-stunting" class="form-control mb-2 mr-sm-2 mb-sm-0">Group Stunting
-                            <input id="group-stunting" type="checkbox" v-model="search.group_stunting_score">
+                        <div class="form-radio mb-2 mr-sm-2 mb-sm-0">
+                            <label class="form-radio-label">
+                                <input class="form-radio-input" value="female" type="radio" v-model="search.gender"> Female
+                            </label>
+                            <label class="form-radio-label">
+                                <input class="form-radio-input" value="male" type="radio" v-model="search.gender"> Male
+                            </label>
+                        </div>
+                        <hr>
+                        <label for="spring-tumbling" class="form-control mb-2 mr-sm-2 mb-sm-0">Spring Tumbling
+                            <input id="spring-tumbling" type="radio" v-model="search.skillset" value="spring_tumbling_score">
                         </label>
-
+                        <label for="hard-tumbling" class="form-control mb-2 mr-sm-2 mb-sm-0">Hard Tumbling
+                            <input id="hard-tumbling" type="radio" v-model="search.skillset" value="hard_tumbling_score">
+                        </label>
+                        <label for="group-stunting" class="form-control mb-2 mr-sm-2 mb-sm-0">Group Stunting
+                            <input id="group-stunting" type="radio" v-model="search.skillset" value="group_stunting_score">
+                        </label>
                         <label for="coed-stunting" class="form-control mb-2 mr-sm-2 mb-sm-0">Coed Stunting
-                            <input id="coed-stunting" type="checkbox" v-model="search.coed_stunting_score">
+                            <input id="coed-stunting" type="radio" v-model="search.skillset" value="coed_stunting_score">
                         </label>
 
 
                       <!--<input type="text" v-model="search.highest_tumbling_score" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Highest Tumbling Score">-->
 
-                      <div class="form-radio mb-2 mr-sm-2 mb-sm-0">
-                        <label class="form-radio-label">
-                          <input class="form-radio-input" value="female" type="radio" v-model="search.gender"> Female
-                        </label>
-                        <label class="form-radio-label">
-                          <input class="form-radio-input" value="male" type="radio" v-model="search.gender"> Male
-                        </label>
-                      </div>
+                        <div>
+                            <button type="button" class="btn btn-primary" @click="searchUsers()">Submit</button>
+                        </div>
 
-
-                      <button type="button" class="btn btn-primary" @click="searchUsers()">Submit</button>
                     </form>
                     <table class="table">
                       <thead>

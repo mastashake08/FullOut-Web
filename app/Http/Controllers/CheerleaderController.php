@@ -343,8 +343,11 @@ class CheerleaderController extends Controller
     public function searchCheerleader(Request $request){
 
         $data = $request->params;
-
         $data = collect($data);
+
+        $data = $data->filter(function($val,$key)use($data){
+            return $val != "";
+        });
 
         $informations = MainInformationStudent::where(function($query) use($data){
             $data->each(function($req_value,$key) use($query){
@@ -362,40 +365,35 @@ class CheerleaderController extends Controller
         }
 
         if(!empty($filtered_ids)) {
-            $cheerleaders = User::whereIn('id', $filtered_ids)->with('skillSet','mainInformationStudent')
+            $cheerleaders = User::whereHas('mainInformationStudent', function($query){
+                $query->where('visibility', 'all')->orWhere('visibility', 'coach');
+
+            })
+                ->with('skillSet','mainInformationStudent')
                 ->where('type', 'student')
-                ->where(function($query) use($data){
-                    if(isset($data['name']) && !empty($data['name'])){
+                ->whereIn('id', $filtered_ids);
 
-                        $query->where('name', 'LIKE', '%'.$data['name'].'%');
-                    }
-                });
-
-            if ((isset($data['spring_tumbling_score']) && !empty($data['spring_tumbling_score'])) || (isset($data['hard_tumbling_score']) && !empty($data['hard_tumbling_score'])) || isset($data['group_stunting_score']) || isset($data['coed_stunting_score'])) {
-                $cheerleaders = $cheerleaders->whereHas('skillSet', function ($query) use ($data) {
-
-                    if (isset($data['spring_tumbling_score']) && $data['spring_tumbling_score'] != '') {
-
-                        $query->where('spring_tumbling_score', '>=', $data['spring_tumbling_score']);
-                    }
-
-                    if (isset($data['hard_tumbling_score']) && $data['spring_tumbling_score'] != '') {
-
-                        $query->where('hard_tumbling_score', '>=', $data['hard_tumbling_score']);
-                    }
-
-                    if ($data['group_stunting_score']) {
-
-                        $query->where('group_stunting_score', '>', 0);
-                    }
-                    if ($data['coed_stunting_score']) {
-
-                        $query->where('coed_stunting_score', '>', 0);
-                    }
-                });
+            if(isset($data['name']) && !empty($data['name'])){
+                $cheerleaders->where('name', 'LIKE', '%'.$data['name'].'%');
             }
 
-            $cheerleaders = $cheerleaders->get();
+            if (isset($data['skillset'])) {
+                $cheerleaders = $cheerleaders->get();
+                $cheerleaders = collect($cheerleaders);
+
+                $skills_val = $data['skillset'];
+
+                $cheerleaders = $cheerleaders->sortByDesc(function ($cheerleader, $key) use ($skills_val){
+
+                    return $cheerleader->skillSet->first()[$skills_val];
+                });
+
+                $cheerleaders =  $cheerleaders->values()->all();
+
+            }else{
+                $cheerleaders = $cheerleaders->get();
+
+            }
         }
         else{
             $cheerleaders = '';

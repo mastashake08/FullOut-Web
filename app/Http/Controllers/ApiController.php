@@ -9,7 +9,6 @@ class ApiController extends Controller
 {
     //
     public function __construct(){
-//        dd(phpinfo());
       $this->client_id = 1;
       $this->client_secret = 'ccmmIwEP3ZzLhtZ2xw4XwaQ5IIQrlyUldrzhYDmG';
     }

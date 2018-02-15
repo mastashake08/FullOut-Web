@@ -241,23 +241,6 @@ class SchoolController extends Controller
             });
         });
 
-//        var_dump($schools);die;
-//
-//        if($data['name'] != '' ) {
-//            $schools->where('name', 'LIKE', '%'.$data['name'].'%');
-//        }
-//        if($data['min_gpa'] != '') {
-//            $schools->orWhere('min_gpa','>=', $data['min_gpa']);
-//        }
-//        if($data['act'] != '') {
-//            $schools->orWhere('act_score','>=', $data['act']);
-//        }
-//        if($data['sat'] != '') {
-//            $schools->orWhere('sat_score','>=', $data['sat']);
-//        }
-
-
-
         if(isset($data['tuition_cost'])  && !empty($data['tuition_cost'])) {
             $schools->orderBy('in_state_tuition','DESC');
         }
