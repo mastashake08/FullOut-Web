@@ -61,7 +61,8 @@ class ApiController extends Controller
         }
 
 
-      return json_decode((string) $response->getBody(), true);
+      return redirect('/home');
+//      return json_decode((string) $response->getBody(), true);
     }
 
     public function login(Request $request){
