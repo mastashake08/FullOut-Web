@@ -47,7 +47,7 @@ class ApiController extends Controller
                     'client_secret' => $this->client_secret,
                     'username' => $user->email,
                     'password' => $request->password,
-//              'redirect_uri' => 'http://localhost',
+                    'redirect_uri' => 'http://www.full-out.net/register-users',
                     'scope' => '*',
                 ],
             ]);
@@ -60,17 +60,6 @@ class ApiController extends Controller
             var_dump($e->getMessage());die;
         }
 
-//      $response = $http->post('http://www.full-out.net/oauth/token', [
-//          'form_params' => [
-//              'grant_type' => 'password',
-//              'client_id' => $this->client_id,
-//              'client_secret' => $this->client_secret,
-//              'username' => $user->email,
-//              'password' => bcrypt($request->password),
-////              'redirect_uri' => 'http://localhost',
-//              'scope' => '*',
-//          ],
-//      ]);
 
       return json_decode((string) $response->getBody(), true);
     }
