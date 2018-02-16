@@ -9,8 +9,8 @@ class ApiController extends Controller
 {
     //
     public function __construct(){
-      $this->client_id = 3;
-      $this->client_secret = 'wqWMsdgm78h5Pug848g2Aw8DudOCZNQyNC5fK5be';
+      $this->client_id = 6;
+      $this->client_secret = 'z6MNwFLHzcEytXbCot19XY8QAJcwCMRUAK6OOSF4';
     }
 
     public function register(Request $request){
