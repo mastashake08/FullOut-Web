@@ -9,8 +9,8 @@ class ApiController extends Controller
 {
     //
     public function __construct(){
-      $this->client_id = 1;
-      $this->client_secret = 'ccmmIwEP3ZzLhtZ2xw4XwaQ5IIQrlyUldrzhYDmG';
+      $this->client_id = 3;
+      $this->client_secret = 'wqWMsdgm78h5Pug848g2Aw8DudOCZNQyNC5fK5be';
     }
 
     public function register(Request $request){
@@ -39,16 +39,38 @@ class ApiController extends Controller
 
       $http = new \GuzzleHttp\Client;
 
-      $response = $http->post('http://www.full-out.net/oauth/token', [
-          'form_params' => [
-              'grant_type' => 'password',
-              'client_id' => $this->client_id,
-              'client_secret' => $this->client_secret,
-              'username' => $user->email,
-              'password' => $request->password,
-              'scope' => '*',
-          ],
-      ]);
+        try {
+            $response = $http->post('http://www.full-out.net/oauth/token', [
+                'form_params' => [
+                    'grant_type' => 'password',
+                    'client_id' => $this->client_id,
+                    'client_secret' => $this->client_secret,
+                    'username' => $user->email,
+                    'password' => $request->password,
+//              'redirect_uri' => 'http://localhost',
+                    'scope' => '*',
+                ],
+            ]);
+
+        }
+        catch(\Exception $e) {
+            if(!is_null($e->getResponse()) && !empty($e->getResponse())) {
+                var_dump($e->getResponse()->getBody()->getContents());die;
+            }
+            var_dump($e->getMessage());die;
+        }
+
+//      $response = $http->post('http://www.full-out.net/oauth/token', [
+//          'form_params' => [
+//              'grant_type' => 'password',
+//              'client_id' => $this->client_id,
+//              'client_secret' => $this->client_secret,
+//              'username' => $user->email,
+//              'password' => bcrypt($request->password),
+////              'redirect_uri' => 'http://localhost',
+//              'scope' => '*',
+//          ],
+//      ]);
 
       return json_decode((string) $response->getBody(), true);
     }

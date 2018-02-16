@@ -8,7 +8,7 @@ use NotificationChannels\WebPush\HasPushSubscriptions;
 use Laravel\Cashier\Billable;
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens, HasPushSubscriptions, Billable;
+    use HasApiTokens, Notifiable, HasPushSubscriptions, Billable;
 
     /**
      * The attributes that are mass assignable.
