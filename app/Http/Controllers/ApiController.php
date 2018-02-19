@@ -47,7 +47,6 @@ class ApiController extends Controller
                     'client_secret' => $this->client_secret,
                     'username' => $user->email,
                     'password' => $request->password,
-//                    'redirect_uri' => 'http://www.full-out.net/register-users',
                     'scope' => '*',
                 ],
             ]);

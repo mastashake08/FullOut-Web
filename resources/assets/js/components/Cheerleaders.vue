@@ -49,12 +49,13 @@
                         <tr>
                           <th>Photo</th>
                           <th>Name</th>
-                          <th>Email</th>
                           <th>Age</th>
                           <th>GPA</th>
-                          <th>City</th>
                           <th>State</th>
-                          <th>Zip</th>
+                          <th>Spring tumbling percent</th>
+                          <th>Spring tumbling percent</th>
+                          <th>Group stunting percent</th>
+                          <th>Coed stunting percent</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -63,12 +64,13 @@
                         <tr v-for="(user,index) in users" :key="index">
                           <td><img width="50" height="50" class="img img-circle":src="'/images/profile-pics/'+user.profile_pic"/></td>
                           <td><a :href="'/cheerleader/'+user.id">{{user.name}}</a></td>
-                          <td>{{user.email}}</td>
                           <td>{{user.main_information_student.age}}</td>
                           <td>{{user.main_information_student.current_gpa}}</td>
-                          <td>{{user.main_information_student.city}}</td>
                           <td>{{user.main_information_student.state}}</td>
-                          <td>{{user.main_information_student.zip}}</td>
+                          <td>{{Math.ceil(user.skill_set[0].spring_tumbling_score * 100 / 43)}}%</td>
+                          <td>{{Math.ceil(user.skill_set[0].hard_tumbling_score * 100 / 43)}}%</td>
+                          <td>{{Math.ceil(user.skill_set[0].group_stunting_score * 100 / 61)}}%</td>
+                          <td>{{Math.ceil(user.skill_set[0].coed_stunting_score * 100 / 67)}}%</td>
                           <td>
                             <span class="glyphicon glyphicon-heart" @click="favorite(user)"></span>
                             <span class="glyphicon glyphicon-envelope" @click="openMessage(user)" data-toggle="modal" data-target="#sendMessage"></span>
@@ -129,7 +131,7 @@
           selectedUser: {},
           search: {},
           newData: false,
-          message: ''
+          message: '',
         }
       },
       methods: {

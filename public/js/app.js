@@ -45772,6 +45772,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {},
@@ -46223,8 +46225,6 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(user.email))]),
-                    _vm._v(" "),
                     _c("td", [
                       _vm._v(_vm._s(user.main_information_student.age))
                     ]),
@@ -46234,15 +46234,47 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", [
-                      _vm._v(_vm._s(user.main_information_student.city))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
                       _vm._v(_vm._s(user.main_information_student.state))
                     ]),
                     _vm._v(" "),
                     _c("td", [
-                      _vm._v(_vm._s(user.main_information_student.zip))
+                      _vm._v(
+                        _vm._s(
+                          Math.ceil(
+                            user.skill_set[0].spring_tumbling_score * 100 / 43
+                          )
+                        ) + "%"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        _vm._s(
+                          Math.ceil(
+                            user.skill_set[0].hard_tumbling_score * 100 / 43
+                          )
+                        ) + "%"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        _vm._s(
+                          Math.ceil(
+                            user.skill_set[0].group_stunting_score * 100 / 61
+                          )
+                        ) + "%"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        _vm._s(
+                          Math.ceil(
+                            user.skill_set[0].coed_stunting_score * 100 / 67
+                          )
+                        ) + "%"
+                      )
                     ]),
                     _vm._v(" "),
                     _c("td", [
@@ -46410,17 +46442,19 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Age")]),
         _vm._v(" "),
         _c("th", [_vm._v("GPA")]),
         _vm._v(" "),
-        _c("th", [_vm._v("City")]),
-        _vm._v(" "),
         _c("th", [_vm._v("State")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Zip")]),
+        _c("th", [_vm._v("Spring tumbling percent")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Spring tumbling percent")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Group stunting percent")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Coed stunting percent")]),
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
